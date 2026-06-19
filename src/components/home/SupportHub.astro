@@ -7,9 +7,9 @@ interface Props {
 
 const { lang, data } = Astro.props;
 const supportHub = data.supportHub;
-const basePortalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+const basePortalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.com";
 const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
-const resourcesPath = lang === 'ko' ? '/ko/download' : '/download';
+const resourcesPath = lang === 'ko' ? 'https://download.dspaut.com/ko' : 'https://download.dspaut.com';
 ---
 
 <section id="resources" class="py-20 bg-slate-50 border-t border-b border-slate-200 scroll-mt-24 relative overflow-hidden" data-support-hub>

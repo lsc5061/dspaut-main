@@ -14,7 +14,7 @@ const contactPath = isKo ? '/ko/#contact-sales' : '/#contact-sales';
 const aboutPath = isKo ? '/ko/about/' : '/about/';
 
 const portalUrl = (() => {
-  const base = import.meta.env.PUBLIC_SUPPORT_URL || "http://localhost:4321";
+  const base = import.meta.env.PUBLIC_SUPPORT_URL || "https://support.dspaut.com";
   return `${base.replace(/\/$/, '')}/${lang}/`;
 })();
 ---
