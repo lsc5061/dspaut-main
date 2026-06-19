@@ -1,0 +1,49 @@
+---
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+	lang?: string;
+}
+
+const { 
+	title = "DSPAUT | Phased Array Ultrasonic NDT Systems & Software", 
+	description = "DSPAUT is a global specialist in Ultrasonic Non-Destructive Testing (NDT) equipment, software, and integrations, providing advanced solutions for PAUT, TOFD, and automated inspection.", 
+	lang = "en" 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+		
+		<!-- Google Fonts & Pretendard -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+	</head>
+	<body class="bg-body-bg text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+		
+		<Header lang={lang} />
+		
+		<!-- Main Content Slot -->
+		<main class="flex-grow">
+			<slot />
+		</main>
+		
+		<Footer lang={lang} />
+	</body>
+</html>

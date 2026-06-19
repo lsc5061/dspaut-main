@@ -1,0 +1,290 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
+---
+
+<Layout 
+	title="DSPAUT EC | 커넥터 타입 변환용 엔코더 컨버터" 
+	description="스캐너 엔코더 규격 불일치로 인한 신호 끊김 현상을 해결하십시오. 가볍고 튼튼한 알루미늄 하우징의 DSPAUT EC 컨버터 스펙 및 카탈로그 확인."
+	lang="ko"
+>
+	<!-- Product Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-20 sm:py-28 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Hero Left Content -->
+				<div class="lg:col-span-7 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-880 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>스캐너 동기화 및 핀 매핑 솔루션</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+						DSPAUT EC<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">인코더 커넥터 변환기</span>
+					</h1>
+					<p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+						인코더를 추가 구매할 필요 없이 단 하나의 컨버터로 현장의 인코더 연동 문제를 완벽히 해결하십시오. (주)성산연구소가 개발한 DSPAUT EC는 스캐너 인코더의 커넥터 타입과 계측기의 입력 포트 규격 차이를 극복해 주는 고성능 알루미늄 변환 어댑터입니다.
+					</p>
+					
+					<div class="flex flex-wrap gap-3 pt-4">
+						<a href="#contact-quote" class="px-6 py-3.5 text-sm font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+							도입 및 사양 문의
+						</a>
+						<a href="#specifications" class="px-6 py-3.5 text-sm font-bold text-slate-300 border border-slate-700 hover:border-slate-550 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
+							기술 사양 확인
+						</a>
+					</div>
+				</div>
+				
+				<!-- Hero Right Image -->
+				<div class="lg:col-span-5 relative flex justify-center items-center">
+					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
+					<div class="relative bg-slate-950/40 border border-slate-880/85 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden group">
+						<img 
+							src="/assets/img/hardware/accessories/encoder_converter.png" 
+							alt="DSPAUT EC Encoder Converter Adapter 제품 이미지" 
+							class="w-full max-w-md h-64 object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-[1.02]"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Spec Highlights -->
+	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-300">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">100 g</span>
+					<span class="text-sm uppercase tracking-wider text-slate-500 font-sans font-semibold">가볍고 컴팩트한 설계</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">300 mm</span>
+					<span class="text-sm uppercase tracking-wider text-slate-500 font-sans font-semibold">케이블 표준 길이</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">Lemo Type</span>
+					<span class="text-sm uppercase tracking-wider text-slate-500 font-sans font-semibold">출력 포트 (To Instrument)</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">알루미늄 AL</span>
+					<span class="text-sm uppercase tracking-wider text-slate-500 font-sans font-semibold">견고한 메탈 케이스</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Product Features -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+			
+			<!-- Feature 1: Phase Preservation -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-6 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">주요 강점</span>
+					<h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight font-display">
+						뛰어난 내구성의 알루미늄 바디
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-lg">
+						단단하게 고정할 수 있는 D-SUB 나사 고정식 설계와 체결이 간편한 Lemo 타입 체결 방식을 조화시켰습니다. 보관 및 이동이 간편한 핸드 그립 사이즈로 개발되어 현장 엔지니어들의 신뢰를 받고 있습니다.
+					</p>
+					<ul class="space-y-3 text-base text-slate-600 font-medium">
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>편리한 휴대 및 보관:</strong> 주머니에 들어가는 작은 크기로 설계되어 비파괴 검사 가방에 부담 없이 보관할 수 있습니다.</span>
+						</li>
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>자유로운 선택:</strong> 단 하나의 인코더 컨버터 어댑터를 사용하여 다양한 규격의 타사 인코더 센서를 자유롭게 연결해 줍니다.</span>
+						</li>
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>알루미늄 케이스 보호:</strong> 일반 플라스틱 어댑터와 달리, 알루미늄 외장으로 마감하여 공사 현장과 스캐닝 환경에서 높은 내구성을 선사합니다.</span>
+						</li>
+					</ul>
+				</div>
+				<div class="lg:col-span-6 space-y-6">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-center space-y-4">
+						<h3 class="text-xl font-bold text-slate-900">(주)성산연구소의 차별화된 기술력</h3>
+						<p class="text-slate-600 text-base leading-relaxed">
+							(주)성산연구소는 2011년부터 축적된 독자 노하우를 바탕으로 대한민국 최초의 산업용 PAUT 검사 장비를 공급해 왔습니다. DSPAUT EC는 스캐너 펄스의 정확성을 해치지 않고 계측기에 그대로 전송하여 신뢰할 수 있는 비파괴 검사 화상을 형성합니다.
+						</p>
+						<div class="border-t border-slate-200 pt-4 grid grid-cols-2 gap-4 text-sm font-sans text-slate-600">
+							<div>
+								<span class="block font-bold text-slate-700">제조사 및 제조국</span>
+								<span>(주)성산연구소 · 대한민국</span>
+							</div>
+							<div>
+								<span class="block font-bold text-slate-700">주문 후 제작 기일</span>
+								<span>약 3~4일의 제작 기간 소요</span>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Connector Pin Detail Grid -->
+					<div class="grid grid-cols-2 gap-4">
+						<div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center shadow-sm">
+							<img src="/assets/img/hardware/accessories/ec_lemo_connector.png" alt="LEMO 타입 커넥터 레이아웃" class="h-24 object-contain rounded-lg" />
+							<span class="text-sm font-semibold text-slate-600 mt-2 font-sans">LEMO 타입 커넥터 (12핀)</span>
+						</div>
+						<div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center shadow-sm">
+							<img src="/assets/img/hardware/accessories/ec_db_connector.png" alt="D-SUB 타입 커넥터 레이아웃" class="h-24 object-contain rounded-lg" />
+							<span class="text-sm font-semibold text-slate-600 mt-2 font-sans">D-SUB 타입 커넥터 (15핀)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Technical Specifications Table -->
+	<section id="specifications" class="py-20 bg-slate-50 border-t border-b border-slate-200 scroll-mt-24">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-bold text-slate-900 text-center tracking-tight font-display mb-12">
+				Technical Specifications (기술 사양)
+			</h2>
+
+			<div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm bg-white">
+				<table class="w-full text-base sm:text-lg text-left text-slate-600">
+					<thead class="text-sm sm:text-base uppercase bg-slate-900 text-primary-cyan font-sans">
+						<tr>
+							<th class="px-6 py-4.5">사양 범주</th>
+							<th class="px-6 py-4.5">DSPAUT EC 스펙</th>
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-slate-150">
+						<tr class="bg-slate-50/80 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-4 font-sans text-sm sm:text-base uppercase text-slate-500 tracking-wider">신호 및 전기적 성능</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">엔코더 신호 유형</td>
+							<td class="px-6 py-4">TTL Incremental (A/B 위상 정렬)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">최대 주파수 대역폭</td>
+							<td class="px-6 py-4">500 kHz (고속 크롤러 스캐너 완벽 펄스 매핑)</td>
+						</tr>
+						
+						<tr class="bg-slate-50/80 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-4 font-sans text-sm sm:text-base uppercase text-slate-500 tracking-wider">기계 사양 및 환경 강도</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">입력 포트 (Port Input)</td>
+							<td class="px-6 py-4">D-SUB type (스캐너 연결 측)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">출력 포트 (Port Output)</td>
+							<td class="px-6 py-4">LEMO type (계측기/장비 연결 측)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">하우징 소재</td>
+							<td class="px-6 py-4">CNC 정밀 가공 아노다이징 알루미늄 (AL)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">케이블 길이 (Cable Length)</td>
+							<td class="px-6 py-4">300 mm</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">중량 (Weight)</td>
+							<td class="px-6 py-4">100g (초경량 변환 장치)</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- Connection Diagram & Perspective Section -->
+	<section class="py-20 bg-white border-t border-b border-slate-200">
+		<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+				<span class="text-sm font-bold font-sans bg-slate-900 text-primary-cyan px-2.5 py-1.5 rounded inline-block mb-2">CONNECTION FLOW</span>
+				<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-display">
+					DSPAUT EC 연결 흐름 및 외장 설계
+				</h2>
+				<p class="text-slate-600 text-lg">
+					인코더와 계측기 간의 연결 경로 및 컨버터 외형 구조를 보여줍니다.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+				<div class="md:col-span-7 bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+					<span class="block text-sm font-bold text-slate-855 font-sans mb-4 text-center">인코더 컨버터 연결 흐름도</span>
+					<img 
+						src="/assets/img/hardware/accessories/ec_diagram.png" 
+						alt="EC 연결 흐름 다이어그램" 
+						class="w-full h-auto object-contain rounded-xl"
+					/>
+				</div>
+				<div class="md:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between h-full">
+					<div>
+						<span class="block text-sm font-bold text-slate-855 font-sans mb-4 text-center">제품 외관 뷰</span>
+						<img 
+							src="/assets/img/hardware/accessories/ec_main_styled.png" 
+							alt="EC 어댑터 외관 사시도" 
+							class="w-full h-auto object-contain rounded-xl transform transition-transform duration-300 hover:scale-[1.03]"
+						/>
+					</div>
+					<p class="text-sm text-slate-500 mt-4 leading-relaxed text-center">
+						* 해당 흐름도는 스캐너 엔코더 센서 신호가 계측기로 변환 및 인가되는 흐름을 모사합니다.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact CTA Form Section -->
+	<section id="contact-quote" class="py-20 bg-slate-900 text-white relative">
+		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10 text-center">
+			<h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+				DSPAUT EC 도입 문의
+			</h2>
+			<p class="text-slate-400 text-lg max-w-xl mx-auto">
+				현장 검사 시 사용할 스캐너 및 연결하고자 하는 DSPAUT 계측기 모델을 하단 폼에 남겨 주시면, 핀 맵 매핑 설계팀에서 최적화 규격을 조합하여 견적과 함께 연락 드리겠습니다.
+			</p>
+			
+			<div class="bg-slate-950 border border-slate-850 rounded-2xl p-8 text-left max-w-xl mx-auto shadow-2xl">
+				<form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+					<input type="hidden" name="access_key" value={web3FormsKey} />
+					<input type="hidden" name="subject" value="DSPAUT EC Encoder Converter Adapter KOR Inquiry" />
+					<input type="hidden" name="from_name" value="DSPAUT Main Website" />
+					<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+					<div class="grid grid-cols-2 gap-4">
+						<div class="space-y-1.5">
+							<label for="name" class="block text-sm uppercase font-bold text-slate-400 font-sans">이름 *</label>
+							<input type="text" name="name" id="name" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan" />
+						</div>
+						<div class="space-y-1.5">
+							<label for="company" class="block text-sm uppercase font-bold text-slate-400 font-sans">회사명 *</label>
+							<input type="text" name="company" id="company" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan" />
+						</div>
+					</div>
+					
+					<div class="space-y-1.5">
+						<label for="email" class="block text-sm uppercase font-bold text-slate-400 font-sans">회사 이메일 주소 *</label>
+						<input type="email" name="email" id="email" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan" />
+					</div>
+
+					<div class="space-y-1.5">
+						<label for="message" class="block text-sm uppercase font-bold text-slate-400 font-sans">문의 내용 (스캐너 모델 및 커넥터 규격 등) *</label>
+						<textarea name="message" id="message" rows="4" placeholder="예: Olympus Cobra 스캐너(DB15 수 단자)의 인코더 입력을 DSPAUT P5 모델에 연결하여 스캔하려고 합니다..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan"></textarea>
+					</div>
+
+					<button type="submit" class="w-full bg-primary-cyan text-slate-950 font-bold py-3.5 rounded hover:bg-cyan-400 text-base transition-colors tracking-wide uppercase shadow-md shadow-primary-cyan/20">
+						문의하기
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
+</Layout>

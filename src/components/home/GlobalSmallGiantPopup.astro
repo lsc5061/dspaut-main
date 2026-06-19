@@ -1,0 +1,197 @@
+---
+// src/components/home/GlobalSmallGiantPopup.astro
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+
+const isKo = lang === 'ko';
+
+const korCert = "/assets/img/brand/global_small_giant_kor.jpg";
+const engCert = "/assets/img/brand/global_small_giant_eng.jpg";
+
+// Multi-language text content
+const texts = {
+  ko: {
+    title: "글로벌 강소기업 1,000+ 선정",
+    desc: "(주)성산연구소가 2025~2026년도 글로벌 강소기업 1,000+에 지정되었습니다.",
+    hideToday: "오늘 하루 보지 않기",
+    close: "닫기",
+    viewKor: "국문 지정서 크게 보기",
+    viewEng: "영문 지정서 크게 보기",
+  },
+  en: {
+    title: "Global Leading Company 1,000+",
+    desc: "SEONGSANLAB has been designated as a Global Leading Company 1,000+ for 2025~2026.",
+    hideToday: "Do not show today",
+    close: "Close",
+    viewKor: "View Korean Cert",
+    viewEng: "View English Cert",
+  }
+};
+
+const t = isKo ? texts.ko : texts.en;
+---
+
+<div 
+  id="popup-overlay" 
+  class="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/70 backdrop-blur-[3px] opacity-0 transition-opacity duration-300"
+  style="display: none;"
+>
+  <div 
+    class="popup-card relative w-full max-w-[720px] bg-slate-900/95 border border-slate-800 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col transform scale-95 opacity-0 transition-all duration-300"
+  >
+    <!-- Cyan/Blue glow effects in background -->
+    <div class="absolute -top-20 -left-20 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-20 -right-20 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <!-- Header -->
+    <div class="p-6 pb-4 relative z-10 text-center sm:text-left">
+      <div class="flex items-center justify-center sm:justify-start gap-2 mb-1.5">
+        <span class="inline-flex items-center justify-center px-2.5 py-0.5 text-[10px] font-semibold font-display uppercase tracking-wider text-cyan-400 bg-cyan-950/50 border border-cyan-800/40 rounded-full">
+          Award
+        </span>
+      </div>
+      <h3 class="text-xl sm:text-2xl font-bold text-white font-display tracking-tight leading-tight">
+        {t.title}
+      </h3>
+      <p class="text-xs sm:text-sm text-slate-400 mt-2 font-sans leading-relaxed">
+        {t.desc}
+      </p>
+    </div>
+
+    <!-- Certificate Image Grid (Side by side on desktop, stacked on mobile) -->
+    <div class="px-6 pb-5 relative z-10 flex-1 overflow-y-auto max-h-[60vh] sm:max-h-none">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Korean Certificate -->
+        <div class="relative w-full aspect-[1/1.4] overflow-hidden rounded-xl border border-slate-800/80 bg-slate-950 flex items-center justify-center group">
+          <img 
+            src={korCert} 
+            alt="Korean Certificate" 
+            class="w-full h-full object-contain"
+            loading="eager"
+          />
+          <a 
+            href={korCert}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 text-xs text-white font-medium backdrop-blur-[1px]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-cyan-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+            {t.viewKor}
+          </a>
+        </div>
+
+        <!-- English Certificate -->
+        <div class="relative w-full aspect-[1/1.4] overflow-hidden rounded-xl border border-slate-800/80 bg-slate-950 flex items-center justify-center group">
+          <img 
+            src={engCert} 
+            alt="English Certificate" 
+            class="w-full h-full object-contain"
+            loading="eager"
+          />
+          <a 
+            href={engCert}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 text-xs text-white font-medium backdrop-blur-[1px]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-cyan-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+            </svg>
+            {t.viewEng}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Controls -->
+    <div class="px-6 py-4 bg-slate-950 border-t border-slate-800/80 flex items-center justify-between relative z-10">
+      <label class="flex items-center gap-2 cursor-pointer select-none py-1 group">
+        <input 
+          type="checkbox" 
+          id="popup-hide-today" 
+          class="w-4 h-4 rounded border-slate-700 bg-slate-900 text-cyan-500 focus:ring-cyan-500/20 focus:ring-offset-slate-900"
+        />
+        <span class="text-[11px] sm:text-xs font-medium text-slate-400 group-hover:text-slate-300 transition-colors">
+          {t.hideToday}
+        </span>
+      </label>
+
+      <button 
+        type="button" 
+        id="popup-close-btn"
+        class="px-5 py-2 text-xs sm:text-sm font-semibold text-white bg-slate-850 hover:bg-slate-750 active:bg-slate-800 border border-slate-800 hover:border-slate-700 rounded-lg transition-all focus:outline-none"
+      >
+        {t.close}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    const STORAGE_KEY = 'hide-global-small-giant-popup-v2';
+    const hideUntil = localStorage.getItem(STORAGE_KEY);
+    const now = new Date().getTime();
+
+    // Check if 24 hours hide condition is active
+    if (!hideUntil || now > parseInt(hideUntil, 10)) {
+      const overlay = document.getElementById('popup-overlay');
+      if (overlay) {
+        // Make element block before transition
+        overlay.style.display = 'flex';
+        
+        // Trigger smooth transition
+        requestAnimationFrame(() => {
+          overlay.classList.remove('opacity-0');
+          const card = overlay.querySelector('.popup-card');
+          if (card) {
+            card.classList.remove('scale-95', 'opacity-0');
+          }
+        });
+      }
+    }
+
+    // Modal behavior registration (only runs if DOM is mounted)
+    document.addEventListener('DOMContentLoaded', () => {
+      const overlay = document.getElementById('popup-overlay');
+      if (!overlay || overlay.style.display === 'none') return;
+
+      const closeBtn = document.getElementById('popup-close-btn');
+      const hideCheck = document.getElementById('popup-hide-today');
+
+      // Closing logic with transition
+      function closeModal() {
+        overlay.classList.add('opacity-0');
+        const card = overlay.querySelector('.popup-card');
+        if (card) {
+          card.classList.add('scale-95', 'opacity-0');
+        }
+        
+        // Hide overlay element fully after animation finishes
+        setTimeout(() => {
+          overlay.style.display = 'none';
+        }, 300);
+
+        // Save hide duration if checked
+        if (hideCheck && hideCheck.checked) {
+          const expireTime = new Date().getTime() + 24 * 60 * 60 * 1000; // 24 hours in ms
+          localStorage.setItem(STORAGE_KEY, expireTime.toString());
+        }
+      }
+
+      closeBtn?.addEventListener('click', closeModal);
+
+      // Close modal on clicking backdrop overlay directly
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          closeModal();
+        }
+      });
+    });
+  })();
+</script>

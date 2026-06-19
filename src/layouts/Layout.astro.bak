@@ -1,0 +1,200 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+	lang?: string;
+}
+
+const { 
+	title = "DSPAUT | Phased Array Ultrasonic NDT Systems & Software", 
+	description = "DSPAUT is a global specialist in Ultrasonic Non-Destructive Testing (NDT) equipment, software, and integrations, providing advanced solutions for PAUT, TOFD, and automated inspection.", 
+	lang = "en" 
+} = Astro.props;
+
+const isKo = lang === 'ko';
+const homePath = isKo ? '/ko/' : '/';
+const productsPath = '#products';
+const softwarePath = '#software';
+const resourcesPath = '#resources';
+const contactPath = '#contact-sales';
+
+const navItems = isKo ? [
+	{ label: "회사 소개", href: "#about" },
+	{ label: "제품 정보", href: productsPath },
+	{ label: "소프트웨어", href: softwarePath },
+	{ label: "자료실", href: resourcesPath },
+] : [
+	{ label: "Company", href: "#about" },
+	{ label: "Products", href: productsPath },
+	{ label: "Software", href: softwarePath },
+	{ label: "Resource Hub", href: resourcesPath },
+];
+
+const contactLabel = isKo ? "기술 및 견적 문의" : "Contact Technical Sales";
+const langSwitchLabel = isKo ? "English" : "한국어";
+const langSwitchHref = isKo ? '/' : '/ko/';
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-body-bg text-slate-800 font-sans antialiased flex flex-col min-h-screen">
+		
+		<!-- Premium Glassmorphism Header -->
+		<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#0C1929]/95 border-b border-slate-800 transition-all duration-300">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between h-20">
+					<!-- Logo -->
+					<div class="flex-shrink-0">
+						<a href={homePath} class="flex items-center space-x-2">
+							<span class="text-2xl font-bold font-display tracking-tight text-white flex items-center">
+								DSPAUT
+							</span>
+						</a>
+					</div>
+					
+					<!-- Desktop Nav -->
+					<nav class="hidden md:flex space-x-8">
+						{navItems.map((item) => (
+							<a href={item.href} class="text-sm font-medium text-slate-300 hover:text-primary-cyan hover:border-b-2 hover:border-primary-cyan pb-1 transition-all duration-200">
+								{item.label}
+							</a>
+						))}
+					</nav>
+					
+					<!-- Right Side: Lang & Action -->
+					<div class="hidden md:flex items-center space-x-4">
+						<a href={langSwitchHref} class="text-xs font-semibold text-slate-400 hover:text-white px-2 py-1 border border-slate-700 rounded hover:border-slate-500 transition-all">
+							{langSwitchLabel}
+						</a>
+						<a href={contactPath} class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-slate-900 bg-primary-cyan hover:bg-[#00cbe6] rounded-md shadow-sm transition-all duration-200">
+							{contactLabel}
+						</a>
+					</div>
+					
+					<!-- Mobile Menu Button -->
+					<div class="md:hidden flex items-center space-x-2">
+						<a href={langSwitchHref} class="text-xs text-slate-400 border border-slate-700 px-2 py-1 rounded">
+							{langSwitchLabel.substring(0, 2)}
+						</a>
+						<button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2 rounded-md hover:bg-slate-800" aria-label="Toggle mobile menu">
+							<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Mobile Menu Panel -->
+			<div id="mobile-menu" class="hidden md:hidden bg-[#0C1929] border-b border-slate-800 transition-all duration-300">
+				<div class="px-2 pt-2 pb-4 space-y-1 sm:px-3">
+					{navItems.map((item) => (
+						<a href={item.href} class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">
+							{item.label}
+						</a>
+					))}
+					<div class="border-t border-slate-800 my-2 pt-2">
+						<a href={contactPath} class="block w-full text-center px-4 py-3 text-sm font-bold text-slate-900 bg-primary-cyan rounded-md shadow-sm">
+							{contactLabel}
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		
+		<!-- Main Content Slot -->
+		<main class="flex-grow">
+			<slot />
+		</main>
+		
+		<!-- Premium B2B Footer -->
+		<footer class="bg-[#0C1929] text-slate-400 border-t border-slate-800 pt-16 pb-12">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
+					<!-- Footer Logo / Info -->
+					<div class="md:col-span-1 space-y-4">
+						<span class="text-2xl font-bold font-display tracking-tight text-white">
+							DSPAUT
+						</span>
+						<p class="text-xs text-slate-400 leading-relaxed max-w-xs">
+							{isKo 
+								? "초음파 비파괴검사(NDT) 정밀 하드웨어, 맞춤형 시스템 구축 및 전용 소프트웨어(DSVision/DSViewer) 솔루션 전문 기업입니다." 
+								: "Global leader in Phased Array Ultrasonic NDT hardware, custom scan systems, and dedicated acquisition software solutions."}
+						</p>
+					</div>
+					
+					<!-- Products Quick Links -->
+					<div class="space-y-4">
+						<h3 class="text-sm font-semibold text-white tracking-wider uppercase">{isKo ? "제품군" : "Products"}</h3>
+						<ul class="space-y-2 text-xs">
+							<li><a href={productsPath} class="hover:text-primary-cyan">{isKo ? "휴대용 검사장비 (P5/B3/T3)" : "Portable NDT Instruments"}</a></li>
+							<li><a href={productsPath} class="hover:text-primary-cyan">{isKo ? "시스템 스캐너 장비 (R5)" : "Automated System Scanners"}</a></li>
+							<li><a href={productsPath} class="hover:text-primary-cyan">{isKo ? "액세서리" : "NDT Accessories"}</a></li>
+							<li><a href={softwarePath} class="hover:text-primary-cyan">DSVision Software</a></li>
+							<li><a href={softwarePath} class="hover:text-primary-cyan">DSViewer & DSK</a></li>
+						</ul>
+					</div>
+					
+					<!-- Resources & Docs -->
+					<div class="space-y-4">
+						<h3 class="text-sm font-semibold text-white tracking-wider uppercase">{isKo ? "기술 자료실" : "Technical Resources"}</h3>
+						<ul class="space-y-2 text-xs">
+							<li><a href={resourcesPath} class="hover:text-primary-cyan">{isKo ? "장비 및 소프트웨어 매뉴얼" : "User Manuals"}</a></li>
+							<li><a href={resourcesPath} class="hover:text-primary-cyan">{isKo ? "제품 데이터시트 & 카탈로그" : "Datasheets & Catalogs"}</a></li>
+							<li><a href={resourcesPath} class="hover:text-primary-cyan">{isKo ? "인증서 다운로드" : "Certifications"}</a></li>
+						</ul>
+					</div>
+					
+					<!-- Contact & Trust Info -->
+					<div class="space-y-4">
+						<h3 class="text-sm font-semibold text-white tracking-wider uppercase">{isKo ? "고객 지원" : "Support"}</h3>
+						<ul class="space-y-2 text-xs">
+							<li><a href={contactPath} class="hover:text-primary-cyan">{isKo ? "장비 견적 문의" : "Request a Quote"}</a></li>
+							<li><a href={contactPath} class="hover:text-primary-cyan">{isKo ? "기술 지원 상담" : "Technical Support"}</a></li>
+							<li class="pt-2 text-slate-500">ISO 9001 Certified</li>
+						</ul>
+					</div>
+				</div>
+				
+				<!-- Footer Bottom -->
+				<div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500">
+					<p>&copy; {new Date().getFullYear()} {isKo ? "(주)성산연구소" : "SEONGSANLAB Co., Ltd."}. All rights reserved.</p>
+					<div class="flex space-x-6 mt-4 md:mt-0">
+						<a href={resourcesPath} class="hover:text-slate-300">{isKo ? "개인정보처리방침" : "Privacy Policy"}</a>
+						<a href={contactPath} class="hover:text-slate-300">{isKo ? "찾아오시는 길" : "Location"}</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+		<!-- Mobile Menu Script -->
+		<script>
+			const btn = document.getElementById('mobile-menu-btn');
+			const menu = document.getElementById('mobile-menu');
+			
+			if (btn && menu) {
+				btn.addEventListener('click', () => {
+					menu.classList.toggle('hidden');
+				});
+			}
+		</script>
+	</body>
+</html>

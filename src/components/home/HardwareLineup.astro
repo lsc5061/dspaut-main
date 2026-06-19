@@ -1,0 +1,288 @@
+---
+// src/components/home/HardwareLineup.astro
+interface Props {
+  data: any;
+}
+
+const { data } = Astro.props;
+const hardware = data.hardware;
+---
+
+<section id="products" class="py-20 bg-white scroll-mt-24 border-b border-slate-100" data-hardware-lineup>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+      <span class="text-xs font-bold font-mono bg-slate-900 text-primary-cyan px-2.5 py-1 rounded inline-block mb-2">{hardware.badge}</span>
+      <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight font-display">
+        {hardware.title}
+      </h2>
+      <p class="text-slate-600 text-base">
+        {hardware.description}
+      </p>
+    </div>
+
+    <!-- Dynamic Category Tabs -->
+    <div class="flex flex-wrap justify-center gap-2 mb-12">
+      <button 
+        class="hw-tab-btn px-5 py-3 text-sm sm:text-base font-extrabold rounded-lg border transition-all duration-200 bg-slate-900 text-primary-cyan border-primary-cyan shadow-md"
+        data-tab="portable"
+      >
+        {hardware.tabs.portable}
+      </button>
+      <button 
+        class="hw-tab-btn px-5 py-3 text-sm sm:text-base font-extrabold rounded-lg border transition-all duration-200 bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-950"
+        data-tab="system"
+      >
+        {hardware.tabs.system}
+      </button>
+      <button 
+        class="hw-tab-btn px-5 py-3 text-sm sm:text-base font-extrabold rounded-lg border transition-all duration-200 bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-950"
+        data-tab="accessories"
+      >
+        {hardware.tabs.accessories}
+      </button>
+    </div>
+
+    <!-- Tab Pane 1: Portable Instruments -->
+    <div id="hw-tab-portable" class="hw-tab-pane transition-all duration-350">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- P5 Card -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <!-- Image Showcase -->
+            <div class="w-full aspect-[4/3] bg-slate-100 flex items-center justify-center p-6 border-b border-slate-200 relative overflow-hidden">
+              <img src="/assets/img/hardware/portable/P5_Catalog_main.png" alt="DSPAUT P5" class="h-full w-full object-contain transition-transform duration-300 scale-[1.35] translate-y-3 group-hover:scale-[1.4] filter drop-shadow-md" />
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-bold text-primary-cyan bg-slate-900 px-2 py-0.5 rounded uppercase tracking-wider inline-block mb-2">{hardware.portableList.p5.badge}</span>
+                  <h3 class="text-xl font-bold text-slate-900 mt-2">{hardware.portableList.p5.title}</h3>
+                </div>
+              </div>
+              <p class="text-base text-slate-600 leading-relaxed">
+                {hardware.portableList.p5.desc}
+              </p>
+              
+              <!-- Specs Badge Grid -->
+              <div class="grid grid-cols-2 gap-2 pt-2">
+                {hardware.portableList.p5.specs.map((spec: any) => (
+                  <div class="bg-white border border-slate-200 rounded p-2 text-center text-sm">
+                    <span class="block text-xs text-slate-400 uppercase font-mono">{spec.label}</span>
+                    <span class="font-bold text-slate-800 text-base">{spec.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div class="p-6 bg-slate-100 border-t border-slate-200 flex justify-between items-center gap-4">
+            <a href={hardware.portableList.p5.learnMoreHref} class="text-sm font-semibold text-slate-600 hover:text-slate-900">{hardware.portableList.p5.learnMore}</a>
+            <a href="#contact-sales" class="px-4 py-2 text-sm font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{hardware.portableList.p5.quote}</a>
+          </div>
+        </div>
+
+        <!-- B3 Card -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <!-- Image Showcase -->
+            <div class="w-full aspect-[4/3] bg-slate-100 flex items-center justify-center p-6 border-b border-slate-200 relative overflow-hidden">
+              <img src="/assets/img/hardware/portable/KakaoTalk_20251219_093343153_1.png" alt="DSPAUT B3" class="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-md" />
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-bold text-slate-500 bg-slate-200 px-2 py-0.5 rounded uppercase tracking-wider inline-block mb-2">{hardware.portableList.b3.badge}</span>
+                  <h3 class="text-xl font-bold text-slate-900 mt-2">{hardware.portableList.b3.title}</h3>
+                </div>
+              </div>
+              <p class="text-base text-slate-600 leading-relaxed">
+                {hardware.portableList.b3.desc}
+              </p>
+              
+              <!-- Specs Badge Grid -->
+              <div class="grid grid-cols-2 gap-2 pt-2">
+                {hardware.portableList.b3.specs.map((spec: any) => (
+                  <div class="bg-white border border-slate-200 rounded p-2 text-center text-sm">
+                    <span class="block text-xs text-slate-400 uppercase font-mono">{spec.label}</span>
+                    <span class="font-bold text-slate-800 text-base">{spec.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div class="p-6 bg-slate-100 border-t border-slate-200 flex justify-between items-center gap-4">
+            <a href={hardware.portableList.b3.learnMoreHref} class="text-sm font-semibold text-slate-600 hover:text-slate-900">{hardware.portableList.b3.learnMore}</a>
+            <a href="#contact-sales" class="px-4 py-2 text-sm font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{hardware.portableList.b3.quote}</a>
+          </div>
+        </div>
+
+        <!-- T3 Card -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <!-- Image Showcase -->
+            <div class="w-full aspect-[4/3] bg-slate-100 flex items-center justify-center p-6 border-b border-slate-200 relative overflow-hidden">
+              <img src="/assets/img/hardware/portable/T3_Fornt_2_1.png" alt="DSPAUT T3" class="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-md" />
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-xs font-bold text-blue-600 bg-blue-100 px-2 py-0.5 rounded uppercase tracking-wider inline-block mb-2">{hardware.portableList.t3.badge}</span>
+                  <h3 class="text-xl font-bold text-slate-900 mt-2">{hardware.portableList.t3.title}</h3>
+                </div>
+              </div>
+              <p class="text-base text-slate-600 leading-relaxed">
+                {hardware.portableList.t3.desc}
+              </p>
+              
+              <!-- Specs Badge Grid -->
+              <div class="grid grid-cols-2 gap-2 pt-2">
+                {hardware.portableList.t3.specs.map((spec: any) => (
+                  <div class="bg-white border border-slate-200 rounded p-2 text-center text-sm">
+                    <span class="block text-xs text-slate-400 uppercase font-mono">{spec.label}</span>
+                    <span class="font-bold text-slate-800 text-base">{spec.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div class="p-6 bg-slate-100 border-t border-slate-200 flex justify-between items-center gap-4">
+            <a href={hardware.portableList.t3.learnMoreHref} class="text-sm font-semibold text-slate-600 hover:text-slate-900">{hardware.portableList.t3.learnMore}</a>
+            <a href="#contact-sales" class="px-4 py-2 text-sm font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{hardware.portableList.t3.quote}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Pane 2: OEM System Boards -->
+    <div id="hw-tab-system" class="hw-tab-pane transition-all duration-350 hidden opacity-0 translate-y-2">
+      <div class="bg-[#0C1929] text-white rounded-2xl p-8 border border-slate-850 relative overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center shadow-2xl">
+        <div class="absolute -right-20 -top-20 w-60 h-60 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <!-- Left: Details and Call to Action (7 cols) -->
+        <div class="lg:col-span-7 space-y-4 relative z-10">
+          <div class="inline-block text-xs font-mono bg-blue-900/60 text-[#00E5FF] px-2.5 py-1 rounded font-bold uppercase">{hardware.system.badge}</div>
+          <h3 class="text-3xl sm:text-4xl font-extrabold font-display leading-tight">{hardware.system.title}</h3>
+          <p class="text-base text-slate-400 leading-relaxed">
+            {hardware.system.desc}
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            {hardware.system.specs.map((spec: string) => (
+              <span class="bg-slate-900 text-sm border border-slate-800 text-slate-300 px-3 py-1 rounded font-semibold inline-block">{spec}</span>
+            ))}
+          </div>
+          
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href={hardware.system.learnMoreHref} class="inline-block w-full sm:w-auto text-center border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white font-extrabold px-6 py-3.5 rounded-lg text-sm transition-colors">
+              {hardware.system.learnMore}
+            </a>
+            <a href="#contact-sales" class="inline-block w-full sm:w-auto text-center bg-primary-cyan text-slate-900 font-extrabold px-6 py-3.5 rounded-lg hover:bg-cyan-400 text-sm transition-colors shadow-lg shadow-primary-cyan/20">
+              {hardware.system.cta}
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Premium White Showcase Frame for R5 (5 cols) -->
+        <div class="lg:col-span-5 w-full flex items-center justify-center bg-white rounded-2xl p-6 aspect-[4/3] border border-slate-200/10 shadow-inner relative z-10 group overflow-hidden">
+          <img 
+            src="/assets/img/hardware/oem/r5_user_upload.jpg" 
+            alt="DSPAUT R5 System Board" 
+            class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-md"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Pane 3: Accessories -->
+    <div id="hw-tab-accessories" class="hw-tab-pane transition-all duration-350 hidden opacity-0 translate-y-2">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Probe Card -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+          <div class="p-6 space-y-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-xs font-bold text-slate-500 bg-slate-200 px-2 py-0.5 rounded uppercase tracking-wider inline-block mb-2">{hardware.accessoriesList.probe.badge}</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-2">{hardware.accessoriesList.probe.title}</h3>
+              </div>
+            </div>
+            <p class="text-base text-slate-600 leading-relaxed">
+              {hardware.accessoriesList.probe.desc}
+            </p>
+            <div class="pt-2">
+              <span class="text-xs font-mono bg-slate-200 text-slate-600 px-2 py-1 rounded uppercase tracking-wider font-semibold inline-block mb-2">{hardware.accessoriesList.probe.specLabel}</span>
+            </div>
+          </div>
+          <div class="p-6 bg-slate-100 border-t border-slate-200 flex justify-between items-center gap-4">
+            <a href={hardware.accessoriesList.probe.learnMoreHref} class="text-sm font-semibold text-slate-600 hover:text-slate-900">{hardware.accessoriesList.probe.learnMore}</a>
+            <a href="#contact-sales" class="px-4 py-2 text-sm font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{hardware.accessoriesList.probe.cta}</a>
+          </div>
+        </div>
+
+        <!-- Scanners Card -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+          <div class="p-6 space-y-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <span class="text-xs font-bold text-slate-500 bg-slate-200 px-2 py-0.5 rounded uppercase tracking-wider inline-block mb-2">{hardware.accessoriesList.scanners.badge}</span>
+                <h3 class="text-xl font-bold text-slate-900 mt-2">{hardware.accessoriesList.scanners.title}</h3>
+              </div>
+            </div>
+            <p class="text-base text-slate-600 leading-relaxed">
+              {hardware.accessoriesList.scanners.desc}
+            </p>
+            <div class="pt-2">
+              <span class="text-xs font-mono bg-slate-200 text-slate-600 px-2 py-1 rounded uppercase tracking-wider font-semibold inline-block mb-2">{hardware.accessoriesList.scanners.specLabel}</span>
+            </div>
+          </div>
+          <div class="p-6 bg-slate-100 border-t border-slate-200 flex justify-between items-center gap-4">
+            <a href={hardware.accessoriesList.scanners.learnMoreHref} class="text-sm font-semibold text-slate-600 hover:text-slate-900">{hardware.accessoriesList.scanners.learnMore}</a>
+            <a href="#contact-sales" class="px-4 py-2 text-sm font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{hardware.accessoriesList.scanners.cta}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // =========================================================================
+  // Encapsulated Interactive Tab Switcher
+  // =========================================================================
+  function initHardwareTabs() {
+    const containers = document.querySelectorAll('[data-hardware-lineup]');
+    containers.forEach(container => {
+      const tabBtns = container.querySelectorAll('.hw-tab-btn');
+      const tabPanes = container.querySelectorAll('.hw-tab-pane');
+
+      if (tabBtns.length === 0 || tabPanes.length === 0) return;
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetTab = btn.getAttribute('data-tab');
+          
+          // Update buttons UI inside this container only
+          tabBtns.forEach(b => {
+            b.className = 'hw-tab-btn px-5 py-3 text-xs sm:text-sm font-extrabold rounded-lg border transition-all duration-200 bg-white text-slate-600 border-slate-200 hover:border-slate-400 hover:text-slate-900';
+          });
+          btn.className = 'hw-tab-btn px-5 py-3 text-xs sm:text-sm font-extrabold rounded-lg border transition-all duration-200 bg-slate-900 text-primary-cyan border-primary-cyan shadow-md';
+
+          // Update panes visibility with transition inside this container only
+          tabPanes.forEach(pane => {
+            if (pane.getAttribute('id') === `hw-tab-${targetTab}`) {
+              pane.classList.remove('hidden');
+              setTimeout(() => {
+                pane.classList.remove('opacity-0', 'translate-y-2');
+                pane.classList.add('opacity-100', 'translate-y-0');
+              }, 20);
+            } else {
+              pane.classList.add('hidden', 'opacity-0', 'translate-y-2');
+              pane.classList.remove('opacity-100', 'translate-y-0');
+            }
+          });
+        });
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initHardwareTabs);
+</script>

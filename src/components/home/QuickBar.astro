@@ -1,0 +1,50 @@
+---
+// src/components/home/QuickBar.astro
+interface Props {
+  lang: string;
+  data: any;
+}
+
+const { lang, data } = Astro.props;
+const quickBar = data.quickBar;
+const basePortalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
+---
+
+<section class="bg-slate-900 border-b border-slate-800 py-6 text-slate-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Stat Indicator Columns -->
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center lg:text-left border-b lg:border-b-0 lg:border-r border-slate-850 pb-6 lg:pb-0 lg:pr-8">
+        <div>
+          <p class="text-lg font-extrabold text-white">{quickBar.tech.title}</p>
+          <p class="text-sm tracking-wide text-slate-300 mt-1">{quickBar.tech.desc}</p>
+        </div>
+        <div>
+          <p class="text-lg font-extrabold text-white">{quickBar.precision.title}</p>
+          <p class="text-sm tracking-wide text-slate-300 mt-1">{quickBar.precision.desc}</p>
+        </div>
+        <div>
+          <p class="text-lg font-extrabold text-white">{quickBar.support.title}</p>
+          <p class="text-sm tracking-wide text-slate-300 mt-1">{quickBar.support.desc}</p>
+        </div>
+      </div>
+      
+      <!-- Compact Hot Links (Responsive optimized to prevent line breaks) -->
+      <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-3 lg:flex lg:flex-row lg:justify-end gap-3 sm:gap-4 w-full">
+        <a href="#products" class="group relative bg-slate-950/80 backdrop-blur-md border border-slate-800 hover:border-primary-cyan/60 rounded-xl px-5 py-3.5 text-sm font-bold text-slate-100 hover:text-white hover:shadow-[0_0_20px_rgba(0,229,255,0.12)] hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+          <span>{quickBar.links.hardware}</span>
+          <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 text-primary-cyan">→</span>
+        </a>
+        <a href="#software" class="group relative bg-slate-950/80 backdrop-blur-md border border-slate-800 hover:border-primary-cyan/60 rounded-xl px-5 py-3.5 text-sm font-bold text-slate-100 hover:text-white hover:shadow-[0_0_20px_rgba(0,229,255,0.12)] hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+          <span>{quickBar.links.software}</span>
+          <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 text-primary-cyan">→</span>
+        </a>
+        <a href={portalUrl} target="_blank" class="group relative bg-slate-950 border border-primary-cyan/60 hover:border-primary-cyan rounded-xl px-5 py-3.5 text-sm font-bold text-primary-cyan hover:text-white hover:bg-primary-cyan/10 hover:shadow-[0_0_25px_rgba(0,229,255,0.25)] hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+          <span>{quickBar.links.support}</span>
+          <span class="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

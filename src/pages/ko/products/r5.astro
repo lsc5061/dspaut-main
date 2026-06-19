@@ -1,0 +1,462 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
+---
+
+<Layout 
+	title="DSPAUT R5 | 자동화 및 연구용(R&D) 고성능 위상배열 초음파(PAUT) 시스템 보드" 
+	description="(주)성산연구소의 고성능 OEM 랙마운트 PAUT 엔진 DSPAUT R5를 소개합니다. 19인치 표준 랙마운트 지원, 32:128PR 다채널 확장성, 전용 DSK API/SDK 제공."
+	lang="ko"
+>
+	<!-- Product Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-20 sm:py-28 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Hero Left Content -->
+				<div class="lg:col-span-7 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1.5 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>공장 자동화 및 연구소(R&D) 특화 엔진</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+						DSPAUT R5<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">랙마운트형 고성능 OEM 보드</span>
+					</h1>
+					<p class="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl">
+						DSPAUT R5는 공장 자동화 제조 생산 라인 및 고등 학수 R&D 환경에 통합되도록 최적화 설계된 최고 사양의 19인치 랙마운트형 위상배열 초음파(PAUT) 시스템 보드입니다. 성산연구소의 초고속 전하 수집 아키텍처와 뛰어난 데이터 입출력 제어 포트를 제공하여 자동화 설비 전수 검사 및 심층 R&D 프로그램 구축에 완벽한 기반을 제공합니다.
+					</p>
+					
+					<div class="flex flex-wrap gap-3 pt-4">
+						<a href="#contact-quote" class="px-6 py-3.5 text-base font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+							R5 사양 및 OEM 도입 문의
+						</a>
+						<a href="/assets/docs/KOR_Catalog_R5.pdf" target="_blank" class="px-6 py-3.5 text-base font-bold text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
+							국문 카탈로그 받기 (PDF)
+						</a>
+					</div>
+				</div>
+				
+				<!-- Hero Right Image -->
+				<div class="lg:col-span-5 relative flex justify-center items-center">
+					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
+					<div class="relative bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden group">
+						<img 
+							src="/assets/img/hardware/oem/r5_user_upload.jpg" 
+							alt="DSPAUT R5 제품 사진" 
+							class="w-full max-w-md h-auto object-contain rounded-lg transform transition-transform duration-500 scale-100 group-hover:scale-[1.05]"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Spec Highlights -->
+	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-300">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+				<div class="space-y-1">
+					<span class="block text-2xl sm:text-3xl font-bold text-white">19" Rack</span>
+					<span class="text-sm sm:text-base uppercase tracking-wider text-slate-500 font-sans font-semibold">랙마운트 표준 슬롯</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl sm:text-3xl font-bold text-white">32:128PR</span>
+					<span class="text-sm sm:text-base uppercase tracking-wider text-slate-500 font-sans font-semibold">PAUT 채널 사양</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl sm:text-3xl font-bold text-white">최대 30 kHz</span>
+					<span class="text-sm sm:text-base uppercase tracking-wider text-slate-500 font-sans font-semibold">최대 PRF 주파수</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl sm:text-3xl font-bold text-white">DSK 제공</span>
+					<span class="text-sm sm:text-base uppercase tracking-wider text-slate-500 font-sans font-semibold">C# API</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Product Features -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+			
+			<!-- Feature 1: Industrial Scalability -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-5 relative order-last lg:order-first">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+						<img 
+							src="/assets/img/hardware/oem/r5_perspective.png" 
+							alt="DSPAUT R5 랙 통합 설치 예시 사진" 
+							class="w-full h-auto object-contain rounded-xl shadow-md transform transition-transform duration-300 hover:scale-[1.03]"
+						/>
+					</div>
+				</div>
+				<div class="lg:col-span-7 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">SCALABLE ARCHITECTURE</span>
+					<h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight font-display">
+						우수한 산업용 확장성: 19인치 표준 랙마운트 보드 설계
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-lg">
+						공장의 기존 자동화 패널 랙 캐비닛에 조립하여 다수의 보드를 수직 적층 운용할 수 있습니다. 랙 구조 내 독립적인 전력 제어와 함께 내부에 자체 단독 PC를 탑재하고 있어 복잡한 연결 장치 없이 모니터를 직접 HDMI 포트에 물려 검사 시스템을 가동할 수 있습니다.
+					</p>
+					<ul class="space-y-3 text-base text-slate-600 font-medium">
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>19인치 랙 표준 호환성:</strong> 표준 장비 랙에 마운팅하여 다채널 시스템을 컴팩트하고 깔끔하게 레이아웃할 수 있습니다.</span>
+						</li>
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>임베디드 PC 단독 구동:</strong> 슬림한 프레임 내부에 계측 PC 시스템이 내장되어 외부 컨트롤 디바이스를 주렁주렁 연결할 필요가 없습니다.</span>
+						</li>
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>멀티 채널 동기화 확장:</strong> 공장 컨베이어 라인 및 용접 전수 조사 자동화 구조에 맞춤형으로 32ch 보드 단위를 연동 및 확장합니다.</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Feature 2: C# SDK & Signal Processing -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-7 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">C# SYSTEM INTEGRATION</span>
+					<h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight font-display">
+						강력한 다채널 신호 연산 및 유연한 C# DSK 개발 라이브러리
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-lg">
+						DSPAUT R5는 다채널 초음파 탐상 신호의 정밀한 연산과 가공을 위한 고성능 하드웨어 아키텍처를 제공합니다. 32:128PR 위상배열 초음파(PAUT)와 4채널 일반 초음파(Conventional UT)에서 입력되는 방대한 신호를 병목 없이 실시간으로 연산하며, 공장 자동화 프로그램 및 커스텀 검사 시스템 개발을 위한 C# 전용 DSK API/SDK를 완벽하게 지원합니다.
+					</p>
+					<ul class="space-y-3 text-base text-slate-600 font-medium">
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>32:128PR 하드웨어 성능:</strong> 리니어 스캔, 섹터 스캔 및 일반 단일 초음파 스캔 신호를 손실 없이 처리합니다.</span>
+						</li>
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>C# 기반 DSK SDK 라이브러리:</strong> 닷넷(.NET) 환경에 최적화된 API 클래스를 통해 설비 제어 알고리즘과 전용 UI 화면을 신속하게 구축할 수 있습니다.</span>
+						</li>
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>실시간 이더넷 데이터 스트리밍:</strong> 계측된 초음파 원시 데이터(Raw Data)를 1Gbps LAN 대역폭을 통해 원격 PC로 실시간 지연 없이 전송합니다.</span>
+						</li>
+					</ul>
+				</div>
+				<!-- SDK Code snippet showcase card -->
+				<div class="lg:col-span-5">
+					<div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl font-mono text-sm text-slate-300">
+						<div class="flex items-center space-x-2 pb-4 border-b border-slate-900">
+							<span class="w-3 h-3 rounded-full bg-red-500"></span>
+							<span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+							<span class="w-3 h-3 rounded-full bg-green-500"></span>
+							<span class="text-slate-500 text-sm pl-2">dsk_api_example.cs</span>
+						</div>
+						<pre class="pt-4 space-y-1.5 overflow-x-auto text-[13px] leading-relaxed">
+<span class="text-blue-400">using</span> <span class="text-cyan-400">System</span>;
+<span class="text-blue-400">using</span> <span class="text-cyan-400">DEEPSOUND</span>;
+
+<span class="text-slate-500">// Initialize R5 OEM Board via DSK</span>
+<span class="text-yellow-400">DSK</span>.<span class="text-green-400">InitDsk</span>();
+<span class="text-blue-400">bool</span> isReady = <span class="text-yellow-400">DSK</span>.<span class="text-green-400">InitDevice</span>();
+
+<span class="text-blue-400">if</span> (isReady) {"{"}
+    <span class="text-slate-500">// Configure hardware parameters</span>
+    <span class="text-yellow-400">DSK</span>.<span class="text-green-400">SetGain</span>(<span class="text-orange-400">45.0</span>);
+    <span class="text-yellow-400">DSK</span>.<span class="text-green-400">SetPulseVoltage</span>(<span class="text-orange-400">120</span>);
+    
+    <span class="text-slate-500">// Apply parameters to hardware</span>
+    <span class="text-yellow-400">DSK</span>.<span class="text-green-400">UploadAllParameters</span>();
+{"}"}
+						</pre>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Applications Section -->
+	<section class="py-20 bg-slate-950 text-white border-t border-b border-slate-900 relative">
+		<div class="absolute -top-40 left-1/3 w-96 h-96 bg-primary-cyan/10 rounded-full blur-[120px] pointer-events-none"></div>
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+				<span class="text-sm font-bold font-sans bg-slate-900 text-primary-cyan px-2.5 py-1.5 rounded inline-block mb-2">KEY APPLICATIONS</span>
+				<h2 class="text-3xl sm:text-4xl font-extrabold font-display">
+					주요 적용 산업 분야
+				</h2>
+				<p class="text-slate-400 text-lg">
+					DSPAUT R5 Phased Array 엔진은 대량 생산 자동화 라인의 인라인 검사와 독자적인 NDT 연구 개발 플랫폼에 최적화되어 있습니다.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<!-- App 1 -->
+				<div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 hover:border-primary-cyan/50 hover:bg-slate-900/60 transition-all duration-300 flex flex-col justify-between group">
+					<div class="space-y-4">
+						<span class="text-3xl">🏭</span>
+						<h3 class="text-xl sm:text-2xl font-bold group-hover:text-primary-cyan transition-colors">인라인 자동화 전수 검사</h3>
+						<p class="text-base text-slate-400 leading-relaxed">
+							산업용 로봇 암 및 팩토리 컨베이어 벨트와 연동되어 자동차 부품, 철강 구조물, 튜브 파이프 등의 자동 용접 품질 검사를 24시간 중단 없이 수행합니다.
+						</p>
+					</div>
+				</div>
+
+				<!-- App 2 -->
+				<div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 hover:border-primary-cyan/50 hover:bg-slate-900/60 transition-all duration-300 flex flex-col justify-between group">
+					<div class="space-y-4">
+						<span class="text-3xl">✈️</span>
+						<h3 class="text-xl sm:text-2xl font-bold group-hover:text-primary-cyan transition-colors">항공우주 및 복합재 검사</h3>
+						<p class="text-base text-slate-400 leading-relaxed">
+							수조(Water-Immersion) 및 고정밀 갠트리(Gantry) 스캐너 시스템과 결합하여 카본 복합소재(CFRP)나 항공 동체 날개의 미세 균열 및 박리를 C-scan으로 초고해상도로 이미징합니다.
+						</p>
+					</div>
+				</div>
+
+				<!-- App 3 -->
+				<div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 hover:border-primary-cyan/50 hover:bg-slate-900/60 transition-all duration-300 flex flex-col justify-between group">
+					<div class="space-y-4">
+						<span class="text-3xl">🔬</span>
+						<h3 class="text-xl sm:text-2xl font-bold group-hover:text-primary-cyan transition-colors">NDT R&D 및 커스텀 연구</h3>
+						<p class="text-base text-slate-400 leading-relaxed">
+							대학 연구실 및 시스템 통합(SI) 기업을 위해 완전 개방된 DSK SDK를 제공하여, 독자적인 알고리즘 테스트 및 사용자 정의 비파괴 탐상 프로그램을 유연하게 프로그래밍할 수 있습니다.
+						</p>
+					</div>
+				</div>
+
+				<!-- App 4 -->
+				<div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 hover:border-primary-cyan/50 hover:bg-slate-900/60 transition-all duration-300 flex flex-col justify-between group">
+					<div class="space-y-4">
+						<span class="text-3xl">🚄</span>
+						<h3 class="text-xl sm:text-2xl font-bold group-hover:text-primary-cyan transition-colors">철도 및 교통 인프라 검사</h3>
+						<p class="text-base text-slate-400 leading-relaxed">
+							철도 차량의 차륜, 차축(Axle), 그리고 선로 자체의 균열 검사를 위해 고속 주행식 자동 검사 센서 어셈블리와 다채널로 동기화되어 결함을 정밀 스캔합니다.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Hardware Interface & Ports Map -->
+	<section class="py-20 bg-slate-50 border-t border-b border-slate-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+				<span class="text-sm font-bold font-sans bg-slate-900 text-primary-cyan px-2.5 py-1.5 rounded inline-block mb-2">HARDWARE INTERFACE</span>
+				<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-display">
+					DSPAUT R5 하드웨어 인터페이스 및 포트 맵
+				</h2>
+				<p class="text-slate-600 text-lg">
+					DSPAUT R5의 전면 패널에는 위상배열(PAUT) 및 일반 초음파 탐상 프로브 커넥터가 배치되어 있으며, 후면 패널에는 고속 통신, 전원 및 다축 인코더 연동을 위한 I/O 포트가 구성되어 있습니다.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+				<!-- Front Panel Config -->
+				<div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between items-center text-center space-y-6">
+					<h3 class="text-xl font-bold text-slate-900">전면부 패널 (센서 커넥터 및 제어)</h3>
+					<div class="relative w-full aspect-square max-w-xs flex items-center justify-center bg-slate-50 rounded-xl border border-slate-100 p-4">
+						<img 
+							src="/assets/img/hardware/oem/3.png" 
+							alt="DSPAUT R5 전면 포트" 
+							class="max-w-full max-h-48 object-contain rounded-lg scale-[1.1] translate-y-1 transition-transform duration-300"
+						/>
+					</div>
+					<div class="text-left w-full space-y-4">
+						<div class="border-b border-slate-100 pb-3">
+							<span class="block text-base font-bold text-slate-800">위상배열 초음파(PAUT) 고밀도 커넥터</span>
+							<span class="text-base text-slate-500 mt-1 block leading-relaxed">최대 32:128PR 사양의 Phased Array 프로브를 직접 장착하여 다채널 실시간 빔 포커싱 스캔을 수행합니다.</span>
+						</div>
+						<div class="border-b border-slate-100 pb-3">
+							<span class="block text-base font-bold text-slate-800">4채널 일반 초음파(Conventional UT) 포트</span>
+							<span class="text-base text-slate-500 mt-1 block leading-relaxed">두께 계측 및 TOFD(Time-Of-Flight Diffraction) 검사를 위한 4개의 독립 수발신 LEMO 00 단자입니다.</span>
+						</div>
+						<div>
+							<span class="block text-base font-bold text-slate-800">전원 스위치 및 LED 상태 표시등</span>
+							<span class="text-base text-slate-500 mt-1 block leading-relaxed">백라이트 전원 푸시 버튼과 시스템 자가진단 및 통신 상태를 표시하는 3개의 LED 인디케이터입니다.</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Rear Panel Config -->
+				<div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between items-center text-center space-y-6">
+					<h3 class="text-xl font-bold text-slate-900">후면부 패널 (I/O, 디스플레이 및 고속 통신)</h3>
+					<div class="relative w-full aspect-square max-w-xs flex items-center justify-center bg-slate-50 rounded-xl border border-slate-100 p-4">
+						<img 
+							src="/assets/img/hardware/oem/4.png" 
+							alt="DSPAUT R5 후면 포트" 
+							class="max-w-full max-h-48 object-contain rounded-lg scale-[1.1] translate-y-1 transition-transform duration-300"
+						/>
+					</div>
+					<div class="text-left w-full space-y-4">
+						<div class="border-b border-slate-100 pb-3">
+							<span class="block text-base font-bold text-slate-800">DB25 다기능 I/O 및 인코더 단자</span>
+							<span class="text-base text-slate-500 mt-1 block leading-relaxed">최대 3축(3-Axis) 인코더 하드웨어 입력 및 외부 모션 제어 스캐너 동기화용 트리거 핀을 제공합니다.</span>
+						</div>
+						<div class="border-b border-slate-100 pb-3">
+							<span class="block text-base font-bold text-slate-800">듀얼 모니터 출력 (HDMI & VGA)</span>
+							<span class="text-base text-slate-500 mt-1 block leading-relaxed">실시간 스캔 뷰어(DSVision) 및 제어 프로그램을 외부 디스플레이로 송출하기 위한 비디오 포트입니다.</span>
+						</div>
+						<div>
+							<span class="block text-base font-bold text-slate-800">기가비트 이더넷 및 USB 3.0</span>
+							<span class="text-base text-slate-500 mt-1 block leading-relaxed">원시 데이터 실시간 전송을 위한 LAN 연결 및 하드웨어 라이브러리 연동용 USB 포트입니다.</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Technical Specifications Table -->
+	<section class="py-20 bg-slate-50 border-t border-b border-slate-200">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl sm:text-4xl font-bold text-slate-900 text-center tracking-tight font-display mb-12">
+				하드웨어 상세 사양 (Specifications)
+			</h2>
+
+			<div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm bg-white">
+				<table class="w-full text-base sm:text-lg text-left text-slate-600">
+					<thead class="text-sm sm:text-base uppercase bg-slate-900 text-primary-cyan font-sans">
+						<tr>
+							<th class="px-6 py-4.5">구분</th>
+							<th class="px-6 py-4.5">DSPAUT R5 상세 사양값</th>
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-slate-150">
+						<tr class="bg-slate-50/80 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-4 font-sans text-sm sm:text-base uppercase text-slate-500 tracking-wider">일반 및 기계적 사양 (General & Mechanical)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">장비 형태 분류</td>
+							<td class="px-6 py-4">19인치 표준 랙마운트형 멀티보드 설계</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">PC 시스템 사양</td>
+							<td class="px-6 py-4">임베디드 단독 구동형 산업용 PC 내장</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">내장 운영체제</td>
+							<td class="px-6 py-4">Windows Embedded / Linux OS 지원</td>
+						</tr>
+						
+						<tr class="bg-slate-50/80 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-4 font-sans text-sm sm:text-base uppercase text-slate-500 tracking-wider">초음파 계측 및 구성 사양 (Acoustic & Configuration)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">위상배열(PA) 하드웨어 구성</td>
+							<td class="px-6 py-4">32:128PR 물리 채널</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">일반 초음파 (Conventional UT)</td>
+							<td class="px-6 py-4">4 채널 지원 (LEMO 00 단자)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">펄서 주파수 및 전압</td>
+							<td class="px-6 py-4">바이폴라 펄스 타입 (25V ~ 190V 어드저스터블)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">유효 디지털 주파수</td>
+							<td class="px-6 py-4">100 MHz</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">최대 펄스 반복 주파수 (PRF)</td>
+							<td class="px-6 py-4">최대 30,000 Hz (30 kHz)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">샘플 해상도</td>
+							<td class="px-6 py-4">16 bit</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">개발 프로그램 지원</td>
+							<td class="px-6 py-4">전용 DSK (API/SDK), 커스텀 UI 및 연산 라이브러리 연동</td>
+						</tr>
+
+						<tr class="bg-slate-50/80 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-4 font-sans text-sm sm:text-base uppercase text-slate-500 tracking-wider">입출력 포트 및 응용 분야 (Connectivity & Applications)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">연결 커넥터 및 단자</td>
+							<td class="px-6 py-4">초고속 기가비트 LAN 포트, HDMI 영상 출력, USB 3.0 포트, 3축 인코더 입력 단자</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- Resources Section -->
+	<section class="py-16 bg-white border-b border-slate-200">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+			<h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">
+				DSPAUT R5 다운로드 센터
+			</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+				<div class="bg-slate-50 p-6 border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+					<h4 class="text-lg font-bold text-slate-800">영문 브로슈어/카탈로그</h4>
+					<span class="text-base text-slate-400 font-sans block mt-1">PDF · 1.4MB</span>
+					<a href="/assets/docs/ENG_Catalog_R5.pdf" target="_blank" class="mt-4 inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold text-base px-4 py-2.5 rounded">다운로드</a>
+				</div>
+				<div class="bg-slate-50 p-6 border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+					<h4 class="text-lg font-bold text-slate-800">국문 브로슈어/카탈로그</h4>
+					<span class="text-base text-slate-400 font-sans block mt-1">PDF · 1.5MB</span>
+					<a href="/assets/docs/KOR_Catalog_R5.pdf" target="_blank" class="mt-4 inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold text-base px-4 py-2.5 rounded">다운로드</a>
+				</div>
+				<div class="bg-slate-50 p-6 border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+					<h4 class="text-lg font-bold text-slate-800">DSViewer 매뉴얼</h4>
+					<span class="text-base text-slate-400 font-sans block mt-1">PDF · 1.8MB</span>
+					<a href="/assets/docs/DSViewer_Manual_v2.pdf" target="_blank" class="mt-4 inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold text-base px-4 py-2.5 rounded">다운로드</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact CTA Form Section -->
+	<section id="contact-quote" class="py-20 bg-slate-900 text-white relative">
+		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10 text-center">
+			<h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+				DSPAUT R5 기기 도입 및 상세 상담 문의
+			</h2>
+			<p class="text-slate-400 text-lg max-w-xl mx-auto">
+				아래 연락처 정보와 필요하신 검사 사양(배관 규격, 주파수 등)을 남겨주시면, 담당 기술 부서에서 신속히 견적 및 상세 솔루션 상담 연락을 드리겠습니다.
+			</p>
+			
+			<div class="bg-slate-950 border border-slate-850 rounded-2xl p-8 text-left max-w-xl mx-auto shadow-2xl">
+				<form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+					<input type="hidden" name="access_key" value={web3FormsKey} />
+					<input type="hidden" name="subject" value="DSPAUT R5 국문 웹사이트 견적/도입 문의" />
+					<input type="hidden" name="from_name" value="DSPAUT Main Website (KO)" />
+					<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+					<div class="grid grid-cols-2 gap-4">
+						<div class="space-y-1.5">
+							<label for="name" class="block text-sm uppercase font-bold text-slate-400 font-sans">이름/담당자명</label>
+							<input type="text" name="name" id="name" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan" />
+						</div>
+						<div class="space-y-1.5">
+							<label for="company" class="block text-sm uppercase font-bold text-slate-400 font-sans">회사/연구소명</label>
+							<input type="text" name="company" id="company" class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan" />
+						</div>
+					</div>
+					
+					<div class="space-y-1.5">
+						<label for="email" class="block text-sm uppercase font-bold text-slate-400 font-sans">이메일 주소</label>
+						<input type="email" name="email" id="email" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan" />
+					</div>
+
+					<div class="space-y-1.5">
+						<label for="message" class="block text-sm uppercase font-bold text-slate-400 font-sans">계측 장비 요구 사항 및 상세 문의 내용</label>
+						<textarea name="message" id="message" rows="4" placeholder="사용 목적(로봇 암 인라인 자동 스캔, 복합소재 전수 검사 수조 장비 등) 또는 필요하신 센서 프로브/웨지 사양을 기술해 주세요..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan"></textarea>
+					</div>
+
+					<button type="submit" class="w-full bg-primary-cyan text-slate-900 font-bold py-3.5 rounded hover:bg-cyan-400 text-base transition-colors tracking-wide uppercase shadow-md shadow-primary-cyan/20">
+						상담 및 견적 신청 제출
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
+</Layout>

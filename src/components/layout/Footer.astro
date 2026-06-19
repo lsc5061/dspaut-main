@@ -1,0 +1,88 @@
+---
+// src/components/layout/Footer.astro
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const isKo = lang === 'ko';
+
+const productsPath = isKo ? '/ko/#products' : '/#products';
+const softwarePath = isKo ? '/ko/#software' : '/#software';
+const resourcesPath = isKo ? '/ko/#resources' : '/#resources';
+const contactPath = isKo ? '/ko/#contact-sales' : '/#contact-sales';
+const aboutPath = isKo ? '/ko/about/' : '/about/';
+
+const portalUrl = (() => {
+  const base = import.meta.env.PUBLIC_SUPPORT_URL || "http://localhost:4321";
+  return `${base.replace(/\/$/, '')}/${lang}/`;
+})();
+---
+
+<footer class="bg-[#0C1929] text-slate-400 border-t border-slate-800 pt-16 pb-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
+      <!-- Footer Logo / Info -->
+      <div class="lg:col-span-4 space-y-4">
+        <a href={isKo ? '/ko/' : '/'} class="inline-flex items-center space-x-2">
+          <img src="/favicon.png" alt="DSPAUT Logo" class="h-8 w-8 object-contain" />
+          <span class="text-2xl font-bold font-display tracking-tight text-white">
+            DSPAUT
+          </span>
+        </a>
+        <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+          {isKo 
+            ? "DSPAUT는 (주)성산연구소의 독자 기술력으로 탄생한 초음파 비파괴검사(NDT) 솔루션 브랜드로, 산업 현장의 안전을 지키는 정밀 탐상 장비와 전용 분석 소프트웨어를 개발합니다." 
+            : "Developed by SEONGSANLAB, DSPAUT is a premium Phased Array Ultrasonic NDT brand integrating high-precision hardware, automated scan systems, and dedicated software solutions."}
+        </p>
+        <div class="pt-2">
+          <a href={aboutPath} class="inline-flex items-center text-xs font-bold text-primary-cyan hover:underline hover:text-cyan-400 gap-1">
+            <span>{isKo ? "회사 소개 및 자격인증 ➔" : "Read Corporate Profile ➔"}</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Company Details (Moved Up) -->
+      <div class="lg:col-span-5 space-y-4">
+        <h3 class="text-sm font-semibold text-white tracking-wider uppercase">{isKo ? "기업 정보" : "Company Info"}</h3>
+        {isKo ? (
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><strong class="text-slate-200">상호</strong>: (주)성산연구소</li>
+            <li><strong class="text-slate-200">사업자등록번호</strong>: 113-86-50421</li>
+            <li><strong class="text-slate-200">이메일</strong>: <a href="mailto:admin@dspaut.com" class="text-primary-cyan hover:underline hover:text-cyan-400">admin@dspaut.com</a></li>
+            <li class="leading-relaxed"><strong class="text-slate-200">주소</strong>: 경기도 군포시 공단로140번길 52, 1318호(당정동, 에이스하이테크시티군포)</li>
+            <li><strong class="text-slate-200">전화</strong>: <a href="tel:0220395725" class="hover:text-white transition-colors">02-2039-5725</a></li>
+            <li><strong class="text-slate-200">팩스</strong>: 02-2039-5726</li>
+          </ul>
+        ) : (
+          <ul class="space-y-2.5 text-sm text-slate-400">
+            <li><strong class="text-slate-200">Company</strong>: SEONGSANLAB Co., Ltd.</li>
+            <li><strong class="text-slate-200">Business License</strong>: 113-86-50421</li>
+            <li><strong class="text-slate-200">Email</strong>: <a href="mailto:admin@dspaut.com" class="text-primary-cyan hover:underline hover:text-cyan-400">admin@dspaut.com</a></li>
+            <li class="leading-relaxed"><strong class="text-slate-200">Address</strong>: Rm 1318, Ace High Tech City Gunpo, 52, Gondan-ro 140beon-gil, Gunpo-si, Gyeonggi-do, Republic of Korea</li>
+            <li><strong class="text-slate-200">Tel</strong>: <a href="tel:+82220395725" class="hover:text-white transition-colors">+82-2-2039-5725</a></li>
+            <li><strong class="text-slate-200">Fax</strong>: +82-2-2039-5726</li>
+          </ul>
+        )}
+      </div>
+      
+      <!-- Contact & Trust Info -->
+      <div class="lg:col-span-3 space-y-4">
+        <h3 class="text-sm font-semibold text-white tracking-wider uppercase">{isKo ? "고객 지원" : "Support"}</h3>
+        <ul class="space-y-3.5 text-sm">
+          <li><a href={contactPath} class="hover:text-primary-cyan font-semibold flex items-center gap-1.5">{isKo ? "장비 견적 문의 ➔" : "Request a Quote ➔"}</a></li>
+          <li><a href={portalUrl} target="_blank" rel="noopener noreferrer" class="hover:text-primary-cyan font-semibold flex items-center gap-1.5">{isKo ? "기술 지원 상담 ➔" : "Technical Support ➔"}</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Footer Bottom -->
+    <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500">
+      <p>&copy; {new Date().getFullYear()} {isKo ? "(주)성산연구소" : "SEONGSANLAB Co., Ltd."}. All rights reserved.</p>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a href={resourcesPath} class="hover:text-slate-300">{isKo ? "개인정보처리방침" : "Privacy Policy"}</a>
+        <a href={contactPath} class="hover:text-slate-300">{isKo ? "찾아오시는 길" : "Location"}</a>
+      </div>
+    </div>
+  </div>
+</footer>

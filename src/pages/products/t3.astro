@@ -1,0 +1,373 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
+---
+
+<Layout 
+	title="DSPAUT T3 | Portable Precision Conventional UT & TOFD NDT Instrument" 
+	description='Explore the DSPAUT T3 by SEONGSANLAB. A class-leading Conventional UT scanner under 0.9kg with 7" touchscreen, 3000Hz PRF, and real-time TOFD imaging.'
+	lang="en"
+>
+	<!-- Product Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-20 sm:py-28 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Hero Left Content -->
+				<div class="lg:col-span-7 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>Ultralight Conventional UT & TOFD</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+						DSPAUT T3<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">Class-Leading Lightweight Precision</span>
+					</h1>
+					<p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+						The DSPAUT T3 is a class-leading Conventional Ultrasonic Testing (UT) scanner that shatters the weight barriers of industrial NDT gear. Designed by SEONGSANLAB, the T3 combines an astonishing 0.9kg ultra-lightweight body with the precision and encoder support required for mission-critical TOFD and UT assessments.
+					</p>
+					
+					<div class="flex flex-wrap gap-3 pt-4">
+						<a href="#contact-quote" class="px-6 py-3.5 text-sm font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+							Request a Quote
+						</a>
+						<a href="/assets/docs/ENG_Catalog_T3.pdf" target="_blank" class="px-6 py-3.5 text-sm font-bold text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
+							Download Catalog (PDF)
+						</a>
+					</div>
+				</div>
+				
+				<!-- Hero Right Image -->
+				<div class="lg:col-span-5 relative flex justify-center items-center">
+					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
+					<div class="relative bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden group">
+						<img 
+							src="/assets/img/hardware/portable/T3_Fornt_1_1.png" 
+							alt="DSPAUT T3 Product View" 
+							class="w-full max-w-md h-auto object-contain rounded-lg transform transition-transform duration-500 scale-[1.15] translate-y-1 group-hover:scale-[1.2]"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Spec Highlights -->
+	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-300">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">0.9 kg</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">Weight with Battery</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">3,000 Hz</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">Max PRF</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">7" Touch</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">Capacitive Display</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">UT & TOFD</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">Core Support</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Product Features -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+			
+			<!-- Feature 1: Astonishing 0.9kg -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-5 relative order-last lg:order-first">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+						<img 
+							src="/assets/img/hardware/portable/t3_weight.png" 
+							alt="DSPAUT T3 0.9kg Weighing Visual" 
+							class="w-full h-auto object-contain rounded-xl shadow-md"
+						/>
+					</div>
+				</div>
+				<div class="lg:col-span-7 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">FEATHERWEIGHT DESIGN</span>
+					<h2 class="text-3xl font-bold text-slate-900 tracking-tight font-display">
+						Astonishing 0.9kg: The Lightest in its Class
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-base">
+						Experience fatigue-free inspection sessions. Even with the battery installed, the DSPAUT T3 remains under 0.9kg, allowing for stable, one-handed operation during long shifts or in narrow, difficult-to-access locations. It is designed to maximize field agility without sacrificing performance.
+					</p>
+					<ul class="space-y-2 text-sm text-slate-600 font-medium">
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>Featherweight Design:</strong> At just 0.9kg, the T3 reduces physical strain during inspections.</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>7" High-Resolution Display:</strong> A vibrant 1024×600 capacitive touchscreen provides crystal-clear A-scan data.</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>Extended Endurance:</strong> High-capacity 47.52Wh smart battery supports up to 5 hours of continuous operation.</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Feature 2: Professional UT & TOFD -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-7 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">PRECISION IMAGING</span>
+					<h2 class="text-3xl font-bold text-slate-900 tracking-tight font-display">
+						Professional UT & Specialized TOFD Imaging
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-base">
+						The DSPAUT T3 is optimized for core NDT inspection, featuring specialized TOFD tools and integrated encoder support for real-time high-fidelity recording. It ensures excellent thickness measurements and flaw evaluation.
+					</p>
+					<ul class="space-y-2 text-sm text-slate-600 font-medium">
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>Real-Time TOFD:</strong> Capture and record reliable TOFD images on the fly via the built-in encoder port.</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>High-Speed Signals:</strong> 3,000Hz PRF and 16-bit resolution deliver exceptionally sharp signals.</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>Intuitive Mapping:</strong> Gate-triggered B-Scan and C-Scan transformations allow visual defect analysis.</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>Full Calibration:</strong> Standard integrated tools for Velocity, Wedge Delay, DAC, and Encoder.</span>
+						</li>
+					</ul>
+				</div>
+				<div class="lg:col-span-5">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-sm flex items-center justify-center overflow-hidden group">
+						<img 
+							src="/assets/img/hardware/portable/T3_Fornt_4.png" 
+							alt="DSPAUT T3 TOFD Scan Visualization" 
+							class="max-w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.03] filter drop-shadow-sm"
+						/>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Hardware Interface & Ports Map -->
+	<section class="py-20 bg-slate-50 border-t border-b border-slate-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+				<span class="text-sm font-bold font-sans bg-slate-900 text-primary-cyan px-3 py-1.5 rounded inline-block mb-2">HARDWARE INTERFACE</span>
+				<h2 class="text-3xl font-extrabold text-slate-900 font-display">
+					DSPAUT T3 Interface & Ports Map
+				</h2>
+				<p class="text-slate-600 text-sm">
+					The DSPAUT T3 layout incorporates dedicated ultrasonic sensor ports on the top edge and industrial communication connections on the right panel.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+				<!-- Top Ports Config -->
+				<div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between items-center text-center space-y-6">
+					<h3 class="text-lg font-bold text-slate-900">Top Connector Panel (Probe & Encoder)</h3>
+					<div class="relative w-full aspect-square max-w-xs flex items-center justify-center bg-slate-50 rounded-xl border border-slate-100 p-4">
+						<img 
+							src="/assets/img/hardware/portable/T3_Top_1.png" 
+							alt="B3 Top Ports Panel" 
+							class="max-w-full max-h-48 object-contain rounded-lg scale-[1.15] translate-y-1 transition-transform duration-300"
+						/>
+					</div>
+					<div class="text-left w-full space-y-3">
+						<div class="border-b border-slate-100 pb-2">
+							<span class="block text-sm font-bold text-slate-800">Dual BNC UT Connectors</span>
+							<span class="text-sm text-slate-500">Dedicated BNC ports optimized for pulse-receive Conventional UT and TOFD probes.</span>
+						</div>
+						<div>
+							<span class="block text-sm font-bold text-slate-800">Encoder / Aux Interface</span>
+							<span class="text-sm text-slate-500">Integrated encoder port for displacement tracking and scanner synchronization.</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right Ports Config -->
+				<div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between items-center text-center space-y-6">
+					<h3 class="text-lg font-bold text-slate-900">Right Panel Connections (I/O & Power)</h3>
+					<div class="relative w-full aspect-square max-w-xs flex items-center justify-center bg-slate-50 rounded-xl border border-slate-100 p-4">
+						<img 
+							src="/assets/img/hardware/portable/T3_Right_2.png" 
+							alt="B3 Rear Hatch Connections" 
+							class="max-w-full max-h-48 object-contain rounded-lg scale-[0.95] translate-y-1 transition-transform duration-300"
+						/>
+					</div>
+					<div class="text-left w-full space-y-3">
+						<div class="border-b border-slate-100 pb-2">
+							<span class="block text-sm font-bold text-slate-800">Gigabit Ethernet (RJ45)</span>
+							<span class="text-sm text-slate-500">High-speed LAN link supporting remote PC control and data sync.</span>
+						</div>
+						<div class="border-b border-slate-100 pb-2">
+							<span class="block text-sm font-bold text-slate-800">Standard USB 3.0</span>
+							<span class="text-sm text-slate-500">Allows fast file exports, firmware upgrades, and device connectivity.</span>
+						</div>
+						<div>
+							<span class="block text-sm font-bold text-slate-800">DC 12V Power Jack</span>
+							<span class="text-sm text-slate-500">DC power input for system operation and charging the internal battery.</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Technical Specifications Table -->
+	<section class="py-20 bg-slate-50 border-t border-b border-slate-250">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-bold text-slate-900 text-center tracking-tight font-display mb-12">
+				Technical Specifications
+			</h2>
+
+			<div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm bg-white">
+				<table class="w-full text-sm text-left text-slate-600">
+					<thead class="text-sm uppercase bg-slate-900 text-primary-cyan font-sans">
+						<tr>
+							<th class="px-6 py-4">Specification Category</th>
+							<th class="px-6 py-4">DSPAUT T3 Values</th>
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-slate-100">
+						<tr class="bg-slate-50 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-3 font-sans text-sm uppercase text-slate-500 tracking-wider">General & Mechanical</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">Classification</td>
+							<td class="px-6 py-3.5">Portable Conventional UT (휴대용 초음파 탐상기)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">Weight</td>
+							<td class="px-6 py-3.5">0.9 kg (Including Battery)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">Display</td>
+							<td class="px-6 py-3.5">7" Wide Capacitive Touchscreen (1024 x 600)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">Battery Life</td>
+							<td class="px-6 py-3.5">Up to 5 Hours (47.52Wh Smart Battery)</td>
+						</tr>
+						
+						<tr class="bg-slate-50 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-3 font-sans text-sm uppercase text-slate-500 tracking-wider">Acoustic & Configuration</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">Max PRF</td>
+							<td class="px-6 py-3.5">3,000 Hz (3 kHz)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">Sample Resolution</td>
+							<td class="px-6 py-3.5">16 bit</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">Pulser Type</td>
+							<td class="px-6 py-3.5">Bipolar Pulse (25V ~ 160V)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">Scan Support</td>
+							<td class="px-6 py-3.5">Conventional UT, TOFD (including B-Scan, C-Scan)</td>
+						</tr>
+
+						<tr class="bg-slate-50 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-3 font-sans text-sm uppercase text-slate-500 tracking-wider">Connectivity</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">I/O Interfaces</td>
+							<td class="px-6 py-3.5">2-Axis Encoder, Gigabit LAN, USB 3.0</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- Resources Section -->
+	<section class="py-16 bg-white border-b border-slate-200">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+			<h2 class="text-2xl font-extrabold text-slate-900 font-display">
+				DSPAUT T3 Documents & Support
+			</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+				<div class="bg-slate-50 p-6 border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+					<h4 class="text-sm font-bold text-slate-800">English Catalog</h4>
+					<span class="text-xs text-slate-400 font-sans block mt-1">PDF · 2.1MB</span>
+					<a href="/assets/docs/ENG_Catalog_T3.pdf" target="_blank" class="mt-4 inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-4.5 py-2.5 rounded">Download</a>
+				</div>
+				<div class="bg-slate-50 p-6 border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+					<h4 class="text-sm font-bold text-slate-800">Korean Catalog</h4>
+					<span class="text-xs text-slate-400 font-sans block mt-1">PDF · 2.2MB</span>
+					<a href="/assets/docs/KOR_Catalog_T3.pdf" target="_blank" class="mt-4 inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-4.5 py-2.5 rounded">Download</a>
+				</div>
+				<div class="bg-slate-50 p-6 border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+					<h4 class="text-sm font-bold text-slate-800">DSViewer Manual</h4>
+					<span class="text-xs text-slate-400 font-sans block mt-1">PDF · 1.8MB</span>
+					<a href="/assets/docs/DSViewer_Manual_v2.pdf" target="_blank" class="mt-4 inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-4.5 py-2.5 rounded">Download</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact CTA Form Section -->
+	<section id="contact-quote" class="py-20 bg-slate-900 text-white relative">
+		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10 text-center">
+			<h2 class="text-3xl font-extrabold font-display text-white">
+				Request a Quote for DSPAUT T3
+			</h2>
+			<p class="text-slate-400 text-sm max-w-xl mx-auto">
+				Submit your contact information and customized testing configurations, and our technical sales engineers will contact you with a dedicated quote.
+			</p>
+			
+			<div class="bg-slate-950 border border-slate-850 rounded-2xl p-8 text-left max-w-xl mx-auto shadow-2xl">
+				<form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+					<input type="hidden" name="access_key" value={web3FormsKey} />
+					<input type="hidden" name="subject" value="DSPAUT T3 Website Quote Request" />
+					<input type="hidden" name="from_name" value="DSPAUT Main Website" />
+					<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+					<div class="grid grid-cols-2 gap-4">
+						<div class="space-y-1">
+							<label for="name" class="block text-sm uppercase font-bold text-slate-400 font-sans">Your Name</label>
+							<input type="text" name="name" id="name" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-primary-cyan" />
+						</div>
+						<div class="space-y-1">
+							<label for="company" class="block text-sm uppercase font-bold text-slate-400 font-sans">Company</label>
+							<input type="text" name="company" id="company" class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-primary-cyan" />
+						</div>
+					</div>
+					
+					<div class="space-y-1">
+						<label for="email" class="block text-sm uppercase font-bold text-slate-400 font-sans">Email Address</label>
+						<input type="email" name="email" id="email" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-primary-cyan" />
+					</div>
+
+					<div class="space-y-1">
+						<label for="message" class="block text-sm uppercase font-bold text-slate-400 font-sans">Custom Testing Configuration / Inquiries</label>
+						<textarea name="message" id="message" rows="4" placeholder="Mention your target NDT configurations, required probes/wedges, or testing specifications..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-primary-cyan"></textarea>
+					</div>
+
+					<button type="submit" class="w-full bg-primary-cyan text-slate-900 font-bold py-3.5 rounded hover:bg-cyan-400 text-sm transition-colors tracking-wide uppercase shadow-md shadow-primary-cyan/20">
+						Submit Quote Request
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
+</Layout>

@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HomePage from '../components/home/HomePage.astro';
+import { homeData } from '../data/home/en';
+---
+
+<Layout 
+	title={homeData.metadata.title}
+	description={homeData.metadata.description}
+	lang="en"
+>
+	<HomePage lang="en" data={homeData} />
+</Layout>

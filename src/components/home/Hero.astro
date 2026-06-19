@@ -1,0 +1,358 @@
+---
+// src/components/home/Hero.astro
+interface Props {
+  data: any;
+}
+
+const { data } = Astro.props;
+const hero = data.hero;
+---
+
+<section class="relative bg-[#0C1929] text-white overflow-hidden py-24 sm:py-32 border-b border-slate-800" data-hero-carousel>
+  <!-- Glowing Background Accents -->
+  <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute bottom-10 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Hero Left Content (6 Cols) -->
+      <div class="lg:col-span-6 space-y-8">
+        <div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3 py-1 text-xs text-primary-cyan font-semibold tracking-wide">
+          <span>{hero.badge}</span>
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight" set:html={hero.title}>
+        </h1>
+        
+        <p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+          {hero.description}
+        </p>
+      </div>
+      
+      <!-- Hero Right Visual (Hardware & Software 3D Layered Mocks - 6 Cols) -->
+      <div class="lg:col-span-6 relative flex justify-center items-center">
+        <!-- Radial glowing backing -->
+        <div class="absolute w-96 h-96 bg-primary-cyan/15 rounded-full blur-3xl"></div>
+        
+        <!-- 3D layered glass container with Carousel Slider -->
+        <div class="carousel-container relative w-full max-w-lg aspect-square bg-slate-950/40 border border-slate-800/80 rounded-2xl p-6 backdrop-blur-md shadow-2xl flex flex-col justify-between overflow-hidden group/carousel">
+          
+          <!-- Background Scanner Graphic -->
+          <div class="absolute -right-16 -bottom-16 w-64 h-64 rounded-full border border-primary-cyan/20 flex items-center justify-center pointer-events-none z-0">
+            <div class="w-48 h-48 rounded-full border border-primary-cyan/10 flex items-center justify-center">
+              <div class="w-32 h-32 rounded-full border border-primary-cyan/5"></div>
+            </div>
+          </div>
+
+          <!-- Slides Container -->
+          <div class="relative w-full h-[90%] flex items-center justify-center">
+            
+            <!-- Slide 1: DSPAUT P5 (Active by default) -->
+            <div class="carousel-slide absolute inset-0 flex flex-col justify-between transition-all duration-700 ease-in-out opacity-100 scale-100 z-10" data-index="0">
+              <!-- Background Software Window -->
+              <div class="absolute top-1 left-2 w-[84%] aspect-[1.63] z-10 bg-slate-950/90 border border-slate-800 rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 transform -rotate-3 group-hover/carousel:rotate-[-1deg] group-hover/carousel:translate-y-[-4px] flex flex-col">
+                <div class="bg-slate-900 px-3 py-1.5 flex items-center space-x-2 border-b border-slate-800">
+                  <div class="flex space-x-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500/80"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500/80"></span>
+                  </div>
+                  <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mx-auto truncate pr-6">{hero.slides.p5.swTitle}</span>
+                </div>
+                <div class="relative w-full h-full overflow-hidden bg-slate-950">
+                  <img src="/assets/img/software/dsvision/p5_ui_single.png" alt="DSVision UI" class="w-full h-full object-cover opacity-90" />
+                  <div class="absolute top-2 right-2 flex items-center space-x-1 bg-slate-950/80 px-1.5 py-0.5 rounded-full border border-slate-800/80">
+                    <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-ping"></span>
+                    <span class="text-[10px] font-mono text-green-400 font-bold uppercase tracking-wide">{hero.slides.p5.swState}</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Foreground Product Card -->
+              <div class="absolute bottom-2 left-2 right-2 h-[128px] z-20 bg-slate-900/90 border border-slate-750/70 rounded-xl p-3 shadow-2xl transition-all duration-500 transform rotate-2 group-hover/carousel:rotate-[0deg] group-hover/carousel:translate-y-[2px] group-hover/carousel:scale-[1.01] flex items-center justify-between">
+                <div class="w-[53%] flex flex-col justify-between h-full">
+                  <div class="flex flex-col space-y-1">
+                    <div class="flex items-center space-x-1.5">
+                      <span class="text-[11px] font-bold text-primary-cyan bg-primary-cyan/10 px-1.5 py-0.5 rounded border border-primary-cyan/20 uppercase tracking-wide inline-block mb-2">{hero.slides.p5.badge}</span>
+                      <span class="text-[10px] font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded-full inline-block mb-2">{hero.slides.p5.lcd}</span>
+                    </div>
+                    <h3 class="text-sm font-extrabold text-white tracking-tight">{hero.slides.p5.title}</h3>
+                    <p class="text-xs text-slate-400 leading-snug line-clamp-2">{hero.slides.p5.desc}</p>
+                  </div>
+                  <div class="flex flex-wrap gap-1 mt-1.5">
+                    {hero.slides.p5.specs.map((spec: string) => (
+                      <span class="text-[10px] bg-slate-850 border border-slate-800 text-slate-300 px-1.5 py-0.5 rounded font-semibold inline-block mb-2">{spec}</span>
+                    ))}
+                  </div>
+                </div>
+                <div class="w-[47%] relative h-full flex items-center justify-center">
+                  <div class="absolute -top-24 -right-2 w-52 h-52 flex items-center justify-center z-30 pointer-events-none">
+                    <img src="/assets/img/hardware/portable/P5_Catalog_main.png" alt="DSPAUT P5" class="w-full h-full object-contain scale-[1.3] translate-y-2 filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.7)] transition-all duration-500 group-hover/carousel:scale-[1.35] group-hover/carousel:-translate-y-1" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: DSPAUT B3 (Hidden by default) -->
+            <div class="carousel-slide absolute inset-0 flex flex-col justify-between transition-all duration-700 ease-in-out opacity-0 scale-95 pointer-events-none z-0" data-index="1">
+              <!-- Background Software Window -->
+              <div class="absolute top-1 left-2 w-[84%] aspect-[1.63] z-10 bg-slate-950/90 border border-slate-800 rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 transform -rotate-3 group-hover/carousel:rotate-[-1deg] group-hover/carousel:translate-y-[-4px] flex flex-col">
+                <div class="bg-slate-900 px-3 py-1.5 flex items-center space-x-2 border-b border-slate-800">
+                  <div class="flex space-x-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500/80"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500/80"></span>
+                  </div>
+                  <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mx-auto truncate pr-6">{hero.slides.b3.swTitle}</span>
+                </div>
+                <div class="relative w-full h-full overflow-hidden bg-slate-950">
+                  <img src="/assets/img/software/dsvision/PA_3.PNG" alt="DSVision UI" class="w-full h-full object-cover opacity-90" />
+                  <div class="absolute top-2 right-2 flex items-center space-x-1 bg-slate-950/80 px-1.5 py-0.5 rounded-full border border-slate-800/80">
+                    <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-ping"></span>
+                    <span class="text-[10px] font-mono text-yellow-400 font-bold uppercase tracking-wide">{hero.slides.b3.swState}</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Foreground Product Card -->
+              <div class="absolute bottom-2 left-2 right-2 h-[128px] z-20 bg-slate-900/90 border border-slate-750/70 rounded-xl p-3 shadow-2xl transition-all duration-500 transform rotate-2 group-hover/carousel:rotate-[0deg] group-hover/carousel:translate-y-[2px] group-hover/carousel:scale-[1.01] flex items-center justify-between">
+                <div class="w-[53%] flex flex-col justify-between h-full">
+                  <div class="flex flex-col space-y-1">
+                    <div class="flex items-center space-x-1.5">
+                      <span class="text-[11px] font-bold text-yellow-500 bg-yellow-500/10 px-1.5 py-0.5 rounded border border-yellow-500/20 uppercase tracking-wide inline-block mb-2">{hero.slides.b3.badge}</span>
+                      <span class="text-[10px] font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded-full inline-block mb-2">{hero.slides.b3.lcd}</span>
+                    </div>
+                    <h3 class="text-sm font-extrabold text-white tracking-tight">{hero.slides.b3.title}</h3>
+                    <p class="text-xs text-slate-400 leading-snug line-clamp-2">{hero.slides.b3.desc}</p>
+                  </div>
+                  <div class="flex flex-wrap gap-1 mt-1.5">
+                    {hero.slides.b3.specs.map((spec: string) => (
+                      <span class="text-[10px] bg-slate-850 border border-slate-800 text-slate-300 px-1.5 py-0.5 rounded font-semibold inline-block mb-2">{spec}</span>
+                    ))}
+                  </div>
+                </div>
+                <div class="w-[47%] relative h-full flex items-center justify-center">
+                  <div class="absolute -top-24 -right-2 w-52 h-52 flex items-center justify-center z-30 pointer-events-none">
+                    <img src="/assets/img/hardware/portable/KakaoTalk_20251219_093343153_1.png" alt="DSPAUT B3" class="w-full h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.7)] transition-all duration-500 group-hover/carousel:scale-110 group-hover/carousel:-translate-y-2" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: DSPAUT T3 (Hidden by default) -->
+            <div class="carousel-slide absolute inset-0 flex flex-col justify-between transition-all duration-700 ease-in-out opacity-0 scale-95 pointer-events-none z-0" data-index="2">
+              <!-- Background Software Window -->
+              <div class="absolute top-1 left-2 w-[84%] aspect-[1.63] z-10 bg-slate-950/90 border border-slate-800 rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 transform -rotate-3 group-hover/carousel:rotate-[-1deg] group-hover/carousel:translate-y-[-4px] flex flex-col">
+                <div class="bg-slate-900 px-3 py-1.5 flex items-center space-x-2 border-b border-slate-800">
+                  <div class="flex space-x-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500/80"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500/80"></span>
+                  </div>
+                  <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mx-auto truncate pr-6">{hero.slides.t3.swTitle}</span>
+                </div>
+                <div class="relative w-full h-full overflow-hidden bg-slate-950">
+                  <img src="/assets/img/software/dsvision/t3_tofd.png" alt="DSVision TOFD UI" class="w-full h-full object-cover opacity-90" />
+                  <div class="absolute top-2 right-2 flex items-center space-x-1 bg-slate-950/80 px-1.5 py-0.5 rounded-full border border-slate-800/80">
+                    <span class="w-1.5 h-1.5 bg-blue-400 rounded-full animate-ping"></span>
+                    <span class="text-[10px] font-mono text-blue-400 font-bold uppercase tracking-wide">{hero.slides.t3.swState}</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Foreground Product Card -->
+              <div class="absolute bottom-2 left-2 right-2 h-[128px] z-20 bg-slate-900/90 border border-slate-750/70 rounded-xl p-3 shadow-2xl transition-all duration-500 transform rotate-2 group-hover/carousel:rotate-[0deg] group-hover/carousel:translate-y-[2px] group-hover/carousel:scale-[1.01] flex items-center justify-between">
+                <div class="w-[53%] flex flex-col justify-between h-full">
+                  <div class="flex flex-col space-y-1">
+                    <div class="flex items-center space-x-1.5">
+                      <span class="text-[11px] font-bold text-blue-400 bg-blue-400/10 px-1.5 py-0.5 rounded border border-blue-400/20 uppercase tracking-wide inline-block mb-2">{hero.slides.t3.badge}</span>
+                      <span class="text-[10px] font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded-full inline-block mb-2">{hero.slides.t3.lcd}</span>
+                    </div>
+                    <h3 class="text-sm font-extrabold text-white tracking-tight">{hero.slides.t3.title}</h3>
+                    <p class="text-xs text-slate-400 leading-snug line-clamp-2">{hero.slides.t3.desc}</p>
+                  </div>
+                  <div class="flex flex-wrap gap-1 mt-1.5">
+                    {hero.slides.t3.specs.map((spec: string) => (
+                      <span class="text-[10px] bg-slate-850 border border-slate-800 text-slate-300 px-1.5 py-0.5 rounded font-semibold inline-block mb-2">{spec}</span>
+                    ))}
+                  </div>
+                </div>
+                <div class="w-[47%] relative h-full flex items-center justify-center">
+                  <div class="absolute -top-20 -right-2 w-48 h-48 flex items-center justify-center z-30 pointer-events-none">
+                    <img src="/assets/img/hardware/portable/T3_Fornt_2_1.png" alt="DSPAUT T3" class="w-full h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.7)] transition-all duration-500 group-hover/carousel:scale-110 group-hover/carousel:-translate-y-2" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: DSVision Software (Hidden by default) -->
+            <div class="carousel-slide absolute inset-0 flex flex-col justify-between transition-all duration-700 ease-in-out opacity-0 scale-95 pointer-events-none z-0" data-index="3">
+              <!-- Background Software Window -->
+              <div class="absolute top-1 left-2 w-[84%] aspect-[1.63] z-10 bg-slate-950/90 border border-slate-800 rounded-xl shadow-2xl overflow-hidden backdrop-blur-sm transition-all duration-500 transform -rotate-3 group-hover/carousel:rotate-[-1deg] group-hover/carousel:translate-y-[-4px] flex flex-col">
+                <div class="bg-slate-900 px-3 py-1.5 flex items-center space-x-2 border-b border-slate-800">
+                  <div class="flex space-x-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-red-500/80"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500/80"></span>
+                  </div>
+                  <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider mx-auto truncate pr-6">{hero.slides.suite.swTitle}</span>
+                </div>
+                <div class="relative w-full h-full overflow-hidden bg-slate-950">
+                  <img src="/assets/img/software/dsvision/p5_ui_multi.png" alt="DSVision Suite UI" class="w-full h-full object-cover opacity-90" />
+                  <div class="absolute top-2 right-2 flex items-center space-x-1 bg-slate-950/80 px-1.5 py-0.5 rounded-full border border-slate-800/80">
+                    <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-ping"></span>
+                    <span class="text-[10px] font-mono text-green-400 font-bold uppercase tracking-wide">{hero.slides.suite.swState}</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Foreground Product Card -->
+              <div class="absolute bottom-2 left-2 right-2 h-[128px] z-20 bg-slate-900/90 border border-slate-750/70 rounded-xl p-3 shadow-2xl transition-all duration-500 transform rotate-2 group-hover/carousel:rotate-[0deg] group-hover/carousel:translate-y-[2px] group-hover/carousel:scale-[1.01] flex items-center justify-between">
+                <div class="w-[53%] flex flex-col justify-between h-full">
+                  <div class="flex flex-col space-y-1">
+                    <div class="flex items-center space-x-1.5">
+                      <span class="text-[11px] font-bold text-green-400 bg-green-400/10 px-1.5 py-0.5 rounded border border-green-400/20 uppercase tracking-wide inline-block mb-2">{hero.slides.suite.badge}</span>
+                      <span class="text-[10px] font-mono text-slate-400 bg-slate-800 px-1.5 py-0.5 rounded-full inline-block mb-2">{hero.slides.suite.lcd}</span>
+                    </div>
+                    <h3 class="text-sm font-extrabold text-white tracking-tight">{hero.slides.suite.title}</h3>
+                    <p class="text-xs text-slate-400 leading-snug line-clamp-2">{hero.slides.suite.desc}</p>
+                  </div>
+                  <div class="flex flex-wrap gap-1 mt-1.5">
+                    {hero.slides.suite.specs.map((spec: string) => (
+                      <span class="text-[10px] bg-slate-850 border border-slate-800 text-slate-300 px-1.5 py-0.5 rounded font-semibold font-bold inline-block mb-2">{spec}</span>
+                    ))}
+                  </div>
+                </div>
+                <div class="w-[47%] relative h-full flex items-center justify-center">
+                  <div class="absolute -top-24 -right-2 w-52 h-52 flex items-center justify-center z-30 pointer-events-none">
+                    <img src="/assets/img/hardware/portable/p5_interactive.png" alt="DSVision Suite" class="w-full h-full object-contain filter drop-shadow-[0_12px_12px_rgba(0,0,0,0.7)] transition-all duration-500 group-hover/carousel:scale-110 group-hover/carousel:-translate-y-2" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Indicator Dots -->
+          <div class="relative flex justify-center space-x-2 z-20 pb-2">
+            <button class="carousel-dot w-2 h-2 rounded-full bg-primary-cyan transition-all duration-300" data-index="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-slate-700 transition-all duration-300 hover:bg-slate-500" data-index="1" aria-label="Go to slide 2"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-slate-700 transition-all duration-300 hover:bg-slate-500" data-index="2" aria-label="Go to slide 3"></button>
+            <button class="carousel-dot w-2 h-2 rounded-full bg-slate-700 transition-all duration-300 hover:bg-slate-500" data-index="3" aria-label="Go to slide 4"></button>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<script>
+  // =========================================================================
+  // Encapsulated Interactive Hero Carousel Slider
+  // =========================================================================
+  function initHeroCarousels() {
+    const carousels = document.querySelectorAll('[data-hero-carousel]');
+    carousels.forEach(carousel => {
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const dots = carousel.querySelectorAll('.carousel-dot');
+      const container = carousel.querySelector('.carousel-container');
+      
+      if (slides.length === 0 || dots.length === 0) return;
+
+      let currentIndex = 0;
+      let slideInterval: number | any;
+      const intervalTime = 4000; // 4 seconds auto-roll
+
+      function showSlide(index: number) {
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.classList.remove('opacity-0', 'scale-95', 'pointer-events-none', 'z-0');
+            slide.classList.add('opacity-100', 'scale-100', 'pointer-events-auto', 'z-10');
+          } else {
+            slide.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto', 'z-10');
+            slide.classList.add('opacity-0', 'scale-95', 'pointer-events-none', 'z-0');
+          }
+        });
+
+        dots.forEach((dot, i) => {
+          if (i === index) {
+            dot.classList.remove('bg-slate-700', 'hover:bg-slate-500');
+            dot.classList.add('bg-primary-cyan');
+          } else {
+            dot.classList.remove('bg-primary-cyan');
+            dot.classList.add('bg-slate-700', 'hover:bg-slate-500');
+          }
+        });
+
+        currentIndex = index;
+      }
+
+      function nextSlide() {
+        let next = (currentIndex + 1) % slides.length;
+        showSlide(next);
+      }
+
+      function startSlideShow() {
+        stopSlideShow();
+        slideInterval = setInterval(nextSlide, intervalTime);
+      }
+
+      function stopSlideShow() {
+        if (slideInterval) {
+          clearInterval(slideInterval);
+        }
+      }
+
+      // Initialize Slider State
+      showSlide(currentIndex);
+      startSlideShow();
+
+      // Indicator Click Handling
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          const index = parseInt(dot.getAttribute('data-index') || '0', 10);
+          showSlide(index);
+          startSlideShow(); // Reset timer on click
+        });
+      });
+
+      // Pause on Hover
+      if (container) {
+        container.addEventListener('mouseenter', stopSlideShow);
+        container.addEventListener('mouseleave', startSlideShow);
+
+        // Swipe Event Handling (Mobile friendliness)
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        container.addEventListener('touchstart', (e: any) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        container.addEventListener('touchend', (e: any) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+          const threshold = 50; // minimum swipe distance in px
+          if (touchStartX - touchEndX > threshold) {
+            let next = (currentIndex + 1) % slides.length;
+            showSlide(next);
+            startSlideShow();
+          } else if (touchEndX - touchStartX > threshold) {
+            let prev = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(prev);
+            startSlideShow();
+          }
+        }
+      }
+    });
+  }
+
+  // Load handler
+  document.addEventListener('DOMContentLoaded', initHeroCarousels);
+</script>

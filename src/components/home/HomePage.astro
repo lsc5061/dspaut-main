@@ -1,0 +1,28 @@
+---
+// src/components/home/HomePage.astro
+import Hero from './Hero.astro';
+import QuickBar from './QuickBar.astro';
+import HardwareLineup from './HardwareLineup.astro';
+import SoftwareShowcase from './SoftwareShowcase.astro';
+import SupportHub from './SupportHub.astro';
+import ContactSales from './ContactSales.astro';
+import GlobalSmallGiantPopup from './GlobalSmallGiantPopup.astro';
+
+interface Props {
+  lang: string;
+  data: any;
+}
+
+const { lang, data } = Astro.props;
+---
+<div class="homepage-container">
+  <Hero data={data} />
+  <QuickBar lang={lang} data={data} />
+  <HardwareLineup data={data} />
+  <SoftwareShowcase lang={lang} data={data} />
+  <SupportHub lang={lang} data={data} />
+  <ContactSales data={data} />
+  
+  <GlobalSmallGiantPopup lang={lang} />
+  <slot />
+</div>

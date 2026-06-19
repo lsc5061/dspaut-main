@@ -1,0 +1,294 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
+---
+
+<Layout 
+	title="DSPAUT ZTO | 타사 탐촉자 호환용 프로브 컨버터" 
+	description="타사 표준 Phased Array 탐촉자를 DSPAUT 장비에 원활하게 결합하십시오. 수입 제품 대비 30~40% 저렴한 단가와 알루미늄 외장 내구성 제공."
+	lang="ko"
+>
+	<!-- Product Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-20 sm:py-28 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Hero Left Content -->
+				<div class="lg:col-span-7 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-880 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>비파괴 하드웨어 호환성 솔루션</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+						DSPAUT ZTO<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">휴대용 프로브 컨버터</span>
+					</h1>
+					<p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+						기존에 보유하고 계신 탐촉자 자산을 보호하고, 장비가 바뀔 때마다 초음파 센서를 새로 구매해야 했던 불편을 완벽하게 해결하십시오. (주)성산연구소가 자체 개발한 DSPAUT ZTO는 타사 표준 규격의 IPEX 160핀 탐촉자를 DSPAUT 전용 260핀 ZIF 계측기 포트와 원활하게 연결해 주는 프리미엄 컴팩트 어댑터입니다.
+					</p>
+					
+					<div class="flex flex-wrap gap-3 pt-4">
+						<a href="#contact-quote" class="px-6 py-3.5 text-sm font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+							도입 및 사양 문의
+						</a>
+						<a href="#specifications" class="px-6 py-3.5 text-sm font-bold text-slate-300 border border-slate-700 hover:border-slate-550 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
+							기술 사양 확인
+						</a>
+					</div>
+				</div>
+				
+				<!-- Hero Right Image -->
+				<div class="lg:col-span-5 relative flex justify-center items-center">
+					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
+					<div class="relative bg-slate-950/40 border border-slate-880/85 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden group">
+						<img 
+							src="/assets/img/hardware/accessories/zto_main.png" 
+							alt="DSPAUT ZTO Probe Converter Adapter 제품 이미지" 
+							class="w-full max-w-md h-64 object-contain rounded-lg transform transition-transform duration-500 group-hover:scale-[1.05]"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Spec Highlights -->
+	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-300">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">240 g</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">가볍고 컴팩트한 설계</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">IPEX 160p</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">입력 포트 (Female)</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">TC-ZIF 260p</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">출력 포트 (Male)</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">알루미늄 AL</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">충격에 강한 하우징</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Product Features -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+			
+			<!-- Feature 1: Seamless Adapter Integration -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-6 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1 rounded inline-block mb-2">높은 경제성 및 유연성</span>
+					<h2 class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight font-display">
+						검증된 센서는 그대로 사용하고,<br/>계측 장비만 빠르게 업그레이드
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-lg">
+						맞춤형 Phased Array 탐촉자는 교체 비용이 매우 큽니다. DSPAUT ZTO는 컴팩트하고 유연한 케이블 일체형 아키텍처로 제작되어 공간이 협소하고 환경이 열악한 현장에서도 매우 뛰어난 사용 편의성을 제공합니다.
+					</p>
+					<ul class="space-y-3 text-base text-slate-600 font-medium">
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>획기적인 예산 절감:</strong> 비싼 해외 수입 제품이나 신규 탐촉자 구매 대비 약 30%~40% 저렴한 단가로 동일한 신호 감도 획득이 가능합니다.</span>
+						</li>
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>안전한 내구성:</strong> 아노다이징 코팅 처리된 금속 쉴드 바디로 제작되어, 현장의 외부 충격으로부터 내부 회로를 견고하게 보호합니다.</span>
+						</li>
+						<li class="flex items-start space-x-2">
+							<span class="text-primary-cyan mt-1">✔</span>
+							<span><strong>폭넓은 활용성:</strong> 기존에 보유한 다양한 사양의 타사 프로브 테스트 및 장치 다변화에 최적의 대안입니다.</span>
+						</li>
+					</ul>
+				</div>
+				<div class="lg:col-span-6 space-y-6">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-center space-y-4">
+						<h3 class="text-xl font-bold text-slate-900">(주)성산연구소 원천 기술</h3>
+						<p class="text-slate-600 text-base leading-relaxed">
+							(주)성산연구소는 2011년부터 축적해 온 독자적인 PAUT 초음파 진단 설계 기술을 보유하고 있습니다. DSPAUT ZTO는 정밀한 임피던스(50 Ω) 정렬과 내부 정밀 동축 회로 차폐 기술을 통해 신호 반사 및 간섭을 최저 수준으로 관리합니다.
+						</p>
+						<div class="border-t border-slate-200 pt-4 grid grid-cols-2 gap-4 text-sm font-sans text-slate-600">
+							<div>
+								<span class="block font-bold text-slate-700">제조사 및 제조국</span>
+								<span>(주)성산연구소 · 대한민국</span>
+							</div>
+							<div>
+								<span class="block font-bold text-slate-700">신호 차폐 등급</span>
+								<span>동축 이중 차폐(Double Shielded) 회로</span>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Connector Pin Detail Grid -->
+					<div class="grid grid-cols-2 gap-4">
+						<div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center shadow-sm">
+							<img src="/assets/img/hardware/accessories/zto_connector_plug.png" alt="래치 락 커넥터 플러그 레이아웃" class="h-24 object-contain rounded-lg" />
+							<span class="text-sm font-semibold text-slate-600 mt-2 font-sans">래치 락 인터페이스 (260P)</span>
+						</div>
+						<div class="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col items-center shadow-sm">
+							<img src="/assets/img/hardware/accessories/zto_perspective.png" alt="ZTO 어댑터 케이싱 레이아웃" class="h-24 object-contain rounded-lg" />
+							<span class="text-sm font-semibold text-slate-600 mt-2 font-sans">어댑터 모듈 (ZTO-260P)</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Technical Specifications Table -->
+	<section id="specifications" class="py-20 bg-slate-50 border-t border-b border-slate-200 scroll-mt-24">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl sm:text-4xl font-bold text-slate-900 text-center tracking-tight font-display mb-12">
+				Technical Specifications (기술 사양)
+			</h2>
+
+			<div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm bg-white">
+				<table class="w-full text-base sm:text-lg text-left text-slate-600">
+					<thead class="text-sm sm:text-base uppercase bg-slate-900 text-primary-cyan font-sans">
+						<tr>
+							<th class="px-6 py-4.5">사양 범주</th>
+							<th class="px-6 py-4.5">DSPAUT ZTO 스펙</th>
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-slate-150">
+						<tr class="bg-slate-50/80 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-4 font-sans text-sm sm:text-base uppercase text-slate-500 tracking-wider">신호 및 전기적 성능</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">신호 감쇄율 (Attenuation)</td>
+							<td class="px-6 py-4">&lt; 0.2 dB (5 MHz 기준, 0.5-15 MHz 대역 호환)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">임피던스 (Impedance)</td>
+							<td class="px-6 py-4">50 Ω 표준 매칭</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">최대 매핑 소자 수</td>
+							<td class="px-6 py-4">128 소자 대응 (16:64, 32:128 등 완벽 호환)</td>
+						</tr>
+						
+						<tr class="bg-slate-50/80 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-4 font-sans text-sm sm:text-base uppercase text-slate-500 tracking-wider">기계 사양 및 커넥터</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">입력 포트 (탐촉자 연결부)</td>
+							<td class="px-6 py-4">IPEX minidock 160핀 (Omniscan 등 타사 표준 규격, Female)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">출력 포트 (계측기 연결부)</td>
+							<td class="px-6 py-4">TC-ZIF 260핀 (DSPAUT 오리지널 매핑, Male)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">하우징 소재</td>
+							<td class="px-6 py-4">정밀 CNC 가공 아노다이징 알루미늄 (AL)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">제품 크기 (Dimensions)</td>
+							<td class="px-6 py-4">84.6 mm (가로) × 67.3 mm (세로) × 25.4 mm (두께)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-4 font-medium text-slate-900">중량 (Weight)</td>
+							<td class="px-6 py-4">240g (휴대형 소형 규격)</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- Connection Diagram & Perspective Section -->
+	<section class="py-20 bg-white border-t border-b border-slate-200">
+		<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+				<span class="text-sm font-bold font-sans bg-slate-900 text-primary-cyan px-2.5 py-1.5 rounded inline-block mb-2">CONNECTION FLOW</span>
+				<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-display">
+					DSPAUT ZTO 연결 흐름 및 외관 사시도
+				</h2>
+				<p class="text-slate-600 text-lg">
+					탐촉자 및 센서의 입출력 신호를 매핑해주는 어댑터의 다이어그램 구성 및 프리미엄 외관 설계입니다.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+				<div class="md:col-span-7 bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+					<span class="block text-sm font-bold text-slate-855 font-sans mb-4 text-center">P5 계측 장비 결합 예시</span>
+					<img 
+						src="/assets/img/hardware/accessories/zto_diagram.png" 
+						alt="P5 본체 장착 샷" 
+						class="w-full h-auto object-contain rounded-xl"
+					/>
+				</div>
+				<div class="md:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between h-full">
+					<div>
+						<span class="block text-sm font-bold text-slate-855 font-sans mb-4 text-center">Product Perspective View</span>
+						<img 
+							src="/assets/img/hardware/accessories/zto_perspective.png" 
+							alt="ZTO 어댑터 사시도 이미지" 
+							class="w-full h-auto object-contain rounded-xl transform transition-transform duration-300 hover:scale-[1.03]"
+						/>
+					</div>
+					<p class="text-sm text-slate-500 mt-4 leading-relaxed text-center">
+						* 해당 3D 시각 자료는 실제 제품의 내부 동축 쉴드 구조와 와이어 커플링 유닛 배치를 모사한 기술 렌더링입니다.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact CTA Form Section -->
+	<section id="contact-quote" class="py-20 bg-slate-900 text-white relative">
+		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10 text-center">
+			<h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+				DSPAUT ZTO 도입 문의
+			</h2>
+			<p class="text-slate-400 text-lg max-w-xl mx-auto">
+				보유 중인 타사 탐촉자의 제조사 및 모델명, 그리고 연결하려는 DSPAUT 장비 모델명을 입력해 주시면 기술 지원팀에서 견적 및 맞춤 매핑 가능 여부를 검토하여 회신 드리겠습니다.
+			</p>
+			
+			<div class="bg-slate-950 border border-slate-850 rounded-2xl p-8 text-left max-w-xl mx-auto shadow-2xl">
+				<form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+					<input type="hidden" name="access_key" value={web3FormsKey} />
+					<input type="hidden" name="subject" value="DSPAUT ZTO Probe Converter Adapter KOR Inquiry" />
+					<input type="hidden" name="from_name" value="DSPAUT Main Website" />
+					<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+					<div class="grid grid-cols-2 gap-4">
+						<div class="space-y-1.5">
+							<label for="name" class="block text-sm uppercase font-bold text-slate-400 font-sans">이름 *</label>
+							<input type="text" name="name" id="name" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan" />
+						</div>
+						<div class="space-y-1.5">
+							<label for="company" class="block text-sm uppercase font-bold text-slate-400 font-sans">회사명 *</label>
+							<input type="text" name="company" id="company" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan" />
+						</div>
+					</div>
+					
+					<div class="space-y-1.5">
+						<label for="email" class="block text-sm uppercase font-bold text-slate-400 font-sans">회사 이메일 주소 *</label>
+						<input type="email" name="email" id="email" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan" />
+					</div>
+
+					<div class="space-y-1.5">
+						<label for="message" class="block text-sm uppercase font-bold text-slate-400 font-sans">문의 내용 (보유 중인 탐촉자 모델명 등) *</label>
+						<textarea name="message" id="message" rows="4" placeholder="예: Olympus 5L64-A12 탐촉자를 보유 중이며, DSPAUT B3 모델에 연결해 검사하고자 합니다..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2.5 text-lg text-white focus:outline-none focus:border-primary-cyan"></textarea>
+					</div>
+
+					<button type="submit" class="w-full bg-primary-cyan text-slate-950 font-bold py-3.5 rounded hover:bg-cyan-400 text-base transition-colors tracking-wide uppercase shadow-md shadow-primary-cyan/20">
+						문의하기
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
+</Layout>

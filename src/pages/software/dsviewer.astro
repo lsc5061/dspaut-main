@@ -1,0 +1,329 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+---
+
+<Layout 
+	title="DSViewer | Offline Phased Array Ultrasonic Testing (PAUT) Data Analysis Software" 
+	description="Introducing SEONGSANLAB's offline data analysis software, DSViewer. High-resolution A/B/C/D/S-scan viewing, precise flaw sizing, and offline calibration."
+	lang="en"
+>
+	<!-- Software Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-20 sm:py-28 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Hero Left Content -->
+				<div class="lg:col-span-7 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>PC-dedicated Offline Data Analysis SW</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+						DSViewer<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">Offline Data Analysis</span>
+					</h1>
+					<p class="text-lg text-slate-200 leading-relaxed max-w-2xl">
+						DSViewer is a dedicated PC software package developed to analyze and evaluate raw ultrasonic inspection data (.dat, .raw) offline. Offering a highly optimized user interface with flexible multi-view layouts, precise crosshair sizing, and customized corrosion color mapping, it enables engineers to easily identify, size, and document flaws.
+					</p>
+					
+					<div class="flex flex-wrap gap-3 pt-4">
+						<a href={portalUrl} target="_blank" class="px-6 py-3.5 text-sm font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+							Download DSViewer (Hub)
+						</a>
+						<a href="#contact-quote" class="px-6 py-3.5 text-sm font-bold text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
+							Technical Support & Inquiry
+						</a>
+					</div>
+				</div>
+				
+				<!-- Hero Right Image (Interactive Software Console) -->
+				<div class="lg:col-span-5 relative flex flex-col items-center justify-center space-y-4">
+					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
+					<!-- UI Mockup Visual -->
+					<div class="relative bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-2xl overflow-hidden group w-full max-w-lg aspect-[4/3] flex items-center justify-center">
+						<img 
+							id="hero-console-img"
+							src="/assets/img/software/dsviewer/Corrosion_1.png" 
+							alt="DSViewer Analysis Interface" 
+							class="w-full h-full object-contain rounded-lg transition-opacity duration-300"
+						/>
+					</div>
+					<!-- Console Tabs selector -->
+					<div class="grid grid-cols-2 gap-2 pt-3 relative z-10 w-full max-w-lg">
+						<button 
+							class="console-tab-btn px-3.5 py-2.5 text-sm font-semibold rounded-lg border bg-slate-900 text-primary-cyan border-primary-cyan/30 cursor-pointer transition-all text-center w-full" 
+							data-img="/assets/img/software/dsviewer/Corrosion_1.png"
+						>
+							Corrosion C-Scan
+						</button>
+						<button 
+							class="console-tab-btn px-3.5 py-2.5 text-sm font-semibold rounded-lg border text-slate-400 border-slate-800 hover:text-white cursor-pointer transition-all text-center w-full" 
+							data-img="/assets/img/software/dsviewer/Weld_Sepcimen.png"
+						>
+							Weld Inspection
+						</button>
+						<button 
+							class="console-tab-btn px-3.5 py-2.5 text-sm font-semibold rounded-lg border text-slate-400 border-slate-800 hover:text-white cursor-pointer transition-all text-center w-full" 
+							data-img="/assets/img/software/dsviewer/DSViewer_Channel_Group.png"
+						>
+							Multi-Channel
+						</button>
+						<button 
+							class="console-tab-btn px-3.5 py-2.5 text-sm font-semibold rounded-lg border text-slate-400 border-slate-800 hover:text-white cursor-pointer transition-all text-center w-full" 
+							data-img="/assets/img/software/dsviewer/Measurement .png"
+						>
+							Sizing Measurement
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Spec Highlights -->
+	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-300">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">Raw Data</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">Drag & Drop File Load</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">Data Bar</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">Scan Position Data Sync</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">Precision Sizing</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">Measure Flaw Size & Depth</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">Multi-Scan View</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">A/B/C/D/S-Scan Display</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Software Features -->
+	<section class="py-20 bg-slate-50 border-b border-slate-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
+			
+			<!-- Feature 1: 2D C-Scan Viewing & Corrosion Mapping -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-6 relative order-last lg:order-first">
+					<div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-xl">
+						<img 
+							src="/assets/img/software/dsviewer/Corrosion_1.png" 
+							alt="Offline high-resolution C-scan and corrosion mapping" 
+							class="w-full h-auto object-contain rounded-lg"
+						/>
+					</div>
+				</div>
+				<div class="lg:col-span-6 space-y-6 sm:space-y-7.5">
+					<div>
+						<span class="text-sm sm:text-base font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">DATA VISUALIZATION</span>
+					</div>
+					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-slate-900 tracking-tight font-display">
+						Offline 2D C-Scan & Corrosion Mapping
+					</h2>
+					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+						Load raw inspection data files (.dat, .raw) copied from portable hardware via USB. Generates high-contrast 2D color maps (such as "DSPAUT" specimen scans) to visually inspect corrosion topography, composite delamination, or internal material voids.
+					</p>
+					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+						Supports dedicated corrosion mapping mode. Operators can toggle color map rendering based on Amplitude (A%) or Position (A/, B/, A/-B/, Position), and dynamically adjust visual scale limits (Min/Max, Linear/Reverse) to easily distinguish micro-thickness variations.
+					</p>
+					<ul class="space-y-4 text-base sm:text-[17px] text-slate-900 font-medium pt-2">
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Ultra-fast rendering of large raw ultrasonic data files</span>
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Corrosion-specific color map palettes and real-time range control</span>
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Automatic extraction of original acquisition hardware parameters</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Feature 2: Multi-View Layout & 5-Axis Rulers -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-6 space-y-6 sm:space-y-7.5">
+					<div>
+						<span class="text-sm sm:text-base font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">SCAN LAYOUTS</span>
+					</div>
+					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-slate-900 tracking-tight font-display">
+						Multi-View Layouts & 5-Axis Rulers
+					</h2>
+					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+						Provides a comprehensive multi-window scan dashboard. View A-scan, B-scan, C-scan, D-scan, and S-scan (Sectorial) simultaneously. Windows are fully customizable, allowing operators to arrange layouts (e.g. A-B-C or side-by-side) to match their workflow.
+					</p>
+					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+						To help identify defect coordinates instantly, the software features dedicated, color-coded rulers: Scan Axis (Blue), Index Axis (Green), Amplitude (Yellow), Sound Path (Pink), and True Depth (Purple).
+					</p>
+					<ul class="space-y-4 text-base sm:text-[17px] text-slate-900 font-medium pt-2">
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Simultaneous multi-scan views (A, B, C, D, S-scan) mapped in real-time</span>
+							
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>5-axis color-coded rulers for error-free coordinate verification</span>
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Multi-channel support to analyze multiple active probes side-by-side</span>
+						</li>
+					</ul>
+				</div>
+				<div class="lg:col-span-6 relative">
+					<div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-xl">
+						<img 
+							src="/assets/img/software/dsviewer/DSViewer_Channel_Group.png" 
+							alt="Multi-view channel group S-scan interface" 
+							class="w-full h-auto object-contain rounded-lg"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature 3: Precision Flaw Sizing & 3-Gate Analysis -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-6 relative order-last lg:order-first">
+					<div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-xl">
+						<img 
+							src="/assets/img/software/dsviewer/Measurement .png" 
+							alt="Precision sizing measurement interface" 
+							class="w-full h-auto object-contain rounded-lg"
+						/>
+					</div>
+				</div>
+				<div class="lg:col-span-6 space-y-6 sm:space-y-7.5">
+					<div>
+						<span class="text-sm sm:text-base font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">MEASUREMENT & TOLERANCE</span>
+					</div>
+					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-slate-900 tracking-tight font-display">
+						Precision Flaw Sizing & 3-Gate Analysis
+					</h2>
+					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+						Evaluate flaws quantitatively with independent Reference and Measurement cursors on the horizontal and vertical axes. Cursors allow operators to outline defect boundaries and calculate exact length and height.
+					</p>
+					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+						Features Gate A, B, and I (Interface gate) to monitor A-scan and S-scan wave peaks. The built-in Measure Tool displays critical sizing metrics: Amplitude (A%, B%, I%), Sound Path (SA, SB, SI), Reflector Depth (DA, DB, DI), Distance from zero (PA, PB, PI), and Delta (Δ) difference values between Gate A and B.
+					</p>
+					<ul class="space-y-4 text-base sm:text-[17px] text-slate-900 font-medium pt-2">
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Interactive Reference & Measurement cursor lines for spatial dimensioning</span>
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Independent 3-gate (A, B, I) configuration and threshold triggers</span>
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Comprehensive Measure Tool displaying %, SA/SB/SI, DA/DB/DI, and Delta</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Feature 4: Dynamic Zoom & Offline Calibration -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-6 space-y-6 sm:space-y-7.5">
+					<div>
+						<span class="text-sm sm:text-base font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">CALIBRATION & DATA EXPORT</span>
+					</div>
+					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-slate-900 tracking-tight font-display">
+						Dynamic Zoom & Offline Calibration
+					</h2>
+					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+						Activate Zoom mode to inspect micro-defects closely. Simply drag and drop to magnify region-of-interest areas, or scroll with the mouse wheel to zoom dynamically.
+					</p>
+					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+						Supports post-inspection calibration without changing raw files. Adjust Wedge Delay, material Velocity, or TOFD alignment values dynamically to correct rulers instantly. Analysis screens can be captured and saved as individual PNG files for quick reporting and documentation.
+					</p>
+					<ul class="space-y-4 text-base sm:text-[17px] text-slate-900 font-medium pt-2">
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Mouse wheel zoom & drag-to-magnify window control</span>
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Offline Wedge Delay, material Velocity, and TOFD synchronization calibration</span>
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Direct export of active scan views to individual PNG image files</span>
+						</li>
+					</ul>
+				</div>
+				<div class="lg:col-span-6 relative">
+					<div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-xl">
+						<img 
+							src="/assets/img/software/dsviewer/Zoom.png" 
+							alt="Offline zoom and calibration interface" 
+							class="w-full h-auto object-contain rounded-lg"
+						/>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Contact Quote Section (For inquiry) -->
+	<section id="contact-quote" class="bg-slate-900 py-16 sm:py-24 text-white border-t border-slate-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+			<span class="text-sm font-bold font-sans text-primary-cyan tracking-wider uppercase">INQUIRY</span>
+			<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight font-display">
+				DSViewer Support & Partnership
+			</h2>
+			<p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+				If you have technical questions about using DSViewer, need custom feature development, or wish to explore B2B collaborations, please feel free to reach out. A SEONGSANLAB representative will respond within 24 hours.
+			</p>
+			
+			<div class="pt-4">
+				<a href="#contact" class="inline-block px-8 py-4 text-base font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/25 transition-all duration-200 hover:-translate-y-0.5">
+					Go to Contact & Support Form
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		// Client-side Tab Switcher for Hero Simulator
+		const consoleBtns = document.querySelectorAll('.console-tab-btn');
+		const consoleImg = document.getElementById('hero-console-img') as HTMLImageElement;
+
+		consoleBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				const targetImgPath = btn.getAttribute('data-img');
+				if (consoleImg && targetImgPath) {
+					consoleImg.style.opacity = '0';
+					setTimeout(() => {
+						consoleImg.src = targetImgPath;
+						consoleImg.style.opacity = '1';
+					}, 150);
+				}
+
+				consoleBtns.forEach(b => {
+					b.classList.remove('bg-slate-900', 'text-primary-cyan', 'border-primary-cyan/30');
+					b.classList.add('text-slate-400', 'border-slate-800', 'hover:text-white');
+				});
+				btn.classList.add('bg-slate-900', 'text-primary-cyan', 'border-primary-cyan/30');
+				btn.classList.remove('text-slate-400', 'border-slate-800', 'hover:text-white');
+			});
+		});
+	</script>
+</Layout>

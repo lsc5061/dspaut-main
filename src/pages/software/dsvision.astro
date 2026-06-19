@@ -1,0 +1,536 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+---
+
+<Layout 
+	title="DSVision | Real-Time Phased Array Ultrasonic Testing (PAUT) Data Acquisition & Analysis Software" 
+	description="Introducing SEONGSANLAB's real-time ultrasonic data acquisition and analysis software, DSVision. High-resolution A/B/C/S-scan imaging, guided calibration wizards, weld overlay, and corrosion mapping support."
+	lang="en"
+>
+	<!-- Software Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-20 sm:py-28 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Hero Left Content -->
+				<div class="lg:col-span-7 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>Instrument Native Real-Time Acquisition SW</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+						DSVision<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">Real-Time Ultrasonic Data Acquisition & Analysis</span>
+					</h1>
+					<p class="text-lg text-slate-200 leading-relaxed max-w-2xl">
+						DSVision is a real-time data acquisition and analysis software designed specifically for Phased Array Ultrasonic Testing (PAUT) and TOFD inspections. Integrated directly into portable hardware systems (P5, B3, etc.), it delivers an intuitive, operator-focused user interface and high-speed signal processing to visualize sectorial and linear scan beam-forming signals live.
+					</p>
+					
+					<div class="flex flex-wrap gap-3 pt-4">
+						<a href="#contact-quote" class="px-6 py-3.5 text-sm font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+							Software Inquiry
+						</a>
+						<a href={portalUrl} target="_blank" class="px-6 py-3.5 text-sm font-bold text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
+							Technical Support Portal
+						</a>
+					</div>
+				</div>
+				
+				<!-- Hero Right Image (Interactive Software Console) -->
+				<div class="lg:col-span-5 relative flex flex-col items-center justify-center space-y-4">
+					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
+					
+					<!-- Large UI Simulator Frame -->
+					<div class="relative bg-slate-950/60 border border-slate-800/80 rounded-2xl p-3 backdrop-blur-md shadow-2xl w-full max-w-md aspect-[4/3] overflow-hidden flex items-center justify-center group z-10">
+						<img 
+							id="hero-console-img"
+							src="/assets/img/software/dsvision/LA_1.PNG" 
+							alt="DSVision Software Console Simulator" 
+							class="w-full h-full object-contain rounded-lg transition-opacity duration-300"
+						/>
+					</div>
+
+					<!-- Console Mode Toggles -->
+					<div class="grid grid-cols-4 gap-1.5 w-full max-w-md bg-slate-950/40 border border-slate-800/80 p-1 rounded-xl backdrop-blur-sm z-10">
+						<button 
+							class="console-tab-btn py-2.5 text-sm sm:text-base font-semibold tracking-wider rounded-lg border text-primary-cyan bg-slate-900 border-primary-cyan/30 cursor-pointer text-center transition-all" 
+							data-img="/assets/img/software/dsvision/LA_1.PNG"
+						>
+							LINEAR
+						</button>
+						<button 
+							class="console-tab-btn py-2.5 text-sm sm:text-base font-semibold tracking-wider rounded-lg border text-slate-300 border-transparent hover:text-white cursor-pointer text-center transition-all" 
+							data-img="/assets/img/software/dsvision/1.PNG"
+						>
+							SECTORIAL
+						</button>
+						<button 
+							class="console-tab-btn py-2.5 text-sm sm:text-base font-semibold tracking-wider rounded-lg border text-slate-300 border-transparent hover:text-white cursor-pointer text-center transition-all" 
+							data-img="/assets/img/software/dsvision/CH_2.PNG"
+						>
+							MULTI-GP
+						</button>
+						<button 
+							class="console-tab-btn py-2.5 text-sm sm:text-base font-semibold tracking-wider rounded-lg border text-slate-300 border-transparent hover:text-white cursor-pointer text-center transition-all" 
+							data-img="/assets/img/software/dsvision/TFM_1.png"
+						>
+							TFM/FMC
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Spec Highlights -->
+	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-2 md:flex md:items-center md:justify-between gap-6 text-center">
+				<div class="space-y-1.5 md:flex-1">
+					<span class="block text-3xl font-extrabold text-white">A/B/C/S-Scan</span>
+					<span class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-sans">Live Imaging Mapping</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto shrink-0"></div>
+				<div class="space-y-1.5 md:flex-1">
+					<span class="block text-3xl font-extrabold text-white">Max 30 kHz</span>
+					<span class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-sans">Pulse Repetition Frequency (PRF)</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto shrink-0"></div>
+				<div class="space-y-1.5 md:flex-1">
+					<span class="block text-3xl font-extrabold text-white">PAUT & TOFD</span>
+					<span class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-sans">Multi-Group Acquisition</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto shrink-0"></div>
+				<div class="space-y-1.5 md:flex-1">
+					<span class="block text-3xl font-extrabold text-white">Guided Calibration</span>
+					<span class="text-sm font-semibold uppercase tracking-wider text-slate-400 font-sans">Auto Calibration Wizard</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Software Features -->
+	<section class="py-20 bg-slate-50 border-b border-slate-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
+			
+			<!-- Feature 1: Linear & Sectorial Imaging (Interactive Tabs) -->
+			<div class="space-y-8">
+				<div class="text-center max-w-3xl mx-auto space-y-4 mb-8">
+					<span class="text-sm sm:text-base font-semibold tracking-wider font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">SCANNING MODES</span>
+					<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+						Linear & Sectorial Imaging Modes
+					</h2>
+					<p class="text-slate-700 text-base">
+						Switch between high-speed Linear array scans and multi-angle Sectorial sweep scans to adapt to various weld inspection, corrosion mapping, and structural testing geometries.
+					</p>
+					
+					<!-- Interactive Tab Buttons -->
+					<div class="inline-flex p-1.5 bg-slate-200/80 rounded-xl border border-slate-300/50 mt-4">
+						<button 
+							class="tab-btn px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-200 cursor-pointer bg-primary-cyan text-slate-950 shadow-sm" 
+							data-tab="linear"
+						>
+							Linear Scanning
+						</button>
+						<button 
+							class="tab-btn px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-200 cursor-pointer text-slate-700 hover:text-slate-900 hover:bg-slate-300/40" 
+							data-tab="sectorial"
+						>
+							Sectorial Scanning
+						</button>
+					</div>
+				</div>
+
+				<!-- Tab 1 Content: Linear Scanning -->
+				<div id="tab-linear" class="tab-content grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+					<div class="lg:col-span-5 relative">
+						<div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-xl">
+							<img 
+								src="/assets/img/software/dsvision/Corrosion.png" 
+								alt="Linear Scan Multi-View (A/B/C-Scan)" 
+								class="w-full h-auto object-contain rounded-lg"
+							/>
+						</div>
+					</div>
+					<div class="lg:col-span-7 space-y-5">
+						<h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">
+							Volumetric Linear Array Scanning
+						</h3>
+						<p class="text-slate-700 leading-relaxed text-base">
+							Linear Scanning utilizes a group of elements to sweep sequentially along the length of the phased array probe at a fixed angle. This provides uniform coverage and constant beam characteristics across the active aperture.
+						</p>
+						<p class="text-slate-700 leading-relaxed text-base">
+							By configuring a linear scan, technicians can compile real-time **B-scan (Side View)** and **C-scan (Top View)** maps, rendering a comprehensive volumetric reconstruction of the specimen to precisely position subsurface flaws.
+						</p>
+						<ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm sm:text-[15px] text-slate-800 font-medium pt-2">
+							<li class="flex items-center space-x-2.5">
+								<span class="text-primary-cyan text-base font-bold">✔</span>
+								<span>Sequential electronic aperture stepping</span>
+							</li>
+							<li class="flex items-center space-x-2.5">
+								<span class="text-primary-cyan text-base font-bold">✔</span>
+								<span>Real-time B-scan & C-scan volumetric compilation</span>
+							</li>
+							<li class="flex items-center space-x-2.5">
+								<span class="text-primary-cyan text-base font-bold">✔</span>
+								<span>Ideal for corrosion mapping & plate inspections</span>
+							</li>
+							<li class="flex items-center space-x-2.5">
+								<span class="text-primary-cyan text-base font-bold">✔</span>
+								<span>Uniform acoustic sensitivity across the scan path</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Tab 2 Content: Sectorial Scanning -->
+				<div id="tab-sectorial" class="tab-content hidden grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+					<div class="lg:col-span-5 relative">
+						<div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-xl">
+							<img 
+								src="/assets/img/software/dsvision/Muti CH.png" 
+								alt="Sectorial Scan with Wedge Calibration" 
+								class="w-full h-auto object-contain rounded-lg"
+							/>
+						</div>
+					</div>
+					<div class="lg:col-span-7 space-y-5">
+						<h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">
+							Angular Sectorial Sweeps & Weld Overlay
+						</h3>
+						<p class="text-slate-700 leading-relaxed text-base">
+							Sectorial Scanning (S-Scan) sweeps the ultrasonic beam through a range of refracted angles (e.g., 30° to 80°) using precise element time-delay configurations. This allows the acoustic wave to penetrate deep into complex weld geometries from a single probe position.
+						</p>
+						<p class="text-slate-700 leading-relaxed text-base">
+							Coupled with our real-time **Weld Overlay** module, S-scan data is mapped directly on top of joint profiles (V-weld, Double-V). Leg markers (B0, T1, B2) are visualized dynamically, assisting technicians in correlating flaw echoes with their exact physical position inside the weld root or HAZ.
+						</p>
+						<ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm sm:text-[15px] text-slate-800 font-medium pt-2">
+							<li class="flex items-center space-x-2.5">
+								<span class="text-primary-cyan text-base font-bold">✔</span>
+								<span>High angle resolution angular sweeps (30° to 80°)</span>
+							</li>
+							<li class="flex items-center space-x-2.5">
+								<span class="text-primary-cyan text-base font-bold">✔</span>
+								<span>Dynamic Weld Overlay & heat-affected zone (HAZ) lines</span>
+							</li>
+							<li class="flex items-center space-x-2.5">
+								<span class="text-primary-cyan text-base font-bold">✔</span>
+								<span>Weld skip path markers (Leg B0, T1, B2, T3)</span>
+							</li>
+							<li class="flex items-center space-x-2.5">
+								<span class="text-primary-cyan text-base font-bold">✔</span>
+								<span>Rapid angular sizing of weld cracks & lack of fusion</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature 2: Multi-Group & Multi-Channel Progression -->
+			<div class="space-y-12">
+				<div class="text-center max-w-3xl mx-auto space-y-4">
+					<span class="text-sm sm:text-base font-semibold tracking-wider font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">MULTI-BEAM SYSTEM</span>
+					<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+						Multi-Group & Multi-Channel Progression
+					</h2>
+					<p class="text-slate-700 text-lg">
+						Expand your scan capabilities sequentially, from single-probe PAUT checks up to complex multi-probe scanner networks.
+					</p>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+					<!-- Card 1: Single Group (CH_1) -->
+					<div class="bg-[#0C1929] text-white border border-slate-800 rounded-2xl overflow-hidden hover:border-primary-cyan/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+						<div class="p-6 sm:p-7 space-y-5">
+							<div class="relative bg-slate-950 border border-slate-800 rounded-xl p-3 overflow-hidden">
+								<img 
+									src="/assets/img/software/dsvision/CH_1.PNG" 
+									alt="Single group PAUT configuration" 
+									class="w-full h-36 object-contain rounded transform transition-transform duration-500 group-hover:scale-[1.02]"
+								/>
+							</div>
+							<div class="space-y-3">
+								<span class="text-xs font-bold font-sans tracking-widest text-primary-cyan bg-blue-950 border border-blue-900 px-2.5 py-1 rounded uppercase inline-block mb-2">Standard Mode</span>
+								<h3 class="text-xl sm:text-2xl font-extrabold text-white">Single Group PAUT (1-GP)</h3>
+								<p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+									Configure one phased array probe to steer angle sweeps. Provides real-time sectorial (S-scan) or linear scan data for basic weld inspections and flaw diagnostics.
+								</p>
+							</div>
+						</div>
+						<div class="px-6 py-4 bg-slate-900 border-t border-slate-800 flex items-center justify-between text-sm text-slate-200">
+							<span>Basic 1-Probe configuration</span>
+							<span class="text-primary-cyan font-semibold">1-Group ✔</span>
+						</div>
+					</div>
+
+					<!-- Card 2: Multi-Group (PAUT + TOFD) -->
+					<div class="bg-[#0C1929] text-white border border-slate-800 rounded-2xl overflow-hidden hover:border-primary-cyan/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+						<div class="p-6 sm:p-7 space-y-5">
+							<div class="relative bg-slate-950 border border-slate-800 rounded-xl p-3 overflow-hidden">
+								<img 
+									src="/assets/img/software/dsvision/CH_2.PNG" 
+									alt="Dual Channel PAUT + TOFD configuration" 
+									class="w-full h-36 object-contain rounded transform transition-transform duration-500 group-hover:scale-[1.02]"
+								/>
+							</div>
+							<div class="space-y-3">
+								<span class="text-xs font-bold font-sans tracking-widest text-primary-cyan bg-blue-950 border border-blue-900 px-2.5 py-1 rounded uppercase inline-block mb-2">Dual Technique</span>
+								<h3 class="text-xl sm:text-2xl font-extrabold text-white">Simultaneous PAUT & TOFD</h3>
+								<p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+									Combine Phased Array and Conventional TOFD (Time of Flight Diffraction) side-by-side. Allows dual detection of volumetric weld flaws and micro-crack tip diffraction sizing.
+								</p>
+							</div>
+						</div>
+						<div class="px-6 py-4 bg-slate-900 border-t border-slate-800 flex items-center justify-between text-sm text-slate-200">
+							<span>Parallel technique synchronization</span>
+							<span class="text-primary-cyan font-semibold">2-Group ✔</span>
+						</div>
+					</div>
+
+					<!-- Card 3: Multi-Channel Probing -->
+					<div class="bg-[#0C1929] text-white border border-slate-800 rounded-2xl overflow-hidden hover:border-primary-cyan/40 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+						<div class="p-6 sm:p-7 space-y-5">
+							<div class="relative bg-slate-950 border border-slate-800 rounded-xl p-3 overflow-hidden">
+								<img 
+									src="/assets/img/software/dsvision/CH3.png" 
+									alt="Multi-channel scanner mapping setup" 
+									class="w-full h-36 object-contain rounded transform transition-transform duration-500 group-hover:scale-[1.02]"
+								/>
+							</div>
+							<div class="space-y-3">
+								<span class="text-xs font-bold font-sans tracking-widest text-primary-cyan bg-blue-950 border border-blue-900 px-2.5 py-1 rounded uppercase inline-block mb-2">Complex Scan</span>
+								<h3 class="text-xl sm:text-2xl font-extrabold text-white">Multi-Probe Scanner Setup</h3>
+								<p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+									Link multiple active probes (e.g. dual-sided weld setups) simultaneously. The software maps separate channels on the screen and aligns coordinates using encoder feedback.
+								</p>
+							</div>
+						</div>
+						<div class="px-6 py-4 bg-slate-900 border-t border-slate-800 flex items-center justify-between text-sm text-slate-200">
+							<span>Up to 4 encoder-linked groups</span>
+							<span class="text-primary-cyan font-semibold">Multi-Group ✔</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature 3: Real-Time TFM & FMC (Premium Dark Overhaul) -->
+			<div class="bg-[#07111e] rounded-3xl border border-slate-800/80 p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+				<div class="absolute -top-32 -right-32 w-80 h-80 bg-primary-cyan/10 rounded-full blur-[100px] pointer-events-none"></div>
+				<div class="absolute -bottom-32 -left-32 w-80 h-80 bg-blue-600/5 rounded-full blur-[100px] pointer-events-none"></div>
+				
+				<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+					<div class="lg:col-span-6 space-y-6">
+						<span class="inline-flex items-center space-x-2 bg-slate-950 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide mb-2">
+							<span>PREMIUM HIGH-RESOLUTION IMAGING</span>
+						</span>
+						<h3 class="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight leading-tight">
+							Real-Time Total Focusing Method (TFM) <br/>
+							& Full Matrix Capture (FMC)
+						</h3>
+						<p class="text-slate-200 leading-relaxed text-base">
+							Traditional phased array focusing is limited to designated depths. TFM captures raw FMC waveforms and post-processes them in real-time, calculating focal coordinates at **every single pixel** of the ROI to yield unmatched volumetric resolution. Technicians can toggle below to compare high-resolution TFM scans with traditional Phased Array S-scans.
+						</p>
+						
+						<!-- Interactive TFM Gallery Buttons -->
+						<div class="space-y-3 pt-2">
+							<span class="block text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">TFM & PAUT Calibration Gallery</span>
+							<div class="flex flex-wrap gap-2">
+								<button 
+									class="tfm-tab-btn px-4 py-2.5 text-sm sm:text-base font-semibold rounded-lg border bg-primary-cyan text-slate-950 border-primary-cyan cursor-pointer transition-all" 
+									data-img="/assets/img/software/dsvision/TFM_1.png"
+								>
+									TFM Calibration (Arc)
+								</button>
+								<button 
+									class="tfm-tab-btn px-4 py-2.5 text-sm sm:text-base font-semibold rounded-lg border text-slate-300 border-slate-850 hover:text-white cursor-pointer transition-all" 
+									data-img="/assets/img/software/dsvision/TFM_2.png"
+								>
+									TFM Point Sizing (Diagonal)
+								</button>
+								<button 
+									class="tfm-tab-btn px-4 py-2.5 text-sm sm:text-base font-semibold rounded-lg border text-slate-300 border-slate-850 hover:text-white cursor-pointer transition-all" 
+									data-img="/assets/img/software/dsvision/TFM_3.png"
+								>
+									PAUT S-Scan (Comparison)
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- TFM Display Screen -->
+					<div class="lg:col-span-6 relative flex justify-center">
+						<div class="relative bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-2xl overflow-hidden group w-full max-w-lg aspect-[4/3] flex items-center justify-center">
+							<img 
+								id="tfm-gallery-img"
+								src="/assets/img/software/dsvision/TFM_1.png" 
+								alt="Real-time TFM & PAUT scan screen" 
+								class="w-full h-full object-contain rounded-lg transition-opacity duration-300"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Feature 4: High-Precision Cursors & Gating (Stacked Showcase) -->
+			<div class="space-y-12">
+				<!-- Text Description (Full Width Centered) -->
+				<div class="max-w-4xl mx-auto text-center space-y-4">
+					<div>
+						<span class="text-sm sm:text-base font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">MEASUREMENT & TOLERANCE</span>
+					</div>
+					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-slate-900 tracking-tight font-display">
+						High-Precision Sizing Cursors & Gating
+					</h2>
+					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px] max-w-3xl mx-auto">
+						Perform instant on-screen defect dimensioning with independent horizontal and vertical cursors. Gate configurations (Gate A, B, I) can be defined with separate threshold levels and height parameters to automate defect alerts.
+					</p>
+					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px] max-w-3xl mx-auto">
+						Supports **Peak and Edge** detection gating. The **Edge detection mode** is particularly optimized for corrosion mapping (C-scan thickness calculation), tracking the first breaking wave edge to avoid measurement jumps due to signal noise.
+					</p>
+				</div>
+
+				<!-- Bullet Points (2-Column Grid inside a Centered Container) -->
+				<div class="max-w-4xl mx-auto bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+					<ul class="grid grid-cols-1 md:grid-cols-2 gap-6 text-base sm:text-[17px] text-slate-950 font-medium">
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Three gates (Gate A, B, and I) for precise signal monitoring and surface tracking</span>
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Edge detection gating prevents thickness readout jitter</span>
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Live gate measurement display: Amplitude (%), Primary (P), Depth (D), and Sound (S)</span>
+						</li>
+						<li class="flex items-start space-x-3">
+							<span class="text-primary-cyan text-xl leading-none">✔</span>
+							<span>Relative value differences (%, D, S) calculation between Gate A and Gate B</span>
+						</li>
+					</ul>
+				</div>
+
+				<!-- Photos Stacked Vertically (Center Aligned, Large) -->
+				<div class="max-w-3xl mx-auto flex flex-col gap-8">
+					<div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-col justify-between">
+						<img 
+							src="/assets/img/software/dsvision/Cursor.png" 
+							alt="Precision Cursors" 
+							class="w-full h-auto object-contain rounded-lg mb-4"
+						/>
+						<span class="text-sm font-sans font-medium text-center text-slate-300">Sizing Cursor Analysis (ΔH, ΔV)</span>
+					</div>
+					<div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-xl flex flex-col justify-between">
+						<img 
+							src="/assets/img/software/dsvision/PA_3.PNG" 
+							alt="Interactive Gate Keyboard" 
+							class="w-full h-auto object-contain rounded-lg mb-4"
+						/>
+						<span class="text-sm font-sans font-medium text-center text-slate-300">Gate Start Keypad Overlay</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<script>
+		// Client-side Tab Switchers & Console Simulators Script
+		
+		// 1. Hero Console Simulator
+		const consoleBtns = document.querySelectorAll('.console-tab-btn');
+		const consoleImg = document.getElementById('hero-console-img') as HTMLImageElement;
+
+		consoleBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				const targetImgPath = btn.getAttribute('data-img');
+				if (consoleImg && targetImgPath) {
+					consoleImg.style.opacity = '0';
+					setTimeout(() => {
+						consoleImg.src = targetImgPath;
+						consoleImg.style.opacity = '1';
+					}, 150);
+				}
+
+				consoleBtns.forEach(b => {
+					b.classList.remove('bg-slate-900', 'text-primary-cyan', 'border-primary-cyan/30');
+					b.classList.add('text-slate-400', 'border-transparent', 'hover:text-white');
+				});
+				btn.classList.add('bg-slate-900', 'text-primary-cyan', 'border-primary-cyan/30');
+				btn.classList.remove('text-slate-400', 'border-transparent', 'hover:text-white');
+			});
+		});
+
+		// 2. Feature 1 Tab Switcher
+		const tabButtons = document.querySelectorAll('.tab-btn');
+		const tabContents = document.querySelectorAll('.tab-content');
+
+		tabButtons.forEach(btn => {
+			btn.addEventListener('click', () => {
+				const targetTab = btn.getAttribute('data-tab');
+
+				tabButtons.forEach(b => {
+					b.classList.remove('bg-primary-cyan', 'text-slate-950', 'shadow-sm');
+					b.classList.add('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-300/40');
+				});
+				btn.classList.add('bg-primary-cyan', 'text-slate-950', 'shadow-sm');
+				btn.classList.remove('text-slate-600', 'hover:text-slate-900', 'hover:bg-slate-300/40');
+
+				tabContents.forEach(content => {
+					if (content.getAttribute('id') === `tab-${targetTab}`) {
+						content.classList.remove('hidden');
+					} else {
+						content.classList.add('hidden');
+					}
+				});
+			});
+		});
+
+		// 3. Feature 3 TFM Gallery Switcher
+		const tfmBtns = document.querySelectorAll('.tfm-tab-btn');
+		const tfmImg = document.getElementById('tfm-gallery-img') as HTMLImageElement;
+
+		tfmBtns.forEach(btn => {
+			btn.addEventListener('click', () => {
+				const targetImgPath = btn.getAttribute('data-img');
+				if (tfmImg && targetImgPath) {
+					tfmImg.style.opacity = '0';
+					setTimeout(() => {
+						tfmImg.src = targetImgPath;
+						tfmImg.style.opacity = '1';
+					}, 150);
+				}
+
+				tfmBtns.forEach(b => {
+					b.classList.remove('bg-primary-cyan', 'text-slate-950', 'border-primary-cyan');
+					b.classList.add('text-slate-400', 'border-slate-800', 'hover:text-white');
+				});
+				btn.classList.add('bg-primary-cyan', 'text-slate-950', 'border-primary-cyan');
+				btn.classList.remove('text-slate-400', 'border-slate-800', 'hover:text-white');
+			});
+		});
+	</script>
+
+	<!-- Contact Quote Section (For inquiry) -->
+	<section id="contact-quote" class="bg-slate-900 py-16 sm:py-24 text-white border-t border-slate-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+			<span class="text-sm font-bold font-sans text-primary-cyan tracking-wider uppercase">INQUIRY</span>
+			<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight font-display">
+				Inquire about DSVision
+			</h2>
+			<p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+				If you require pricing quotes for DSPAUT hardware systems (P5, B3, etc.) or need technical sales support regarding real-time acquisition licenses, please contact us. A SEONGSANLAB engineer will evaluate your testing requirements shortly.
+			</p>
+			
+			<div class="pt-4">
+				<a href="#contact" class="inline-block px-8 py-4 text-base font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/25 transition-all duration-200 hover:-translate-y-0.5">
+					Go to Contact & Inquiry Form
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>

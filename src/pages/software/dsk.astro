@@ -1,0 +1,454 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+---
+
+<Layout 
+	title="DSPAUT SDK (DSK) | C# Phased Array Ultrasonic Development Library & API" 
+	description="Introducing SEONGSANLAB's software development kit, DSPAUT SDK (DSK). Highly optimized for C# & .NET 8.0, supports real-time ultrasonic frame acquisition, S-Scan conversion, and multi-axis encoder alignment."
+	lang="en"
+>
+	<!-- Software Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-20 sm:py-28 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Hero Left Content -->
+				<div class="lg:col-span-7 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>Official Support for C# / .NET 8.0 &amp; .NET Framework 4.5.2</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+						DSPAUT SDK (DSK)<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">C# Ultrasonic Library</span>
+					</h1>
+					<p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+						DSPAUT SDK (DSK) is a dedicated C# development library designed to control the measurement engine of DSPAUT phased array ultrasonic testing (PAUT) hardware (P5, B3, R5, etc.) programmatically. Acquire, process, and map real-time ultrasonic signals to custom visual layouts using the `SVDSK.dll` assembly.
+					</p>
+					
+					<div class="flex flex-wrap gap-3 pt-4">
+						<a href="#contact-quote" class="px-6 py-3.5 text-sm font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+							Inquire SDK Licenses
+						</a>
+						<a href={portalUrl} target="_blank" class="px-6 py-3.5 text-sm font-bold text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
+							Go to Developer Portal / Resources
+						</a>
+					</div>
+				</div>
+				
+				<!-- Hero Right Image -->
+				<div class="lg:col-span-5 relative flex justify-center items-center">
+					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
+					<!-- UI Mockup Visual -->
+					<div class="relative bg-slate-950/40 border border-slate-800/80 rounded-2xl p-3 backdrop-blur-sm shadow-2xl overflow-hidden group">
+						<img 
+							src="/assets/img/software/dsk/SimplePAUTMain.PNG" 
+							alt="DSPAUT SDK SimplePAUT integrated application active interface" 
+							class="w-full max-w-md h-auto object-contain rounded-lg transform transition-transform duration-500 group-hover:scale-[1.02] cursor-zoom-in lightbox-trigger"
+						/>
+						<div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-400 font-sans flex justify-between items-center">
+							<span>App: 10-SimplePAUT Integrated Calibration Modules</span>
+							<span class="text-primary-cyan font-bold">Active</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Spec Highlights -->
+	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-300">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">using DSPAUT;</span>
+					<span class="text-sm uppercase tracking-wider text-slate-500 font-sans font-semibold">Single Namespace &amp; Assembly</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">Rx Callback Frame</span>
+					<span class="text-sm uppercase tracking-wider text-slate-500 font-sans font-semibold">Real-time Rx Callback Methods</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">CalcSScanImage</span>
+					<span class="text-sm uppercase tracking-wider text-slate-500 font-sans font-semibold">Built-in S-Scan Graphic conversion</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">Scan/Index Encoder</span>
+					<span class="text-sm uppercase tracking-wider text-slate-500 font-sans font-semibold">Multi-axis encoder control support</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Software Features -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+			
+			<!-- Feature 1: Library Architecture & Setup -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-5 relative order-last lg:order-first">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+						<img 
+							src="/assets/img/software/dsk/DSK tutorial .png" 
+							alt="DskTutorial solution explorer layout in Visual Studio" 
+							class="w-full h-auto object-contain rounded-xl cursor-zoom-in lightbox-trigger"
+						/>
+					</div>
+				</div>
+				<div class="lg:col-span-7 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">LIBRARY STRUCTURE</span>
+					<h2 class="text-3xl font-bold text-slate-900 tracking-tight font-display">
+						Intuitive C# SDK Referencing &amp; Clean Architecture
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-sm">
+						Enables developers to quickly prototype and deploy customized NDT software in Windows 10 using Visual Studio 2017 and above. Simply add the core C# assembly `SVDSK.dll` and the helper library `DskCommon` to your project references. The execution operates directly from the build output directory (`../Bin/Release_x86`), and resources are cleanly decoupled and managed within `CommonResource`.
+					</p>
+					<ul class="space-y-2 text-sm text-slate-600 font-medium">
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>Provides clean C# .NET 8.0 classes and properties for all device parameters</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>Direct hardware access via the `DSPAUT` namespace API calls</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>Unified debugging and diagnostic trace logging using Log2console integration</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Feature 2: Low-Level Pulser-Receiver & Parameters -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-7 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">PHYSICAL LEVEL CONTROLS</span>
+					<h2 class="text-3xl font-bold text-slate-900 tracking-tight font-display">
+						Low-Level Parameter Adjustment &amp; Gate Control
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-sm">
+						Fine-tune pulser-receiver settings programmatically via C# functions to optimize signal response. Manage gain, digitizing frequency indexes, PRF, and voltage levels (ranging from 25V to 200V). Leverages bipolar pulsing to customize Burst Counts (from 1 to 5 cycles), boosting acoustic penetration in highly attenuative industrial materials.
+					</p>
+					<ul class="space-y-2 text-sm text-slate-600 font-medium">
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>Real-time position, range, and threshold management of 3 independent gates (Gate A/B/I)</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>Configure transmitter/receiver element limits and hardware frequency bandpass filters</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>Channel Group configuration organizes multi-vector arrays to stream through Rx callbacks</span>
+						</li>
+					</ul>
+				</div>
+				<div class="lg:col-span-5 relative">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+						<img 
+							src="/assets/img/software/dsk/ChannelGroup_Start.PNG" 
+							alt="DSK channel group parameter configuration screen" 
+							class="w-full h-auto object-contain rounded-xl cursor-zoom-in lightbox-trigger"
+						/>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- 5 Core Tutorials Section -->
+	<section class="py-20 bg-slate-50 border-t border-b border-slate-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+			<div class="text-center space-y-4 max-w-3xl mx-auto">
+				<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded-full inline-block mb-2">DSK TUTORIALS</span>
+				<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+					5 Core C# Development Tutorials
+				</h2>
+				<p class="text-slate-600 text-sm leading-relaxed">
+					Fully functional samples ready to build and run in Visual Studio. Click on any screenshot to view the interface in full, crisp resolution.
+				</p>
+			</div>
+
+			<!-- Tutorial Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				
+				<!-- Tutorial 1 -->
+				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+						<img src="/assets/img/software/dsk/InitDevice.PNG" alt="01-InitDevice application run" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
+						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 01</span>
+					</div>
+					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
+						<div class="space-y-2">
+							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">01-InitDevice</h3>
+							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">Device Connection &amp; Real-time Acquisition</p>
+							<p class="text-slate-600 text-sm leading-relaxed">
+								Initializes the hardware using `InitDsk` and `InitDevice` commands, starting acquisition channels to capture incoming data. Uses `Dsk.Freeze` and `UnFreeze` properties to control streaming programmatically.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tutorial 2 -->
+				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+						<img src="/assets/img/software/dsk/Scan.PNG" alt="02-SScan application run" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
+						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 02</span>
+					</div>
+					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
+						<div class="space-y-2">
+							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">02-SScan</h3>
+							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">Real-time S-Scan Image Conversion</p>
+							<p class="text-slate-600 text-sm leading-relaxed">
+								Demonstrates coordinate mapping logic converting raw A-scans to a 2D sectorial scan visual. Gathers boundaries using `GetSScanWidth`/`Height` and computes 2D byte arrays using `CalcSScanImage`.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tutorial 3 -->
+				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+						<img src="/assets/img/software/dsk/A-scan.PNG" alt="03-AScan application run" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
+						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 03</span>
+					</div>
+					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
+						<div class="space-y-2">
+							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">03-AScan</h3>
+							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">Extracting Beam Waveforms &amp; A-Scans</p>
+							<p class="text-slate-600 text-sm leading-relaxed">
+								Retrieves signal amplitude data for a user-specified focal law index. Processes multi-beam signals in real-time, displaying linear waveform graphs directly on a custom bitmap surface.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tutorial 4 -->
+				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+						<img src="/assets/img/software/dsk/Inspection.PNG" alt="04-Inspection application run" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
+						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 04</span>
+					</div>
+					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
+						<div class="space-y-2">
+							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">04-Inspection</h3>
+							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">Multi-Axis Encoder &amp; Distance Tracking</p>
+							<p class="text-slate-600 text-sm leading-relaxed">
+								Essential for mechanical crawlers and automated industrial scanning. Uses `SetScanEncoder` to set bounds, step sizes, and pulse resolution to track physical movement in millimeters.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tutorial 5 -->
+				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group md:col-span-2 lg:col-span-2">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+						<div class="grid grid-cols-2 gap-4 w-full h-full p-2 items-center">
+							<img src="/assets/img/software/dsk/SimplePAUTMain.PNG" alt="10-SimplePAUT dashboard interface" class="h-full object-contain rounded shadow hover:scale-105 transition-transform duration-300 cursor-zoom-in lightbox-trigger" />
+							<img src="/assets/img/software/dsk/SimplePAUTSectorial.PNG" alt="10-SimplePAUT display layout" class="h-full object-contain rounded shadow hover:scale-105 transition-transform duration-300 cursor-zoom-in lightbox-trigger" />
+						</div>
+						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 10</span>
+					</div>
+					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
+						<div class="space-y-2">
+							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">10-SimplePAUT</h3>
+							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">JSON Config Serialization &amp; Complete PAUT App</p>
+							<p class="text-slate-600 text-sm leading-relaxed">
+								Our master demo illustrating complete SDK capability. Showcases setup file saving and loading using `JsonFile2Object`, gate threshold alarms, multi-channel connections, and A/B/C/S-scan concurrent graphics.
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- C# Integration Code Example -->
+	<section class="py-20 bg-slate-950 text-white relative">
+		<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.08),transparent_60%)] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Text Block -->
+				<div class="lg:col-span-5 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>C# Integration Guide</span>
+					</div>
+					<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight font-display">
+						A few lines of code to control<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">Ultrasonic Hardware</span>
+					</h2>
+					<p class="text-slate-300 text-sm leading-relaxed">
+						The official SDK hides lower-level register complexities inside clean, object-oriented C# wrappers. Initialize the device and bind the real-time callback using simple C# constructs.
+					</p>
+					
+					<div class="border-t border-slate-800 pt-6 space-y-4">
+						<div class="flex items-start space-x-3">
+							<span class="bg-primary-cyan/20 text-primary-cyan rounded px-2.5 py-0.5 text-sm font-mono shrink-0 whitespace-nowrap inline-block mb-2">Step 1</span>
+							<div class="text-sm">
+								<p class="font-bold text-slate-200">Import the DEEPSOUND Namespace</p>
+								<p class="text-slate-400">Add referencing declarations in your C# assembly entry points.</p>
+							</div>
+						</div>
+						<div class="flex items-start space-x-3">
+							<span class="bg-primary-cyan/20 text-primary-cyan rounded px-2.5 py-0.5 text-sm font-mono shrink-0 whitespace-nowrap inline-block mb-2">Step 2</span>
+							<div class="text-sm">
+								<p class="font-bold text-slate-200">Initialize Device Engine</p>
+								<p class="text-slate-400">Call `InitDsk()` and `InitDevice()` to gain hardware access.</p>
+							</div>
+						</div>
+						<div class="flex items-start space-x-3">
+							<span class="bg-primary-cyan/20 text-primary-cyan rounded px-2.5 py-0.5 text-sm font-mono shrink-0 whitespace-nowrap inline-block mb-2">Step 3</span>
+							<div class="text-sm">
+								<p class="font-bold text-slate-200">Bind SetCallBackFrame</p>
+								<p class="text-slate-400">Register callbacks to receive real-time frame arrays containing locational coordinates.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Code Editor Visual Mockup -->
+				<div class="lg:col-span-7">
+					<div class="bg-[#0b1320] border border-slate-800 rounded-2xl shadow-2xl overflow-hidden font-mono text-sm text-slate-300">
+						<!-- Window Header -->
+						<div class="bg-[#070d17] px-4 py-3 border-b border-slate-900 flex justify-between items-center">
+							<div class="flex items-center space-x-2">
+								<div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+								<div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+								<div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+								<span class="ml-4 text-xs text-slate-500 font-semibold">DskTutorial / Program.cs</span>
+							</div>
+							<span class="text-xs text-slate-600">C# (.NET 8.0)</span>
+						</div>
+						
+						<!-- Code Content -->
+						<div class="p-6 overflow-x-auto leading-relaxed whitespace-pre select-all text-left">
+<span class="text-slate-500">// 1. Import DSK Namespace Assembly</span>
+<span class="text-blue-400">using</span> <span class="text-cyan-400">System</span>;
+<span class="text-blue-400">using</span> <span class="text-cyan-400">DEEPSOUND</span>;
+
+<span class="text-blue-400">namespace</span> <span class="text-cyan-400">DskTutorial</span>
+{"{"}
+    <span class="text-blue-400">class</span> <span class="text-yellow-400">Program</span>
+    {"{"}
+        <span class="text-blue-400">static void</span> <span class="text-green-400">Main</span>(<span class="text-blue-400">string</span>[] args)
+        {"{"}
+            <span class="text-slate-500">// 2. Initialize DSK engine</span>
+            <span class="text-yellow-400">DSK</span>.<span class="text-green-400">InitDsk</span>();
+            
+            <span class="text-slate-500">// 3. Boot high-speed Gigabit Ethernet/USB hardware</span>
+            <span class="text-blue-400">bool</span> isDeviceReady = <span class="text-yellow-400">DSK</span>.<span class="text-green-400">InitDevice</span>();
+            <span class="text-blue-400">if</span> (!isDeviceReady) {"{"}
+                <span class="text-cyan-400">Console</span>.<span class="text-green-400">WriteLine</span>(<span class="text-orange-400">"Device connection failed!"</span>);
+                <span class="text-blue-400">return</span>;
+            {"}"}
+
+            <span class="text-slate-500">// 4. Link callback function to fetch raw frames</span>
+            <span class="text-yellow-400">DSK</span>.<span class="text-green-400">SetCallBackFrame</span>(<span class="text-blue-400">new</span> <span class="text-yellow-400">DskCallBackFrameX</span>(<span class="text-green-400">OnReceiveFrameX</span>));
+            
+            <span class="text-cyan-400">Console</span>.<span class="text-green-400">WriteLine</span>(<span class="text-orange-400">"Streaming active. Press any key to stop."</span>);
+            <span class="text-cyan-400">Console</span>.<span class="text-green-400">ReadKey</span>();
+
+            <span class="text-slate-500">// 5. Safely release device handles on exit</span>
+            <span class="text-yellow-400">DSK</span>.<span class="text-green-400">CloseDevice</span>();
+        {"}"}
+
+        <span class="text-slate-500">// Rx callback capturing real-time frame &amp; coordinate (X-axis)</span>
+        <span class="text-blue-400">private static void</span> <span class="text-green-400">OnReceiveFrameX</span>(<span class="text-blue-400">short</span>[] frameData, <span class="text-blue-400">double</span> locX)
+        {"{"}
+            <span class="text-slate-500">// Real-time signal processing routing here</span>
+            <span class="text-cyan-400">Console</span>.<span class="text-green-400">WriteLine</span>($"Frame Received - Pos: {"{"}locX{"}"}mm, size: {"{"}frameData.Length{"}"} shorts");
+        {"}"}
+    {"}"}
+{"}"}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Quote Section (For inquiry) -->
+	<section id="contact-quote" class="bg-slate-900 py-16 sm:py-24 text-white border-t border-slate-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+			<span class="text-sm font-bold font-sans text-primary-cyan tracking-wider uppercase">INQUIRY</span>
+			<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight font-display">
+				Inquire about DSPAUT SDK (DSK)
+			</h2>
+			<p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+				If you need customized development assistance, license quotes, or detailed technical partnership proposals for industrial OEM systems, please reach out. Our engineering team is ready to guide you.
+			</p>
+			
+			<div class="pt-4">
+				<a href="#contact" class="inline-block px-8 py-4 text-base font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/25 transition-all duration-200 hover:-translate-y-0.5">
+					Go to Contact &amp; Inquiry Form
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Lightbox Modal DOM -->
+	<div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm justify-center items-center p-4 transition-opacity duration-300 opacity-0 cursor-zoom-out">
+		<div class="relative max-w-5xl w-full flex flex-col justify-center items-center">
+			<img id="lightbox-image" src="" alt="Zoomed Image" class="max-h-[85vh] max-w-full object-contain rounded-lg border border-slate-700 shadow-2xl transition-transform duration-300 scale-95" />
+			<div id="lightbox-caption" class="mt-4 text-slate-300 text-sm font-semibold tracking-wide bg-slate-900/80 border border-slate-800 rounded px-3.5 py-1.5 font-sans"></div>
+			<button id="lightbox-close" class="absolute -top-12 right-0 text-slate-400 hover:text-white text-3xl font-light focus:outline-none">&times;</button>
+		</div>
+	</div>
+
+	<script>
+		// Lightbox Implementation
+		const modal = document.getElementById('lightbox-modal');
+		const modalImg = document.getElementById('lightbox-image');
+		const modalCaption = document.getElementById('lightbox-caption');
+		const closeBtn = document.getElementById('lightbox-close');
+		const triggers = document.querySelectorAll('.lightbox-trigger');
+
+		if (modal && modalImg && modalCaption) {
+			triggers.forEach(trigger => {
+				trigger.addEventListener('click', (e) => {
+					const imgEl = e.currentTarget as HTMLImageElement;
+					modalImg.setAttribute('src', imgEl.src);
+					modalCaption.textContent = imgEl.alt || 'DSPAUT SDK Screenshot';
+					
+					modal.classList.remove('hidden');
+					modal.classList.add('flex');
+					setTimeout(() => {
+						modal.classList.remove('opacity-0');
+						modal.classList.add('opacity-100');
+						modalImg.classList.remove('scale-95');
+						modalImg.classList.add('scale-100');
+					}, 10);
+				});
+			});
+
+			const closeModal = () => {
+				modal.classList.remove('opacity-100');
+				modal.classList.add('opacity-0');
+				modalImg.classList.remove('scale-100');
+				modalImg.classList.add('scale-95');
+				setTimeout(() => {
+					modal.classList.remove('flex');
+					modal.classList.add('hidden');
+				}, 300);
+			};
+
+			modal.addEventListener('click', closeModal);
+			if (closeBtn) closeBtn.addEventListener('click', closeModal);
+			
+			// Prevent modal close on image click
+			modalImg.addEventListener('click', (e) => {
+				e.stopPropagation();
+			});
+		}
+	</script>
+</Layout>

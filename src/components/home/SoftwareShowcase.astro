@@ -1,0 +1,113 @@
+---
+// src/components/home/SoftwareShowcase.astro
+interface Props {
+  lang: string;
+  data: any;
+}
+
+const { lang, data } = Astro.props;
+const software = data.software;
+const basePortalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
+---
+
+<section id="software" class="py-20 bg-slate-50 scroll-mt-24 border-b border-slate-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+      <span class="text-xs font-sans tracking-wide bg-blue-50 text-blue-600 border border-blue-200 px-2.5 py-1 rounded-md font-bold uppercase inline-block mb-2">{software.badge}</span>
+      <h2 class="text-3xl font-extrabold text-slate-900 font-display">
+        {software.title}
+      </h2>
+      <p class="text-slate-600 text-base">
+        {software.description}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- DSVision Card -->
+      <div class="bg-[#0C1929] text-white border border-slate-800 rounded-xl overflow-hidden hover:border-primary-cyan hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="p-6 space-y-4">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-xs font-sans tracking-wide bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/20 px-2.5 py-1 rounded-md font-semibold inline-block mb-2">{software.acquire.badge}</span>
+              <h3 class="text-xl font-bold text-white mt-2">{software.acquire.title}</h3>
+            </div>
+          </div>
+          <p class="text-base text-slate-400 leading-relaxed">
+            {software.acquire.desc}
+          </p>
+          <div class="h-20 bg-slate-950 rounded border border-slate-800 flex items-center justify-between px-3 overflow-hidden font-mono text-xs text-[#00E5FF]/80">
+            <div class="space-y-1">
+              <div>{software.acquire.thickness}</div>
+              <div>{software.acquire.sens}</div>
+            </div>
+            <div class="flex items-end space-x-0.5 h-10 w-24">
+              <div class="bg-blue-600/40 w-2 h-3"></div>
+              <div class="bg-blue-600/60 w-2 h-6"></div>
+              <div class="bg-primary-cyan w-2 h-9"></div>
+              <div class="bg-blue-600/60 w-2 h-4"></div>
+              <div class="bg-blue-600/40 w-2 h-2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 bg-slate-900 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
+          <span class="text-slate-400 font-medium">{software.acquire.type}</span>
+          <a href={lang === 'ko' ? "/ko/software/dsvision" : "/software/dsvision"} class="px-4 py-2 font-bold text-slate-950 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.acquire.cta}</a>
+        </div>
+      </div>
+
+      <!-- DSViewer Card -->
+      <div class="bg-[#0C1929] text-white border border-slate-800 rounded-xl overflow-hidden hover:border-primary-cyan hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="p-6 space-y-4">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-xs font-sans tracking-wide bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/20 px-2.5 py-1 rounded-md font-semibold inline-block mb-2">{software.analysis.badge}</span>
+              <h3 class="text-xl font-bold text-white mt-2">{software.analysis.title}</h3>
+            </div>
+          </div>
+          <p class="text-base text-slate-400 leading-relaxed">
+            {software.analysis.desc}
+          </p>
+          <div class="h-20 bg-slate-950 rounded border border-slate-800 flex items-center justify-center p-2 relative overflow-hidden">
+            <div class="w-full h-full border border-slate-800/80 rounded flex items-center justify-between px-3 text-xs font-mono text-[#00E5FF]/80">
+              <div class="space-y-1">
+                <div>{software.analysis.pos}</div>
+                <div>{software.analysis.flawSize}</div>
+              </div>
+              <span class="text-xs bg-red-950 text-red-400 border border-red-900 px-1.5 py-0.5 rounded font-bold inline-block mb-2">{software.analysis.flawBadge}</span>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 bg-slate-900 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
+          <span class="text-slate-400 font-medium">{software.analysis.type}</span>
+          <a href={lang === 'ko' ? "/ko/software/dsviewer" : "/software/dsviewer"} class="px-4 py-2 font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.analysis.cta}</a>
+        </div>
+      </div>
+
+      <!-- DSK Card -->
+      <div class="bg-[#0C1929] text-white border border-slate-800 rounded-xl overflow-hidden hover:border-primary-cyan hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="p-6 space-y-4">
+          <div class="flex justify-between items-start">
+            <div>
+              <span class="text-xs font-sans tracking-wide bg-[#00E5FF]/10 text-[#00E5FF] border border-[#00E5FF]/20 px-2.5 py-1 rounded-md font-semibold inline-block mb-2">{software.sdk.badge}</span>
+              <h3 class="text-xl font-bold text-white mt-2">{software.sdk.title}</h3>
+            </div>
+          </div>
+          <p class="text-base text-slate-400 leading-relaxed">
+            {software.sdk.desc}
+          </p>
+          <div class="h-20 bg-slate-950 rounded border border-slate-800 p-2 overflow-hidden font-mono text-xs text-green-400/80 leading-snug">
+            <div>{software.sdk.codeComment}</div>
+            {software.sdk.codeLines.map((line: string) => (
+              <div>{line}</div>
+            ))}
+          </div>
+        </div>
+        <div class="p-6 bg-slate-900 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
+          <span class="text-slate-400 font-medium">{software.sdk.type}</span>
+          <a href={lang === 'ko' ? "/ko/software/dsk" : "/software/dsk"} class="px-4 py-2 font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.sdk.cta}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

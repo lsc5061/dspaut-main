@@ -1,0 +1,454 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+---
+
+<Layout 
+	title="DSPAUT SDK (DSK) | C# 초음파 애플리케이션 개발 라이브러리 및 API" 
+	description="(주)성산연구소의 고성능 초음파 소프트웨어 개발 키트 DSPAUT SDK (DSK)를 소개합니다. C# 및 .NET 8.0 기반의 고속 프레임 데이터 수집, 실시간 S-Scan 변환 및 다축 엔코더 정렬 지원."
+	lang="ko"
+>
+	<!-- Software Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-20 sm:py-28 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Hero Left Content -->
+				<div class="lg:col-span-7 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>C# / .NET 8.0 &amp; .NET Framework 4.5.2 공식 지원</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+						DSPAUT SDK (DSK)<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">C# 초음파 제어 라이브러리</span>
+					</h1>
+					<p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+						DSPAUT SDK (DSK)는 자사의 고성능 위상배열 초음파(PAUT) 장비군(DSPAUT P5, B3, R5 등)의 계측 엔진을 소프트웨어 단에서 직접 핸들링하고, 실시간 초음파 수집 데이터를 맞춤형으로 획득 및 가공할 수 있도록 설계된 C# 전용 개발 키트입니다. `SVDSK.dll` 어셈블리와 직관적인 API 예제를 제공합니다.
+					</p>
+					
+					<div class="flex flex-wrap gap-3 pt-4">
+						<a href="#contact-quote" class="px-6 py-3.5 text-sm font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+							SDK 라이선스 문의
+						</a>
+						<a href={portalUrl} target="_blank" class="px-6 py-3.5 text-sm font-bold text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
+							개발자 문서 / 자료실 이동
+						</a>
+					</div>
+				</div>
+				
+				<!-- Hero Right Image -->
+				<div class="lg:col-span-5 relative flex justify-center items-center">
+					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
+					<!-- UI Mockup Visual -->
+					<div class="relative bg-slate-950/40 border border-slate-800/80 rounded-2xl p-3 backdrop-blur-sm shadow-2xl overflow-hidden group">
+						<img 
+							src="/assets/img/software/dsk/SimplePAUTMain.PNG" 
+							alt="DSPAUT SDK 기반 SimplePAUT 종합 애플리케이션 실행 화면" 
+							class="w-full max-w-md h-auto object-contain rounded-lg transform transition-transform duration-500 group-hover:scale-[1.02] cursor-zoom-in lightbox-trigger"
+						/>
+						<div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-400 font-sans flex justify-between items-center">
+							<span>App: 10-SimplePAUT 종합 계측 모듈</span>
+							<span class="text-primary-cyan font-bold">Active</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Spec Highlights -->
+	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-300">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">using DSPAUT;</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">단일 네임스페이스 및 어셈블리</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">Rx Callback Frame</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">실시간 프레임 수집용 콜백 메서드</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">CalcSScanImage</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">실시간 S-Scan 이미지 스캔 변환</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">Scan/Index Encoder</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">자동 탐상을 위한 다축 엔코더 제어</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Software Features -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+			
+			<!-- Feature 1: Library Architecture & Setup -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-5 relative order-last lg:order-first">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+						<img 
+							src="/assets/img/software/dsk/DSK tutorial .png" 
+							alt="Visual Studio 내 DskTutorial 솔루션 탐색기 아키텍처" 
+							class="w-full h-auto object-contain rounded-xl cursor-zoom-in lightbox-trigger"
+						/>
+					</div>
+				</div>
+				<div class="lg:col-span-7 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">LIBRARY STRUCTURE</span>
+					<h2 class="text-3xl font-bold text-slate-900 tracking-tight font-display">
+						직관적인 SDK 참조 추가 및 개발 구조
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-sm">
+						Windows 10 환경에서 Visual Studio 2017 이상을 활용하여 누구나 손쉽게 초음파 검사용 소프트웨어를 빌드할 수 있습니다. 메인 라이브러리인 `SVDSK.dll`과 공통 모듈인 `DskCommon`을 프로젝트 참조(Reference)에 등록하고, 빌드 출력 경로(`../Bin/Release_x86`)에서 기동하도록 설계되었습니다. 실행 경로 상위 디렉토리에 `CommonResource`가 구성되어 리소스 독립성이 보장됩니다.
+					</p>
+					<ul class="space-y-2 text-sm text-slate-600 font-medium">
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>C# .NET 8.0(및 4.5.2) 개발 환경 완벽 지원</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>using DSPAUT; 네임스페이스 및 SVDSK.dll을 통한 다이렉트 디바이스 제어</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>실시간 디버깅 및 문제 추적을 위한 Log2console 시스템 유기적 연동</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Feature 2: Low-Level Pulser-Receiver & Parameters -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-7 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">PHYSICAL LEVEL CONTROLS</span>
+					<h2 class="text-3xl font-bold text-slate-900 tracking-tight font-display">
+						하위 레벨 물리 파라미터 및 게이트 설정
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-sm">
+						초음파 탐촉자 구동을 위한 펄서-수신기 하드웨어를 소프트웨어 레벨에서 세밀하게 제어할 수 있습니다. 게인(Gain), 디지털 주파수 변환(Digitizing Index), PRF(펄스 반복 주파수), 송신 전압(Voltage: 25V ~ 200V)을 변경하며, 특히 Bipolar 펄스 파형 제어를 적용하여 감쇠가 극심한 부위에 결함 검출력을 높이는 Burst Count(1~5회) 설정 기능도 제공합니다.
+					</p>
+					<ul class="space-y-2 text-sm text-slate-600 font-medium">
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>독립적인 3개 인터페이스 게이트(Gate A / B / I)의 실시간 위치, 범위, 임계값 제어</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>송수신 엘리먼트 정렬(Transmitter/Receiver Start-Stop) 및 프로브 주파수 대역 필터 제어</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span>다중 Vector 데이터를 묶는 Channel Group 구조 및 Rx 콜백을 통한 데이터 고속 전달</span>
+						</li>
+					</ul>
+				</div>
+				<div class="lg:col-span-5 relative">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+						<img 
+							src="/assets/img/software/dsk/ChannelGroup_Start.PNG" 
+							alt="DSK 채널 그룹 파라미터 설정 화면" 
+							class="w-full h-auto object-contain rounded-xl cursor-zoom-in lightbox-trigger"
+						/>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- 5 Core Tutorials Section -->
+	<section class="py-20 bg-slate-50 border-t border-b border-slate-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+			<div class="text-center space-y-4 max-w-3xl mx-auto">
+				<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded-full inline-block mb-2">DSK TUTORIALS</span>
+				<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+					핵심 개발 튜토리얼 5종 패키지
+				</h2>
+				<p class="text-slate-600 text-sm leading-relaxed">
+					DSK 설치 즉시 Visual Studio에서 실행할 수 있는 실무용 샘플 코드입니다. 기초적인 하드웨어 기동부터 고난이도의 PAUT 데이터 가공 및 모니터링 기능까지 순차적으로 정렬되어 있습니다.
+				</p>
+			</div>
+
+			<!-- Tutorial Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				
+				<!-- Tutorial 1 -->
+				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+						<img src="/assets/img/software/dsk/InitDevice.PNG" alt="01-InitDevice 실행 화면" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
+						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 01</span>
+					</div>
+					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
+						<div class="space-y-2">
+							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">01-InitDevice</h3>
+							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">장치 초기화 및 실시간 데이터 수신</p>
+							<p class="text-slate-600 text-sm leading-relaxed">
+								`InitDsk` 및 `InitDevice` 함수를 통해 초음파 하드웨어를 기동하고, 수집 채널을 활성화하여 데이터를 전송받는 기본 구조입니다. `Dsk.Freeze` 및 `UnFreeze` 프로퍼티를 사용하여 데이터 획득 흐름을 일시 정지하거나 복구하는 제어를 수행합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tutorial 2 -->
+				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+						<img src="/assets/img/software/dsk/Scan.PNG" alt="02-SScan 실행 화면" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
+						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 02</span>
+					</div>
+					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
+						<div class="space-y-2">
+							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">02-SScan</h3>
+							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">실시간 S-Scan 이미지 스캔 변환</p>
+							<p class="text-slate-600 text-sm leading-relaxed">
+								수신된 데이터 행렬을 모니터 화면 크기에 적합한 부채꼴 좌표의 2D 이미지로 맵핑하는 스캔 변환(Scan Conversion) 예제입니다. `GetSScanWidth`/`Height`로 이미지 치수를 수집하고 `CalcSScanImage` 함수를 통해 2D byte 그래픽 배열을 연산합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tutorial 3 -->
+				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+						<img src="/assets/img/software/dsk/A-scan.PNG" alt="03-AScan 실행 화면" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
+						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 03</span>
+					</div>
+					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
+						<div class="space-y-2">
+							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">03-AScan</h3>
+							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">특정 벡터 A-Scan 파형 렌더링</p>
+							<p class="text-slate-600 text-sm leading-relaxed">
+								설정된 빔 각도(Vector) 중 검사자가 선택한 특정 인덱스 위치의 초음파 신호 진폭을 실시간으로 추출합니다. 추출한 신호 배열을 바탕으로 모니터링 화면에 비트맵 기반의 선형 A-Scan 그래프를 정교하게 드로잉합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tutorial 4 -->
+				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+						<img src="/assets/img/software/dsk/Inspection.PNG" alt="04-Inspection 실행 화면" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
+						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 04</span>
+					</div>
+					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
+						<div class="space-y-2">
+							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">04-Inspection</h3>
+							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">다축 엔코더 정렬 및 이동 동기 탐상</p>
+							<p class="text-slate-600 text-sm leading-relaxed">
+								자동화 갠트리 및 기계식 수동 스캐너 축과 동기화하여 데이터를 수집하는 환경을 구축합니다. `SetScanEncoder`를 통해 스캔 시작/종료 한계점, 진행 스텝(Step) 및 해상도를 입력하고, 엔코더가 연산한 축 이동 거리(mm) 상태값을 화면에 트래킹합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tutorial 5 -->
+				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group md:col-span-2 lg:col-span-2">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+						<div class="grid grid-cols-2 gap-4 w-full h-full p-2 items-center">
+							<img src="/assets/img/software/dsk/SimplePAUTMain.PNG" alt="10-SimplePAUT 종합 화면" class="h-full object-contain rounded shadow hover:scale-105 transition-transform duration-300 cursor-zoom-in lightbox-trigger" />
+							<img src="/assets/img/software/dsk/SimplePAUTSectorial.PNG" alt="10-SimplePAUT 이미지 렌절 화면" class="h-full object-contain rounded shadow hover:scale-105 transition-transform duration-300 cursor-zoom-in lightbox-trigger" />
+						</div>
+						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 10</span>
+					</div>
+					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
+						<div class="space-y-2">
+							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">10-SimplePAUT</h3>
+							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">파라미터 Setup JSON 저장 및 종합 모니터링</p>
+							<p class="text-slate-600 text-sm leading-relaxed">
+								모든 개별 조작 함수가 완전한 GUI 프로그램으로 집약된 튜토리얼의 최종 단계입니다. 파라미터 설정을 손쉽게 불러오고 저장하는 `JsonFile2Object` 직렬화 구현, 다중 게이트 판정값 출력, A/B/C/S-Scan을 유기적으로 렌더링하는 핵심 기술들을 가이드합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- C# Integration Code Example -->
+	<section class="py-20 bg-slate-950 text-white relative">
+		<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.08),transparent_60%)] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Text Block -->
+				<div class="lg:col-span-5 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>C# 개발 코드 가이드</span>
+					</div>
+					<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight font-display">
+						단 몇 줄의 코드로 구현하는<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">초음파 물리 제어 루틴</span>
+					</h2>
+					<p class="text-slate-300 text-sm leading-relaxed">
+						C# SDK 어셈블리는 복잡하고 까다로운 하드웨어 제어 파이프라인을 매우 직관적으로 단순화합니다. 초기화 함수 호출 및 실시간 수신용 콜백 바인딩만으로 즉각적인 데이터 제어 루틴을 수립할 수 있습니다.
+					</p>
+					
+					<div class="border-t border-slate-800 pt-6 space-y-4">
+						<div class="flex items-start space-x-3">
+							<span class="bg-primary-cyan/20 text-primary-cyan rounded px-2.5 py-0.5 text-sm font-mono shrink-0 whitespace-nowrap inline-block mb-2">Step 1</span>
+							<div class="text-sm">
+								<p class="font-bold text-slate-200">using DEEPSOUND 네임스페이스 추가</p>
+								<p class="text-slate-400">C# 프로그램 진입점 및 어셈블리에 라이브러리 사용을 선언합니다.</p>
+							</div>
+						</div>
+						<div class="flex items-start space-x-3">
+							<span class="bg-primary-cyan/20 text-primary-cyan rounded px-2.5 py-0.5 text-sm font-mono shrink-0 whitespace-nowrap inline-block mb-2">Step 2</span>
+							<div class="text-sm">
+								<p class="font-bold text-slate-200">초기화 및 장치 가동</p>
+								<p class="text-slate-400">`InitDsk()` 및 `InitDevice()`를 순차 기동하여 디바이스 제어권을 획득합니다.</p>
+							</div>
+						</div>
+						<div class="flex items-start space-x-3">
+							<span class="bg-primary-cyan/20 text-primary-cyan rounded px-2.5 py-0.5 text-sm font-mono shrink-0 whitespace-nowrap inline-block mb-2">Step 3</span>
+							<div class="text-sm">
+								<p class="font-bold text-slate-200">SetCallBackFrame 바인딩</p>
+								<p class="text-slate-400">위치 좌표 정보와 동기화된 실시간 프레임 획득 콜백 메서드를 바인딩합니다.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Code Editor Visual Mockup -->
+				<div class="lg:col-span-7">
+					<div class="bg-[#0b1320] border border-slate-800 rounded-2xl shadow-2xl overflow-hidden font-mono text-sm text-slate-300">
+						<!-- Window Header -->
+						<div class="bg-[#070d17] px-4 py-3 border-b border-slate-900 flex justify-between items-center">
+							<div class="flex items-center space-x-2">
+								<div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+								<div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+								<div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+								<span class="ml-4 text-xs text-slate-500 font-semibold">DskTutorial / Program.cs</span>
+							</div>
+							<span class="text-xs text-slate-600">C# (.NET 8.0)</span>
+						</div>
+						
+						<!-- Code Content -->
+						<div class="p-6 overflow-x-auto leading-relaxed whitespace-pre select-all text-left">
+<span class="text-slate-500">// 1. DSK 어셈블리 네임스페이스 임포트</span>
+<span class="text-blue-400">using</span> <span class="text-cyan-400">System</span>;
+<span class="text-blue-400">using</span> <span class="text-cyan-400">DEEPSOUND</span>;
+
+<span class="text-blue-400">namespace</span> <span class="text-cyan-400">DskTutorial</span>
+{"{"}
+    <span class="text-blue-400">class</span> <span class="text-yellow-400">Program</span>
+    {"{"}
+        <span class="text-blue-400">static void</span> <span class="text-green-400">Main</span>(<span class="text-blue-400">string</span>[] args)
+        {"{"}
+            <span class="text-slate-500">// 2. DSK 기동 초기화</span>
+            <span class="text-yellow-400">DSK</span>.<span class="text-green-400">InitDsk</span>();
+            
+            <span class="text-slate-500">// 3. 기가비트 이더넷/USB 계측 장치 기동</span>
+            <span class="text-blue-400">bool</span> isDeviceReady = <span class="text-yellow-400">DSK</span>.<span class="text-green-400">InitDevice</span>();
+            <span class="text-blue-400">if</span> (!isDeviceReady) {"{"}
+                <span class="text-cyan-400">Console</span>.<span class="text-green-400">WriteLine</span>(<span class="text-orange-400">"장비 연결 실패!"</span>);
+                <span class="text-blue-400">return</span>;
+            {"}"}
+
+            <span class="text-slate-500">// 4. 데이터 획득용 Rx 콜백 함수 지정</span>
+            <span class="text-yellow-400">DSK</span>.<span class="text-green-400">SetCallBackFrame</span>(<span class="text-blue-400">new</span> <span class="text-yellow-400">DskCallBackFrameX</span>(<span class="text-green-400">OnReceiveFrameX</span>));
+            
+            <span class="text-cyan-400">Console</span>.<span class="text-green-400">WriteLine</span>(<span class="text-orange-400">"초음파 스트리밍 가동 중. 아무 키나 누르면 종료합니다."</span>);
+            <span class="text-cyan-400">Console</span>.<span class="text-green-400">ReadKey</span>();
+
+            <span class="text-slate-500">// 5. 기동 종료 시 장치 안전 해제</span>
+            <span class="text-yellow-400">DSK</span>.<span class="text-green-400">CloseDevice</span>();
+        {"}"}
+
+        <span class="text-slate-500">// 5차원 위치 정보(X축) 동기화 Rx 콜백 콜러블</span>
+        <span class="text-blue-400">private static void</span> <span class="text-green-400">OnReceiveFrameX</span>(<span class="text-blue-400">short</span>[] frameData, <span class="text-blue-400">double</span> locX)
+        {"{"}
+            <span class="text-slate-500">// 실시간 획득 프레임 가공 처리 루틴</span>
+            <span class="text-cyan-400">Console</span>.<span class="text-green-400">WriteLine</span>($"Frame 수신 완료 - 위치: {"{"}locX{"}"}mm, 데이터 크기: {"{"}frameData.Length{"}"} shorts");
+        {"}"}
+    {"}"}
+{"}"}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Quote Section (For inquiry) -->
+	<section id="contact-quote" class="bg-slate-900 py-16 sm:py-24 text-white border-t border-slate-800">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+			<span class="text-sm font-bold font-sans text-primary-cyan tracking-wider uppercase">INQUIRY</span>
+			<h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight font-display">
+				DSPAUT SDK (DSK) 라이선스 및 기술 연동 문의
+			</h2>
+			<p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+				파트너십 기반의 맞춤형 개발 지원, DSK 라이선스 단가 및 기업 OEM 연동 기술 정밀 제안이 필요하시면 즉시 상담을 요청해 주십시오. 기술 지원 파트에서 최적의 개발 가이드를 C# 전용 환경에 맞춰 상세히 상담해 드리겠습니다.
+			</p>
+			
+			<div class="pt-4">
+				<a href="#contact" class="inline-block px-8 py-4 text-base font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/25 transition-all duration-200 hover:-translate-y-0.5">
+					기술 영업 및 문의 양식으로 이동
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Lightbox Modal DOM -->
+	<div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm justify-center items-center p-4 transition-opacity duration-300 opacity-0 cursor-zoom-out">
+		<div class="relative max-w-5xl w-full flex flex-col justify-center items-center">
+			<img id="lightbox-image" src="" alt="확대 이미지" class="max-h-[85vh] max-w-full object-contain rounded-lg border border-slate-700 shadow-2xl transition-transform duration-300 scale-95" />
+			<div id="lightbox-caption" class="mt-4 text-slate-300 text-sm font-semibold tracking-wide bg-slate-900/80 border border-slate-800 rounded px-3.5 py-1.5 font-sans"></div>
+			<button id="lightbox-close" class="absolute -top-12 right-0 text-slate-400 hover:text-white text-3xl font-light focus:outline-none">&times;</button>
+		</div>
+	</div>
+
+	<script>
+		// Lightbox Implementation
+		const modal = document.getElementById('lightbox-modal');
+		const modalImg = document.getElementById('lightbox-image');
+		const modalCaption = document.getElementById('lightbox-caption');
+		const closeBtn = document.getElementById('lightbox-close');
+		const triggers = document.querySelectorAll('.lightbox-trigger');
+
+		if (modal && modalImg && modalCaption) {
+			triggers.forEach(trigger => {
+				trigger.addEventListener('click', (e) => {
+					const imgEl = e.currentTarget as HTMLImageElement;
+					modalImg.setAttribute('src', imgEl.src);
+					modalCaption.textContent = imgEl.alt || 'DSPAUT SDK 스크린샷';
+					
+					modal.classList.remove('hidden');
+					modal.classList.add('flex');
+					setTimeout(() => {
+						modal.classList.remove('opacity-0');
+						modal.classList.add('opacity-100');
+						modalImg.classList.remove('scale-95');
+						modalImg.classList.add('scale-100');
+					}, 10);
+				});
+			});
+
+			const closeModal = () => {
+				modal.classList.remove('opacity-100');
+				modal.classList.add('opacity-0');
+				modalImg.classList.remove('scale-100');
+				modalImg.classList.add('scale-95');
+				setTimeout(() => {
+					modal.classList.remove('flex');
+					modal.classList.add('hidden');
+				}, 300);
+			};
+
+			modal.addEventListener('click', closeModal);
+			if (closeBtn) closeBtn.addEventListener('click', closeModal);
+			
+			// Prevent modal close on image click
+			modalImg.addEventListener('click', (e) => {
+				e.stopPropagation();
+			});
+		}
+	</script>
+</Layout>

@@ -1,0 +1,104 @@
+[
+  {
+    "id": "dsvision",
+    "name": "DSVision",
+    "descriptionKo": "DSPAUT P5, T3 등 위상배열 초음파 탐상(PAUT) 장비 제어 및 데이터 수집·실시간 분석 솔루션입니다. 현장에서 검증된 강력한 신호 처리 기능과 직관적인 뷰어 인터페이스를 제공합니다.",
+    "descriptionEn": "Acquisition and real-time analysis software for Phased Array Ultrasonic Testing (PAUT) instruments such as DSPAUT P5 and T3. Features field-proven signal processing and an intuitive viewer interface.",
+    "version": "v2.6.2",
+    "releaseDate": "2026.05.20",
+    "os": "Windows 10 / 11 (64-bit)",
+    "fileSize": "48.2 MB",
+    "downloadUrl": "/assets/downloads/dsvision/DSVision_Setup_v2.6.2.zip",
+    "changelogKo": [
+      {
+        "version": "v2.6.2",
+        "date": "2026.05.20",
+        "downloadUrl": "/assets/downloads/dsvision/DSVision_Setup_v2.6.2.zip",
+        "notes": [
+          "데이터 오프라인 로드 시 간헐적으로 프로그램이 멈추는 버그 수정 (Bug Fix)",
+          "Wedge Delay 보정 오차 정밀도 12% 향상",
+          "대용량 A-scan 로우 데이터 스트리밍 처리 최적화"
+        ]
+      },
+      {
+        "version": "v2.6.0",
+        "date": "2026.03.15",
+        "downloadUrl": "/assets/downloads/dsvision/DSVision_Setup_v2.6.0.zip",
+        "notes": [
+          "DSPAUT T3 장비용 TOFD 분석 모듈 탑재 및 최적화",
+          "화면 마크업 내보내기 오류 해결"
+        ]
+      }
+    ],
+    "changelogEn": [
+      {
+        "version": "v2.6.2",
+        "date": "2026.05.20",
+        "downloadUrl": "/assets/downloads/dsvision/DSVision_Setup_v2.6.2.zip",
+        "notes": [
+          "Fixed occasional program freeze bug when loading raw data offline",
+          "Improved Wedge Delay calibration offset precision by 12%",
+          "Optimized high-volume A-scan raw data streaming throughput"
+        ]
+      },
+      {
+        "version": "v2.6.0",
+        "date": "2026.03.15",
+        "downloadUrl": "/assets/downloads/dsvision/DSVision_Setup_v2.6.0.zip",
+        "notes": [
+          "Integrated and optimized TOFD analysis module for DSPAUT T3",
+          "Resolved screen markup export syntax error"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dsk",
+    "name": "DSK (Development Software Kit)",
+    "descriptionKo": "성산연구소의 초음파 장비 데이터를 수신하여 고유의 연구 및 응용 알고리즘을 개발할 수 있도록 제공하는 개발자용 소프트웨어 키트(SDK) 라이브러리 및 예제 코드 세트입니다.",
+    "descriptionEn": "Developer software development kit (SDK) library and sample code set designed to receive ultrasonic data from SEONGSANLAB instruments for custom research and analysis algorithms.",
+    "version": "v1.0.5",
+    "releaseDate": "2026.04.15",
+    "os": "Windows 10 / 11",
+    "fileSize": "12.4 MB",
+    "downloadUrl": "/assets/downloads/dsk/DSK_v1.0.5.zip",
+    "changelogKo": [
+      {
+        "version": "v1.0.5",
+        "date": "2026.04.15",
+        "downloadUrl": "/assets/downloads/dsk/DSK_v1.0.5.zip",
+        "notes": [
+          "C# 예제 코드 연동 라이브러리 안정화",
+          "다중 보드 동기화(R5 OEM) 제어를 위한 신규 API 추가"
+        ]
+      },
+      {
+        "version": "v1.0.0",
+        "date": "2026.01.10",
+        "downloadUrl": "/assets/downloads/dsk/DSK_v1.0.0.zip",
+        "notes": [
+          "성산연구소 공식 DSK (Development Software Kit) v1.0 최초 릴리스"
+        ]
+      }
+    ],
+    "changelogEn": [
+      {
+        "version": "v1.0.5",
+        "date": "2026.04.15",
+        "downloadUrl": "/assets/downloads/dsk/DSK_v1.0.5.zip",
+        "notes": [
+          "Stabilized C# sample code integration wrappers",
+          "Added new APIs to support multi-board sync control (R5 OEM boards)"
+        ]
+      },
+      {
+        "version": "v1.0.0",
+        "date": "2026.01.10",
+        "downloadUrl": "/assets/downloads/dsk/DSK_v1.0.0.zip",
+        "notes": [
+          "Initial release of official SEONGSANLAB DSK (Development Software Kit) v1.0"
+        ]
+      }
+    ]
+  }
+]

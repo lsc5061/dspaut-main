@@ -1,0 +1,69 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DownloadCard from '../components/DownloadCard.astro';
+import downloadData from '../data/downloadData.json';
+---
+
+<Layout 
+  title="Resource Hub & Downloads | SEONGSANLAB" 
+  description="Access and download the latest software releases and developer libraries (SDK) to control and analyze your DSPAUT systems." 
+  lang="en"
+>
+  <!-- Hero Section -->
+  <section class="relative py-28 bg-[#0C1929] text-white overflow-hidden border-b border-slate-800">
+    <!-- Dynamic Backlight Source -->
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-gradient-to-b from-primary-cyan/20 to-transparent rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <span class="inline-flex items-center space-x-1 text-xs font-mono bg-primary-cyan/10 text-primary-cyan border border-primary-cyan/20 px-3 py-1 rounded-full font-bold uppercase tracking-wider mb-6">
+        Resource Center
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight font-display text-white mb-6 leading-tight">
+        Download Software & SDKs
+      </h1>
+      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        Download the latest software versions and developer libraries to securely control<br/>
+        your DSPAUT system and achieve optimal analytical results.
+      </p>
+    </div>
+  </section>
+
+  <!-- Download Cards Grid Section -->
+  <section class="py-24 bg-slate-950 text-white relative">
+    <!-- Spotlight overlay -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Installation Tips Alert -->
+      <div class="max-w-4xl mx-auto mb-16 bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 flex items-start space-x-4">
+        <span class="text-xl shrink-0">💡</span>
+        <div class="space-y-1">
+          <h4 class="text-base font-bold text-white">Software Installation & Update Instructions</h4>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            1. For a stable update, we recommend downloading the installation files onto a PC or laptop, then transferring them via a **USB flash drive** to install on the instrument.<br/>
+            2. After downloading, ensure you **extract the (.zip) archive** before running the setup executable (e.g., setup.exe) as an administrator.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-start">
+        {downloadData.map((data) => (
+          <DownloadCard
+            lang="en"
+            name={data.name}
+            description={data.descriptionEn}
+            version={data.version}
+            releaseDate={data.releaseDate}
+            os={data.os}
+            fileSize={data.fileSize}
+            downloadUrl={data.downloadUrl}
+            changelog={data.changelogEn}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

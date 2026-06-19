@@ -1,0 +1,378 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
+---
+
+<Layout 
+	title="DSPAUT B3 | 휴대용 위상배열 초음파(PAUT) 비파괴 검사 장비" 
+	description="(주)성산연구소의 초경량 휴대용 PAUT 장비 DSPAUT B3를 소개합니다. 1.4kg 미만 초경량 디자인, 16:64PR 채널 구성, 실시간 용접 결함 시각화 완벽 지원."
+	lang="ko"
+>
+	<!-- Product Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-20 sm:py-28 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<!-- Hero Left Content -->
+				<div class="lg:col-span-7 space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>기동성 특화 휴대용 PAUT</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+						DSPAUT B3<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">현장 특화 초경량 바디</span>
+					</h1>
+					<p class="text-lg text-slate-300 leading-relaxed max-w-2xl">
+						DSPAUT B3는 검사 정밀도를 타협하지 않으면서도 극대화된 현장 기동성을 실현하도록 설계된 초경량 휴대용 위상배열 초음파(PAUT) 탐상 시스템입니다. 배터리를 포함하고도 단 1.4kg에 불과하여 고소 비계 작업, 로프 액세스, 협소 구역 등 작업자의 민첩성과 안전이 요구되는 환경에서 최상의 성능을 발휘합니다.
+					</p>
+					
+					<div class="flex flex-wrap gap-3 pt-4">
+						<a href="#contact-quote" class="px-6 py-3.5 text-sm font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+							도입 및 견적 문의
+						</a>
+						<a href="/assets/docs/KOR_Catalog_B3.pdf" target="_blank" class="px-6 py-3.5 text-sm font-bold text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
+							국문 카탈로그 받기 (PDF)
+						</a>
+					</div>
+				</div>
+				
+				<!-- Hero Right Image -->
+				<div class="lg:col-span-5 relative flex justify-center items-center">
+					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
+					<div class="relative bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden group">
+						<img 
+							src="/assets/img/hardware/portable/KakaoTalk_20251231_101545706_10.png" 
+							alt="DSPAUT B3 제품 사진" 
+							class="w-full max-w-md h-auto object-contain rounded-lg transform transition-transform duration-500 scale-[1.15] translate-y-1 group-hover:scale-[1.2]"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Quick Spec Highlights -->
+	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-300">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">1.4 kg</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">배터리 탑재 무게</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">16:64PR</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">PAUT 채널 구성</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">7" 터치 LCD</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">정전식 멀티터치</span>
+				</div>
+				<div class="w-px h-12 bg-slate-800 hidden md:block self-center mx-auto"></div>
+				<div class="space-y-1">
+					<span class="block text-2xl font-bold text-white">최대 30 kHz</span>
+					<span class="text-sm uppercase tracking-wider text-slate-400 font-sans font-semibold">펄스 반복 주파수 (PRF)</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Product Features -->
+	<section class="py-20 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+			
+			<!-- Feature 1: Compact Portability -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-5 relative order-last lg:order-first">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+						<img 
+							src="/assets/img/hardware/portable/b3_compact.png" 
+							alt="DSPAUT B3 한 손 조작 기동성" 
+							class="w-full h-auto object-contain rounded-xl shadow-md"
+						/>
+					</div>
+				</div>
+				<div class="lg:col-span-7 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">ULTRA PORTABILITY</span>
+					<h2 class="text-3xl font-bold text-slate-900 tracking-tight font-display">
+						극대화된 현장 기동성: 1.4kg 미만의 한계 돌파
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-base">
+						현장 비파괴 검사 시 장비의 경량화는 피로도 감소뿐 아니라 작업 안전과 직결됩니다. DSPAUT B3는 스마트 배터리를 포함하고도 단 1.4kg(장비 본체만 1kg 미만)에 불과하여 고소 작업이나 로프 액세스 상황에서도 완벽히 한 손 그립으로 흔들림 없이 조작이 가능합니다.
+					</p>
+					<ul class="space-y-2 text-sm text-slate-600 font-medium">
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>한 손 제어 최적화:</strong> 안정적인 핸드헬드 조작이 가능하도록 무게 밸런스를 맞춘 컴팩트 폼팩터입니다.</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>7인치 대화면 터치패널:</strong> 우수한 시인성의 1024×600 고정밀 정전식 터치 모니터로 정밀 메뉴 이동 및 실시간 렌더링 확인이 쉽습니다.</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>배터리 간편 탈착:</strong> 장시간 외부 출장 검사도 다운타임 없이 신속하게 교체할 수 있는 스마트 배터리를 탑재해 최대 4시간 연속 계측이 가능합니다.</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Feature 2: Precision & Software Capabilities -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-7 space-y-4">
+					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">INSPECTION POWER</span>
+					<h2 class="text-3xl font-bold text-slate-900 tracking-tight font-display">
+						정밀 비파괴 계측 및 고급 시각화 솔루션
+					</h2>
+					<p class="text-slate-600 leading-relaxed text-base">
+						초소형 보드 규격임에도 정밀 빔포밍 연산 회로를 내장해 미세한 크랙 및 균열을 명확하게 분해하여 스캔합니다. 플래그십 P5 모델과 100% 동일한 수집 알고리즘 및 유저인터페이스(UI)를 적용하여 뛰어난 신뢰성을 보장합니다.
+					</p>
+					<ul class="space-y-2 text-sm text-slate-600 font-medium">
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>용접부 시각화 기술 탑재:</strong> 현장에서 실제 용접 배관부 형상(V, Double V 등)과 열영향부(HAZ)를 스크린에 오버레이 투영해 결함 위치를 즉각 추적합니다.</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>다중 그룹 동시 수집:</strong> 최대 4개의 독립 채널 그룹을 할당해 PAUT와 TOFD를 단일 엔코더 스캔으로 통합 계측할 수 있습니다.</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>초고속 데이터 처리:</strong> 최대 30kHz PRF 지원으로 빠른 스캐너 스피드 조건에서도 프레임 손실 없는 밀도 높은 데이터 캡처를 실현합니다.</span>
+						</li>
+						<li class="flex items-center space-x-2">
+							<span class="text-primary-cyan">✔</span>
+							<span><strong>직관적인 캘리브레이션:</strong> 현장에서 음속(Velocity), 웨지 지연(Wedge Delay), TCG 보정 마법사를 지원해 높은 데이터 일관성을 제공합니다.</span>
+						</li>
+					</ul>
+				</div>
+				<div class="lg:col-span-5">
+					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-sm flex flex-col items-center justify-center overflow-hidden group">
+						<img 
+							src="/assets/img/hardware/portable/KakaoTalk_20251219_093343153_05_2.png" 
+							alt="DSPAUT B3 위상배열 초음파 용접 검사" 
+							class="max-w-full h-auto object-contain rounded-lg transition-transform duration-300 group-hover:scale-[1.03] filter drop-shadow-sm"
+						/>
+						<span class="text-sm text-slate-500 mt-3 font-semibold">P5 소프트웨어 엔진 100% 호환</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<!-- Hardware Interface & Ports Map -->
+	<section class="py-20 bg-slate-50 border-t border-b border-slate-200">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+				<span class="text-sm font-bold font-sans bg-slate-900 text-primary-cyan px-3 py-1.5 rounded inline-block mb-2">HARDWARE INTERFACE</span>
+				<h2 class="text-3xl font-extrabold text-slate-900 font-display">
+					DSPAUT B3 기기 인터페이스 및 포트 맵
+				</h2>
+				<p class="text-slate-600 text-sm">
+					신속한 현장 결함 검출을 위해 설계된 B3 하드웨어는 상단의 전용 프로브 포트와 하우징 후면 덮개 안쪽의 표준 통신 단자 인터페이스를 통합 제공합니다.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+				<!-- Top Ports Config -->
+				<div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between items-center text-center space-y-6">
+					<h3 class="text-lg font-bold text-slate-900">기기 상단 연결부 (센서 및 프로브 인터페이스)</h3>
+					<div class="relative w-full aspect-square max-w-xs flex items-center justify-center bg-slate-50 rounded-xl border border-slate-100 p-4">
+						<img 
+							src="/assets/img/hardware/portable/KakaoTalk_20251231_101545706_14_1.png" 
+							alt="B3 상단 커넥터 패널" 
+							class="max-w-full max-h-48 object-contain rounded-lg scale-[1.15] translate-y-1 transition-transform duration-300"
+						/>
+					</div>
+					<div class="text-left w-full space-y-3">
+						<div class="border-b border-slate-100 pb-2">
+							<span class="block text-sm font-bold text-slate-800">IPEX 160핀 커넥터</span>
+							<span class="text-sm text-slate-500">고밀도 위상배열 초음파(PAUT) 프로브를 안전하게 밀착 고정하는 메인 연결 단자입니다.</span>
+						</div>
+						<div class="border-b border-slate-100 pb-2">
+							<span class="block text-sm font-bold text-slate-800">BNC UT 커넥터 2포트</span>
+							<span class="text-sm text-slate-500">일반 초음파 송수신 탐촉자 연결을 담당하는 단독 BNC 포트입니다.</span>
+						</div>
+						<div>
+							<span class="block text-sm font-bold text-slate-800">인코더 / Aux 단자</span>
+							<span class="text-sm text-slate-500">수동/자동 스캐너 엔코더 신호를 받아 주행 거리 및 데이터를 동기화합니다.</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Rear Ports Config -->
+				<div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between items-center text-center space-y-6">
+					<h3 class="text-lg font-bold text-slate-900">기기 후면 연결부 (표준 입출력 및 전원)</h3>
+					<div class="relative w-full aspect-square max-w-xs flex items-center justify-center bg-slate-50 rounded-xl border border-slate-100 p-4">
+						<img 
+							src="/assets/img/hardware/portable/KakaoTalk_20251231_101545706_13_1.png" 
+							alt="B3 후면 해치 단자 연결부" 
+							class="max-w-full max-h-48 object-contain rounded-lg scale-[0.95] translate-y-1 transition-transform duration-300"
+						/>
+					</div>
+					<div class="text-left w-full space-y-3">
+						<div class="border-b border-slate-100 pb-2">
+							<span class="block text-sm font-bold text-slate-800">기가비트 이더넷 (RJ45)</span>
+							<span class="text-sm text-slate-500">외부 PC 원격 제어 및 고속 데이터 전송을 위한 무손실 유선 LAN 포트입니다.</span>
+						</div>
+						<div class="border-b border-slate-100 pb-2">
+							<span class="block text-sm font-bold text-slate-800">표준 USB 3.0 & Micro USB</span>
+							<span class="text-sm text-slate-500">고속 계측 데이터 파일 내보내기 및 시스템 펌웨어 업데이트를 지원합니다.</span>
+						</div>
+						<div>
+							<span class="block text-sm font-bold text-slate-800">Micro HDMI & DC 전원 단자</span>
+							<span class="text-sm text-slate-500">스크린 미러링 디스플레이 출력 및 DC 12V 전원 케이블을 통한 핫스왑 배터리 충전 포트입니다.</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Technical Specifications Table -->
+	<section class="py-20 bg-slate-50 border-t border-b border-slate-200">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-bold text-slate-900 text-center tracking-tight font-display mb-12">
+				하드웨어 상세 사양 (Specifications)
+			</h2>
+
+			<div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm bg-white">
+				<table class="w-full text-sm text-left text-slate-600">
+					<thead class="text-sm uppercase bg-slate-900 text-primary-cyan font-sans">
+						<tr>
+							<th class="px-6 py-4">구분</th>
+							<th class="px-6 py-4">DSPAUT B3 상세 사양값</th>
+						</tr>
+					</thead>
+					<tbody class="divide-y divide-slate-100">
+						<tr class="bg-slate-50 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-3 font-sans text-sm uppercase text-slate-500 tracking-wider">일반 및 기계적 사양 (General & Mechanical)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">무게 (배터리 포함)</td>
+							<td class="px-6 py-3.5">1.4 Kg (스마트 배터리 1팩 장착 기준), 본체 단독 1.0 Kg 미만</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">모니터 디스플레이</td>
+							<td class="px-6 py-3.5">7인치 광시야각 LCD [1024 x 600], 정전식 멀티 터치스크린</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">배터리 구동 시간</td>
+							<td class="px-6 py-3.5">스마트 외장 리튬 이온 배터리 장착 기준 최대 4시간 연속 현장 구동</td>
+						</tr>
+						
+						<tr class="bg-slate-50 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-3 font-sans text-sm uppercase text-slate-500 tracking-wider">초음파 계측 및 구성 사양 (Acoustic & Configuration)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">위상배열(PA) 하드웨어 구성</td>
+							<td class="px-6 py-3.5">16:64PR 하드웨어 물리 채널</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">유효 디지털 주파수</td>
+							<td class="px-6 py-3.5">100 MHz</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">최대 펄스 반복 주파수 (PRF)</td>
+							<td class="px-6 py-3.5">최대 30 kHz</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">샘플 해상도</td>
+							<td class="px-6 py-3.5">16 bit</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">기본 지원 스캔 기법</td>
+							<td class="px-6 py-3.5">선형(Linear), 섹터(Sectorial), 일반 1-Ch UT, TOFD (최대 4그룹 동시 계측 지원)</td>
+						</tr>
+
+						<tr class="bg-slate-50 font-bold text-slate-900">
+							<td colspan="2" class="px-6 py-3 font-sans text-sm uppercase text-slate-500 tracking-wider">입출력 포트 (Connectivity)</td>
+						</tr>
+						<tr>
+							<td class="px-6 py-3.5 font-medium text-slate-900">연결 커넥터 및 단자</td>
+							<td class="px-6 py-3.5">USB 3.0 포트 x1, Micro HDMI 모니터 출력 x1, 2축 스캐너 인코더 입력 포트 x1</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- Resources Section -->
+	<section class="py-16 bg-white border-b border-slate-200">
+		<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+			<h2 class="text-2xl font-extrabold text-slate-900 font-display">
+				DSPAUT B3 다운로드 센터
+			</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+				<div class="bg-slate-50 p-6 border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+					<h4 class="text-sm font-bold text-slate-800">영문 브로슈어/카탈로그</h4>
+					<span class="text-xs text-slate-400 font-sans block mt-1">PDF · 2.8MB</span>
+					<a href="/assets/docs/ENG_Catalog_B3.pdf" target="_blank" class="mt-4 inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-4.5 py-2.5 rounded">다운로드</a>
+				</div>
+				<div class="bg-slate-50 p-6 border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+					<h4 class="text-sm font-bold text-slate-800">국문 브로슈어/카탈로그</h4>
+					<span class="text-xs text-slate-400 font-sans block mt-1">PDF · 2.8MB</span>
+					<a href="/assets/docs/KOR_Catalog_B3.pdf" target="_blank" class="mt-4 inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-4.5 py-2.5 rounded">다운로드</a>
+				</div>
+				<div class="bg-slate-50 p-6 border border-slate-200 rounded-xl shadow-sm flex flex-col justify-between">
+					<h4 class="text-sm font-bold text-slate-800">DSViewer 매뉴얼</h4>
+					<span class="text-xs text-slate-400 font-sans block mt-1">PDF · 1.8MB</span>
+					<a href="/assets/docs/DSViewer_Manual_v2.pdf" target="_blank" class="mt-4 inline-block bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-4.5 py-2.5 rounded">다운로드</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact CTA Form Section -->
+	<section id="contact-quote" class="py-20 bg-slate-900 text-white relative">
+		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10 text-center">
+			<h2 class="text-3xl font-extrabold font-display text-white">
+				DSPAUT B3 기기 도입 및 상담 문의
+			</h2>
+			<p class="text-slate-400 text-sm max-w-xl mx-auto">
+				아래 연락처 정보와 검사 요구사양(배관 두께, 프로브 주파수 등)을 남겨주시면, 담당 기술 부서에서 신속히 견적 및 상세 솔루션 상담 연락을 드리겠습니다.
+			</p>
+			
+			<div class="bg-slate-950 border border-slate-850 rounded-2xl p-8 text-left max-w-xl mx-auto shadow-2xl">
+				<form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+					<input type="hidden" name="access_key" value={web3FormsKey} />
+					<input type="hidden" name="subject" value="DSPAUT B3 국문 웹사이트 견적/도입 문의" />
+					<input type="hidden" name="from_name" value="DSPAUT Main Website (KO)" />
+					<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+					<div class="grid grid-cols-2 gap-4">
+						<div class="space-y-1">
+							<label for="name" class="block text-sm uppercase font-bold text-slate-400 font-sans">이름/담당자명</label>
+							<input type="text" name="name" id="name" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-primary-cyan" />
+						</div>
+						<div class="space-y-1">
+							<label for="company" class="block text-sm uppercase font-bold text-slate-400 font-sans">회사/연구소명</label>
+							<input type="text" name="company" id="company" class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-primary-cyan" />
+						</div>
+					</div>
+					
+					<div class="space-y-1">
+						<label for="email" class="block text-sm uppercase font-bold text-slate-400 font-sans">이메일 주소</label>
+						<input type="email" name="email" id="email" required class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-primary-cyan" />
+					</div>
+
+					<div class="space-y-1">
+						<label for="message" class="block text-sm uppercase font-bold text-slate-400 font-sans">계측 장비 요구 사항 및 상세 문의 내용</label>
+						<textarea name="message" id="message" rows="4" placeholder="사용 목적(고소 배관 검사, 협소부 두께 계측 등) 또는 필요하신 센서 프로브/웨지 사양을 기술해 주세요..." class="w-full bg-slate-900 border border-slate-800 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-primary-cyan"></textarea>
+					</div>
+
+					<button type="submit" class="w-full bg-primary-cyan text-slate-950 font-bold py-3.5 rounded hover:bg-cyan-400 text-sm transition-colors tracking-wide uppercase shadow-md shadow-primary-cyan/20">
+						상담 및 견적 신청 제출
+					</button>
+				</form>
+			</div>
+		</div>
+	</section>
+</Layout>

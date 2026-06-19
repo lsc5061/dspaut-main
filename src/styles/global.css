@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@theme {
+  --color-primary-dark: #0C1929;
+  --color-primary-cyan: #00E5FF;
+  --color-electric-blue: #3B82F6;
+  --color-body-bg: #F8FAFC;
+  --color-slate-card: #0F172A;
+  --color-slate-850: #0f1d30;
+
+  --font-sans: "Inter", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Noto Sans KR", sans-serif;
+  --font-display: "Outfit", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Noto Sans KR", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure form controls inherit the custom font-family */
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Force Outfit display font on all primary buttons and CTAs for a premium, unified aesthetic */
+.bg-primary-cyan, [class*="bg-primary-cyan"] {
+  font-family: var(--font-display) !important;
+}
+
+/* Improve contrast and typography of quick spec labels on dark sections (global fix for all product pages) */
+section.bg-slate-900 span.font-mono[class*="text-slate-500"] {
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  color: #00E5FF !important;
+}
+
+
