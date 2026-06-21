@@ -289,13 +289,14 @@ const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
           return;
         }
 
+        const formData = new FormData(form);
+
         // Start Loading
         if (submitBtn) submitBtn.disabled = true;
         if (btnText) btnText.textContent = isKorean ? "전송 중..." : "Sending...";
         btnSpinner?.classList.remove('hidden');
         inputs.forEach(input => input.disabled = true);
 
-        const formData = new FormData(form);
         const accessKey = form.dataset.web3formsKey || "YOUR_ACCESS_KEY_HERE"; 
         formData.append("access_key", accessKey);
         formData.append("subject", `[SEONGSANLAB B2B 문의] ${nameField.value.trim()} - ${inquiryField.options[inquiryField.selectedIndex].text}`);
