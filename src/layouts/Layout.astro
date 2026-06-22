@@ -45,5 +45,44 @@ const {
 		</main>
 		
 		<Footer lang={lang} />
+
+		<script>
+			function initFormValidation() {
+				// novalidate 속성이 없는 일반 폼을 타겟팅합니다.
+				const forms = document.querySelectorAll('form:not([novalidate])');
+				forms.forEach(form => {
+					const isKorean = document.documentElement.lang === 'ko';
+					const nameInput = form.querySelector('#name') as HTMLInputElement;
+					const companyInput = form.querySelector('#company') as HTMLInputElement;
+					const emailInput = form.querySelector('#email') as HTMLInputElement;
+
+					if (nameInput) {
+						nameInput.addEventListener('invalid', () => {
+							nameInput.setCustomValidity(isKorean ? '성함을 입력해 주십시오.' : 'Please enter your name.');
+						});
+						nameInput.addEventListener('input', () => nameInput.setCustomValidity(''));
+					}
+					if (companyInput && companyInput.hasAttribute('required')) {
+						companyInput.addEventListener('invalid', () => {
+							companyInput.setCustomValidity(isKorean ? '회사명을 입력해 주십시오.' : 'Please enter your company name.');
+						});
+						companyInput.addEventListener('input', () => companyInput.setCustomValidity(''));
+					}
+					if (emailInput) {
+						emailInput.addEventListener('invalid', () => {
+							if (emailInput.validity.valueMissing) {
+								emailInput.setCustomValidity(isKorean ? '이메일 주소를 입력해 주십시오.' : 'Please enter your email address.');
+							} else if (emailInput.validity.typeMismatch) {
+								emailInput.setCustomValidity(isKorean ? '유효한 이메일 형식이 아닙니다 (예: name@company.com).' : 'Invalid email format (e.g. name@company.com).');
+							}
+						});
+						emailInput.addEventListener('input', () => emailInput.setCustomValidity(''));
+					}
+				});
+			}
+
+			document.addEventListener('DOMContentLoaded', initFormValidation);
+			initFormValidation();
+		</script>
 	</body>
 </html>

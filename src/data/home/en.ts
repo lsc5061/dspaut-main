@@ -210,10 +210,10 @@ export const homeData = {
       { label: "DATA ANALYSIS", value: "DSViewer Offline Analysis & Image Export" }
     ],
     resourceHub: {
-      badge: "INTEGRATED RESOURCE HUB",
-      title: "Go to Resource Hub",
+      badge: "INTEGRATED DOWNLOADS",
+      title: "Go to Download Hub",
       desc: "Securely download the latest official software releases (DSVision) and developer SDK libraries to control, collect, and analyze your DSPAUT phased array ultrasonic testing data.",
-      cta: "Open Resource Hub ➔"
+      cta: "Open Download ➔"
     },
     portal: {
       badge: "SEONGSAN SUPPORT PORTAL",
