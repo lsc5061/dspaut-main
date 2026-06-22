@@ -7,13 +7,21 @@ interface Props {
 	title?: string;
 	description?: string;
 	lang?: string;
+	canonicalUrl?: string;
 }
 
 const { 
 	title = "DSPAUT | Phased Array Ultrasonic NDT Systems & Software", 
 	description = "DSPAUT is a global specialist in Ultrasonic Non-Destructive Testing (NDT) equipment, software, and integrations, providing advanced solutions for PAUT, TOFD, and automated inspection.", 
-	lang = "en" 
+	lang = "en",
+	canonicalUrl = new URL(Astro.url.pathname, "https://www.dspaut.com").href
 } = Astro.props;
+
+const path = Astro.url.pathname;
+const isKo = path.startsWith('/ko');
+const enPath = isKo ? (path.replace(/^\/ko/, '') || '/') : path;
+const koPath = isKo ? path : `/ko${path}`;
+const ogImage = "https://www.dspaut.com/assets/img/brand/ndt_field_test_demo.png";
 ---
 
 <!doctype html>
@@ -28,6 +36,44 @@ const {
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonicalUrl} />
+		
+		<!-- Open Graph / Twitter -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:site_name" content="DSPAUT by SEONGSANLAB" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+		
+		<!-- Language alternates -->
+		<link rel="alternate" hreflang="en" href={`https://www.dspaut.com${enPath}`} />
+		<link rel="alternate" hreflang="ko" href={`https://www.dspaut.com${koPath}`} />
+		<link rel="alternate" hreflang="x-default" href={`https://www.dspaut.com${enPath}`} />
+		
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "SEONGSANLAB",
+			"alternateName": "DSPAUT",
+			"url": "https://www.dspaut.com",
+			"logo": "https://www.dspaut.com/assets/img/brand/seongsan_engineering_lab.png",
+			"image": ogImage,
+			"description": "SEONGSANLAB develops high-performance Phased Array Ultrasonic Testing (PAUT) systems and NDT software for industrial inspection.",
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"contactType": "sales",
+				"email": "admin@dspaut.com"
+			},
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": "KR"
+			}
+		})}></script>
 		
 		<!-- Google Fonts & Pretendard -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">

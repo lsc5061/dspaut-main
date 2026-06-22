@@ -1,4 +1,4 @@
----
+﻿---
 // src/components/home/ContactSales.astro
 interface Props {
   data: any;
@@ -8,7 +8,7 @@ const { data } = Astro.props;
 const contact = data.contact;
 
 const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
-const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "http://localhost:4321";
+const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.com";
 ---
 
 <section id="contact-sales" class="py-24 bg-white scroll-mt-24" data-contact-sales>

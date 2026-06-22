@@ -1,0 +1,18 @@
+# Legacy portable pages
+/portable                  /products/p5/                 301
+/en/portable-1             /products/p5/                 301
+/en/deepsound-p5           /products/p5/                 301
+/en/deepsound-b1           /products/b3/                 301
+
+# Legacy software pages
+/dsvision                  /software/dsvision/           301
+/en/about-4                /software/dsk/                301
+/faq-program               /software/dsvision/           301
+
+# Misc legacy pages
+/videos                    /                             301
+/blog                      /                             301
+/location                  /about/                       301
+
+# Download subdomain
+/download                  https://download.dspaut.com   301
