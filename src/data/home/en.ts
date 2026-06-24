@@ -11,7 +11,7 @@ export const homeData = {
       p5: {
         badge: "NDT Specifications",
         lcd: "12.1\" LCD",
-        title: "DSPAUT P5",
+        title: "DEEPSOUND P5",
         desc: "Reflecting core feedback from field technicians, ensuring fast operation speed and rugged field usability.",
         specs: ["PAUT", "TOFD", "Multi-Group"],
         swBadge: "Acquisition SW",
@@ -23,7 +23,7 @@ export const homeData = {
       b3: {
         badge: "High Efficiency",
         lcd: "Robust Utility",
-        title: "DSPAUT B3",
+        title: "DEEPSOUND B3",
         desc: "Designed for optimal budget efficiency while preserving raw signal accuracy and compatibility with P5 ecosystem.",
         specs: ["Value Model", "Precision UT", "P5 Compatible"],
         swBadge: "Compact UT UI",
@@ -35,7 +35,7 @@ export const homeData = {
       t3: {
         badge: "Next-Gen TOFD",
         lcd: "0.9kg",
-        title: "DSPAUT T3",
+        title: "DEEPSOUND T3",
         desc: "0.9kg handheld design featuring an integrated 7\" touchscreen to maximize mobility in narrow inspection spaces.",
         specs: ["One-Hand", "7.0\" Touch", "TOFD Built-in"],
         swBadge: "TOFD Signal Analyzer",
@@ -89,11 +89,11 @@ export const homeData = {
     portableList: {
       p5: {
         badge: "PREMIUM MODEL",
-        title: "DSPAUT P5",
+        title: "DEEPSOUND P5",
         desc: "Features a high-resolution 12.1-inch display with fast boot times and latency-free operation. Ensures precise defect detection across diverse industrial environments.",
         specs: [
           { label: "Screen Size", value: "12.1\" LCD" },
-          { label: "HW Channels", value: "32/128PR" },
+          { label: "HW Channels", value: "32CH/128PR" },
           { label: "Tech Specs", value: "PAUT + TOFD" },
           { label: "Software", value: "DSVision Native" }
         ],
@@ -103,11 +103,11 @@ export const homeData = {
       },
       b3: {
         badge: "HIGH EFFICIENCY",
-        title: "DSPAUT B3",
+        title: "DEEPSOUND B3",
         desc: "Achieving an ultra-light body below 2.0kg (including battery) for maximized field portability. Outfitted with high cost efficiency and a real-time data acquisition engine matching the P5.",
         specs: [
           { label: "Weight", value: "< 2.0kg (w/ Batt)" },
-          { label: "Software", value: "100% P5 Match" },
+          { label: "Hardware Channel", value: "16CH/64PR" },
           { label: "Utility", value: "Compact Design" },
           { label: "Value", value: "Outstanding ROI" }
         ],
@@ -117,7 +117,7 @@ export const homeData = {
       },
       t3: {
         badge: "CONVENTIONAL UT",
-        title: "DSPAUT T3",
+        title: "DEEPSOUND T3",
         desc: "Combining a 0.9kg ultra-lightweight body with a 7-inch bright touch LCD screen. Optimized for single-handed operations in narrow workspaces with default TOFD software integration.",
         specs: [
           { label: "Weight", value: "0.9kg (Ultra-light)" },
@@ -132,9 +132,9 @@ export const homeData = {
     },
     system: {
       badge: "RACK-MOUNTED OEM SYSTEM BOARD",
-      title: "DSPAUT R5 System Board",
+      title: "DEEPSOUND R5 System Board",
       desc: "Engineered for seamless integration into industrial 19-inch standard rack mounts. Accommodates up to 32 transmit/receive (PR) channels, 128 element apertures, and 4 independent UT ports. Facilitates multi-board coordination through specialized IO control ports, making it the perfect foundation for partner corporations building customized factory automated scanner systems.",
-      specs: ["19\" Rack Mountable", "32/128PR Multi-channel", "4-Ch UT Independent", "SDK API Compatible"],
+      specs: ["19\" Rack Mountable", "32CH/128PR Multi-channel", "4-Ch UT Independent", "SDK API Compatible"],
       learnMore: "Learn More ➔",
       learnMoreHref: "/products/r5/",
       cta: "Request R5 Spec & OEM Inquiry"
@@ -142,7 +142,7 @@ export const homeData = {
     accessoriesList: {
       probe: {
         badge: "ADAPTER MODULE",
-        title: "Probe Converter: DSPAUT ZTO",
+        title: "Probe Converter: DEEPSOUND ZTO",
         desc: "A premium palm-sized aluminum adapter bridging third-party standard IPEX 160-pin probes to DSPAUT 260-pin ZIF instruments, eliminating legacy sensor replacement costs.",
         specLabel: "IPEX 160p to TC-ZIF 260p",
         learnMore: "Learn More ➔",
@@ -151,7 +151,7 @@ export const homeData = {
       },
       scanners: {
         badge: "ADAPTER MODULE",
-        title: "Encoder Converter: DSPAUT EC",
+        title: "Encoder Converter: DEEPSOUND EC",
         desc: "Resolves coordinate mismatches between standard scanner encoders and DSPAUT instruments. Supports D-sub to Lemo connector signal adaptation with a durable aluminum body.",
         specLabel: "D-sub to Lemo Conversion",
         learnMore: "Learn More ➔",
@@ -204,7 +204,7 @@ export const homeData = {
     videoBadge: "LIVE FIELD SCAN VIDEO",
     videoTitle: "DSPAUT Field Validation & Case Study",
     videoSpecs: [
-      { label: "HARDWARE CHANNELS", value: "32/128PR Active Aperture" },
+      { label: "HARDWARE CHANNELS", value: "32CH/128PR Active Aperture" },
       { label: "INSPECTION TECH", value: "Integrated PAUT & TOFD" },
       { label: "OPERATING SYSTEM", value: "DSVision Real-time Acquisition" },
       { label: "DATA ANALYSIS", value: "DSViewer Offline Analysis & Image Export" }

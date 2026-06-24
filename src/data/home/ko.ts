@@ -11,7 +11,7 @@ export const homeData = {
       p5: {
         badge: "NDT 장비 사양",
         lcd: "12.1\" LCD",
-        title: "DSPAUT P5",
+        title: "DEEPSOUND P5",
         desc: "NDT 현장 엔지니어들의 요구사항을 반영하여 가혹한 측정 환경에서도 뛰어난 조작 편의성과 신속한 반응 속도를 제공합니다.",
         specs: ["PAUT", "TOFD", "멀티그룹"],
         swBadge: "Acquisition 소프트웨어",
@@ -23,7 +23,7 @@ export const homeData = {
       b3: {
         badge: "최상의 가성비 모델",
         lcd: "고효율 다기능",
-        title: "DSPAUT B3",
+        title: "DEEPSOUND B3",
         desc: "실시간 수집에 필요한 핵심 기능을 중심으로 가성비를 극대화하였으며, 합리적인 도입 비용으로 프리미엄 P5급의 데이터 신뢰성을 보장합니다.",
         specs: ["가성비 특화", "고정밀 계측", "P5 연동"],
         swBadge: "컴팩트 측정 UI",
@@ -35,7 +35,7 @@ export const homeData = {
       t3: {
         badge: "차세대 TOFD 장비",
         lcd: "0.9kg",
-        title: "DSPAUT T3",
+        title: "DEEPSOUND T3",
         desc: "0.9kg 초경량 본체에 7인치 터치스크린을 통합하여, 협소부 검사 시 현장 기동성과 측정 효율성을 극대화합니다.",
         specs: ["1인 조작", "7.0\" 터치", "TOFD 탑재"],
         swBadge: "TOFD 신호 분석기",
@@ -89,11 +89,11 @@ export const homeData = {
     portableList: {
       p5: {
         badge: "프리미엄 모델",
-        title: "DSPAUT P5",
+        title: "DEEPSOUND P5",
         desc: "12.1인치 고해상도 디스플레이와 신속한 부팅 및 지연 없는 반응 속도를 구현하여 조작성을 극대화하였습니다. 다양한 산업 현장에서 정밀한 결함 검출 성능을 제공합니다.",
         specs: [
           { label: "화면 사양", value: "12.1\" LCD" },
-          { label: "하드웨어 채널", value: "32/128PR" },
+          { label: "하드웨어 채널", value: "32CH/128PR" },
           { label: "검사 기법", value: "PAUT + TOFD" },
           { label: "전용 프로그램", value: "DSVision 내장" }
         ],
@@ -103,11 +103,11 @@ export const homeData = {
       },
       b3: {
         badge: "최상의 가성비",
-        title: "DSPAUT B3",
+        title: "DEEPSOUND B3",
         desc: "배터리 탑재 시 2kg 미만의 초경량 설계로 휴대성을 확보하였습니다. 컴팩트한 바디 구조에 높은 도입 효율성을 제공하며, 프리미엄 P5 모델과 호환되는 수집 엔진을 탑재하였습니다.",
         specs: [
           { label: "장비 무게", value: "< 2.0kg (배터리 포함)" },
-          { label: "소프트웨어", value: "P5와 100% 호환" },
+          { label: "하드웨어 채널", value: "16CH/64PR" },
           { label: "편의성", value: "컴팩트 설계" },
           { label: "투자 효율", value: "가성비 최우수" }
         ],
@@ -117,7 +117,7 @@ export const homeData = {
       },
       t3: {
         badge: "일반 UT (Conventional UT)",
-        title: "DSPAUT T3",
+        title: "DEEPSOUND T3",
         desc: "0.9kg 초경량 설계와 7인치 터치스크린을 결합하여 현장 기동성을 확보하였습니다. 한 손 조작이 가능하며 TOFD 검사 솔루션을 기본 탑재하여 협소부 검사 시 높은 효율성을 제공합니다.",
         specs: [
           { label: "장비 무게", value: "0.9kg (초경량)" },
@@ -132,9 +132,9 @@ export const homeData = {
     },
     system: {
       badge: "렉마운트형 OEM 시스템 보드",
-      title: "DSPAUT R5 시스템 보드",
+      title: "DEEPSOUND R5 시스템 보드",
       desc: "산업용 19인치 표준 랙에 장착이 가능하도록 설계된 R5 보드입니다. 최대 32개의 송수신(PR) 채널, 128 소자 어퍼처 및 4채널 독립 UT 포트를 제공합니다. 전용 I/O 제어 포트를 통한 다중 보드 동기화를 지원하여 맞춤형 공장 자동화 스캐너 시스템 구축을 위한 최적의 기반을 제공합니다.",
-      specs: ["19\" 랙 마운트 가능", "32/128PR 다채널", "4채널 독립 UT", "SDK API 호환"],
+      specs: ["19\" 랙 마운트 가능", "32CH/128PR 다채널", "4채널 독립 UT", "SDK API 호환"],
       learnMore: "자세히 보기 ➔",
       learnMoreHref: "/ko/products/r5/",
       cta: "R5 사양 및 OEM 문의"
@@ -142,7 +142,7 @@ export const homeData = {
     accessoriesList: {
       probe: {
         badge: "변환 어댑터",
-        title: "Probe Converter: DSPAUT ZTO",
+        title: "Probe Converter: DEEPSOUND ZTO",
         desc: "타사 탐촉자 활용 시 센서 인프라 전체의 교체 부담을 덜어주는 어댑터입니다. 가볍고 튼튼한 알루미늄 바디와 정밀한 핀 맵 매핑으로 원활한 초음파 데이터 획득을 지원합니다.",
         specLabel: "IPEX 160p ↔ TC-ZIF 260p 변환",
         learnMore: "자세히 보기 ➔",
@@ -151,7 +151,7 @@ export const homeData = {
       },
       scanners: {
         badge: "변환 어댑터",
-        title: "Encoder Converter: DSPAUT EC",
+        title: "Encoder Converter: DEEPSOUND EC",
         desc: "스캐너 엔코더 규격 불일치로 인한 신호 끊김 현상을 간편하게 해결하는 인코더 변환 어댑터입니다. 알루미늄 하우징으로 제작되어 뛰어난 내구성을 자랑합니다.",
         specLabel: "D-sub ↔ Lemo 타입 변환",
         learnMore: "자세히 보기 ➔",
@@ -204,7 +204,7 @@ export const homeData = {
     videoBadge: "LIVE FIELD SCAN VIDEO",
     videoTitle: "실제 현장에서 가동되는 DSPAUT 기술 실증",
     videoSpecs: [
-      { label: "하드웨어 채널", value: "32/128PR 활성 어퍼처 지원" },
+      { label: "하드웨어 채널", value: "32CH/128PR 활성 어퍼처 지원" },
       { label: "초음파 기법", value: "PAUT 및 TOFD 멀티 기술" },
       { label: "운용 프로그램", value: "DSVision 실시간 데이터 수집" },
       { label: "데이터 분석", value: "DSViewer 오프라인 분석 및 이미지 저장" }
