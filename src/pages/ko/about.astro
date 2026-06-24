@@ -478,7 +478,7 @@ import Layout from '../../layouts/Layout.astro';
 						<!-- Actual Google Map Iframe -->
 						<div class="w-full h-[360px] rounded-2xl overflow-hidden border border-slate-200/80 mb-6">
 							<iframe 
-								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.835940427958!2d126.9441113!3d37.346487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b60a3ec6042db%3A0xe5a3c612c29db26f!2z7JeQ7J207Iqk7ZWY7J207YWM7YGs7Iuc7Yuw6rWw7Y-s!5e0!3m2!1sko!2skr!4v1718170000000!5m2!1sko!2skr" 
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.183742468205!2d126.95333557675129!3d37.357186172093295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b613dfdb09c85%3A0xc3f9a7d36cd4ff72!2z7JeQ7J207Iqk7ZWY7J207YWM7YGs7Iuc7Yuw6rWw7Y-s!5e0!3m2!1sko!2skr!4v1718170000000!5m2!1sko!2skr" 
 								width="100%" 
 								height="100%" 
 								style="border:0;" 
@@ -493,21 +493,30 @@ import Layout from '../../layouts/Layout.astro';
 								<h4 class="text-sm font-bold text-slate-900">내비게이션 및 길찾기</h4>
 								<p class="text-sm text-slate-500">모바일 및 PC 내비게이션 앱에 목적지를 즉시 설정할 수 있도록 연결합니다.</p>
 							</div>
-							<div class="flex gap-3 w-full sm:w-auto">
+							<div class="grid grid-cols-3 gap-3 w-full sm:w-auto">
 								<a 
-									href="https://map.kakao.com/?q=%EA%B5%B0%ED%8F%AC+%EC%97%90%EC%9D%B4%EC%8A%A4%ED%95%98%EC%9D%B4%ED%85%8C%ED%81%AC%EC%8B%9C%ED%8B%B0" 
+									href="https://www.google.com/maps/search/?api=1&query=%EC%84%B1%EC%82%B0%EC%97%B0%EA%B5%AC%EC%86%8C" 
 									target="_blank" 
 									rel="noopener noreferrer"
-									class="flex-1 sm:flex-initial inline-flex items-center justify-center space-x-2 px-5 py-3.5 text-sm font-bold text-slate-900 bg-amber-300 hover:bg-amber-400 rounded-xl shadow-sm transition-all duration-200"
+									class="inline-flex items-center justify-center space-x-1.5 px-3 py-3.5 text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-sm transition-all duration-200"
+								>
+									<span>🌍</span>
+									<span>구글 지도 보기</span>
+								</a>
+								<a 
+									href="https://map.kakao.com/?q=%EC%84%B1%EC%82%B0%EC%97%B0%EA%B5%AC%EC%86%8C" 
+									target="_blank" 
+									rel="noopener noreferrer"
+									class="inline-flex items-center justify-center space-x-1.5 px-3 py-3.5 text-sm font-bold text-slate-900 bg-amber-300 hover:bg-amber-400 rounded-xl shadow-sm transition-all duration-200"
 								>
 									<span>💛</span>
 									<span>카카오맵 보기</span>
 								</a>
 								<a 
-									href="https://map.naver.com/v5/search/%EA%B5%B0%ED%8F%AC%20%EC%97%90%EC%9D%B4%EC%8A%A4%ED%95%98%EC%9D%B4%ED%85%8C%ED%81%AC%EC%8B%9C%ED%8B%B0" 
+									href="https://map.naver.com/v5/search/%EC%84%B1%EC%82%B0%EC%97%B0%EA%B5%AC%EC%86%8C" 
 									target="_blank" 
 									rel="noopener noreferrer"
-									class="flex-1 sm:flex-initial inline-flex items-center justify-center space-x-2 px-5 py-3.5 text-sm font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-xl shadow-sm transition-all duration-200"
+									class="inline-flex items-center justify-center space-x-1.5 px-3 py-3.5 text-sm font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-xl shadow-sm transition-all duration-200"
 								>
 									<span>💚</span>
 									<span>네이버 지도 보기</span>
