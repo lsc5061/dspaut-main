@@ -1,4 +1,4 @@
-﻿---
+---
 // src/components/home/SoftwareShowcase.astro
 interface Props {
   lang: string;
@@ -52,7 +52,7 @@ const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
         </div>
         <div class="p-6 bg-slate-900 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
           <span class="text-slate-400 font-medium">{software.acquire.type}</span>
-          <a href={lang === 'ko' ? "/ko/software/dsvision" : "/software/dsvision"} class="px-4 py-2 font-bold text-slate-950 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.acquire.cta}</a>
+          <a href={lang === 'ko' ? "/ko/software/dsvision/" : "/software/dsvision/"} class="px-4 py-2 font-bold text-slate-950 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.acquire.cta}</a>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
         </div>
         <div class="p-6 bg-slate-900 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
           <span class="text-slate-400 font-medium">{software.analysis.type}</span>
-          <a href={lang === 'ko' ? "/ko/software/dsviewer" : "/software/dsviewer"} class="px-4 py-2 font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.analysis.cta}</a>
+          <a href={lang === 'ko' ? "/ko/software/dsviewer/" : "/software/dsviewer/"} class="px-4 py-2 font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.analysis.cta}</a>
         </div>
       </div>
 
@@ -105,7 +105,7 @@ const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
         </div>
         <div class="p-6 bg-slate-900 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
           <span class="text-slate-400 font-medium">{software.sdk.type}</span>
-          <a href={lang === 'ko' ? "/ko/software/dsk" : "/software/dsk"} class="px-4 py-2 font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.sdk.cta}</a>
+          <a href={lang === 'ko' ? "/ko/software/dsk/" : "/software/dsk/"} class="px-4 py-2 font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.sdk.cta}</a>
         </div>
       </div>
     </div>
