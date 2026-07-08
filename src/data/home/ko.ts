@@ -99,7 +99,7 @@ export const homeData = {
         ],
         learnMore: "자세히 보기 ➔",
         learnMoreHref: "/ko/products/p5/",
-        quote: "장비 도입 문의"
+        quote: "도입 문의"
       },
       b3: {
         badge: "최상의 가성비",
@@ -113,7 +113,7 @@ export const homeData = {
         ],
         learnMore: "자세히 보기 ➔",
         learnMoreHref: "/ko/products/b3/",
-        quote: "장비 도입 문의"
+        quote: "도입 문의"
       },
       t3: {
         badge: "일반 UT (Conventional UT)",
@@ -127,11 +127,11 @@ export const homeData = {
         ],
         learnMore: "자세히 보기 ➔",
         learnMoreHref: "/ko/products/t3/",
-        quote: "장비 도입 문의"
+        quote: "도입 문의"
       }
     },
     system: {
-      badge: "렉마운트형 OEM 시스템 보드",
+      badge: "랙마운트형 OEM 시스템 보드",
       title: "DEEPSOUND R5 시스템 보드",
       desc: "산업용 19인치 표준 랙에 장착이 가능하도록 설계된 R5 보드입니다. 최대 32개의 송수신(PR) 채널, 128 소자 어퍼처 및 4채널 독립 UT 포트를 제공합니다. 전용 I/O 제어 포트를 통한 다중 보드 동기화를 지원하여 맞춤형 공장 자동화 스캐너 시스템 구축을 위한 최적의 기반을 제공합니다.",
       specs: ["19\" 랙 마운트 가능", "32CH/128PR 다채널", "4채널 독립 UT", "SDK API 호환"],
@@ -218,7 +218,7 @@ export const homeData = {
     portal: {
       badge: "SEONGSAN SUPPORT PORTAL",
       title: "기술 지원 포털 바로가기",
-      desc: "장비 설명서, 최신 펌웨어/소프트웨어 패치, 기기 교정 신청 및 FAQ를 모두 갖춘 전용 포털 사이트로 즉시 이동합니다.",
+      desc: "장비 설명서, 최신 펌웨어/소프트웨어 패치, 기기 교정 신청 및 실무 스터디 자료를 모두 갖춘 전용 포털 사이트로 즉시 이동합니다.",
       cta: "기술 지원 포털 열기 (새 창) ➔"
     }
   },

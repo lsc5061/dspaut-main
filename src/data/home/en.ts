@@ -108,7 +108,7 @@ export const homeData = {
         specs: [
           { label: "Weight", value: "< 2.0kg (w/ Batt)" },
           { label: "Hardware Channel", value: "16CH/64PR" },
-          { label: "Utility", value: "Compact Design" },
+          { label: "Portability", value: "Compact Design" },
           { label: "Value", value: "Outstanding ROI" }
         ],
         learnMore: "Learn More ➔",
@@ -213,12 +213,12 @@ export const homeData = {
       badge: "INTEGRATED DOWNLOADS",
       title: "Go to Download Hub",
       desc: "Securely download the latest official software releases (DSVision) and developer SDK libraries to control, collect, and analyze your DSPAUT phased array ultrasonic testing data.",
-      cta: "Open Download ➔"
+      cta: "Download Hub ➔"
     },
     portal: {
       badge: "SEONGSAN SUPPORT PORTAL",
       title: "Go to Support Portal",
-      desc: "Navigate directly to our central support platform to access comprehensive instrument manuals, latest firmware updates, product calibration forms, and NDT engineering FAQs.",
+      desc: "Navigate directly to our central support platform to access comprehensive instrument manuals, latest firmware updates, product calibration forms, and NDT engineering study guides.",
       cta: "Open Support Portal (New Window) ➔"
     }
   },
