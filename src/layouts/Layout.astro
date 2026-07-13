@@ -104,6 +104,17 @@ const ogImage = "https://www.dspaut.com/assets/img/brand/ndt_field_test_demo.png
 		
 		<Footer lang={lang} />
 
+		<!-- Scroll to Top Button -->
+		<button 
+			id="scroll-to-top" 
+			class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-12 h-12 rounded-full border border-slate-700/50 bg-[#0F172A]/90 text-[#00E5FF] backdrop-blur-md shadow-2xl cursor-pointer hover:bg-[#00E5FF] hover:text-[#0F172A] hover:border-[#00E5FF] hover:scale-110 transition-all duration-300 translate-y-20 opacity-0"
+			aria-label="Scroll to top"
+		>
+			<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+			</svg>
+		</button>
+
 		<script>
 			function initFormValidation() {
 				// novalidate 속성이 없는 일반 폼을 타겟팅합니다.
@@ -139,8 +150,34 @@ const ogImage = "https://www.dspaut.com/assets/img/brand/ndt_field_test_demo.png
 				});
 			}
 
-			document.addEventListener('DOMContentLoaded', initFormValidation);
+			function initScrollToTop() {
+				const btn = document.getElementById('scroll-to-top');
+				if (!btn) return;
+				
+				window.addEventListener('scroll', () => {
+					if (window.scrollY > 300) {
+						btn.classList.remove('translate-y-20', 'opacity-0');
+						btn.classList.add('translate-y-0', 'opacity-100');
+					} else {
+						btn.classList.remove('translate-y-0', 'opacity-100');
+						btn.classList.add('translate-y-20', 'opacity-0');
+					}
+				});
+				
+				btn.addEventListener('click', () => {
+					window.scrollTo({
+						top: 0,
+						behavior: 'smooth'
+					});
+				});
+			}
+
+			document.addEventListener('DOMContentLoaded', () => {
+				initFormValidation();
+				initScrollToTop();
+			});
 			initFormValidation();
+			initScrollToTop();
 		</script>
 	</body>
 </html>
