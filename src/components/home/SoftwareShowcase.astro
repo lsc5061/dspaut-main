@@ -7,25 +7,24 @@ interface Props {
 
 const { lang, data } = Astro.props;
 const software = data.software;
-const basePortalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.com";
-const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
 ---
 
-<section id="software" class="py-20 bg-slate-50 scroll-mt-24 border-b border-slate-200">
+<section id="software" class="py-20 bg-[#0B132B] scroll-mt-24 border-b border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-      <span class="text-xs font-sans tracking-wide bg-blue-50 text-blue-600 border border-blue-200 px-2.5 py-1 rounded-md font-bold uppercase inline-block mb-2">{software.badge}</span>
-      <h2 class="text-3xl font-extrabold text-slate-900 font-display">
+      <span class="text-xs font-mono tracking-wider bg-slate-950 text-primary-cyan border border-primary-cyan/20 px-2.5 py-1 rounded-md font-bold uppercase inline-block mb-2">{software.badge}</span>
+      <h2 class="text-3xl font-extrabold text-white font-display">
         {software.title}
       </h2>
-      <p class="text-slate-600 text-base">
+      <p class="text-slate-300 text-base">
         {software.description}
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- DSVision Card -->
-      <div class="bg-[#0C1929] text-white border border-slate-800 rounded-xl overflow-hidden hover:border-primary-cyan hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+      <div class="bg-[#0C1929]/50 backdrop-blur-md text-white border border-slate-800 rounded-xl overflow-hidden hover:border-primary-cyan/60 hover:shadow-[0_0_30px_rgba(0,229,255,0.08)] transition-all duration-300 flex flex-col justify-between group">
         <div class="p-6 space-y-4">
           <div class="flex justify-between items-start">
             <div>
@@ -33,10 +32,10 @@ const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
               <h3 class="text-xl font-bold text-white mt-2">{software.acquire.title}</h3>
             </div>
           </div>
-          <p class="text-base text-slate-400 leading-relaxed">
+          <p class="text-base text-slate-300 leading-relaxed min-h-[96px]">
             {software.acquire.desc}
           </p>
-          <div class="h-20 bg-slate-950 rounded border border-slate-800 flex items-center justify-between px-3 overflow-hidden font-mono text-xs text-[#00E5FF]/80">
+          <div class="h-20 bg-slate-950/80 rounded border border-slate-850 flex items-center justify-between px-3 overflow-hidden font-mono text-xs text-[#00E5FF]/80">
             <div class="space-y-1">
               <div>{software.acquire.thickness}</div>
               <div>{software.acquire.sens}</div>
@@ -50,14 +49,14 @@ const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
             </div>
           </div>
         </div>
-        <div class="p-6 bg-slate-900 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
+        <div class="p-6 bg-slate-950/40 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
           <span class="text-slate-400 font-medium">{software.acquire.type}</span>
-          <a href={lang === 'ko' ? "/ko/software/dsvision/" : "/software/dsvision/"} class="px-4 py-2 font-bold text-slate-950 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.acquire.cta}</a>
+          <a href={lang === 'ko' ? "/ko/software/dsvision/" : "/software/dsvision/"} class="px-4 py-2 font-bold text-slate-950 bg-primary-cyan rounded-lg hover:bg-cyan-400 transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-primary-cyan/10">{software.acquire.cta}</a>
         </div>
       </div>
 
       <!-- DSViewer Card -->
-      <div class="bg-[#0C1929] text-white border border-slate-800 rounded-xl overflow-hidden hover:border-primary-cyan hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+      <div class="bg-[#0C1929]/50 backdrop-blur-md text-white border border-slate-800 rounded-xl overflow-hidden hover:border-primary-cyan/60 hover:shadow-[0_0_30px_rgba(0,229,255,0.08)] transition-all duration-300 flex flex-col justify-between group">
         <div class="p-6 space-y-4">
           <div class="flex justify-between items-start">
             <div>
@@ -65,11 +64,11 @@ const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
               <h3 class="text-xl font-bold text-white mt-2">{software.analysis.title}</h3>
             </div>
           </div>
-          <p class="text-base text-slate-400 leading-relaxed">
+          <p class="text-base text-slate-300 leading-relaxed min-h-[96px]">
             {software.analysis.desc}
           </p>
-          <div class="h-20 bg-slate-950 rounded border border-slate-800 flex items-center justify-center p-2 relative overflow-hidden">
-            <div class="w-full h-full border border-slate-800/80 rounded flex items-center justify-between px-3 text-xs font-mono text-[#00E5FF]/80">
+          <div class="h-20 bg-slate-950/80 rounded border border-slate-850 flex items-center justify-center p-2 relative overflow-hidden">
+            <div class="w-full h-full border border-slate-850 rounded flex items-center justify-between px-3 text-xs font-mono text-[#00E5FF]/80">
               <div class="space-y-1">
                 <div>{software.analysis.pos}</div>
                 <div>{software.analysis.flawSize}</div>
@@ -78,14 +77,14 @@ const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
             </div>
           </div>
         </div>
-        <div class="p-6 bg-slate-900 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
+        <div class="p-6 bg-slate-950/40 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
           <span class="text-slate-400 font-medium">{software.analysis.type}</span>
-          <a href={lang === 'ko' ? "/ko/software/dsviewer/" : "/software/dsviewer/"} class="px-4 py-2 font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.analysis.cta}</a>
+          <a href={lang === 'ko' ? "/ko/software/dsviewer/" : "/software/dsviewer/"} class="px-4 py-2 font-bold text-slate-950 bg-primary-cyan rounded-lg hover:bg-cyan-400 transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-primary-cyan/10">{software.analysis.cta}</a>
         </div>
       </div>
 
       <!-- DSK Card -->
-      <div class="bg-[#0C1929] text-white border border-slate-800 rounded-xl overflow-hidden hover:border-primary-cyan hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+      <div class="bg-[#0C1929]/50 backdrop-blur-md text-white border border-slate-800 rounded-xl overflow-hidden hover:border-primary-cyan/60 hover:shadow-[0_0_30px_rgba(0,229,255,0.08)] transition-all duration-300 flex flex-col justify-between group">
         <div class="p-6 space-y-4">
           <div class="flex justify-between items-start">
             <div>
@@ -93,19 +92,19 @@ const portalUrl = `${basePortalUrl.replace(/\/$/, '')}/${lang}/`;
               <h3 class="text-xl font-bold text-white mt-2">{software.sdk.title}</h3>
             </div>
           </div>
-          <p class="text-base text-slate-400 leading-relaxed">
+          <p class="text-base text-slate-300 leading-relaxed min-h-[96px]">
             {software.sdk.desc}
           </p>
-          <div class="h-20 bg-slate-950 rounded border border-slate-800 p-2 overflow-hidden font-mono text-xs text-green-400/80 leading-snug">
-            <div>{software.sdk.codeComment}</div>
+          <div class="h-20 bg-slate-950/80 rounded border border-slate-850 p-2 overflow-hidden font-mono text-xs text-green-400/80 leading-snug">
+            <div class="text-slate-500">{software.sdk.codeComment}</div>
             {software.sdk.codeLines.map((line: string) => (
               <div>{line}</div>
             ))}
           </div>
         </div>
-        <div class="p-6 bg-slate-900 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
+        <div class="p-6 bg-slate-950/40 border-t border-slate-800 flex justify-between items-center gap-4 text-sm mt-auto">
           <span class="text-slate-400 font-medium">{software.sdk.type}</span>
-          <a href={lang === 'ko' ? "/ko/software/dsk/" : "/software/dsk/"} class="px-4 py-2 font-bold text-slate-900 bg-primary-cyan rounded hover:bg-cyan-400 transition-colors">{software.sdk.cta}</a>
+          <a href={lang === 'ko' ? "/ko/software/dsk/" : "/software/dsk/"} class="px-4 py-2 font-bold text-slate-950 bg-primary-cyan rounded-lg hover:bg-cyan-400 transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-primary-cyan/10">{software.sdk.cta}</a>
         </div>
       </div>
     </div>

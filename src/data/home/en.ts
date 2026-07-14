@@ -33,11 +33,11 @@ export const homeData = {
         swRange: "Range: 100 mm"
       },
       t3: {
-        badge: "Next-Gen TOFD",
+        badge: "Portable UT & TOFD Instrument",
         lcd: "0.9kg",
         title: "DEEPSOUND T3",
         desc: "0.9kg handheld design featuring an integrated 7\" touchscreen to maximize mobility in narrow inspection spaces.",
-        specs: ["One-Hand", "7.0\" Touch", "TOFD Built-in"],
+        specs: ["One-Hand", "7.0\" Touch", "UT & TOFD Support"],
         swBadge: "TOFD Signal Analyzer",
         swState: "Scanning",
         swTitle: "DSVision TOFD",
@@ -107,7 +107,7 @@ export const homeData = {
         desc: "Achieving an ultra-light body below 2.0kg (including battery) for maximized field portability. Outfitted with high cost efficiency and a real-time data acquisition engine matching the P5.",
         specs: [
           { label: "Weight", value: "< 2.0kg (w/ Batt)" },
-          { label: "Hardware Channel", value: "16CH/64PR" },
+          { label: "HW Channels", value: "16CH/64PR" },
           { label: "Portability", value: "Compact Design" },
           { label: "Value", value: "Outstanding ROI" }
         ],
@@ -116,7 +116,7 @@ export const homeData = {
         quote: "Request Quote"
       },
       t3: {
-        badge: "CONVENTIONAL UT",
+        badge: "Portable UT & TOFD Instrument",
         title: "DEEPSOUND T3",
         desc: "Combining a 0.9kg ultra-lightweight body with a 7-inch bright touch LCD screen. Optimized for single-handed operations in narrow workspaces with default TOFD software integration.",
         specs: [

@@ -8,82 +8,91 @@ const { data } = Astro.props;
 const contact = data.contact;
 
 const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
-const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.com";
 ---
 
-<section id="contact-sales" class="py-24 bg-white scroll-mt-24" data-contact-sales>
+<section id="contact-sales" class="py-24 bg-[#0B132B] scroll-mt-24" data-contact-sales>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center space-y-4 mb-16">
-      <span class="text-xs font-mono bg-primary-cyan/15 text-slate-900 px-2 py-0.5 rounded uppercase font-bold inline-block mb-2">{contact.badge}</span>
-      <h2 class="text-3xl font-extrabold text-slate-900 font-display">
+      <span class="text-xs font-mono bg-slate-950 text-primary-cyan border border-primary-cyan/20 px-2.5 py-1 rounded uppercase font-bold inline-block mb-2">{contact.badge}</span>
+      <h2 class="text-3xl font-extrabold text-white font-display">
         {contact.title}
       </h2>
-      <p class="text-slate-600 text-base max-w-xl mx-auto">
+      <p class="text-slate-300 text-base max-w-xl mx-auto">
         {contact.description}
       </p>
     </div>
     
     <!-- Secure input Form -->
-    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 md:p-12 shadow-sm relative">
-      <form class="contact-form space-y-6" data-web3forms-key={web3FormsKey} novalidate>
+    <div class="bg-slate-900/40 border border-slate-800/80 rounded-xl p-8 md:p-12 shadow-2xl backdrop-blur-md relative">
+      <form 
+        class="contact-form space-y-6" 
+        data-web3forms-key={web3FormsKey} 
+        data-msg-success-title={contact.modal.success.title}
+        data-msg-success-msg={contact.modal.success.message}
+        data-msg-success-sim-title={contact.modal.success.simulationTitle}
+        data-msg-success-sim-msg={contact.modal.success.simulationMsg}
+        data-msg-error-title={contact.modal.error.title}
+        data-msg-error-msg={contact.modal.error.message}
+        novalidate
+      >
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label for="name" class="block text-sm font-bold text-slate-700 uppercase mb-2">{contact.form.name.label}</label>
-            <input type="text" id="name" name="name" required class="w-full bg-white border border-slate-200 rounded-md px-4 py-3 text-base focus:border-primary-cyan focus:outline-none" placeholder={contact.form.name.placeholder} />
-            <p id="error-name" class="error-msg text-xs text-red-500 mt-1 hidden"></p>
+            <label for="name" class="block text-sm font-bold text-slate-300 uppercase mb-2">{contact.form.name.label}</label>
+            <input type="text" id="name" name="name" required class="w-full bg-slate-950/60 border border-slate-800 rounded-lg px-4 py-3 text-base text-white placeholder-slate-500 focus:border-primary-cyan focus:ring-1 focus:ring-primary-cyan focus:outline-none transition-all duration-200" placeholder={contact.form.name.placeholder} />
+            <p id="error-name" class="error-msg text-xs text-red-400 mt-1 hidden"></p>
           </div>
           <div>
-            <label for="company" class="block text-sm font-bold text-slate-700 uppercase mb-2">{contact.form.company.label}</label>
-            <input type="text" id="company" name="company" required class="w-full bg-white border border-slate-200 rounded-md px-4 py-3 text-base focus:border-primary-cyan focus:outline-none" placeholder={contact.form.company.placeholder} />
-            <p id="error-company" class="error-msg text-xs text-red-500 mt-1 hidden"></p>
+            <label for="company" class="block text-sm font-bold text-slate-300 uppercase mb-2">{contact.form.company.label}</label>
+            <input type="text" id="company" name="company" required class="w-full bg-slate-950/60 border border-slate-800 rounded-lg px-4 py-3 text-base text-white placeholder-slate-500 focus:border-primary-cyan focus:ring-1 focus:ring-primary-cyan focus:outline-none transition-all duration-200" placeholder={contact.form.company.placeholder} />
+            <p id="error-company" class="error-msg text-xs text-red-400 mt-1 hidden"></p>
           </div>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label for="email" class="block text-sm font-bold text-slate-700 uppercase mb-2">{contact.form.email.label}</label>
-            <input type="email" id="email" name="email" required class="w-full bg-white border border-slate-200 rounded-md px-4 py-3 text-base focus:border-primary-cyan focus:outline-none" placeholder={contact.form.email.placeholder} />
-            <p id="error-email" class="error-msg text-xs text-red-500 mt-1 hidden"></p>
+            <label for="email" class="block text-sm font-bold text-slate-300 uppercase mb-2">{contact.form.email.label}</label>
+            <input type="email" id="email" name="email" required class="w-full bg-slate-950/60 border border-slate-800 rounded-lg px-4 py-3 text-base text-white placeholder-slate-500 focus:border-primary-cyan focus:ring-1 focus:ring-primary-cyan focus:outline-none transition-all duration-200" placeholder={contact.form.email.placeholder} />
+            <p id="error-email" class="error-msg text-xs text-red-400 mt-1 hidden"></p>
           </div>
           <div>
-            <label for="country" class="block text-sm font-bold text-slate-700 uppercase mb-2">{contact.form.country.label}</label>
-            <input type="text" id="country" name="country" required class="w-full bg-white border border-slate-200 rounded-md px-4 py-3 text-base focus:border-primary-cyan focus:outline-none" placeholder={contact.form.country.placeholder} />
-            <p id="error-country" class="error-msg text-xs text-red-500 mt-1 hidden"></p>
+            <label for="country" class="block text-sm font-bold text-slate-300 uppercase mb-2">{contact.form.country.label}</label>
+            <input type="text" id="country" name="country" required class="w-full bg-slate-950/60 border border-slate-800 rounded-lg px-4 py-3 text-base text-white placeholder-slate-500 focus:border-primary-cyan focus:ring-1 focus:ring-primary-cyan focus:outline-none transition-all duration-200" placeholder={contact.form.country.placeholder} />
+            <p id="error-country" class="error-msg text-xs text-red-400 mt-1 hidden"></p>
           </div>
         </div>
         
         <div>
-          <label for="inquiry-type" class="block text-sm font-bold text-slate-700 uppercase mb-2">{contact.form.inquiryType.label}</label>
-          <select id="inquiry-type" name="inquiry_type" required class="w-full bg-white border border-slate-200 rounded-md px-4 py-3 text-base focus:border-primary-cyan focus:outline-none text-slate-700">
-            <option value="">{contact.form.inquiryType.placeholderOption}</option>
+          <label for="inquiry-type" class="block text-sm font-bold text-slate-300 uppercase mb-2">{contact.form.inquiryType.label}</label>
+          <select id="inquiry-type" name="inquiry_type" required class="w-full bg-slate-950/60 border border-slate-800 rounded-lg px-4 py-3 text-base text-slate-300 focus:border-primary-cyan focus:ring-1 focus:ring-primary-cyan focus:outline-none transition-all duration-200">
+            <option value="" class="bg-slate-950 text-slate-500">{contact.form.inquiryType.placeholderOption}</option>
             {contact.form.inquiryType.options.map((opt: any) => (
-              <option value={opt.value}>{opt.label}</option>
+              <option value={opt.value} class="bg-slate-950 text-slate-300">{opt.label}</option>
             ))}
           </select>
-          <p id="error-inquiry_type" class="error-msg text-xs text-red-500 mt-1 hidden"></p>
+          <p id="error-inquiry_type" class="error-msg text-xs text-red-400 mt-1 hidden"></p>
         </div>
         
         <div>
-          <label for="message" class="block text-sm font-bold text-slate-700 uppercase mb-2">{contact.form.message.label}</label>
-          <textarea id="message" name="message" required rows="5" class="w-full bg-white border border-slate-200 rounded-md px-4 py-3 text-base focus:border-primary-cyan focus:outline-none" placeholder={contact.form.message.placeholder}></textarea>
-          <p id="error-message" class="error-msg text-xs text-red-500 mt-1 hidden"></p>
+          <label for="message" class="block text-sm font-bold text-slate-300 uppercase mb-2">{contact.form.message.label}</label>
+          <textarea id="message" name="message" required rows="5" class="w-full bg-slate-950/60 border border-slate-800 rounded-lg px-4 py-3 text-base text-white placeholder-slate-500 focus:border-primary-cyan focus:ring-1 focus:ring-primary-cyan focus:outline-none transition-all duration-200" placeholder={contact.form.message.placeholder}></textarea>
+          <p id="error-message" class="error-msg text-xs text-red-400 mt-1 hidden"></p>
         </div>
         
         <!-- Legal Consent Checkbox (Privacy Safeguard) -->
         <div class="relative flex items-start">
           <div class="flex items-center h-5">
-            <input id="privacy-consent" name="privacy_consent" type="checkbox" required class="focus:ring-primary-cyan h-4 w-4 text-slate-900 border-slate-300 rounded" />
+            <input id="privacy-consent" name="privacy_consent" type="checkbox" required class="focus:ring-primary-cyan h-4 w-4 bg-slate-950 border-slate-800 rounded text-primary-cyan" />
           </div>
           <div class="ml-3 text-sm">
-            <label for="privacy-consent" class="font-medium text-slate-600">
+            <label for="privacy-consent" class="font-medium text-slate-300">
               {contact.form.consent.label} 
             </label>
           </div>
         </div>
-        <p id="error-privacy_consent" class="error-msg text-xs text-red-500 mt-1 hidden"></p>
+        <p id="error-privacy_consent" class="error-msg text-xs text-red-400 mt-1 hidden"></p>
         
         <div>
-          <button type="submit" class="submit-btn w-full py-4 text-base font-bold text-slate-900 bg-primary-cyan hover:bg-[#00cbe6] rounded-md shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center space-x-2">
+          <button type="submit" class="submit-btn w-full py-4 text-base font-bold text-slate-950 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/10 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center space-x-2">
             <span class="btn-text">{contact.form.submit.label}</span>
             <svg class="btn-spinner animate-spin h-5 w-5 text-slate-950 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -96,7 +105,7 @@ const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.c
 
     <!-- Premium Success/Error Glassmorphism Modal -->
     <div class="submit-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
-      <div class="modal-content relative w-full max-w-md bg-slate-900/95 border border-slate-800 rounded-2xl p-8 text-center shadow-2xl backdrop-blur-md overflow-hidden transform scale-95 transition-transform duration-300 text-white">
+      <div class="modal-content relative w-full max-w-md bg-slate-900/95 border border-slate-800 rounded-xl p-8 text-center shadow-2xl backdrop-blur-md overflow-hidden transform scale-95 transition-transform duration-300 text-white">
         <!-- Decorative glow -->
         <div class="absolute -right-16 -top-16 w-32 h-32 bg-primary-cyan/10 rounded-full blur-2xl"></div>
         
@@ -119,7 +128,7 @@ const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.c
           </div>
           
           <div class="pt-2">
-            <button class="modal-close-btn" type="button" class="w-full py-3 text-sm font-bold text-slate-950 bg-primary-cyan hover:bg-[#00cbe6] rounded-md transition duration-200 shadow-md">
+            <button type="button" class="modal-close-btn w-full py-3 text-sm font-bold text-slate-950 bg-primary-cyan hover:bg-cyan-400 rounded-lg transition-all duration-200 shadow-lg shadow-primary-cyan/10 hover:-translate-y-0.5">
               {contact.modal.close}
             </button>
           </div>
@@ -154,9 +163,13 @@ const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.c
       // Input and Select elements
       const inputs = form.querySelectorAll('input, select, textarea') as NodeListOf<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>;
 
-      // Get translation values from dataset or data props (passed through inputs or form container if needed, but since js validation has en/ko differences, we match errors dynamically)
-      // We can inspect error strings from UI or hardcode basic validation or pull from attributes
-      // Here we match input errors based on data validation error definitions.
+      // Get translation messages dynamically from datasets to avoid hardcoding
+      const msgSuccessTitle = form.dataset.msgSuccessTitle || "";
+      const msgSuccessMsg = form.dataset.msgSuccessMsg || "";
+      const msgSuccessSimTitle = form.dataset.msgSuccessSimTitle || "";
+      const msgSuccessSimMsg = form.dataset.msgSuccessSimMsg || "";
+      const msgErrorTitle = form.dataset.msgErrorTitle || "";
+      const msgErrorMsg = form.dataset.msgErrorMsg || "";
       
       const validateEmail = (email: string) => {
         const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -172,7 +185,7 @@ const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.c
             errElement.textContent = '';
           }
           input.classList.remove('border-red-500', 'focus:border-red-500');
-          input.classList.add('border-slate-200');
+          input.classList.add('border-slate-800');
         };
 
         input.addEventListener('input', resetErr);
@@ -219,6 +232,13 @@ const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.c
         if (e.target === modal) hideModal();
       });
 
+      // Keyboard ESC key listener to close modal
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+          hideModal();
+        }
+      });
+
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         let isValid = true;
@@ -233,7 +253,7 @@ const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.c
             errElement.textContent = message;
             errElement.classList.remove('hidden');
           }
-          field.classList.remove('border-slate-200');
+          field.classList.remove('border-slate-800');
           field.classList.add('border-red-500', 'focus:border-red-500');
           
           if (!firstErrorElement) {
@@ -307,10 +327,14 @@ const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.c
             form.reset();
             
             const categoryText = inquiryField.options[inquiryField.selectedIndex].text;
-            const simTitle = isKorean ? '문의가 성공적으로 전송되었습니다 (시뮬레이션)' : 'Inquiry Sent Successfully (Simulation)';
-            const simMsg = isKorean 
-              ? `B2B 기술 영업 문의 시뮬레이션 전송이 완료되었습니다.<br/><br/><strong>[입력 정보 요약]</strong><br/>• 성함: ${formData.get('name')}<br/>• 회사명: ${formData.get('company')}<br/>• 이메일: <strong>${formData.get('email')}</strong><br/>• 문의유형: ${categoryText}<br/><br/>실제 프로덕션 배포 단계에서 정식 API 키로 교체하시면 실제 담당자 메일로 문의 내용이 발송됩니다.`
-              : `B2B inquiry simulation has been sent successfully.<br/><br/><strong>[Input Summary]</strong><br/>• Name: ${formData.get('name')}<br/>• Company: ${formData.get('company')}<br/>• Email: <strong>${formData.get('email')}</strong><br/>• Category: ${categoryText}<br/><br/>Replacing the simulation key with a production Web3Forms key in your config will send real emails to your designated inbox.`;
+            
+            // Format dynamic message values from translation data attributes
+            const simTitle = msgSuccessSimTitle;
+            const simMsg = msgSuccessSimMsg
+              .replace('{name}', formData.get('name') as string)
+              .replace('{company}', formData.get('company') as string)
+              .replace('{email}', formData.get('email') as string)
+              .replace('{category}', categoryText);
             
             showModal('success', simTitle, simMsg);
           } else {
@@ -318,30 +342,28 @@ const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.c
               method: "POST",
               body: formData
             });
-            const data = await response.json();
-            if (data.success) {
+            const resData = await response.json();
+            if (resData.success) {
               form.reset();
-              const succTitle = isKorean ? '문의가 접수되었습니다' : 'Inquiry Received Successfully';
-              const succMsg = isKorean 
-                ? `성산연구소에 관심을 가져주셔서 감사합니다.<br/>입력하신 이메일(<strong>${formData.get('email')}</strong>)로 담당 엔지니어가 24시간 이내에 구체적인 기술 검토 의견서 및 답변을 회신드리겠습니다.`
-                : `Thank you for contacting SEONGSANLAB. A technical engineer will review your request and follow up within 24 hours.`;
+              const succTitle = msgSuccessTitle;
+              const succMsg = msgSuccessMsg
+                .replace('{email}', formData.get('email') as string);
 
               showModal('success', succTitle, succMsg);
             } else {
-              throw new Error(data.message || "Web3Forms API Error");
+              throw new Error(resData.message || "Web3Forms API Error");
             }
           }
         } catch (error: any) {
           console.error("Submission Error:", error);
-          const errTitle = isKorean ? '전송에 실패하였습니다' : 'Transmission Failed';
-          const errMsg = isKorean 
-            ? `네트워크 연결 불안정 또는 오류로 인해 전송이 완료되지 않았습니다.<br/>공식 기술 영업 채널로 즉시 문의 주시면 신속히 조치하겠습니다.<br/><br/>• 메일 문의: <strong>info@dspaut.com</strong><br/>• 에러 내용: ${error.message || 'Unknown Network Error'}`
-            : `Unable to submit form due to network errors or key mismatches.<br/>Please contact us directly:<br/><br/>• Email: <strong>info@dspaut.com</strong><br/>• Error Details: ${error.message || 'Unknown Network Error'}`;
+          const errTitle = msgErrorTitle;
+          const errMsg = msgErrorMsg
+            .replace('{error}', error.message || 'Unknown Network Error');
 
           showModal('error', errTitle, errMsg);
         } finally {
           if (submitBtn) submitBtn.disabled = false;
-          if (btnText) btnText.textContent = isKorean ? "안전한 기술 영업 문의 보내기" : "Send Secure Technical Inquiry";
+          if (btnText) btnText.textContent = isKorean ? "기술 및 솔루션 도입 문의 전송" : "Send Secure Technical Inquiry";
           btnSpinner?.classList.add('hidden');
           inputs.forEach(input => input.disabled = false);
         }

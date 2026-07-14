@@ -33,11 +33,11 @@ export const homeData = {
         swRange: "측정 범위: 100 mm"
       },
       t3: {
-        badge: "차세대 TOFD 장비",
+        badge: "휴대용 UT & TOFD 장비",
         lcd: "0.9kg",
         title: "DEEPSOUND T3",
         desc: "0.9kg 초경량 본체에 7인치 터치스크린을 통합하여, 협소부 검사 시 현장 기동성과 측정 효율성을 극대화합니다.",
-        specs: ["1인 조작", "7.0\" 터치", "TOFD 탑재"],
+        specs: ["1인 조작", "7.0\" 터치", "UT & TOFD 지원"],
         swBadge: "TOFD 신호 분석기",
         swState: "스캔 진행 중",
         swTitle: "DSVision TOFD",
@@ -116,7 +116,7 @@ export const homeData = {
         quote: "도입 문의"
       },
       t3: {
-        badge: "일반 UT (Conventional UT)",
+        badge: "휴대용 UT & TOFD 장비",
         title: "DEEPSOUND T3",
         desc: "0.9kg 초경량 설계와 7인치 터치스크린을 결합하여 현장 기동성을 확보하였습니다. 한 손 조작이 가능하며 TOFD 검사 솔루션을 기본 탑재하여 협소부 검사 시 높은 효율성을 제공합니다.",
         specs: [
