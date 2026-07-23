@@ -82,10 +82,11 @@ const { className = "" } = Astro.props;
   </div>
 </div>
 
-<!-- Load Three.js, OrbitControls, and GLTFLoader Libraries -->
+<!-- Load Three.js, OrbitControls, GLTFLoader, and DRACOLoader Libraries -->
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script is:inline src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script is:inline src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
@@ -134,7 +135,7 @@ const { className = "" } = Astro.props;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-    // Tone Mapping & Exposure Tuning to prevent overexposure
+    // Tone Mapping & Exposure Tuning
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 0.85;
 
@@ -173,9 +174,12 @@ const { className = "" } = Astro.props;
       videoTexture.flipY = false;
     }
 
-    // Load Upright 3D GLB Model (with cache-busting timestamp parameter)
+    // Configure DRACOLoader for 2.94MB compressed GLB model loading
     let p5ModelGroup = null;
+    const dracoLoader = new THREE.DRACOLoader();
+    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
     const loader = new THREE.GLTFLoader();
+    loader.setDRACOLoader(dracoLoader);
 
     loader.load(
       '/assets/models/deepsound-p5.glb?v=' + Date.now(),
@@ -183,7 +187,6 @@ const { className = "" } = Astro.props;
         p5ModelGroup = gltf.scene;
 
         // Model Upright Orientation: Rotate X by Math.PI / 2 (90 deg) and Z by 0.45 
-        // Silver POWER BUTTON, SPEAKER SLOTS, and DEEPSOUND LOGO AT THE TOP!
         p5ModelGroup.rotation.x = Math.PI / 2;
         p5ModelGroup.rotation.y = 0;
         p5ModelGroup.rotation.z = 0.45;
@@ -201,7 +204,7 @@ const { className = "" } = Astro.props;
           p5ModelGroup.scale.set(targetScale, targetScale, targetScale);
         }
 
-        // DIRECT MATERIAL BINDING TO BLENDER REFINED UV-UNWRAPPED LCD MESH
+        // DIRECT MATERIAL BINDING TO LCD MESH
         p5ModelGroup.traverse((child) => {
           if (child.isMesh) {
             if (
@@ -215,7 +218,6 @@ const { className = "" } = Astro.props;
               });
               child.visible = true;
             } else if (child.name.toUpperCase().includes('LCD')) {
-              // Hide old default solid white LCD cover submeshes
               child.visible = false;
             }
           }
@@ -223,7 +225,7 @@ const { className = "" } = Astro.props;
 
         scene.add(p5ModelGroup);
 
-        // Fade in 3D WebGL Canvas & Hide loading bar seamlessly (Zero 2D poster flicker)
+        // Fade in 3D WebGL Canvas & Hide loading bar seamlessly
         container.style.opacity = '1';
         if (loadingBar) loadingBar.style.opacity = '0';
         setTimeout(() => {
