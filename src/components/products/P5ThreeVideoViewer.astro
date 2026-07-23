@@ -1,0 +1,311 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`relative bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden group flex flex-col items-center justify-center min-h-[380px] ${className}`}>
+  
+  <!-- 3D & Live Video Control Hint Badge (Top Left) -->
+  <div class="absolute top-4 left-4 z-20 bg-slate-900/85 border border-slate-700/80 text-primary-cyan text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md flex items-center space-x-1.5 pointer-events-none shadow-lg transition-opacity duration-300 group-hover:opacity-100">
+    <span class="inline-block w-2 h-2 rounded-full bg-primary-cyan animate-pulse"></span>
+    <span>🎬 Live Video Screen & 360° Drag</span>
+  </div>
+
+  <!-- HTML5 Video Element for THREE.VideoTexture (autoplay, muted, loop, playsinline) -->
+  <video 
+    id="p5-screen-video" 
+    src="/assets/videos/p5_dsvision_screen.mp4" 
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    preload="auto" 
+    crossorigin="anonymous"
+    style="display: none;"
+  ></video>
+
+  <!-- Fallback Poster Image -->
+  <img 
+    id="p5-poster-img"
+    src="/assets/img/hardware/portable/P5_Catalog_main.png" 
+    alt="DEEPSOUND P5 Front View" 
+    class="absolute inset-0 w-full h-full object-contain p-6 transition-opacity duration-700 z-10 pointer-events-none"
+  />
+
+  <!-- Three.js WebGL Canvas Container -->
+  <div 
+    id="p5-three-canvas-container" 
+    class="w-full h-[360px] sm:h-[400px] rounded-xl cursor-grab active:cursor-grabbing relative z-0"
+  ></div>
+
+  <!-- Loading Indicator Bar -->
+  <div 
+    id="p5-3d-loading-bar" 
+    class="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 bg-slate-900/90 border border-slate-700 text-slate-300 text-xs px-4 py-1.5 rounded-full backdrop-blur-md flex items-center space-x-2 shadow-lg transition-opacity duration-500"
+  >
+    <span class="w-3 h-3 border-2 border-primary-cyan border-t-transparent rounded-full animate-spin"></span>
+    <span>Loading Upright P5 3D Model...</span>
+  </div>
+
+  <!-- Interactive Control Panel (Bottom Center) -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center space-x-2 bg-slate-900/90 border border-slate-700/80 px-3 py-1.5 rounded-full backdrop-blur-md shadow-xl text-xs font-semibold text-slate-300">
+    <button 
+      id="btn-p5-reset-view"
+      type="button"
+      class="hover:text-primary-cyan transition-colors px-2.5 py-1 flex items-center space-x-1"
+      title="Reset Camera View to Upright Front Perspective"
+    >
+      <span>🔄 Reset View</span>
+    </button>
+    <span class="w-px h-3 bg-slate-700"></span>
+    <button 
+      id="btn-p5-toggle-spin"
+      type="button"
+      class="hover:text-primary-cyan transition-colors px-2.5 py-1 flex items-center space-x-1"
+      title="Toggle Auto Spin"
+    >
+      <span id="txt-p5-spin">⏸️ Pause Spin</span>
+    </button>
+    <span class="w-px h-3 bg-slate-700"></span>
+    <button 
+      id="btn-p5-toggle-video"
+      type="button"
+      class="hover:text-primary-cyan transition-colors px-2.5 py-1 flex items-center space-x-1"
+      title="Play/Pause Live Screen Video"
+    >
+      <span id="txt-p5-video">🎬 Video On</span>
+    </button>
+    <span class="w-px h-3 bg-slate-700"></span>
+    <button 
+      id="btn-p5-fullscreen"
+      type="button"
+      class="hover:text-primary-cyan transition-colors px-2.5 py-1 flex items-center space-x-1"
+      title="Toggle Fullscreen"
+    >
+      <span>⛶ Fullscreen</span>
+    </button>
+  </div>
+</div>
+
+<!-- Load Three.js, OrbitControls, and GLTFLoader Libraries -->
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('p5-three-canvas-container');
+    const posterImg = document.getElementById('p5-poster-img');
+    const loadingBar = document.getElementById('p5-3d-loading-bar');
+    const videoElem = document.getElementById('p5-screen-video');
+
+    const btnReset = document.getElementById('btn-p5-reset-view');
+    const btnSpin = document.getElementById('btn-p5-toggle-spin');
+    const txtSpin = document.getElementById('txt-p5-spin');
+    const btnVideo = document.getElementById('btn-p5-toggle-video');
+    const txtVideo = document.getElementById('txt-p5-video');
+    const btnFullscreen = document.getElementById('btn-p5-fullscreen');
+
+    if (!container || !window.THREE) return;
+
+    // Force video playback with user interaction fallback
+    const startVideo = () => {
+      if (videoElem) {
+        videoElem.muted = true;
+        videoElem.play().catch(() => {});
+      }
+    };
+    startVideo();
+    window.addEventListener('click', startVideo, { once: true });
+    window.addEventListener('touchstart', startVideo, { once: true });
+    window.addEventListener('mousemove', startVideo, { once: true });
+
+    // Three.js Scene Setup
+    const scene = new THREE.Scene();
+    
+    // Perspective Camera
+    const camera = new THREE.PerspectiveCamera(
+      30, 
+      container.clientWidth / container.clientHeight, 
+      0.1, 
+      1000
+    );
+    camera.position.set(0, 0.1, 4.2);
+
+    // WebGL Renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+    // USER REQUEST: Tone Mapping & Exposure Tuning to prevent overexposure/white glare
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 0.85;
+
+    container.appendChild(renderer.domElement);
+
+    // OrbitControls Setup
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1.5;
+    controls.minDistance = 2.0;
+    controls.maxDistance = 8.0;
+
+    // USER REQUEST: Studio Lighting tuned for realistic light-gray tones without glare
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+    dirLight1.position.set(5, 8, 5);
+    dirLight1.castShadow = true;
+    scene.add(dirLight1);
+
+    const dirLight2 = new THREE.DirectionalLight(0x00e5ff, 0.4);
+    dirLight2.position.set(-5, -2, -5);
+    scene.add(dirLight2);
+
+    // THREE.VideoTexture Setup
+    let videoTexture = null;
+    if (videoElem) {
+      videoTexture = new THREE.VideoTexture(videoElem);
+      videoTexture.minFilter = THREE.LinearFilter;
+      videoTexture.magFilter = THREE.LinearFilter;
+      videoTexture.format = THREE.RGBAFormat;
+      videoTexture.encoding = THREE.sRGBEncoding;
+      
+      // USER REQUEST: Keep ONLY flipY = false
+      videoTexture.flipY = false;
+    }
+
+    // Load Upright 3D GLB Model (with cache-busting timestamp parameter)
+    let p5ModelGroup = null;
+    const loader = new THREE.GLTFLoader();
+
+    loader.load(
+      '/assets/models/deepsound-p5.glb?v=' + Date.now(),
+      (gltf) => {
+        p5ModelGroup = gltf.scene;
+
+        // Model Upright Orientation: Rotate X by Math.PI / 2 (90 deg) and Z by 0.45 
+        // Silver POWER BUTTON, SPEAKER SLOTS, and DEEPSOUND LOGO AT THE TOP!
+        p5ModelGroup.rotation.x = Math.PI / 2;
+        p5ModelGroup.rotation.y = 0;
+        p5ModelGroup.rotation.z = 0.45;
+
+        // Center and scale model
+        const box = new THREE.Box3().setFromObject(p5ModelGroup);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+        
+        p5ModelGroup.position.sub(center);
+        
+        const maxDim = Math.max(size.x, size.y, size.z);
+        if (maxDim > 0) {
+          const targetScale = 1.8 / maxDim;
+          p5ModelGroup.scale.set(targetScale, targetScale, targetScale);
+        }
+
+        // DIRECT MATERIAL BINDING TO BLENDER REFINED UV-UNWRAPPED LCD MESH
+        p5ModelGroup.traverse((child) => {
+          if (child.isMesh) {
+            if (
+              child.name === 'ASUS2FF828A10EJP_43' || 
+              child.name === 'ASUS2FF828A18EJP_43' || 
+              child.name.endsWith('_43')
+            ) {
+              child.material = new THREE.MeshBasicMaterial({
+                map: videoTexture,
+                side: THREE.FrontSide
+              });
+              child.visible = true;
+            } else if (child.name.toUpperCase().includes('LCD')) {
+              // Hide old default solid white LCD cover submeshes
+              child.visible = false;
+            }
+          }
+        });
+
+        scene.add(p5ModelGroup);
+
+        // Hide loading indicator bar & fade out poster image
+        if (loadingBar) loadingBar.style.opacity = '0';
+        setTimeout(() => {
+          if (loadingBar) loadingBar.style.display = 'none';
+          if (posterImg) posterImg.style.opacity = '0';
+        }, 500);
+      },
+      (xhr) => {},
+      (error) => {
+        console.error('Error loading 3D GLB model:', error);
+      }
+    );
+
+    // Animation Loop with VideoTexture Frame Updates
+    function animate() {
+      requestAnimationFrame(animate);
+      if (videoTexture && videoElem && !videoElem.paused) {
+        videoTexture.needsUpdate = true;
+      }
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Window Resize Handler
+    window.addEventListener('resize', () => {
+      if (!container) return;
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+
+    // Control Panel Handlers
+    btnReset?.addEventListener('click', () => {
+      controls.reset();
+      camera.position.set(0, 0.1, 4.2);
+      controls.target.set(0, 0, 0);
+      if (p5ModelGroup) {
+        p5ModelGroup.rotation.x = Math.PI / 2;
+        p5ModelGroup.rotation.y = 0;
+        p5ModelGroup.rotation.z = 0.45;
+      }
+      controls.update();
+    });
+
+    let isSpinning = true;
+    btnSpin?.addEventListener('click', () => {
+      isSpinning = !isSpinning;
+      controls.autoRotate = isSpinning;
+      if (txtSpin) txtSpin.textContent = isSpinning ? '⏸️ Pause Spin' : '▶️ Auto Spin';
+    });
+
+    let isVideoPlaying = true;
+    btnVideo?.addEventListener('click', () => {
+      if (!videoElem) return;
+      if (isVideoPlaying) {
+        videoElem.pause();
+        isVideoPlaying = false;
+        if (txtVideo) txtVideo.textContent = '▶️ Play Video';
+      } else {
+        videoElem.play();
+        isVideoPlaying = true;
+        if (txtVideo) txtVideo.textContent = '🎬 Video On';
+      }
+    });
+
+    btnFullscreen?.addEventListener('click', () => {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        container.requestFullscreen().catch(err => console.warn('Fullscreen error:', err));
+      }
+    });
+  });
+</script>

@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Raw CAD / 3D design source assets (Excluded from Git push due to GitHub 100MB limit)
+docs/raw_assets/

@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import P5ThreeVideoViewer from '../../../components/products/P5ThreeVideoViewer.astro';
 
 const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.com";
 const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
@@ -40,17 +41,10 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 					</div>
 				</div>
 				
-				<!-- Hero Right Image -->
+				<!-- Hero Right 3D Interactive Model & Video Viewer -->
 				<div class="lg:col-span-5 relative flex justify-center items-center">
 					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
-					<!-- P5 Front Mockup Visual with premium glassmorphism shadows -->
-					<div class="relative bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden group">
-						<img 
-							src="/assets/img/hardware/portable/P5_Catalog_main.png" 
-							alt="DEEPSOUND P5 전면 뷰" 
-							class="w-full max-w-sm h-auto object-contain rounded-lg transform transition-transform duration-500 scale-[1.15] translate-y-1 group-hover:scale-[1.2]"
-						/>
-					</div>
+					<P5ThreeVideoViewer className="w-full" />
 				</div>
 			</div>
 		</div>
