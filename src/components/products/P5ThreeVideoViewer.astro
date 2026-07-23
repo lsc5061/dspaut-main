@@ -27,27 +27,19 @@ const { className = "" } = Astro.props;
     style="display: none;"
   ></video>
 
-  <!-- Fallback Poster Image -->
-  <img 
-    id="p5-poster-img"
-    src="/assets/img/hardware/portable/P5_Catalog_main.png" 
-    alt="DEEPSOUND P5 Front View" 
-    class="absolute inset-0 w-full h-full object-contain p-6 transition-opacity duration-700 z-10 pointer-events-none"
-  />
-
   <!-- Three.js WebGL Canvas Container -->
   <div 
     id="p5-three-canvas-container" 
-    class="w-full h-[360px] sm:h-[400px] rounded-xl cursor-grab active:cursor-grabbing relative z-0"
+    class="w-full h-[360px] sm:h-[400px] rounded-xl cursor-grab active:cursor-grabbing relative z-0 opacity-0 transition-opacity duration-700"
   ></div>
 
   <!-- Loading Indicator Bar -->
   <div 
     id="p5-3d-loading-bar" 
-    class="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 bg-slate-900/90 border border-slate-700 text-slate-300 text-xs px-4 py-1.5 rounded-full backdrop-blur-md flex items-center space-x-2 shadow-lg transition-opacity duration-500"
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-slate-900/90 border border-slate-700/80 text-slate-300 text-xs px-5 py-2.5 rounded-full backdrop-blur-md flex items-center space-x-2.5 shadow-2xl transition-opacity duration-500 pointer-events-none"
   >
-    <span class="w-3 h-3 border-2 border-primary-cyan border-t-transparent rounded-full animate-spin"></span>
-    <span>Loading Upright P5 3D Model...</span>
+    <span class="w-4 h-4 border-2 border-primary-cyan border-t-transparent rounded-full animate-spin"></span>
+    <span class="font-medium">Loading DEEPSOUND P5 3D Model...</span>
   </div>
 
   <!-- Interactive Control Panel (Bottom Center) -->
@@ -98,7 +90,6 @@ const { className = "" } = Astro.props;
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('p5-three-canvas-container');
-    const posterImg = document.getElementById('p5-poster-img');
     const loadingBar = document.getElementById('p5-3d-loading-bar');
     const videoElem = document.getElementById('p5-screen-video');
 
@@ -143,7 +134,7 @@ const { className = "" } = Astro.props;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-    // USER REQUEST: Tone Mapping & Exposure Tuning to prevent overexposure/white glare
+    // Tone Mapping & Exposure Tuning to prevent overexposure
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 0.85;
 
@@ -158,7 +149,7 @@ const { className = "" } = Astro.props;
     controls.minDistance = 2.0;
     controls.maxDistance = 8.0;
 
-    // USER REQUEST: Studio Lighting tuned for realistic light-gray tones without glare
+    // Studio Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
     scene.add(ambientLight);
 
@@ -179,8 +170,6 @@ const { className = "" } = Astro.props;
       videoTexture.magFilter = THREE.LinearFilter;
       videoTexture.format = THREE.RGBAFormat;
       videoTexture.encoding = THREE.sRGBEncoding;
-      
-      // USER REQUEST: Keep ONLY flipY = false
       videoTexture.flipY = false;
     }
 
@@ -234,11 +223,11 @@ const { className = "" } = Astro.props;
 
         scene.add(p5ModelGroup);
 
-        // Hide loading indicator bar & fade out poster image
+        // Fade in 3D WebGL Canvas & Hide loading bar seamlessly (Zero 2D poster flicker)
+        container.style.opacity = '1';
         if (loadingBar) loadingBar.style.opacity = '0';
         setTimeout(() => {
           if (loadingBar) loadingBar.style.display = 'none';
-          if (posterImg) posterImg.style.opacity = '0';
         }, 500);
       },
       (xhr) => {},
