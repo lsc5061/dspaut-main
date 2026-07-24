@@ -1,5 +1,6 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
+import R5ThreeViewer from '../../../components/products/R5ThreeViewer.astro';
 
 const portalUrl = import.meta.env.PUBLIC_PORTAL_URL || "https://support.dspaut.com";
 const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE";
@@ -40,16 +41,10 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 					</div>
 				</div>
 				
-				<!-- Hero Right Image -->
+				<!-- Hero Right 3D Interactive Viewer -->
 				<div class="lg:col-span-5 relative flex justify-center items-center">
 					<div class="absolute w-80 h-80 bg-primary-cyan/15 rounded-full blur-[60px]"></div>
-					<div class="relative bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden group">
-						<img 
-							src="/assets/img/hardware/oem/deepsound-r5-transparent.png" 
-							alt="DEEPSOUND R5 제품 사진" 
-							class="w-full max-w-md h-auto object-contain rounded-lg transform transition-transform duration-500 scale-100 group-hover:scale-[1.05] filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.75)]"
-						/>
-					</div>
+					<R5ThreeViewer className="w-full" />
 				</div>
 			</div>
 		</div>

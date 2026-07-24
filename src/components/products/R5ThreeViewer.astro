@@ -1,0 +1,255 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<div class={`relative bg-gradient-to-br from-slate-100 via-slate-200/95 to-slate-300/90 border border-slate-300/80 rounded-2xl p-4 backdrop-blur-sm shadow-2xl overflow-hidden group flex flex-col items-center justify-center min-h-[380px] ${className}`}>
+  
+  <!-- 3D Hint Badge (Top Left) -->
+  <div class="absolute top-4 left-4 z-20 bg-slate-900/90 border border-slate-700/80 text-primary-cyan text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md flex items-center space-x-1.5 pointer-events-none shadow-lg transition-opacity duration-300 group-hover:opacity-100">
+    <span class="inline-block w-2 h-2 rounded-full bg-primary-cyan animate-pulse"></span>
+    <span>🔍 Interactive 3D Model & 360° Drag</span>
+  </div>
+
+  <!-- Three.js WebGL Canvas Container -->
+  <div 
+    id="r5-three-canvas-container" 
+    class="w-full h-[360px] sm:h-[400px] rounded-xl cursor-grab active:cursor-grabbing relative z-0"
+  ></div>
+
+  <!-- Loading Indicator Bar -->
+  <div 
+    id="r5-3d-loading-bar" 
+    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 bg-slate-900/90 border border-slate-700/80 text-slate-200 text-xs px-5 py-2.5 rounded-full backdrop-blur-md flex items-center space-x-2.5 shadow-2xl transition-opacity duration-500 pointer-events-none"
+  >
+    <span class="w-4 h-4 border-2 border-primary-cyan border-t-transparent rounded-full animate-spin"></span>
+    <span class="font-medium">Loading DEEPSOUND R5 3D Model...</span>
+  </div>
+
+  <!-- Interactive Control Panel (Bottom Center) -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center space-x-2 bg-slate-900/90 border border-slate-700/80 px-3 py-1.5 rounded-full backdrop-blur-md shadow-xl text-xs font-semibold text-slate-200">
+    <button 
+      id="btn-r5-reset-view"
+      type="button"
+      class="hover:text-primary-cyan transition-colors px-2.5 py-1 flex items-center space-x-1"
+      title="Reset Camera View to Upright Perspective"
+    >
+      <span>🔄 Reset View</span>
+    </button>
+    <span class="w-px h-3 bg-slate-700"></span>
+    <button 
+      id="btn-r5-toggle-spin"
+      type="button"
+      class="hover:text-primary-cyan transition-colors px-2.5 py-1 flex items-center space-x-1"
+      title="Toggle Auto Spin"
+    >
+      <span id="txt-r5-spin">⏸️ Pause Spin</span>
+    </button>
+    <span class="w-px h-3 bg-slate-700"></span>
+    <button 
+      id="btn-r5-fullscreen"
+      type="button"
+      class="hover:text-primary-cyan transition-colors px-2.5 py-1 flex items-center space-x-1"
+      title="Toggle Fullscreen"
+    >
+      <span>⛶ Fullscreen</span>
+    </button>
+  </div>
+</div>
+
+<!-- Load Three.js, OrbitControls, GLTFLoader, and DRACOLoader Libraries -->
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('r5-three-canvas-container');
+    const loadingBar = document.getElementById('r5-3d-loading-bar');
+
+    const btnReset = document.getElementById('btn-r5-reset-view');
+    const btnSpin = document.getElementById('btn-r5-toggle-spin');
+    const txtSpin = document.getElementById('txt-r5-spin');
+    const btnFullscreen = document.getElementById('btn-r5-fullscreen');
+
+    if (!container || !window.THREE) return;
+
+    // Three.js Scene Setup
+    const scene = new THREE.Scene();
+    
+    // Perspective Camera tuned for R5 19" Rack Unit close-up view
+    const camera = new THREE.PerspectiveCamera(
+      30, 
+      container.clientWidth / container.clientHeight, 
+      0.01, 
+      1000
+    );
+    camera.position.set(0, 0.28, 0.95);
+
+    // WebGL Renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+    // ACESFilmicToneMapping for GLB Native Blender Multi-Material Rendering
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.0;
+
+    container.appendChild(renderer.domElement);
+
+    // OrbitControls Setup
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 1.5;
+    controls.minDistance = 0.2;
+    controls.maxDistance = 5.0;
+
+    // Pure White Studio Lighting (Highlighting Embedded Metallic Materials)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
+    scene.add(ambientLight);
+
+    const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.85);
+    dirLight1.position.set(5, 8, 5);
+    dirLight1.castShadow = true;
+    scene.add(dirLight1);
+
+    const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.40);
+    dirLight2.position.set(-5, -2, -5);
+    scene.add(dirLight2);
+
+    // Rim Light (Outer Backlight Highlight)
+    const rimLight = new THREE.DirectionalLight(0xffffff, 0.80);
+    rimLight.position.set(0, 5, -5);
+    scene.add(rimLight);
+
+    // Contact Ground Drop Shadow under R5 Model
+    const shadowCanvas = document.createElement('canvas');
+    shadowCanvas.width = 128;
+    shadowCanvas.height = 128;
+    const ctx = shadowCanvas.getContext('2d');
+    const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+    gradient.addColorStop(0, 'rgba(15, 23, 42, 0.45)');
+    gradient.addColorStop(0.5, 'rgba(15, 23, 42, 0.15)');
+    gradient.addColorStop(1, 'rgba(15, 23, 42, 0)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 128, 128);
+
+    const shadowTexture = new THREE.CanvasTexture(shadowCanvas);
+    const shadowGeo = new THREE.PlaneGeometry(0.48, 0.32);
+    const shadowMat = new THREE.MeshBasicMaterial({
+      map: shadowTexture,
+      transparent: true,
+      depthWrite: false
+    });
+    const shadowPlane = new THREE.Mesh(shadowGeo, shadowMat);
+    shadowPlane.rotation.x = -Math.PI / 2;
+    shadowPlane.position.set(0, -0.08, 0);
+    scene.add(shadowPlane);
+
+    // Configure DRACOLoader for 1.48MB compressed GLB model loading
+    let r5ModelGroup = null;
+    const dracoLoader = new THREE.DRACOLoader();
+    dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+    const loader = new THREE.GLTFLoader();
+    loader.setDRACOLoader(dracoLoader);
+
+    // Load R5_3D.glb with EXACT embedded Blender multi-materials preserved intact
+    const modelPath = encodeURI('/assets/models/R5_3D.glb') + '?v=' + Date.now();
+    loader.load(
+      modelPath,
+      (gltf) => {
+        r5ModelGroup = gltf.scene;
+
+        // Front Isometric Perspective Rotation for R5
+        r5ModelGroup.rotation.set(0.30, -0.65, 0);
+
+        // Center R5 model exactly at origin (0,0,0)
+        const box = new THREE.Box3().setFromObject(r5ModelGroup);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+
+        r5ModelGroup.position.sub(center);
+
+        const maxDim = Math.max(size.x, size.y, size.z);
+        if (maxDim > 0) {
+          const targetScale = 0.46 / maxDim;
+          r5ModelGroup.scale.set(targetScale, targetScale, targetScale);
+        }
+
+        // PRESERVE ALL BLENDER EMBEDDED MULTI-MATERIALS INTACT (NO OVERRIDE)
+        // Ensure shadows and double-side rendering where appropriate
+        r5ModelGroup.traverse((child) => {
+          if (child.isMesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(r5ModelGroup);
+
+        // Hide loading bar seamlessly
+        if (loadingBar) {
+          loadingBar.style.opacity = '0';
+          setTimeout(() => {
+            loadingBar.style.display = 'none';
+          }, 500);
+        }
+      },
+      (xhr) => {},
+      (error) => {
+        console.error('Error loading R5 3D GLB model:', error);
+      }
+    );
+
+    // Animation Loop
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Window Resize Handler
+    window.addEventListener('resize', () => {
+      if (!container) return;
+      camera.aspect = container.clientWidth / container.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+
+    // Control Panel Handlers
+    btnReset?.addEventListener('click', () => {
+      controls.reset();
+      camera.position.set(0, 0.28, 0.95);
+      controls.target.set(0, 0, 0);
+      if (r5ModelGroup) {
+        r5ModelGroup.rotation.set(0.30, -0.65, 0);
+      }
+      controls.update();
+    });
+
+    let isSpinning = true;
+    btnSpin?.addEventListener('click', () => {
+      isSpinning = !isSpinning;
+      controls.autoRotate = isSpinning;
+      if (txtSpin) txtSpin.textContent = isSpinning ? '⏸️ Pause Spin' : '▶️ Auto Spin';
+    });
+
+    btnFullscreen?.addEventListener('click', () => {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        container.requestFullscreen().catch(err => console.warn('Fullscreen error:', err));
+      }
+    });
+  });
+</script>
