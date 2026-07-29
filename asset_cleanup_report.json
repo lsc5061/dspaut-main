@@ -1,0 +1,147 @@
+{
+  "archived_assets": [
+    {
+      "original_path": "/assets/img/brand/favicon.png",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\favicon.png",
+      "reason": "중복 파일 (루트 /favicon.png 사용)"
+    },
+    {
+      "original_path": "/assets/img/hardware/oem/2.png",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\2.png",
+      "reason": "미사용 OEM 그래픽"
+    },
+    {
+      "original_path": "/assets/img/hardware/oem/7.png",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\7.png",
+      "reason": "중복/미사용 OEM 뷰 (r5_perspective.png 사용)"
+    },
+    {
+      "original_path": "/assets/img/hardware/oem/R5.jpg",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\R5.jpg",
+      "reason": "구형 JPG 이미지"
+    },
+    {
+      "original_path": "/assets/img/hardware/oem/deepsound-r5.jpg",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\deepsound-r5.jpg",
+      "reason": "구형 JPG 이미지"
+    },
+    {
+      "original_path": "/assets/img/hardware/oem/r5_front_view.png",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\r5_front_view.png",
+      "reason": "고용량 미사용 정면 뷰"
+    },
+    {
+      "original_path": "/assets/img/hardware/portable/KakaoTalk_20251231_101545706_10.png",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\KakaoTalk_20251231_101545706_10.png",
+      "reason": "카카오톡 미사용 컷"
+    },
+    {
+      "original_path": "/assets/img/software/dsk/ChannelGroup.PNG",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\ChannelGroup.PNG",
+      "reason": "미사용 스크린샷"
+    },
+    {
+      "original_path": "/assets/img/software/dsk/README.md",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\README.md",
+      "reason": "임시 README"
+    },
+    {
+      "original_path": "/assets/img/software/dsvision/Linear.PNG",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\Linear.PNG",
+      "reason": "미사용 리니어 스크린샷"
+    },
+    {
+      "original_path": "/assets/img/software/dsvision/Muti CH.png",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\Muti CH.png",
+      "reason": "중복 파일 (p5_ui_multi.png 사용)"
+    },
+    {
+      "original_path": "/assets/models/deepsound-b3.glb",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\deepsound-b3.glb",
+      "reason": "중복 3D 모델 (B3_Edit.glb 사용)"
+    },
+    {
+      "original_path": "/assets/models/deepsound-p5-opt.glb",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\deepsound-p5-opt.glb",
+      "reason": "미사용 최적화 테스트 모델"
+    },
+    {
+      "original_path": "/assets/models/deepsound-p5.glb",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\deepsound-p5.glb",
+      "reason": "중복 3D 모델 (P5_3D.glb 사용)"
+    },
+    {
+      "original_path": "/assets/models/deepsound-r5.glb",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\deepsound-r5.glb",
+      "reason": "중복 3D 모델 (R5_3D.glb 사용)"
+    },
+    {
+      "original_path": "/assets/videos/p5_dsvision_screen.mp4",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\p5_dsvision_screen.mp4",
+      "reason": "미사용 비디오"
+    },
+    {
+      "original_path": "/assets/videos/p5_dsvision_screen_opt.mp4",
+      "archived_path": "e:\\DS_LSC\\dsvault\\Marketing\\03_Resources\\unused_assets\\p5_dsvision_screen_opt.mp4",
+      "reason": "0바이트 빈 파일"
+    }
+  ],
+  "renamed_assets": {
+    "/assets/img/hardware/portable/KakaoTalk_20241011_111607862_21.png": "/assets/img/hardware/portable/p5-gallery-detail.png",
+    "/assets/img/hardware/portable/KakaoTalk_20251219_093343153_05_2.png": "/assets/img/hardware/portable/b3-feature-side.png",
+    "/assets/img/hardware/portable/KakaoTalk_20251231_101545706_13_1.png": "/assets/img/hardware/portable/b3-display-detail.png",
+    "/assets/img/hardware/portable/KakaoTalk_20251231_101545706_14_1.png": "/assets/img/hardware/portable/b3-hardware-ports.png",
+    "/assets/img/hardware/portable/P5_Catalog_main.png": "/assets/img/hardware/portable/p5-catalog-main.png",
+    "/assets/img/hardware/portable/P5_Front_main.png": "/assets/img/hardware/portable/p5-front-main.png",
+    "/assets/img/hardware/portable/P5_omni_Port_1.png": "/assets/img/hardware/portable/p5-omni-port-1.png",
+    "/assets/img/hardware/portable/T3_Fornt_4.png": "/assets/img/hardware/portable/t3-front-4.png",
+    "/assets/img/hardware/portable/T3_Right_2.png": "/assets/img/hardware/portable/t3-right-2.png",
+    "/assets/img/hardware/portable/T3_Top_1.png": "/assets/img/hardware/portable/t3-top-1.png",
+    "/assets/img/software/dsk/A-scan.PNG": "/assets/img/software/dsk/ascan.png",
+    "/assets/img/software/dsk/ChannelGroup_Start.PNG": "/assets/img/software/dsk/channel-group-start.png",
+    "/assets/img/software/dsk/DSK tutorial .png": "/assets/img/software/dsk/dsk-tutorial.png",
+    "/assets/img/software/dsk/InitDevice.PNG": "/assets/img/software/dsk/init-device.png",
+    "/assets/img/software/dsk/Inspection.PNG": "/assets/img/software/dsk/inspection.png",
+    "/assets/img/software/dsk/Scan.PNG": "/assets/img/software/dsk/scan.png",
+    "/assets/img/software/dsk/SimplePAUTMain.PNG": "/assets/img/software/dsk/simple-paut-main.png",
+    "/assets/img/software/dsk/SimplePAUTSectorial.PNG": "/assets/img/software/dsk/simple-paut-sectorial.png",
+    "/assets/img/software/dsviewer/Corrosion_1.png": "/assets/img/software/dsviewer/corrosion-1.png",
+    "/assets/img/software/dsviewer/DSViewer_Channel_Group.png": "/assets/img/software/dsviewer/dsviewer-channel-group.png",
+    "/assets/img/software/dsviewer/Measurement .png": "/assets/img/software/dsviewer/measurement.png",
+    "/assets/img/software/dsviewer/Weld_Sepcimen.png": "/assets/img/software/dsviewer/weld-specimen.png",
+    "/assets/img/software/dsviewer/Zoom.png": "/assets/img/software/dsviewer/zoom.png",
+    "/assets/img/software/dsvision/1.PNG": "/assets/img/software/dsvision/dsvision-overview.png",
+    "/assets/img/software/dsvision/CH3.png": "/assets/img/software/dsvision/ch3.png",
+    "/assets/img/software/dsvision/CH_1.PNG": "/assets/img/software/dsvision/ch-1.png",
+    "/assets/img/software/dsvision/CH_2.PNG": "/assets/img/software/dsvision/ch-2.png",
+    "/assets/img/software/dsvision/Corrosion.png": "/assets/img/software/dsvision/dsvision-corrosion.png",
+    "/assets/img/software/dsvision/Cursor.png": "/assets/img/software/dsvision/cursor.png",
+    "/assets/img/software/dsvision/LA_1.PNG": "/assets/img/software/dsvision/la-1.png",
+    "/assets/img/software/dsvision/PA_3.PNG": "/assets/img/software/dsvision/pa-3.png",
+    "/assets/img/software/dsvision/TFM_1.png": "/assets/img/software/dsvision/tfm-1.png",
+    "/assets/img/software/dsvision/TFM_2.png": "/assets/img/software/dsvision/tfm-2.png",
+    "/assets/img/software/dsvision/TFM_3.png": "/assets/img/software/dsvision/tfm-3.png",
+    "/assets/models/B3_Edit.glb": "/assets/models/b3-model.glb",
+    "/assets/models/P5_3D.glb": "/assets/models/p5-model.glb",
+    "/assets/models/R5_3D.glb": "/assets/models/r5-model.glb"
+  },
+  "modified_source_files": [
+    "components/home/HardwareLineup.astro",
+    "components/home/Hero.astro",
+    "components/products/B3ThreeVideoViewer.astro",
+    "components/products/P5ThreeVideoViewer.astro",
+    "components/products/R5ThreeViewer.astro",
+    "pages/ko/products/b3.astro",
+    "pages/ko/products/p5.astro",
+    "pages/ko/products/t3.astro",
+    "pages/ko/software/dsk.astro",
+    "pages/ko/software/dsviewer.astro",
+    "pages/ko/software/dsvision.astro",
+    "pages/products/b3.astro",
+    "pages/products/p5.astro",
+    "pages/products/t3.astro",
+    "pages/software/dsk.astro",
+    "pages/software/dsviewer.astro",
+    "pages/software/dsvision.astro"
+  ]
+}

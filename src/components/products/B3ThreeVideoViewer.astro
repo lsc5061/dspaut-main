@@ -211,7 +211,7 @@ const { className = "" } = Astro.props;
     loader.setDRACOLoader(dracoLoader);
 
     loader.load(
-      '/assets/models/B3_Edit.glb?v=' + Date.now(),
+      '/assets/models/b3-model.glb?v=' + Date.now(),
       (gltf) => {
         b3ModelGroup = gltf.scene;
 

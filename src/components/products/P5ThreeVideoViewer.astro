@@ -210,8 +210,8 @@ const { className = "" } = Astro.props;
     const loader = new THREE.GLTFLoader();
     loader.setDRACOLoader(dracoLoader);
 
-    // Load P5_3D.glb (or deepsound-p5.glb)
-    const modelPath = encodeURI('/assets/models/P5_3D.glb') + '?v=' + Date.now();
+    // Load p5-model.glb (or deepsound-p5.glb)
+    const modelPath = encodeURI('/assets/models/p5-model.glb') + '?v=' + Date.now();
     loader.load(
       modelPath,
       (gltf) => {

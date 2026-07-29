@@ -162,8 +162,8 @@ const { className = "" } = Astro.props;
     const loader = new THREE.GLTFLoader();
     loader.setDRACOLoader(dracoLoader);
 
-    // Load R5_3D.glb with EXACT embedded Blender multi-materials preserved intact
-    const modelPath = encodeURI('/assets/models/R5_3D.glb') + '?v=' + Date.now();
+    // Load r5-model.glb with EXACT embedded Blender multi-materials preserved intact
+    const modelPath = encodeURI('/assets/models/r5-model.glb') + '?v=' + Date.now();
     loader.load(
       modelPath,
       (gltf) => {
