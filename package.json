@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "start": "astro dev",
+    "build": "astro build && node compress-images.cjs",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -15,6 +16,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.5",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.3.0"
   }
 }
