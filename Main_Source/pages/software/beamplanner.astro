@@ -5,24 +5,160 @@ import BeamPlannerSimulator from '../../components/software/BeamPlannerSimulator
 
 <Layout 
 	title="Beam Planner | DSPAUT Simulation Software"
-	description="Advanced 1:1 pixel-matching physics engine for PAUT pre-inspection simulation. Visually configure wedge angles, probe placement, and specimen thickness to calculate accurate Z-pattern beam refractions before entering the field."
+	description="Interactive simulation software for Phased Array Ultrasonic Testing (PAUT). Visually configure wedge angles, probe placement, and specimen thickness to accurately simulate ultrasonic beam paths before field inspections."
 	lang="en"
 >
-	<main class="pt-24 pb-16 bg-[#0B132B] min-h-screen">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<!-- Header -->
-			<div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
-				<span class="text-xs font-mono tracking-wider bg-slate-950 text-primary-cyan border border-primary-cyan/20 px-2.5 py-1 rounded-md font-bold uppercase inline-block mb-2">Inspection Planning</span>
-				<h1 class="text-4xl font-extrabold text-white font-display">Beam Planner</h1>
-				<p class="text-slate-300 text-lg">
-					Configure your PAUT parameters and visualize dynamic Z-pattern beam refractions in real-time.
-				</p>
-			</div>
-
-			<!-- Simulator Component -->
-			<div class="w-full h-[700px] xl:h-[800px] max-w-7xl mx-auto px-4">
-				<BeamPlannerSimulator />
+	<!-- 1. Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-24 sm:py-32 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<div class="space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>Inspection Planning Software</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight">
+						Beam Planner<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">PAUT Simulation Software</span>
+					</h1>
+					<p class="text-lg text-slate-300 leading-relaxed max-w-xl">
+						Configure your PAUT parameters and visualize ultrasonic beam paths in real-time. Visually set wedge angles, probe placement, and specimen thickness before entering the field.
+					</p>
+					<div class="pt-4">
+						<a href="#simulator" class="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-slate-950 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all duration-300 hover:-translate-y-1">
+							Try the Simulator
+							<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+						</a>
+					</div>
+				</div>
+				<div class="relative group">
+					<div class="absolute -inset-1 bg-gradient-to-r from-primary-cyan to-blue-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+					<div class="relative rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
+						<img src="/software/beamplanner/bp_main.png" alt="Beam Planner Main UI" class="w-full h-auto object-cover" />
+					</div>
+				</div>
 			</div>
 		</div>
-	</main>
+	</section>
+
+	<!-- 2. Precision Setup Section -->
+	<section class="py-24 bg-[#0B132B]">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+				<div class="order-2 lg:order-1 grid grid-cols-2 gap-4">
+					<div class="space-y-4">
+						<img src="/software/beamplanner/bp_Wedge_setting.png" alt="Wedge Setting" class="w-full rounded-lg border border-slate-800 shadow-lg" />
+					</div>
+					<div class="space-y-4 pt-12">
+						<img src="/software/beamplanner/bp_probe_setting.png" alt="Probe Setting" class="w-full rounded-lg border border-slate-800 shadow-lg" />
+					</div>
+				</div>
+				<div class="order-1 lg:order-2 space-y-6">
+					<h2 class="text-3xl font-bold text-white font-display">Probe & Wedge Configuration</h2>
+					<p class="text-slate-400 text-lg leading-relaxed">
+						Input equipment specifications to match your inspection setup. Configure primary angles, wedge velocities, and probe offsets for accurate simulations.
+					</p>
+					<ul class="space-y-3 text-slate-300">
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Custom Wedge Angle Input</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Exact Probe Positioning (Offset X/Y)</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Dynamic Acoustic Velocity Matching</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 3. Weld Geometry Section -->
+	<section class="py-24 bg-[#0C1929] border-y border-slate-800">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+				<div class="space-y-6">
+					<h2 class="text-3xl font-bold text-white font-display">Weld Profile Overlay</h2>
+					<p class="text-slate-400 text-lg leading-relaxed">
+						Visualize complex weld profiles with our intuitive overlay system. See exactly how your ultrasonic beams interact with bevels, roots, and caps to ensure 100% volume coverage of the weld zone.
+					</p>
+					<ul class="space-y-3 text-slate-300">
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> V-Bevel and Double-V Overlays</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Real-time beam path tracking</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Thickness and Root Gap Adjustments</li>
+					</ul>
+				</div>
+				<div class="grid grid-cols-1 gap-6">
+					<img src="/software/beamplanner/bp_Weld_2.png" alt="Weld Geometry" class="w-full rounded-xl border border-slate-700 shadow-2xl" />
+					<img src="/software/beamplanner/bp_Weld_add.png" alt="Weld Overlay" class="w-full rounded-xl border border-slate-700 shadow-2xl opacity-90 hover:opacity-100 transition-opacity" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<!-- 3.5 3D Visualization Section -->
+	<section class="py-24 bg-[#0B132B]">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+				<div class="order-2 lg:order-1 space-y-6">
+					<h2 class="text-3xl font-bold text-white font-display">Interactive 3D Visualization</h2>
+					<p class="text-slate-400 text-lg leading-relaxed">
+						Gain complete spatial awareness of your inspection plan. Beam Planner features an interactive 3D rendering mode that allows you to rotate and inspect the wedge, probe, and ultrasonic beams in a full 3D environment.
+					</p>
+					<ul class="space-y-3 text-slate-300">
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 360° Free Rotation & Zoom</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Spatial Beam Path Analysis</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Realistic Component Rendering</li>
+					</ul>
+				</div>
+				<div class="order-1 lg:order-2">
+					<img src="/software/beamplanner/bp_3D_function.png" alt="3D Visualization" class="w-full rounded-xl border border-slate-700 shadow-2xl" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+<!-- 4. Advanced Scan & Channels Section -->
+	<section class="py-24 bg-[#0B132B]">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+			<div class="max-w-3xl mx-auto space-y-4">
+				<h2 class="text-3xl font-bold text-white font-display">Comprehensive Scan Visualization</h2>
+				<p class="text-slate-400 text-lg">
+					Support for Linear, Sectorial, and Conventional scanning modes. Group your channels efficiently for multi-probe inspection plans.
+				</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800">
+					<img src="/software/beamplanner/bp_Linear_mode.png" alt="Linear Mode" class="w-full h-48 object-cover rounded-lg mb-4" />
+					<h3 class="text-xl font-bold text-white mb-2">Linear Mode</h3>
+					<p class="text-slate-400 text-sm">Visualize electronic scanning along the active aperture.</p>
+				</div>
+				<div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800">
+					<img src="/software/beamplanner/bp_conventional_mode.png" alt="Conventional Mode" class="w-full h-48 object-cover rounded-lg mb-4" />
+					<h3 class="text-xl font-bold text-white mb-2">Conventional Mode</h3>
+					<p class="text-slate-400 text-sm">Simulate single-element UT behavior accurately.</p>
+				</div>
+				<div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800">
+					<img src="/software/beamplanner/bp_channel_group.png" alt="Channel Groups" class="w-full h-48 object-cover rounded-lg mb-4" />
+					<h3 class="text-xl font-bold text-white mb-2">Channel Grouping</h3>
+					<p class="text-slate-400 text-sm">Manage dual arrays and complex groupings effortlessly.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 5. Simulator Section (Single Page Integration) -->
+	<section id="simulator" class="py-24 bg-[#0C1929] border-t border-slate-800">
+		<div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+			<span class="text-xs font-mono tracking-wider bg-slate-950 text-primary-cyan border border-primary-cyan/20 px-2.5 py-1 rounded-md font-bold uppercase inline-block mb-2">Live Demo</span>
+			<h2 class="text-3xl font-extrabold text-white font-display">Try the Simulator</h2>
+			<p class="text-slate-400 text-lg">
+				Interact with the live simulator below. Adjust wedge angles, drag the probe, and observe real-time ray tracing.
+			</p>
+		</div>
+
+		<div class="w-full h-[700px] xl:h-[800px] max-w-7xl mx-auto px-4">
+			<BeamPlannerSimulator />
+		</div>
+	</section>
 </Layout>
+ 

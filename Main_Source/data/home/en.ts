@@ -167,11 +167,11 @@ export const homeData = {
     beamPlanner: {
       badge: "Inspection Planning",
       title: "Beam Planner",
-      desc: "Advanced 1:1 pixel-matching physics engine for PAUT pre-inspection simulation. Visually configure wedge angles, probe placement, and specimen thickness to calculate accurate Z-pattern beam refractions before entering the field.",
+      desc: "Interactive simulation software for Phased Array Ultrasonic Testing (PAUT). Visually configure wedge angles, probe placement, and specimen thickness to accurately simulate ultrasonic beam paths before field inspections.",
       wedge: "Wedge: 36.6°",
       beam: "Beam: 30°~60°",
       type: "Web Simulator (Online)",
-      cta: "Launch Simulator"
+      cta: "Learn More →"
     },
     acquire: {
       badge: "Real-time Acquisition",

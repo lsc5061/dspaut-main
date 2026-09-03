@@ -5,24 +5,160 @@ import BeamPlannerSimulator from '../../../components/software/BeamPlannerSimula
 
 <Layout 
 	title="Beam Planner | DSPAUT 시뮬레이션 소프트웨어"
-	description="PAUT 검사 전 완벽한 1:1 픽셀 매칭 물리 엔진으로 빔의 굴절과 반사를 시뮬레이션합니다. 웻지 각도, 탐촉자 위치, 시편 두께를 조절하여 실제 현장 투입 전 정확한 Z-Pattern 빔 궤적을 설계할 수 있습니다."
+	description="위상배열 초음파 탐상(PAUT) 검사를 위한 대화형 시뮬레이션 소프트웨어입니다. 현장 검사 전 쐐기 각도, 탐촉자 위치, 시편 두께를 시각적으로 설정하여 초음파 빔 경로를 정확하게 시뮬레이션합니다."
 	lang="ko"
 >
-	<main class="pt-24 pb-16 bg-[#0B132B] min-h-screen">
-		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-			<!-- Header -->
-			<div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
-				<span class="text-xs font-mono tracking-wider bg-slate-950 text-primary-cyan border border-primary-cyan/20 px-2.5 py-1 rounded-md font-bold uppercase inline-block mb-2">사전 검사 시뮬레이션</span>
-				<h1 class="text-4xl font-extrabold text-white font-display">Beam Planner</h1>
-				<p class="text-slate-300 text-lg">
-					PAUT 검사 파라미터를 설정하고 빔의 굴절 및 반사 궤적을 실시간으로 확인하세요.
-				</p>
-			</div>
-
-			<!-- Simulator Component -->
-			<div class="w-full h-[700px] xl:h-[800px] max-w-7xl mx-auto px-4">
-				<BeamPlannerSimulator />
+	<!-- 1. Hero Section -->
+	<section class="relative bg-[#0C1929] text-white overflow-hidden py-24 sm:py-32 border-b border-slate-800">
+		<div class="absolute -top-40 left-1/4 w-96 h-96 bg-primary-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+		<div class="absolute -bottom-40 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+		
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+				<div class="space-y-6">
+					<div class="inline-flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-full px-3.5 py-1 text-sm text-primary-cyan font-semibold tracking-wide">
+						<span>초음파 검사 시뮬레이션 소프트웨어</span>
+					</div>
+					<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display leading-tight break-keep">
+						Beam Planner<br/>
+						<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-cyan to-blue-400">PAUT 시뮬레이션 소프트웨어</span>
+					</h1>
+					<p class="text-lg text-slate-300 leading-relaxed max-w-xl break-keep">
+						현장 검사 전에 PAUT 파라미터를 설정하고 초음파 빔 경로를 실시간으로 시각화하십시오. 쐐기 각도, 탐촉자 위치, 시편 두께를 직관적으로 세팅할 수 있습니다.
+					</p>
+					<div class="pt-4">
+						<a href="#simulator" class="inline-flex items-center justify-center px-8 py-3.5 text-base font-bold text-slate-950 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all duration-300 hover:-translate-y-1">
+							시뮬레이터 체험하기
+							<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+						</a>
+					</div>
+				</div>
+				<div class="relative group">
+					<div class="absolute -inset-1 bg-gradient-to-r from-primary-cyan to-blue-600 rounded-xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+					<div class="relative rounded-xl overflow-hidden border border-slate-700 shadow-2xl">
+						<img src="/software/beamplanner/bp_main.png" alt="Beam Planner Main UI" class="w-full h-auto object-cover" />
+					</div>
+				</div>
 			</div>
 		</div>
-	</main>
+	</section>
+
+	<!-- 2. Precision Setup Section -->
+	<section class="py-24 bg-[#0B132B]">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+				<div class="order-2 lg:order-1 grid grid-cols-2 gap-4">
+					<div class="space-y-4">
+						<img src="/software/beamplanner/bp_Wedge_setting.png" alt="Wedge Setting" class="w-full rounded-lg border border-slate-800 shadow-lg" />
+					</div>
+					<div class="space-y-4 pt-12">
+						<img src="/software/beamplanner/bp_probe_setting.png" alt="Probe Setting" class="w-full rounded-lg border border-slate-800 shadow-lg" />
+					</div>
+				</div>
+				<div class="order-1 lg:order-2 space-y-6">
+					<h2 class="text-3xl font-bold text-white font-display break-keep">탐촉자 및 쐐기 설정</h2>
+					<p class="text-slate-400 text-lg leading-relaxed break-keep">
+						장비의 정확한 제원을 입력하여 실제 검사 환경과 동일하게 시뮬레이션하십시오. Beam Planner는 굴절각, 쐐기 음속, 탐촉자 오프셋을 세밀하게 설정하여 세밀하게 설정할 수 있습니다.
+					</p>
+					<ul class="space-y-3 text-slate-300">
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 사용자 맞춤형 쐐기 각도 입력</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 탐촉자 미세 위치 조정 (X/Y 오프셋)</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 동적 음속(Velocity) 매칭</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 3. Weld Geometry Section -->
+	<section class="py-24 bg-[#0C1929] border-y border-slate-800">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+				<div class="space-y-6">
+					<h2 class="text-3xl font-bold text-white font-display break-keep">용접부 프로파일 오버레이</h2>
+					<p class="text-slate-400 text-lg leading-relaxed break-keep">
+						직관적인 오버레이 시스템을 통해 복잡한 용접부 프로파일을 시각화하십시오. 초음파 빔이 베벨, 루트, 캡과 어떻게 상호작용하는지 확인하여 용접부 체적을 100% 검사 범위에 포함시킬 수 있습니다.
+					</p>
+					<ul class="space-y-3 text-slate-300">
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> V-개선 및 Double-V 개선 오버레이 지원</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 실시간 초음파 빔 경로 추적</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 두께 및 루트 간극(Root Gap) 미세 조정</li>
+					</ul>
+				</div>
+				<div class="grid grid-cols-1 gap-6">
+					<img src="/software/beamplanner/bp_Weld_2.png" alt="Weld Geometry" class="w-full rounded-xl border border-slate-700 shadow-2xl" />
+					<img src="/software/beamplanner/bp_Weld_add.png" alt="Weld Overlay" class="w-full rounded-xl border border-slate-700 shadow-2xl opacity-90 hover:opacity-100 transition-opacity" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<!-- 3.5 3D Visualization Section -->
+	<section class="py-24 bg-[#0B132B]">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+				<div class="order-2 lg:order-1 space-y-6">
+					<h2 class="text-3xl font-bold text-white font-display break-keep">대화형 3D 시각화</h2>
+					<p class="text-slate-400 text-lg leading-relaxed break-keep">
+						검사 계획에 대한 완벽한 공간 지각력을 확보하십시오. 3D 렌더링 모드를 지원하여 쐐기, 탐촉자, 그리고 초음파 빔 경로를 3차원 환경에서 자유롭게 회전시키며 검토할 수 있습니다.
+					</p>
+					<ul class="space-y-3 text-slate-300">
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 360° 자유 회전 및 줌 기능</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 입체적인 초음파 빔 경로 분석</li>
+						<li class="flex items-center"><svg class="w-5 h-5 text-primary-cyan mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 사실적인 구성품(Component) 렌더링</li>
+					</ul>
+				</div>
+				<div class="order-1 lg:order-2">
+					<img src="/software/beamplanner/bp_3D_function.png" alt="3D Visualization" class="w-full rounded-xl border border-slate-700 shadow-2xl" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+<!-- 4. Advanced Scan & Channels Section -->
+	<section class="py-24 bg-[#0B132B]">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12">
+			<div class="max-w-3xl mx-auto space-y-4">
+				<h2 class="text-3xl font-bold text-white font-display break-keep">다중 스캔 모드 및 채널 시각화</h2>
+				<p class="text-slate-400 text-lg break-keep">
+					선형(Linear), 섹터럴(Sectorial) 및 재래식(Conventional) 스캔 모드를 지원합니다. 다중 탐촉자 검사 계획을 위해 채널을 효율적으로 그룹화하십시오.
+				</p>
+			</div>
+			
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800">
+					<img src="/software/beamplanner/bp_Linear_mode.png" alt="Linear Mode" class="w-full h-48 object-cover rounded-lg mb-4" />
+					<h3 class="text-xl font-bold text-white mb-2">선형 스캔 모드 (Linear)</h3>
+					<p class="text-slate-400 text-sm break-keep">활성 구경(Aperture)을 따라 전자적 스캐닝을 시각화합니다.</p>
+				</div>
+				<div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800">
+					<img src="/software/beamplanner/bp_conventional_mode.png" alt="Conventional Mode" class="w-full h-48 object-cover rounded-lg mb-4" />
+					<h3 class="text-xl font-bold text-white mb-2">재래식 모드 (Conventional)</h3>
+					<p class="text-slate-400 text-sm break-keep">단일 진동자 초음파 검사(UT)의 빔 거동을 정확하게 시뮬레이션합니다.</p>
+				</div>
+				<div class="bg-slate-900/50 p-4 rounded-xl border border-slate-800">
+					<img src="/software/beamplanner/bp_channel_group.png" alt="Channel Groups" class="w-full h-48 object-cover rounded-lg mb-4" />
+					<h3 class="text-xl font-bold text-white mb-2">채널 그룹화 (Channel Grouping)</h3>
+					<p class="text-slate-400 text-sm break-keep">복잡한 다중 배열 및 채널 그룹을 손쉽게 구성하고 관리하십시오.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- 5. Simulator Section (Single Page Integration) -->
+	<section id="simulator" class="py-24 bg-[#0C1929] border-t border-slate-800">
+		<div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+			<span class="text-xs font-mono tracking-wider bg-slate-950 text-primary-cyan border border-primary-cyan/20 px-2.5 py-1 rounded-md font-bold uppercase inline-block mb-2">라이브 데모</span>
+			<h2 class="text-3xl font-extrabold text-white font-display">직접 체험해 보세요</h2>
+			<p class="text-slate-400 text-lg break-keep">
+				아래의 라이브 시뮬레이터를 직접 조작해 보십시오. 쐐기 각도를 조절하고 탐촉자를 마우스로 드래그하여 실시간 광선 추적(Ray tracing)을 확인해 보실 수 있습니다.
+			</p>
+		</div>
+
+		<div class="w-full h-[700px] xl:h-[800px] max-w-7xl mx-auto px-4">
+			<BeamPlannerSimulator />
+		</div>
+	</section>
 </Layout>
+ 
