@@ -164,6 +164,15 @@ export const homeData = {
     badge: "NDT SOFTWARE WORKFLOW",
     title: "From Real-Time Field Acquisition to Comprehensive Offline Analysis & Custom SDKs",
     description: "SEONGSANLAB provides real-time data acquisition applications for rapid scanning, desktop-based offline analytical suites, and native developer libraries for custom integration.",
+    beamPlanner: {
+      badge: "Inspection Planning",
+      title: "Beam Planner",
+      desc: "Advanced 1:1 pixel-matching physics engine for PAUT pre-inspection simulation. Visually configure wedge angles, probe placement, and specimen thickness to calculate accurate Z-pattern beam refractions before entering the field.",
+      wedge: "Wedge: 36.6°",
+      beam: "Beam: 30°~60°",
+      type: "Web Simulator (Online)",
+      cta: "Launch Simulator"
+    },
     acquire: {
       badge: "Real-time Acquisition",
       title: "DSVision",

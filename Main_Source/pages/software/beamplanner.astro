@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BeamPlannerSimulator from '../../components/software/BeamPlannerSimulator.astro';
+---
+
+<Layout 
+	title="Beam Planner | DSPAUT Simulation Software"
+	description="Advanced 1:1 pixel-matching physics engine for PAUT pre-inspection simulation. Visually configure wedge angles, probe placement, and specimen thickness to calculate accurate Z-pattern beam refractions before entering the field."
+	lang="en"
+>
+	<main class="pt-24 pb-16 bg-[#0B132B] min-h-screen">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<!-- Header -->
+			<div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+				<span class="text-xs font-mono tracking-wider bg-slate-950 text-primary-cyan border border-primary-cyan/20 px-2.5 py-1 rounded-md font-bold uppercase inline-block mb-2">Inspection Planning</span>
+				<h1 class="text-4xl font-extrabold text-white font-display">Beam Planner</h1>
+				<p class="text-slate-300 text-lg">
+					Configure your PAUT parameters and visualize dynamic Z-pattern beam refractions in real-time.
+				</p>
+			</div>
+
+			<!-- Simulator Component -->
+			<div class="w-full h-[700px] xl:h-[800px] max-w-7xl mx-auto px-4">
+				<BeamPlannerSimulator />
+			</div>
+		</div>
+	</main>
+</Layout>

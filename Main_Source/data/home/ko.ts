@@ -164,6 +164,15 @@ export const homeData = {
     badge: "NDT SOFTWARE WORKFLOW",
     title: "데이터 취득(Acquisition)부터 오프라인 분석(Analysis) 및 맞춤형 SDK 연동까지",
     description: "(주)성산연구소는 초음파 데이터를 실시간으로 정밀 수집하는 필드 획득 프로그램, 결함 데이터를 국제 규격에 맞춰 진단하는 분석 소프트웨어, 그리고 사용자 맞춤형 시스템 연동을 지원하는 SDK 개발 도구까지 통합 워크플로우를 제공합니다.",
+    beamPlanner: {
+      badge: "사전 검사 시뮬레이션",
+      title: "Beam Planner",
+      desc: "PAUT 검사 전 완벽한 1:1 픽셀 매칭 물리 엔진으로 빔의 굴절과 반사를 시뮬레이션합니다. 웻지 각도, 탐촉자 위치, 시편 두께를 조절하여 실제 현장 투입 전 정확한 Z-Pattern 빔 궤적을 설계할 수 있습니다.",
+      wedge: "웻지 경사각: 36.6°",
+      beam: "빔 방사각: 30°~60°",
+      type: "웹 시뮬레이터 (온라인)",
+      cta: "시뮬레이터 실행"
+    },
     acquire: {
       badge: "실시간 데이터 취득",
       title: "DSVision",

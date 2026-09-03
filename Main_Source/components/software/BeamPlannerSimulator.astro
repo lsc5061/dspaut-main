@@ -1,0 +1,602 @@
+---
+// src/components/software/BeamPlannerSimulator.astro
+---
+
+
+<div class="w-full h-full flex flex-col bg-slate-50 text-slate-900 font-sans rounded-xl border border-slate-200 shadow-xl overflow-hidden">
+  <header class="min-h-[36px] h-auto py-2 bg-[#0b1120] flex flex-wrap items-center justify-between gap-y-2 px-3 flex-shrink-0 text-white">
+        <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-4 h-4 rounded-sm bg-gradient-to-tr from-cyan-400 to-blue-500 opacity-90 flex items-center justify-center">
+                    <div class="w-2 h-2 bg-white rounded-[1px] opacity-80"></div>
+                </div>
+                <div class="text-[13px] tracking-wide">
+                    <span class="text-indigo-400 font-bold">DEEPSOUND</span> <span class="font-semibold">Beam Planner</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 text-[12px] text-slate-300 ml-2">
+                <span class="cursor-pointer hover:text-white">File</span>
+                <span class="cursor-pointer hover:text-white">Device</span>
+                <span class="cursor-pointer hover:text-white">View</span>
+                <span class="cursor-pointer hover:text-white">Help</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            
+            <div class="border border-slate-600 px-2 py-0.5 rounded-sm text-[11px] text-slate-300 cursor-pointer">3D</div>
+            <div class="flex items-center gap-2 text-slate-400">
+                <svg class="w-3 h-3 cursor-pointer hover:text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13H5v-2h14v2z"/></svg>
+                <svg class="w-3 h-3 cursor-pointer hover:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+                <svg class="w-3 h-3 cursor-pointer hover:text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </div>
+        </div>
+    </header>
+
+    <div class="h-[40px] border-b border-slate-200 flex items-center justify-between px-2 bg-white flex-shrink-0">
+        <div class="flex items-center gap-3">
+            <!-- 5. PA-1 Dropdown Restored -->
+            <select class="border border-slate-300 rounded-sm text-[12px] px-2 py-1 bg-slate-50 outline-none w-[100px]" disabled>
+                <option>PA-1</option>
+            </select>
+            
+            <span class="text-[12px] text-slate-700 ml-2">Offset X (mm)</span>
+            <input type="text" id="bp_offsetXInput" value="-30.67" class="ds-input bg-slate-50 text-blue-700 font-bold cursor-not-allowed" readonly>
+        </div>
+    </div>
+
+    <div class="flex-1 flex flex-col md:flex-row overflow-hidden">
+        
+        <aside class="w-full md:w-[300px] bg-[var(--bg-panel)] border-r border-slate-200 flex flex-col flex-shrink-0 overflow-y-auto md:overflow-hidden max-h-[50%] md:max-h-full">
+            
+            <div class="grid grid-cols-3 gap-y-2 gap-x-2 px-3 pt-3 pb-1 border-b border-slate-200">
+                <div class="flat-tab-btn active" onclick="switchTab(\'channel\', event)">Channel</div>
+                <div class="flat-tab-btn" onclick="switchTab(\'general\', event)">General</div>
+                <div class="flat-tab-btn" onclick="switchTab(\'focus\', event)">Focus</div>
+                <div class="flat-tab-btn" onclick="switchTab(\'probe\', event)">Probe</div>
+                <div class="flat-tab-btn" onclick="switchTab(\'wedge\', event)">Wedge</div>
+                <div class="flat-tab-btn" onclick="switchTab(\'specimen\', event)">Specimen</div>
+                <div class="flat-tab-btn col-span-3" onclick="switchTab(\'device\', event)">Device</div>
+            </div>
+
+            <div class="flex-1 p-3 overflow-y-auto">
+                
+                <!-- CHANNEL TAB -->
+                <div id="bp_tab-channel" class="block">
+                    <div class="ds-row"><span class="ds-label">Config</span><select class="ds-input" disabled><option>PA</option></select></div>
+                    <!-- 3. Channel UI Flex wrapping and + Conventional text -->
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <button class="h-6 px-2 bg-white border border-slate-300 rounded-sm text-[10px] text-slate-700 cursor-not-allowed">+ PA</button>
+                        <button class="h-6 px-2 bg-white border border-slate-300 rounded-sm text-[10px] text-slate-700 cursor-not-allowed">+ LA</button>
+                        <button class="h-6 px-2 bg-white border border-slate-300 rounded-sm text-[10px] text-slate-700 cursor-not-allowed">+ Conventional</button>
+                    </div>
+                    <button class="w-full h-6 bg-slate-100 border border-slate-200 rounded-sm text-[10px] text-slate-400 mb-4 cursor-not-allowed">- Remove</button>
+                    <div class="ds-row">
+                        <span class="ds-label">Rename</span>
+                        <div class="relative w-[120px]">
+                            <input type="text" class="ds-input ds-input-full pr-5" value="PA-1" readonly>
+                            <svg class="absolute right-1 top-1 w-3 h-3 text-slate-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20,5H4C2.9,5,2,5.9,2,7v10c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V7C22,5.9,21.1,5,20,5z M11,8h2v2h-2V8z M11,11h2v2h-2V11z M8,8h2v2H8V8z M8,11h2v2H8V11z M7,13H5v-2h2V13z M7,10H5V8h2V10z M16,17H8v-2h8V17z M17,13h-2v-2h2V13z M17,10h-2V8h2V10z M20,13h-2v-2h2V13z M20,10h-2V8h2V10z"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GENERAL TAB -->
+                <div id="bp_tab-general" class="hidden">
+                    <div class="section-divider" style="margin-top:0;">Scanner</div>
+                    <div class="flex flex-col gap-2 mb-2 pl-2 text-[11px] text-slate-600">
+                        <label class="flex items-center gap-1 cursor-not-allowed"><input type="radio" name="scan" class="accent-slate-400" checked disabled> One Line</label>
+                        <label class="flex items-center gap-1 cursor-not-allowed"><input type="radio" name="scan" class="accent-slate-400" disabled> Raster</label>
+                        <label class="flex items-center gap-1 cursor-not-allowed"><input type="radio" name="scan" class="accent-slate-400" disabled> Time</label>
+                    </div>
+                    <div class="section-divider">Leg</div>
+                    <div class="flex gap-4 mb-2 pl-2 text-[11px] text-slate-700 font-medium">
+                        <!-- 1. Leg Radios Interactive -> canvas trigger -->
+                        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="leg" class="accent-blue-600" value="1" checked > 1</label>
+                        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="leg" class="accent-blue-600" value="2" > 2</label>
+                        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="leg" class="accent-blue-600" value="3" > 3</label>
+                    </div>
+                    <div class="section-divider">Skew</div>
+                    <div class="flex gap-4 mb-2 pl-2 text-[11px] text-slate-700 font-medium">
+                        <!-- 2. Skew Radios Interactive -> mirror trigger -->
+                        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="skew" class="accent-blue-600" value="90" checked > 90°</label>
+                        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="skew" class="accent-blue-600" value="270" > 270°</label>
+                    </div>
+
+                </div>
+
+                <!-- FOCUS TAB -->
+                <div id="bp_tab-focus" class="hidden">
+                    <div class="section-divider" style="margin-top:0;">Focal Law</div>
+                    <div class="ds-row"><span class="ds-label">Law Type</span><select class="ds-input" disabled><option>Sectorial</option></select></div>
+                    <div class="ds-row"><span class="ds-label">Start Angle (°)</span><input type="text" class="ds-input" value="30" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Stop Angle (°)</span><input type="text" class="ds-input" value="60" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Angle Step (°)</span><input type="text" class="ds-input" value="1.0" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Focus Depth</span><input type="text" class="ds-input" value="25" readonly></div>
+                </div>
+
+                <!-- PROBE TAB -->
+                <div id="bp_tab-probe" class="hidden">
+                    <div class="section-divider" style="margin-top:0;">Probe Parameters</div>
+                    <div class="ds-row"><span class="ds-label">Name</span><input type="text" class="ds-input" readonly value="Array1"></div>
+                    <div class="ds-row"><span class="ds-label">Element Pitch (mm)</span><input type="text" class="ds-input" value="0.6" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Elements</span><input type="text" class="ds-input" value="64" readonly></div>
+                </div>
+
+                <!-- WEDGE TAB -->
+                <div id="bp_tab-wedge" class="hidden">
+                    <div class="section-divider" style="margin-top:0;">Wedge Parameters</div>
+                    <div class="ds-row"><span class="ds-label">Name</span><input type="text" class="ds-input" readonly value="SA31-N55S"></div>
+                    <div class="ds-row"><span class="ds-label">Type</span><select class="ds-input" disabled><option>Angle beam</option></select></div>
+                    <div class="ds-row"><span class="ds-label">Angle (°)</span><input type="text" class="ds-input" value="36" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Reversed</span><div class="w-[80px] flex items-center pl-1"><input type="radio" disabled></div></div>
+                    <div class="ds-row"><span class="ds-label">Length (mm)</span><input type="text" class="ds-input" value="45" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Height (mm)</span><input type="text" class="ds-input" value="35" readonly></div>
+                    <div class="ds-row"><span class="ds-label">First element<br>Height (mm)</span><input type="text" class="ds-input h-[36px]" value="12" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Primary offset (mm)</span><input type="text" class="ds-input" value="-40" readonly></div>
+                </div>
+
+                <!-- SPECIMEN TAB -->
+                <div id="bp_tab-specimen" class="hidden">
+                    <div class="section-divider" style="margin-top:0;">Specimen</div>
+                    <div class="ds-row"><span class="ds-label">Length (mm)</span><input type="text" class="ds-input" value="300" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Thickness (mm)</span><input type="text" class="ds-input" value="50" readonly></div>
+                    <div class="section-divider">Weld</div>
+                    <div class="ds-row"><span class="ds-label">Enable</span><div class="w-[80px] flex items-center pl-1"><input type="checkbox" checked disabled></div></div>
+                    <div class="ds-row"><span class="ds-label">Type</span><select class="ds-input" disabled><option>v</option></select></div>
+                    <div class="ds-row"><span class="ds-label">Groove Angle (°)</span><input type="text" class="ds-input" value="60" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Fill Height (mm)</span><input type="text" class="ds-input" value="40" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Land Height (mm)</span><input type="text" class="ds-input" value="10" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Land Offset (mm)</span><input type="text" class="ds-input" value="20" readonly></div>
+                    <div class="ds-row"><span class="ds-label">HAZ Width (mm)</span><input type="text" class="ds-input" value="0" readonly></div>
+                </div>
+
+                <!-- DEVICE TAB -->
+                <div id="bp_tab-device" class="hidden">
+                    <div class="section-divider" style="margin-top:0;">Device Setup</div>
+                    <div class="ds-row"><span class="ds-label">Max Physical Ch #</span><input type="text" class="ds-input" value="32" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Max Probe Element #</span><input type="text" class="ds-input" value="128" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Channel Group PA #</span><input type="text" class="ds-input" value="5" readonly></div>
+                    <div class="ds-row"><span class="ds-label">Channel Group UT #</span><input type="text" class="ds-input" value="4" readonly></div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="flex-1 relative bg-white flex flex-col">
+            <div id="bp_canvasWrapper" class="flex-1 relative overflow-hidden bg-white">
+                <canvas id="bp_appCanvas" class="absolute top-0 left-0 w-full h-full cursor-crosshair"></canvas>
+
+                <div class="absolute left-10 bottom-10 flex flex-col gap-1 z-10 pointer-events-auto">
+                    <div class="canvas-ctrl-btn cursor-pointer hover:bg-slate-200" style="cursor:pointer;" onclick="window.zoomIn()"><svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></div>
+                    <div class="canvas-ctrl-btn cursor-pointer hover:bg-slate-200" style="cursor:pointer;" onclick="window.zoomOut()"><svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg></div>
+                    <div class="canvas-ctrl-btn cursor-pointer hover:bg-slate-200" style="cursor:pointer;" onclick="window.resetZoom()"><svg viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg></div>
+                </div>
+                
+                <div class="absolute right-10 bottom-10 z-10 grid grid-cols-3 gap-1 pointer-events-none">
+                    <div></div>
+                    <div class="canvas-ctrl-btn"><svg viewBox="0 0 24 24"><path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/></svg></div>
+                    <div></div>
+                    <div class="canvas-ctrl-btn"><svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg></div>
+                    <div class="canvas-ctrl-btn"><svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6-6 6z"/></svg></div>
+                    <div class="canvas-ctrl-btn"><svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer at the bottom of body -->
+    <footer class="min-h-[24px] h-auto py-1 gap-y-1 border-t border-slate-300 flex flex-wrap items-center justify-between px-3 text-[10px] text-slate-500 bg-slate-50 flex-shrink-0">
+        <span>(unsaved)</span>
+        <div class="flex items-center gap-6">
+            <span>channel 1</span>
+            <span>scanner OneLine</span>
+            <span>max channel 32</span>
+        </div>
+        <span>Edit the setup, then save it from the File menu.</span>
+    </footer>
+</div>
+
+
+
+
+
+<script>
+(function() {
+    
+window.switchTab = function(tabId, event) {
+            document.querySelectorAll('.flat-tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            const tabs = ['channel', 'general', 'focus', 'probe', 'wedge', 'specimen', 'device'];
+            tabs.forEach(t => {
+                document.getElementById('bp_tab-' + t).style.display = (t === tabId) ? 'block' : 'none';
+            });
+        }
+
+        const canvas = document.getElementById('bp_appCanvas');
+        const ctx = canvas.getContext('2d');
+        const wrapper = document.getElementById('bp_canvasWrapper');
+        const offsetInput = document.getElementById('bp_offsetXInput');
+
+        const SIM = {
+            pixelsPerMm: 3.5, 
+            rulerSize: 24,
+            specThickness: 50,
+            grooveAngle: 60,
+            fillHeight: 40,
+            landHeight: 10,
+            landOffset: 20,
+            angleStart: 30,
+            angleStop: 60,
+            numBeams: 32
+        };
+
+        // State holds physical parameters
+        let state = {
+            offsetX: -30.67,
+            isDragging: false,
+            startX: 0,
+            leg: 1,
+            skew: 90,
+                                                                                };
+
+        let originX, originY;
+        let dpr = 1;
+
+        function initCanvas() {
+            const rect = wrapper.getBoundingClientRect();
+            dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+            originX = (rect.width - SIM.rulerSize) / 2 + SIM.rulerSize;
+            originY = rect.height * 0.4; 
+            
+            // [QA 핫픽스] 반응형 동적 스케일링 (화면 크기에 맞춰 렌더링 배율 자동 조절)
+            // 가시 영역(Viewable Width)을 약 280mm 기준으로 캔버스에 꽉 차게 렌더링
+            const viewableWidthMm = 280; 
+            SIM.pixelsPerMm = ((rect.width - SIM.rulerSize) / viewableWidthMm) * window.userZoom;
+
+            render();
+        }
+        window.addEventListener('resize', initCanvas);
+
+        let dragStartX = 0;
+        let dragStartOffsetX = 0;
+
+        function getMouseMmX(clientX) {
+            const rect = canvas.getBoundingClientRect();
+            return ((clientX - rect.left) - originX) / SIM.pixelsPerMm;
+        }
+
+        function getMouseMmY(clientY) {
+            const rect = canvas.getBoundingClientRect();
+            return ((clientY - rect.top) - originY) / SIM.pixelsPerMm;
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            let clientX = e.clientX;
+            let currentMmX = getMouseMmX(clientX);
+            state.isDragging = true;
+            dragStartX = currentMmX;
+            dragStartOffsetX = state.offsetX;
+        });
+        window.addEventListener('mousemove', (e) => {
+            if (state.isDragging) updateDrag(e);
+        });
+        canvas.addEventListener('mouseup', () => { state.isDragging = false; });
+        canvas.addEventListener('mouseleave', () => { state.isDragging = false; });
+
+        
+
+        function updateDrag(e) {
+            let currentX = getMouseMmX(e.clientX);
+            let deltaX = currentX - dragStartX;
+            
+            let newX = dragStartOffsetX + deltaX;
+            newX = Math.max(-120, Math.min(120, newX));
+            
+            state.offsetX = newX;
+            offsetInput.value = state.offsetX.toFixed(2);
+            requestAnimationFrame(render);
+        }
+
+        function px(mm) { return mm * SIM.pixelsPerMm; }
+
+        function drawRulers() {
+            const w = canvas.width / dpr, h = canvas.height / dpr;
+            
+            ctx.fillStyle = '#800080'; ctx.fillRect(0, 0, SIM.rulerSize, h);
+            ctx.fillStyle = '#ffffff'; ctx.font = '9px Arial'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+            
+            // [QA 핫픽스] Y축 눈금 동적 간격 (스케일이 작아지면 40 단위로 출력)
+            const yStep = (SIM.pixelsPerMm < 1.5) ? 40 : 20;
+            for (let y = -100; y <= 150; y += 10) {
+                let py = originY + px(y);
+                if (py < 0 || py > h) continue;
+                if (y % yStep === 0) {
+                    ctx.fillRect(SIM.rulerSize - 6, py, 6, 1);
+                    ctx.fillText(y, SIM.rulerSize/2, py);
+                } else ctx.fillRect(SIM.rulerSize - 3, py, 3, 1);
+            }
+
+            ctx.fillStyle = '#008000'; ctx.fillRect(SIM.rulerSize, h - SIM.rulerSize, w - SIM.rulerSize, SIM.rulerSize);
+            ctx.fillStyle = '#ffffff'; 
+            
+            // [QA 핫픽스] X축 눈금 동적 간격 (스케일이 작아지면 100 단위로 출력)
+            const xStep = (SIM.pixelsPerMm < 1.5) ? 100 : 50;
+            for (let x = -200; x <= 200; x += 10) {
+                let px_x = originX + px(x);
+                if (px_x < SIM.rulerSize || px_x > w) continue;
+                if (x % xStep === 0) {
+                    ctx.fillRect(px_x, h - SIM.rulerSize, 1, 6); ctx.fillText(x, px_x, h - SIM.rulerSize/2 + 2);
+                } else ctx.fillRect(px_x, h - SIM.rulerSize, 1, 3);
+            }
+        }
+
+        function drawSpecimen() {
+            const w = px(300), h = px(SIM.specThickness);
+            ctx.fillStyle = '#e2e8f0'; ctx.fillRect(originX - w/2, originY, w, h);
+            ctx.strokeStyle = '#334155'; ctx.lineWidth = 1; ctx.strokeRect(originX - w/2, originY, w, h);
+
+            const gap = SIM.landOffset; 
+            const halfGap = gap / 2;
+            const landTopY = SIM.specThickness - SIM.landHeight; 
+            const expandX = SIM.fillHeight * Math.tan((SIM.grooveAngle / 2) * (Math.PI / 180)); 
+            
+            ctx.beginPath();
+            ctx.moveTo(originX - px(halfGap + expandX), originY); 
+            ctx.lineTo(originX - px(halfGap), originY + px(landTopY)); 
+            ctx.lineTo(originX - px(halfGap), originY + px(SIM.specThickness)); 
+            ctx.lineTo(originX + px(halfGap), originY + px(SIM.specThickness)); 
+            ctx.lineTo(originX + px(halfGap), originY + px(landTopY)); 
+            ctx.lineTo(originX + px(halfGap + expandX), originY); 
+            ctx.strokeStyle = '#000000'; ctx.lineWidth = 1.5; ctx.stroke();
+        }
+
+        function drawWedgeAndProbe() {
+            // Baseline: Offset X = -0.41
+            const diffX = state.offsetX - (-0.41);
+            const pX = originX + px(diffX);
+            const pY = originY;
+
+            // [QA 핫픽스] Skew 270일 때 Wedge와 Probe 자체를 좌우 반전
+            ctx.save();
+            if (state.skew === 270) {
+                let mirrorAxisX = originX + px(state.offsetX);
+                ctx.translate(mirrorAxisX, 0);
+                ctx.scale(-1, 1);
+                ctx.translate(-mirrorAxisX, 0);
+            }
+
+            // 1. Exact Wedge Absolute Coordinates (From QA Center)
+            const P_WedgeBL = [pX + px(-45.3), pY];
+            const P_WedgeStep = [pX + px(-45.3), pY + px(-8.3)];
+            const P_WedgeTL = [pX + px(-9.3), pY + px(-35.0)];
+            const P_WedgeTR = [pX + px(-0.3), pY + px(-35.1)];
+            const P_WedgeBR = [pX + px(-0.3), pY];
+            
+            ctx.beginPath();
+            ctx.moveTo(P_WedgeBL[0], P_WedgeBL[1]);
+            ctx.lineTo(P_WedgeStep[0], P_WedgeStep[1]);
+            ctx.lineTo(P_WedgeTL[0], P_WedgeTL[1]);
+            ctx.lineTo(P_WedgeTR[0], P_WedgeTR[1]);
+            ctx.lineTo(P_WedgeBR[0], P_WedgeBR[1]);
+            ctx.closePath();
+            
+            ctx.fillStyle = '#f1f5f9'; ctx.fill();
+            ctx.strokeStyle = '#64748b'; ctx.lineWidth = 1.5; ctx.stroke();
+
+            // 2. Exact Probe Geometry (From QA Center)
+            const probeBL = [pX + px(-41.0), pY + px(-12.2)];
+            const probeBR = [pX + px(-9.6), pY + px(-34.9)];
+            
+            const length = Math.sqrt(31.4*31.4 + 22.7*22.7);
+            const ux = 31.4 / length, uy = -22.7 / length;
+            const nx = uy, ny = -ux; // [Fixed] Flipped signs to point outward on inverted Y canvas
+            
+            const probeTL = [probeBL[0] + px(4.35 * nx), probeBL[1] + px(4.35 * ny)];
+            const probeTR = [probeBR[0] + px(4.35 * nx), probeBR[1] + px(4.35 * ny)];
+
+            ctx.beginPath();
+            ctx.moveTo(probeTL[0], probeTL[1]);
+            ctx.lineTo(probeTR[0], probeTR[1]);
+            ctx.lineTo(probeBR[0], probeBR[1]);
+            ctx.lineTo(probeBL[0], probeBL[1]);
+            ctx.closePath();
+            
+            ctx.fillStyle = '#cbd5e1'; ctx.fill();
+            ctx.strokeStyle = '#334155'; ctx.stroke();
+            
+            // Red First Element dot (Start of beam) at probeBL
+            ctx.beginPath();
+            ctx.fillStyle = '#ef4444';
+            ctx.arc(probeBL[0], probeBL[1], px(0.8), 0, Math.PI*2);
+            ctx.fill();
+            ctx.restore(); // 반전 복구
+        }
+
+        function drawBeams() {
+            const diffX = state.offsetX - (-0.41);
+            const pX = originX + px(diffX);
+            
+            // Wedge Internal Beam (Inverted Triangle, From QA Center)
+            const sourceX = pX + px(-33.1);
+            const sourceY = originY + px(-17.6);
+            
+            const hitLeftX = pX + px(-26.4);
+            const hitRightX = pX + px(-19.0);
+            
+            ctx.strokeStyle = 'rgba(76, 102, 194, 0.7)';
+            ctx.lineWidth = 1.2;
+            
+            ctx.save();
+            if (state.skew === 270) {
+                let mirrorAxisX = originX + px(state.offsetX);
+                ctx.translate(mirrorAxisX, 0);
+                ctx.scale(-1, 1);
+                ctx.translate(-mirrorAxisX, 0);
+            }
+
+            // Draw 32 individual rays for Wedge Internal Beam
+            for (let i = 0; i <= SIM.numBeams; i++) {
+                let ratio = i / SIM.numBeams;
+                let interfaceX = hitLeftX + (hitRightX - hitLeftX) * ratio;
+                
+                ctx.beginPath();
+                ctx.moveTo(sourceX, sourceY);
+                ctx.lineTo(interfaceX, originY);
+                ctx.stroke();
+            }
+            ctx.restore();
+
+            // Specimen Steel Beam (Z-Pattern)
+            ctx.save();
+            const specW = px(300);
+            ctx.beginPath();
+            ctx.rect(originX - specW/2, originY, specW, px(SIM.specThickness));
+            ctx.clip();
+            
+            if (state.skew === 270) {
+                let mirrorAxisX = originX + px(state.offsetX);
+                ctx.translate(mirrorAxisX, 0);
+                ctx.scale(-1, 1);
+                ctx.translate(-mirrorAxisX, 0);
+            }
+
+            // Draw 32 individual rays for Steel Z-Pattern
+            for (let i = 0; i <= SIM.numBeams; i++) {
+                let ratio = i / SIM.numBeams;
+                let interfaceX = hitLeftX + (hitRightX - hitLeftX) * ratio;
+                
+                // Interpolate angle between 30.0 and 59.9
+                let currentAngleDeg = 30.0 + (59.9 - 30.0) * ratio;
+                let currentAngleRad = currentAngleDeg * Math.PI / 180;
+                
+                let dxRay = SIM.specThickness * Math.tan(currentAngleRad);
+                let currentRayX = interfaceX;
+                
+                ctx.beginPath();
+                ctx.moveTo(currentRayX, originY);
+                
+                for (let j = 1; j <= state.leg; j++) {
+                    let targetY = (j % 2 === 1) ? (originY + px(SIM.specThickness)) : originY;
+                    currentRayX += px(dxRay);
+                    ctx.lineTo(currentRayX, targetY);
+                }
+                ctx.stroke();
+            }
+
+            ctx.restore(); // Remove clipping mask
+        }
+
+        function drawReferenceLines() {
+            // X=0 and Y=0 Center/Interface lines
+            ctx.beginPath();
+            ctx.setLineDash([5, 5]);
+            ctx.strokeStyle = '#94a3b8'; // Slate 400
+            ctx.lineWidth = 1;
+            
+            // X=0 Vertical
+            ctx.moveTo(originX, 0);
+            ctx.lineTo(originX, canvas.height/dpr);
+            
+            // Y=0 Horizontal (Interface)
+            ctx.moveTo(0, originY);
+            ctx.lineTo(canvas.width/dpr, originY);
+            ctx.stroke();
+            ctx.setLineDash([]); // Reset
+            
+            }
+
+        function render() {
+            ctx.clearRect(0, 0, canvas.width / dpr, canvas.height / dpr);
+            drawSpecimen();
+            drawReferenceLines();
+
+            drawWedgeAndProbe();
+            drawBeams(); 
+            
+            drawRulers();
+                    }
+
+        
+        window.userZoom = 1.0;
+        window.zoomIn = () => { window.userZoom *= 1.2; initCanvas(); };
+        window.zoomOut = () => { window.userZoom /= 1.2; initCanvas(); };
+        window.resetZoom = () => { window.userZoom = 1.0; initCanvas(); };
+
+        setTimeout(initCanvas, 50);
+
+
+        // Add event listeners for UI controls
+        document.querySelectorAll('input[name="leg"]').forEach(el => {
+            el.addEventListener('change', (e) => {
+                state.leg = parseInt(e.target.value);
+                requestAnimationFrame(render);
+            });
+        });
+        document.querySelectorAll('input[name="skew"]').forEach(el => {
+            el.addEventListener('change', (e) => {
+                state.skew = parseInt(e.target.value);
+                requestAnimationFrame(render);
+            });
+        });
+
+        const container = canvas.parentElement;
+        const ro = new ResizeObserver(() => {
+            initCanvas();
+        });
+        ro.observe(container);
+
+
+})();
+</script>
+
+<style is:global>
+:root {
+            --bg-panel: #fcfcfc;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .no-select { user-select: none; }
+        
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+
+        .ds-input {
+            width: 80px; height: 24px;
+            border: 1px solid #cbd5e1; border-radius: 2px;
+            padding: 0 4px; font-size: 11px; color: #334155; outline: none;
+        }
+        .ds-input-full { width: 100%; }
+        
+        .ds-input[readonly], .ds-input:disabled, select:disabled {
+            background-color: #f8fafc; color: #64748b; cursor: not-allowed; border-color: #e2e8f0;
+        }
+        
+        .ds-label { font-size: 11px; color: #475569; flex: 1; font-weight: 500; }
+        .ds-row { display: flex; align-items: center; margin-bottom: 8px; }
+
+        .flat-tab-btn {
+            font-size: 11px; color: #64748b; padding-bottom: 2px;
+            cursor: pointer; border-bottom: 2px solid transparent;
+            white-space: nowrap;
+        }
+        .flat-tab-btn.active {
+            color: #0f172a; border-bottom-color: #0f172a; font-weight: bold;
+        }
+
+        .section-divider {
+            margin: 12px 0 8px 0; border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 4px; font-size: 11px; color: #64748b; font-weight: 600;
+        }
+
+        .canvas-ctrl-btn {
+            width: 32px; height: 32px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #cbd5e1; border-radius: 4px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: not-allowed; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .canvas-ctrl-btn svg { width: 16px; height: 16px; fill: #475569; }
+</style>

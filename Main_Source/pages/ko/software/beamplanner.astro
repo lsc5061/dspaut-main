@@ -1,0 +1,28 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BeamPlannerSimulator from '../../../components/software/BeamPlannerSimulator.astro';
+---
+
+<Layout 
+	title="Beam Planner | DSPAUT 시뮬레이션 소프트웨어"
+	description="PAUT 검사 전 완벽한 1:1 픽셀 매칭 물리 엔진으로 빔의 굴절과 반사를 시뮬레이션합니다. 웻지 각도, 탐촉자 위치, 시편 두께를 조절하여 실제 현장 투입 전 정확한 Z-Pattern 빔 궤적을 설계할 수 있습니다."
+	lang="ko"
+>
+	<main class="pt-24 pb-16 bg-[#0B132B] min-h-screen">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<!-- Header -->
+			<div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+				<span class="text-xs font-mono tracking-wider bg-slate-950 text-primary-cyan border border-primary-cyan/20 px-2.5 py-1 rounded-md font-bold uppercase inline-block mb-2">사전 검사 시뮬레이션</span>
+				<h1 class="text-4xl font-extrabold text-white font-display">Beam Planner</h1>
+				<p class="text-slate-300 text-lg">
+					PAUT 검사 파라미터를 설정하고 빔의 굴절 및 반사 궤적을 실시간으로 확인하세요.
+				</p>
+			</div>
+
+			<!-- Simulator Component -->
+			<div class="w-full h-[700px] xl:h-[800px] max-w-7xl mx-auto px-4">
+				<BeamPlannerSimulator />
+			</div>
+		</div>
+	</main>
+</Layout>
