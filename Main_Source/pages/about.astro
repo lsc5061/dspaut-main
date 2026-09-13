@@ -427,13 +427,13 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 
 	<!-- Detailed Transport Location & Map Info (오시는 길) -->
-	<section id="location" class="py-24 bg-white text-slate-800 scroll-mt-24">
+	<section id="location" class="py-24 bg-slate-950 text-slate-200 scroll-mt-24">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<!-- Section Header -->
 			<div class="text-center space-y-4 mb-16">
-				<span class="text-sm font-sans bg-primary-cyan/15 text-slate-900 px-3.5 py-1.5 rounded uppercase font-bold tracking-wider inline-block mb-2">Location & Map Guide</span>
-				<h2 class="text-3xl font-extrabold text-slate-900 font-display">Corporate Headquarters & Office Location</h2>
-				<p class="text-slate-600 text-sm max-w-xl mx-auto">
+				<span class="text-sm font-sans bg-cyan-900/40 text-cyan-400 px-3.5 py-1.5 rounded uppercase font-bold tracking-wider inline-block mb-2">Location & Map Guide</span>
+				<h2 class="text-3xl font-extrabold text-white font-display">Corporate Headquarters & Office Location</h2>
+				<p class="text-slate-400 text-sm max-w-xl mx-auto">
 					We welcome NDT equipment demonstrations and technical validation meetings at our corporate headquarters and office.
 				</p>
 			</div>
@@ -443,15 +443,15 @@ import Layout from '../layouts/Layout.astro';
 				
 				<!-- Left Column: Company Address Card (4 Cols) -->
 				<div class="lg:col-span-4 flex flex-col">
-					<div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-sm flex-grow flex flex-col justify-between">
+					<div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-lg shadow-slate-900/50 flex-grow flex flex-col justify-between">
 						<div>
 							<div class="flex items-center space-x-3 mb-6">
-								<span class="w-10 h-10 rounded-xl bg-[#0C1929] text-primary-cyan flex items-center justify-center text-lg font-bold font-sans">📌</span>
-								<h3 class="text-lg font-extrabold text-slate-900 font-display">Headquarters & Office</h3>
+								<span class="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-800/50 text-cyan-400 flex items-center justify-center text-lg font-bold font-sans shadow-[0_0_15px_rgba(34,211,238,0.2)]">📌</span>
+								<h3 class="text-lg font-extrabold text-white font-display">Headquarters & Office</h3>
 							</div>
 							<div class="space-y-4">
 								<div>
-									<h4 class="text-sm font-bold text-slate-800 mb-1">SEONGSANLAB Co., Ltd.</h4>
+									<h4 class="text-sm font-bold text-slate-300 mb-1">SEONGSANLAB Co., Ltd.</h4>
 									<p class="text-base text-slate-600 leading-relaxed font-sans">
 										#1318, Ace High-Tech City, 52, Gondan-ro 140beon-gil, Gunpo-si, Gyeonggi-do, 15880, Republic of Korea
 									</p>
@@ -459,14 +459,14 @@ import Layout from '../layouts/Layout.astro';
 							</div>
 						</div>
 						
-						<div class="mt-8 pt-6 border-t border-slate-200 grid grid-cols-1 gap-4 text-sm text-slate-600">
+						<div class="mt-8 pt-6 border-t border-slate-800 grid grid-cols-1 gap-4 text-sm text-slate-400">
 							<div>
-								<span class="block text-sm font-semibold text-slate-400 uppercase tracking-wider mb-0.5">Telephone</span>
-								<a href="tel:+82220395725" class="text-slate-800 font-bold hover:text-cyan-600 transition-colors">+82-2-2039-5725</a>
+								<span class="block text-sm font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Telephone</span>
+								<a href="tel:+82220395725" class="text-white font-bold hover:text-cyan-400 transition-colors">+82-2-2039-5725</a>
 							</div>
 							<div>
-								<span class="block text-sm font-semibold text-slate-400 uppercase tracking-wider mb-0.5">Email Inquiry</span>
-								<a href="mailto:admin@dspaut.com" class="text-slate-800 font-bold hover:text-cyan-600 transition-colors">admin@dspaut.com</a>
+								<span class="block text-sm font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Email Inquiry</span>
+								<a href="mailto:admin@dspaut.com" class="text-white font-bold hover:text-cyan-400 transition-colors">admin@dspaut.com</a>
 							</div>
 						</div>
 					</div>
@@ -474,9 +474,9 @@ import Layout from '../layouts/Layout.astro';
 
 				<!-- Right Column: Interactive Google Map & Navigation Card (8 Cols) -->
 				<div class="lg:col-span-8 flex flex-col">
-					<div class="border border-slate-200 rounded-3xl overflow-hidden shadow-sm flex-grow bg-slate-50 flex flex-col justify-between p-6 relative">
+					<div class="border border-slate-800 rounded-3xl overflow-hidden shadow-lg shadow-slate-900/50 flex-grow bg-slate-900/50 flex flex-col justify-between p-6 relative backdrop-blur-sm">
 						<!-- Actual Google Map Iframe -->
-						<div class="w-full h-[360px] rounded-2xl overflow-hidden border border-slate-200/80 mb-6">
+						<div class="w-full h-[360px] rounded-2xl overflow-hidden border border-slate-700/80 mb-6 shadow-inner">
 							<iframe 
 								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.183742468205!2d126.95333557675129!3d37.357186172093295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b613dfdb09c85%3A0xc3f9a7d36cd4ff72!2z7JeQ7J207Iqk7ZWY7J207YWM7YGs7Iuc7Yuw6rWw7Y-s!5e0!3m2!1sen!2sus!4v1718170000000!5m2!1sen!2sus&hl=en" 
 								width="100%" 
@@ -490,8 +490,8 @@ import Layout from '../layouts/Layout.astro';
 
 						<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
 							<div class="space-y-1">
-								<h4 class="text-sm font-bold text-slate-900">Interactive Navigation Tool</h4>
-								<p class="text-sm text-slate-500">Easily find directions or start navigation on Google Maps.</p>
+								<h4 class="text-sm font-bold text-white">Interactive Navigation Tool</h4>
+								<p class="text-sm text-slate-400">Easily find directions or start navigation on Google Maps.</p>
 							</div>
 							<div class="w-full sm:w-auto">
 								<a 
