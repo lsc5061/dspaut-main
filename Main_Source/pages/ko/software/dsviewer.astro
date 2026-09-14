@@ -31,7 +31,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 					</p>
 					
 					<div class="flex flex-wrap gap-3 pt-4">
-						<a href={portalUrl} target="_blank" class="px-6 py-3.5 text-sm font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+						<a href={portalUrl} target="_blank" class="px-6 py-3.5 text-sm font-bold text-slate-950 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
 							DSViewer 무료 다운로드 (자료실)
 						</a>
 						<a href={portalUrl} target="_blank" class="px-6 py-3.5 text-sm font-bold text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
@@ -84,7 +84,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 	</section>
 
 	<!-- Quick Spec Highlights -->
-	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-300">
+	<section class="bg-[#0C1929] border-b border-slate-800 py-10 text-slate-300">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
 				<div class="space-y-1">
@@ -111,7 +111,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 	</section>
 
 	<!-- Detailed Software Features -->
-	<section class="py-20 bg-slate-50 border-b border-slate-200">
+	<section class="py-20 bg-[#0C1929] border-b border-slate-800">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
 			
 			<!-- Feature 1: 2D C-Scan Viewing & Corrosion Mapping -->
@@ -128,16 +128,16 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 					<div>
 						<span class="text-sm sm:text-base font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">DATA VISUALIZATION</span>
 					</div>
-					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-slate-900 tracking-tight font-display">
+					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-white tracking-tight font-display">
 						오프라인 2D C-스캔 및 부식 지형 매핑
 					</h2>
-					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+					<p class="text-slate-300 leading-relaxed text-base sm:text-[17px]">
 						현장 장비에서 획득하여 USB 등으로 복사된 원시 로데이터 파일(.dat, .raw)을 PC로 가져와 마우스 드래그 앤 드롭만으로 초고속 로딩합니다. 신호 진폭(Amplitude) 또는 전파 시간(Time of Flight) 값을 기준으로 다채로운 2D 컬러 맵을 시각화하여, 부식 영역의 지형도 분석이나 소재 내부 결함을 한눈에 분석합니다.
 					</p>
-					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+					<p class="text-slate-300 leading-relaxed text-base sm:text-[17px]">
 						부식 검사(Corrosion)에 적합한 전용 컬러 맵 분석을 제공합니다. 진폭(A%) 또는 위치(A/, B/, A/-B/, Position)를 기반으로 컬러 코딩 방식을 전환할 수 있으며, 색상 변화 기준 범위(Min/Max, Linear/Reverse)를 미세 조정하여 강도나 두께의 미세한 편차를 시각적으로 극대화하여 도출할 수 있습니다.
 					</p>
-					<ul class="space-y-4 text-base sm:text-[17px] text-slate-900 font-medium pt-2">
+					<ul class="space-y-4 text-base sm:text-[17px] text-white font-medium pt-2">
 						<li class="flex items-start space-x-3">
 							<span class="text-primary-cyan text-xl leading-none">✔</span>
 							<span>기가바이트 단위의 대용량 초음파 로데이터 파일도 지연 없이 렌더링</span>
@@ -160,16 +160,16 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 					<div>
 						<span class="text-sm sm:text-base font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">SCAN LAYOUTS</span>
 					</div>
-					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-slate-900 tracking-tight font-display">
+					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-white tracking-tight font-display">
 						다중 스캔 뷰 레이아웃 및 5가지 눈금자
 					</h2>
-					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+					<p class="text-slate-300 leading-relaxed text-base sm:text-[17px]">
 						A-scan, B-scan, C-scan, D-scan, 그리고 부채꼴 스윕 영상인 S-scan(Sectorial) 화면을 동시에 검토할 수 있는 다중 스캔 디스플레이 대시보드를 제공합니다. 레이아웃 배치는 사용자의 분석 편의에 맞춰 자유롭게 조절(A-B-C 레이아웃 등)할 수 있어 현장 계측과 오프라인 연구에 최적의 환경을 보장합니다.
 					</p>
-					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+					<p class="text-slate-300 leading-relaxed text-base sm:text-[17px]">
 						결함의 물리적 위치 좌표를 오차 없이 식별하기 위해 전용 눈금자(Rulers)가 각 축별로 개별 색상 코딩되어 제공됩니다: 스캔 축(Scan - Blue), 인덱스 축(Index - Green), 진폭 축(Amplitude - Yellow), 초음파 음로 거리(Sound Path - Pink), 실제 수직 깊이(True Depth - Purple).
 					</p>
-					<ul class="space-y-4 text-base sm:text-[17px] text-slate-900 font-medium pt-2">
+					<ul class="space-y-4 text-base sm:text-[17px] text-white font-medium pt-2">
 						<li class="flex items-start space-x-3">
 							<span class="text-primary-cyan text-xl leading-none">✔</span>
 							<span>A / B / C / D / S-scan 등의 다차원 초음파 신호 복합 오버레이 및 시각화</span>
@@ -208,16 +208,16 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 					<div>
 						<span class="text-sm sm:text-base font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">MEASUREMENT & TOLERANCE</span>
 					</div>
-					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-slate-900 tracking-tight font-display">
+					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-white tracking-tight font-display">
 						정밀 결함 사이징 및 3-Gate 수치 정밀 분석
 					</h2>
-					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+					<p class="text-slate-300 leading-relaxed text-base sm:text-[17px]">
 						화면상에 내장된 수평/수직 기준선(Reference) 및 측정선(Measurement) 크로스하어 커서를 조작하여, 검출된 결함의 물리적인 크기(가로 폭 및 높이)를 화면상에서 정량적으로 즉석 사이징합니다.
 					</p>
-					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+					<p class="text-slate-300 leading-relaxed text-base sm:text-[17px]">
 						신호 모니터링을 위한 독립적인 게이트(Gate A, B, I) 3개를 제공합니다. C-scan 상에서 게이트 영역 내의 최대 진폭 데이터를 투영하여 볼 수 있으며, 내장된 Measure Tool을 통해 게이트별 진폭(A%, B%, I%), 음로 거리(SA, SB, SI), 깊이(DA, DB, DI), 기준 투영 거리(PA, PB, PI), 그리고 두 게이트 간의 상대적 편차(Δ) 값을 소수점 단위로 자동 산출합니다.
 					</p>
-					<ul class="space-y-4 text-base sm:text-[17px] text-slate-900 font-medium pt-2">
+					<ul class="space-y-4 text-base sm:text-[17px] text-white font-medium pt-2">
 						<li class="flex items-start space-x-3">
 							<span class="text-primary-cyan text-xl leading-none">✔</span>
 							<span>크로스하어 마우스 포인팅 드래그로 결함 위치와 크기를 정밀 측정</span>
@@ -240,16 +240,16 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 					<div>
 						<span class="text-sm sm:text-base font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded inline-block mb-2">CALIBRATION & DATA EXPORT</span>
 					</div>
-					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-slate-900 tracking-tight font-display">
+					<h2 class="text-3xl sm:text-4xl lg:text-[2.5rem] leading-tight font-extrabold text-white tracking-tight font-display">
 						화면 줌 제어 및 분석 로데이터 오프라인 교정
 					</h2>
-					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+					<p class="text-slate-300 leading-relaxed text-base sm:text-[17px]">
 						미세 결함 집중 구역을 분석하기 위해 Zoom mode를 클릭하고 마우스 드래그를 통해 즉시 화면을 줌 확대합니다. 또한 마우스 휠 조작을 통한 유기적인 확대/축소 및 Ctrl 키 드래그 이동을 기본 지원하여 상세 판독의 효율성을 극대화합니다.
 					</p>
-					<p class="text-slate-850 leading-relaxed text-base sm:text-[17px]">
+					<p class="text-slate-300 leading-relaxed text-base sm:text-[17px]">
 						원시 파일을 손상시키지 않고 분석 단계에서 보정값을 보조할 수 있습니다. 오프라인 상태에서 Wedge delay, 음속(Velocity), TOFD 동기화 등 핵심 교정 수치(Calibration)를 재입력하면, 이미지를 가공하지 않고 눈금자(Ruler) 배율에만 실시간 보정값을 매핑합니다. 분석 완료 후 각 스캔 창 화면을 단 한 번의 클릭으로 개별 PNG 이미지 파일로 저장(캡처)하여 문서화에 즉시 활용할 수 있습니다.
 					</p>
-					<ul class="space-y-4 text-base sm:text-[17px] text-slate-900 font-medium pt-2">
+					<ul class="space-y-4 text-base sm:text-[17px] text-white font-medium pt-2">
 						<li class="flex items-start space-x-3">
 							<span class="text-primary-cyan text-xl leading-none">✔</span>
 							<span>마우스 휠 조작 및 드래그 줌 확대 기능으로 정밀 판독 지원</span>
@@ -278,7 +278,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 	</section>
 
 	<!-- Contact CTA Form Section -->
-	<section id="contact-quote" class="py-20 bg-slate-900 text-white border-t border-slate-800 relative">
+	<section id="contact-quote" class="py-20 bg-[#0C1929] text-white border-t border-slate-800 relative">
 		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10 text-center">
 			<h2 class="text-3xl font-extrabold font-display text-white">
 				DSViewer 솔루션 도입 문의

@@ -31,7 +31,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 					</p>
 					
 					<div class="flex flex-wrap gap-3 pt-4">
-						<a href="#contact-quote" class="px-6 py-3.5 text-sm font-bold text-slate-900 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
+						<a href="#contact-quote" class="px-6 py-3.5 text-sm font-bold text-slate-950 bg-primary-cyan hover:bg-cyan-400 rounded-lg shadow-lg shadow-primary-cyan/20 transition-all duration-200 hover:-translate-y-0.5">
 							SDK 라이선스 문의
 						</a>
 						<a href={portalUrl} target="_blank" class="px-6 py-3.5 text-sm font-bold text-slate-300 border border-slate-700 hover:border-slate-500 hover:text-white rounded-lg transition-all duration-200 hover:-translate-y-0.5">
@@ -60,7 +60,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 	</section>
 
 	<!-- Quick Spec Highlights -->
-	<section class="bg-slate-900 border-b border-slate-800 py-10 text-slate-300">
+	<section class="bg-[#0C1929] border-b border-slate-800 py-10 text-slate-300">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
 				<div class="space-y-1">
@@ -87,13 +87,13 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 	</section>
 
 	<!-- Detailed Software Features -->
-	<section class="py-20 bg-white">
+	<section class="py-20 bg-[#0C1929]">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
 			
 			<!-- Feature 1: Library Architecture & Setup -->
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 				<div class="lg:col-span-5 relative order-last lg:order-first">
-					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+					<div class="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 shadow-[0_0_15px_rgba(34,211,238,0.1)]">
 						<img src="/software/dsk/dsk-tutorial.png" 
 							alt="Visual Studio 내 DskTutorial 솔루션 탐색기 아키텍처" 
 							class="w-full h-auto object-contain rounded-xl cursor-zoom-in lightbox-trigger"
@@ -102,13 +102,13 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 				</div>
 				<div class="lg:col-span-7 space-y-4">
 					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">LIBRARY STRUCTURE</span>
-					<h2 class="text-3xl font-bold text-slate-900 tracking-tight font-display">
+					<h2 class="text-3xl font-bold text-white tracking-tight font-display">
 						직관적인 SDK 참조 추가 및 개발 구조
 					</h2>
-					<p class="text-slate-600 leading-relaxed text-sm">
+					<p class="text-slate-300 leading-relaxed text-sm">
 						Windows 10 환경에서 Visual Studio 2017 이상을 활용하여 누구나 손쉽게 초음파 검사용 소프트웨어를 빌드할 수 있습니다. 메인 라이브러리인 `SVDSK.dll`과 공통 모듈인 `DskCommon`을 프로젝트 참조(Reference)에 등록하고, 빌드 출력 경로(`../Bin/Release_x86`)에서 기동하도록 설계되었습니다. 실행 경로 상위 디렉토리에 `CommonResource`가 구성되어 리소스 독립성이 보장됩니다.
 					</p>
-					<ul class="space-y-2 text-sm text-slate-600 font-medium">
+					<ul class="space-y-2 text-sm text-slate-300 font-medium">
 						<li class="flex items-center space-x-2">
 							<span class="text-primary-cyan">✔</span>
 							<span>C# .NET 8.0(및 4.5.2) 개발 환경 완벽 지원</span>
@@ -129,13 +129,13 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 				<div class="lg:col-span-7 space-y-4">
 					<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-2.5 py-1.5 rounded inline-block mb-2">PHYSICAL LEVEL CONTROLS</span>
-					<h2 class="text-3xl font-bold text-slate-900 tracking-tight font-display">
+					<h2 class="text-3xl font-bold text-white tracking-tight font-display">
 						하위 레벨 물리 파라미터 및 게이트 설정
 					</h2>
-					<p class="text-slate-600 leading-relaxed text-sm">
+					<p class="text-slate-300 leading-relaxed text-sm">
 						초음파 탐촉자 구동을 위한 펄서-수신기 하드웨어를 소프트웨어 레벨에서 세밀하게 제어할 수 있습니다. 게인(Gain), 디지털 주파수 변환(Digitizing Index), PRF(펄스 반복 주파수), 송신 전압(Voltage: 25V ~ 200V)을 변경하며, 특히 Bipolar 펄스 파형 제어를 적용하여 감쇠가 극심한 부위에 결함 검출력을 높이는 Burst Count(1~5회) 설정 기능도 제공합니다.
 					</p>
-					<ul class="space-y-2 text-sm text-slate-600 font-medium">
+					<ul class="space-y-2 text-sm text-slate-300 font-medium">
 						<li class="flex items-center space-x-2">
 							<span class="text-primary-cyan">✔</span>
 							<span>독립적인 3개 인터페이스 게이트(Gate A / B / I)의 실시간 위치, 범위, 임계값 제어</span>
@@ -151,7 +151,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 					</ul>
 				</div>
 				<div class="lg:col-span-5 relative">
-					<div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm">
+					<div class="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 shadow-[0_0_15px_rgba(34,211,238,0.1)]">
 						<img src="/software/dsk/channel-group-start.png" 
 							alt="DSK 채널 그룹 파라미터 설정 화면" 
 							class="w-full h-auto object-contain rounded-xl cursor-zoom-in lightbox-trigger"
@@ -164,14 +164,14 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 	</section>
 
 	<!-- 5 Core Tutorials Section -->
-	<section class="py-20 bg-slate-50 border-t border-b border-slate-200">
+	<section class="py-20 bg-[#0C1929] border-t border-b border-slate-800">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 			<div class="text-center space-y-4 max-w-3xl mx-auto">
 				<span class="text-sm font-bold font-sans text-primary-cyan bg-slate-900 px-3 py-1.5 rounded-full inline-block mb-2">DSK TUTORIALS</span>
-				<h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+				<h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-display">
 					핵심 개발 튜토리얼 5종 패키지
 				</h2>
-				<p class="text-slate-600 text-sm leading-relaxed">
+				<p class="text-slate-300 text-sm leading-relaxed">
 					DSK 설치 즉시 Visual Studio에서 실행할 수 있는 실무용 샘플 코드입니다. 기초적인 하드웨어 기동부터 고난이도의 PAUT 데이터 가공 및 모니터링 기능까지 순차적으로 정렬되어 있습니다.
 				</p>
 			</div>
@@ -180,16 +180,16 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 				
 				<!-- Tutorial 1 -->
-				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
-					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+				<div class="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden shadow-[0_0_15px_rgba(34,211,238,0.1)] hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-800">
 						<img src="/software/dsk/init-device.png" alt="01-InitDevice 실행 화면" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
 						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 01</span>
 					</div>
 					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
 						<div class="space-y-2">
-							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">01-InitDevice</h3>
-							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">장치 초기화 및 실시간 데이터 수신</p>
-							<p class="text-slate-600 text-sm leading-relaxed">
+							<h3 class="text-lg font-bold text-white group-hover:text-blue-600 transition-colors">01-InitDevice</h3>
+							<p class="text-sm font-semibold text-slate-300 font-sans tracking-wide">장치 초기화 및 실시간 데이터 수신</p>
+							<p class="text-slate-300 text-sm leading-relaxed">
 								`InitDsk` 및 `InitDevice` 함수를 통해 초음파 하드웨어를 기동하고, 수집 채널을 활성화하여 데이터를 전송받는 기본 구조입니다. `Dsk.Freeze` 및 `UnFreeze` 프로퍼티를 사용하여 데이터 획득 흐름을 일시 정지하거나 복구하는 제어를 수행합니다.
 							</p>
 						</div>
@@ -197,16 +197,16 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 				</div>
 
 				<!-- Tutorial 2 -->
-				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
-					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+				<div class="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden shadow-[0_0_15px_rgba(34,211,238,0.1)] hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-800">
 						<img src="/software/dsk/scan.png" alt="02-SScan 실행 화면" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
 						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 02</span>
 					</div>
 					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
 						<div class="space-y-2">
-							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">02-SScan</h3>
-							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">실시간 S-Scan 이미지 스캔 변환</p>
-							<p class="text-slate-600 text-sm leading-relaxed">
+							<h3 class="text-lg font-bold text-white group-hover:text-blue-600 transition-colors">02-SScan</h3>
+							<p class="text-sm font-semibold text-slate-300 font-sans tracking-wide">실시간 S-Scan 이미지 스캔 변환</p>
+							<p class="text-slate-300 text-sm leading-relaxed">
 								수신된 데이터 행렬을 모니터 화면 크기에 적합한 부채꼴 좌표의 2D 이미지로 맵핑하는 스캔 변환(Scan Conversion) 예제입니다. `GetSScanWidth`/`Height`로 이미지 치수를 수집하고 `CalcSScanImage` 함수를 통해 2D byte 그래픽 배열을 연산합니다.
 							</p>
 						</div>
@@ -214,16 +214,16 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 				</div>
 
 				<!-- Tutorial 3 -->
-				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
-					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+				<div class="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden shadow-[0_0_15px_rgba(34,211,238,0.1)] hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-800">
 						<img src="/software/dsk/ascan.png" alt="03-AScan 실행 화면" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
 						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 03</span>
 					</div>
 					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
 						<div class="space-y-2">
-							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">03-AScan</h3>
-							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">특정 벡터 A-Scan 파형 렌더링</p>
-							<p class="text-slate-600 text-sm leading-relaxed">
+							<h3 class="text-lg font-bold text-white group-hover:text-blue-600 transition-colors">03-AScan</h3>
+							<p class="text-sm font-semibold text-slate-300 font-sans tracking-wide">특정 벡터 A-Scan 파형 렌더링</p>
+							<p class="text-slate-300 text-sm leading-relaxed">
 								설정된 빔 각도(Vector) 중 검사자가 선택한 특정 인덱스 위치의 초음파 신호 진폭을 실시간으로 추출합니다. 추출한 신호 배열을 바탕으로 모니터링 화면에 비트맵 기반의 선형 A-Scan 그래프를 정교하게 드로잉합니다.
 							</p>
 						</div>
@@ -231,16 +231,16 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 				</div>
 
 				<!-- Tutorial 4 -->
-				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group">
-					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+				<div class="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden shadow-[0_0_15px_rgba(34,211,238,0.1)] hover:shadow-md transition-all duration-300 flex flex-col group">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-800">
 						<img src="/software/dsk/inspection.png" alt="04-Inspection 실행 화면" class="max-h-full max-w-full object-contain rounded transform transition-transform duration-300 group-hover:scale-110 cursor-zoom-in lightbox-trigger" />
 						<span class="absolute top-3 left-3 bg-blue-600 text-white font-mono text-xs font-bold px-2.5 py-0.5 rounded inline-block mb-2">TUTORIAL 04</span>
 					</div>
 					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
 						<div class="space-y-2">
-							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">04-Inspection</h3>
-							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">다축 엔코더 정렬 및 이동 동기 탐상</p>
-							<p class="text-slate-600 text-sm leading-relaxed">
+							<h3 class="text-lg font-bold text-white group-hover:text-blue-600 transition-colors">04-Inspection</h3>
+							<p class="text-sm font-semibold text-slate-300 font-sans tracking-wide">다축 엔코더 정렬 및 이동 동기 탐상</p>
+							<p class="text-slate-300 text-sm leading-relaxed">
 								자동화 갠트리 및 기계식 수동 스캐너 축과 동기화하여 데이터를 수집하는 환경을 구축합니다. `SetScanEncoder`를 통해 스캔 시작/종료 한계점, 진행 스텝(Step) 및 해상도를 입력하고, 엔코더가 연산한 축 이동 거리(mm) 상태값을 화면에 트래킹합니다.
 							</p>
 						</div>
@@ -248,8 +248,8 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 				</div>
 
 				<!-- Tutorial 5 -->
-				<div class="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 flex flex-col group md:col-span-2 lg:col-span-2">
-					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-200">
+				<div class="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden shadow-[0_0_15px_rgba(34,211,238,0.1)] hover:shadow-md transition-all duration-300 flex flex-col group md:col-span-2 lg:col-span-2">
+					<div class="bg-slate-950 p-2 h-60 flex items-center justify-center relative overflow-hidden border-b border-slate-800">
 						<div class="grid grid-cols-2 gap-4 w-full h-full p-2 items-center">
 							<img src="/software/dsk/simple-paut-main.png" alt="10-SimplePAUT 종합 화면" class="h-full object-contain rounded shadow hover:scale-105 transition-transform duration-300 cursor-zoom-in lightbox-trigger" />
 							<img src="/software/dsk/simple-paut-sectorial.png" alt="10-SimplePAUT 이미지 렌절 화면" class="h-full object-contain rounded shadow hover:scale-105 transition-transform duration-300 cursor-zoom-in lightbox-trigger" />
@@ -258,9 +258,9 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 					</div>
 					<div class="p-6 space-y-3 flex-grow flex flex-col justify-between">
 						<div class="space-y-2">
-							<h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">10-SimplePAUT</h3>
-							<p class="text-sm font-semibold text-slate-600 font-sans tracking-wide">파라미터 Setup JSON 저장 및 종합 모니터링</p>
-							<p class="text-slate-600 text-sm leading-relaxed">
+							<h3 class="text-lg font-bold text-white group-hover:text-blue-600 transition-colors">10-SimplePAUT</h3>
+							<p class="text-sm font-semibold text-slate-300 font-sans tracking-wide">파라미터 Setup JSON 저장 및 종합 모니터링</p>
+							<p class="text-slate-300 text-sm leading-relaxed">
 								모든 개별 조작 함수가 완전한 GUI 프로그램으로 집약된 튜토리얼의 최종 단계입니다. 파라미터 설정을 손쉽게 불러오고 저장하는 `JsonFile2Object` 직렬화 구현, 다중 게이트 판정값 출력, A/B/C/S-Scan을 유기적으로 렌더링하는 핵심 기술들을 가이드합니다.
 							</p>
 						</div>
@@ -272,7 +272,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 	</section>
 
 	<!-- C# Integration Code Example -->
-	<section class="py-20 bg-slate-950 text-white relative">
+	<section class="py-20 bg-[#0C1929] text-white relative">
 		<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.08),transparent_60%)] pointer-events-none"></div>
 		
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -324,14 +324,14 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 								<div class="w-3 h-3 rounded-full bg-red-500/80"></div>
 								<div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
 								<div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-								<span class="ml-4 text-xs text-slate-500 font-semibold">DskTutorial / Program.cs</span>
+								<span class="ml-4 text-xs text-slate-400 font-semibold">DskTutorial / Program.cs</span>
 							</div>
-							<span class="text-xs text-slate-600">C# (.NET 8.0)</span>
+							<span class="text-xs text-slate-300">C# (.NET 8.0)</span>
 						</div>
 						
 						<!-- Code Content -->
 						<div class="p-6 overflow-x-auto leading-relaxed whitespace-pre select-all text-left">
-<span class="text-slate-500">// 1. DSK 어셈블리 네임스페이스 임포트</span>
+<span class="text-slate-400">// 1. DSK 어셈블리 네임스페이스 임포트</span>
 <span class="text-blue-400">using</span> <span class="text-cyan-400">System</span>;
 <span class="text-blue-400">using</span> <span class="text-cyan-400">DEEPSOUND</span>;
 
@@ -341,30 +341,30 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
     {"{"}
         <span class="text-blue-400">static void</span> <span class="text-green-400">Main</span>(<span class="text-blue-400">string</span>[] args)
         {"{"}
-            <span class="text-slate-500">// 2. DSK 기동 초기화</span>
+            <span class="text-slate-400">// 2. DSK 기동 초기화</span>
             <span class="text-yellow-400">DSK</span>.<span class="text-green-400">InitDsk</span>();
             
-            <span class="text-slate-500">// 3. 기가비트 이더넷/USB 계측 장치 기동</span>
+            <span class="text-slate-400">// 3. 기가비트 이더넷/USB 계측 장치 기동</span>
             <span class="text-blue-400">bool</span> isDeviceReady = <span class="text-yellow-400">DSK</span>.<span class="text-green-400">InitDevice</span>();
             <span class="text-blue-400">if</span> (!isDeviceReady) {"{"}
                 <span class="text-cyan-400">Console</span>.<span class="text-green-400">WriteLine</span>(<span class="text-orange-400">"장비 연결 실패!"</span>);
                 <span class="text-blue-400">return</span>;
             {"}"}
 
-            <span class="text-slate-500">// 4. 데이터 획득용 Rx 콜백 함수 지정</span>
+            <span class="text-slate-400">// 4. 데이터 획득용 Rx 콜백 함수 지정</span>
             <span class="text-yellow-400">DSK</span>.<span class="text-green-400">SetCallBackFrame</span>(<span class="text-blue-400">new</span> <span class="text-yellow-400">DskCallBackFrameX</span>(<span class="text-green-400">OnReceiveFrameX</span>));
             
             <span class="text-cyan-400">Console</span>.<span class="text-green-400">WriteLine</span>(<span class="text-orange-400">"초음파 스트리밍 가동 중. 아무 키나 누르면 종료합니다."</span>);
             <span class="text-cyan-400">Console</span>.<span class="text-green-400">ReadKey</span>();
 
-            <span class="text-slate-500">// 5. 기동 종료 시 장치 안전 해제</span>
+            <span class="text-slate-400">// 5. 기동 종료 시 장치 안전 해제</span>
             <span class="text-yellow-400">DSK</span>.<span class="text-green-400">CloseDevice</span>();
         {"}"}
 
-        <span class="text-slate-500">// 5차원 위치 정보(X축) 동기화 Rx 콜백 콜러블</span>
+        <span class="text-slate-400">// 5차원 위치 정보(X축) 동기화 Rx 콜백 콜러블</span>
         <span class="text-blue-400">private static void</span> <span class="text-green-400">OnReceiveFrameX</span>(<span class="text-blue-400">short</span>[] frameData, <span class="text-blue-400">double</span> locX)
         {"{"}
-            <span class="text-slate-500">// 실시간 획득 프레임 가공 처리 루틴</span>
+            <span class="text-slate-400">// 실시간 획득 프레임 가공 처리 루틴</span>
             <span class="text-cyan-400">Console</span>.<span class="text-green-400">WriteLine</span>($"Frame 수신 완료 - 위치: {"{"}locX{"}"}mm, 데이터 크기: {"{"}frameData.Length{"}"} shorts");
         {"}"}
     {"}"}
@@ -376,7 +376,7 @@ const web3FormsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HE
 	</section>
 
 	<!-- Contact CTA Form Section -->
-	<section id="contact-quote" class="py-20 bg-slate-900 text-white border-t border-slate-800 relative">
+	<section id="contact-quote" class="py-20 bg-[#0C1929] text-white border-t border-slate-800 relative">
 		<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative z-10 text-center">
 			<h2 class="text-3xl font-extrabold font-display text-white">
 				DSPAUT SDK (DSK) 도입 및 연동 문의
