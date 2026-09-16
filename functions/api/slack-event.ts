@@ -1,4 +1,6 @@
-export async function onRequestPost({ request, env, waitUntil }) {
+export async function onRequestPost(context) {
+  const { request, env } = context;
+  
   try {
     const bodyText = await request.text();
     let body;
@@ -22,7 +24,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
       
       // 스레드에 달린 댓글(message)이고, 사람이 작성한 글인지(bot_id가 없는지) 확인
       if (event.type === 'message' && event.thread_ts && !event.bot_id) {
-        waitUntil(processSlackThreadReply(event, env));
+        context.waitUntil(processSlackThreadReply(event, env));
       }
     }
 
