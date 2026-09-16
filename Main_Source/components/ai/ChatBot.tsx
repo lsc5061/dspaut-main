@@ -24,7 +24,7 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
     : ['Show me UT product lineup', 'What are B3 specifications?', 'How to request a quote?'];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<{role: 'user' | 'assistant', content: string}[]>([]);
+  const [messages, setMessages] = useState<{role: 'user' | 'assistant', content: string, feedback?: 'up' | 'down'}[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [threadId, setThreadId] = useState<string | null>(null);
@@ -144,6 +144,31 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
     }
   };
 
+  const handleFeedback = async (idx: number, type: 'up' | 'down') => {
+    setMessages(prev => {
+      const newMsgs = [...prev];
+      newMsgs[idx] = { ...newMsgs[idx], feedback: type };
+      return newMsgs;
+    });
+
+    const msg = messages[idx];
+    const prevMsg = messages[idx - 1];
+    
+    try {
+      await fetch('/api/feedback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          question: prevMsg?.role === 'user' ? prevMsg.content : '',
+          answer: msg.content,
+          feedback: type
+        })
+      });
+    } catch (e) {
+      // Silently fail to not interrupt UX
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     handleSend(input);
@@ -190,10 +215,30 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
                     : 'bg-slate-800/80 border border-slate-700/50 text-slate-200 rounded-tl-sm'
                 }`}>
                   {msg.role === 'assistant' ? (
-                    <div className="prose prose-invert prose-sm prose-cyan max-w-none break-words">
-                      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-                        {msg.content}
-                      </ReactMarkdown>
+                    <div>
+                      <div className="prose prose-invert prose-sm prose-cyan max-w-none break-words">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                          {msg.content}
+                        </ReactMarkdown>
+                      </div>
+                      {idx > 0 && !isLoading && (
+                        <div className="flex gap-1.5 mt-2 pt-2 border-t border-slate-700/50 justify-end">
+                          <button
+                            onClick={() => handleFeedback(idx, 'up')}
+                            className={`text-xs px-2 py-1 rounded-md transition-all duration-200 ${msg.feedback === 'up' ? 'bg-cyan-600/30 border border-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.3)] scale-105' : 'bg-slate-800/50 border border-transparent hover:bg-slate-700/80 hover:border-slate-600'}`}
+                            title={isKo ? '도움이 되었습니다' : 'Helpful'}
+                          >
+                            👍
+                          </button>
+                          <button
+                            onClick={() => handleFeedback(idx, 'down')}
+                            className={`text-xs px-2 py-1 rounded-md transition-all duration-200 ${msg.feedback === 'down' ? 'bg-rose-600/30 border border-rose-400 shadow-[0_0_8px_rgba(225,29,72,0.3)] scale-105' : 'bg-slate-800/50 border border-transparent hover:bg-slate-700/80 hover:border-slate-600'}`}
+                            title={isKo ? '아쉬운 답변입니다' : 'Not helpful'}
+                          >
+                            👎
+                          </button>
+                        </div>
+                      )}
                     </div>
                   ) : (
                     msg.content
