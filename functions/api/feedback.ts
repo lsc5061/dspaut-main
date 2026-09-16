@@ -61,3 +61,4 @@ export async function onRequestPost({ request, env }: any) {
     return new Response(JSON.stringify({ error: error.message || 'Internal Server Error' }), { status: 500 });
   }
 }
+// Trigger rebuild
