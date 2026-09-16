@@ -2,10 +2,30 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 export async function onRequestPost({ request, env }) {
   try {
+    let baseInstruction = `You are a sales and technical support expert at Seongsan Research Institute (DSPAUT). Rule 1: If the user speaks Korean, answer in Korean. If English, answer in English. Rule 2: Keep all responses extremely concise, strictly within 2 to 3 sentences maximum. Rule 3: NEVER output raw URLs or '{lang}'. Use UI navigation instead. Rule 4: CRITICAL - DO NOT translate UI menu names. Use EXACT names provided below. [Company Facts] DSPAUT(Seongsanlab), founded in 2011, ultrasonic NDT hardware & software. [Product Lineup] Portable PAUT: P5, B3. Conventional Single UT: T3. SDK/API: R5. [UI Navigation Guide] 1. A/S and Sales Quotes: "상단 메뉴의 '문의하기' 버튼 또는 하단의 문의 양식을 이용해 주세요." (English: 'Contact' button) 2. Software Downloads: "다운로드 전용 사이트를 방문해 주세요." (English: Download Center) 3. Equipment Manuals: "상단 메뉴의 '기술지원'을 클릭 후 'Manual' 게시판을 확인해 주세요." (English: 'Support' -> 'Manual') 4. NDT Study: "상단 메뉴의 '기술지원'을 클릭 후 'Study' 게시판을 확인해 주세요." (English: 'Support' -> 'Study') 5. Video (Calibration): "상단 메뉴의 '기술지원'을 클릭하신 후 'Video' 목록을 확인하시거나 유튜브 채널을 방문해 주세요." (English: 'Support' -> 'Video')`;
+
+    // Fetch custom knowledge base from KV if available
+    let customKnowledge = "";
+    try {
+      if (env.AI_KV) {
+        const kvList = await env.AI_KV.list();
+        for (const key of kvList.keys) {
+          const value = await env.AI_KV.get(key.name);
+          customKnowledge += `\n- Q: ${key.name}\n  A: ${value}\n`;
+        }
+      }
+    } catch (e) {
+      console.error("Failed to read AI_KV", e);
+    }
+
+    if (customKnowledge) {
+      baseInstruction += `\n\n[USER CUSTOM KNOWLEDGE BASE (HIGH PRIORITY)]\nIf the user's question is highly similar to any of the questions [Q] below, you MUST answer based on the provided answer [A] below:\n${customKnowledge}`;
+    }
+
     const genAI = new GoogleGenerativeAI(env.GEMINI_API_KEY || 'dummy_key');
     const model = genAI.getGenerativeModel({ 
       model: 'gemini-flash-lite-latest',
-      systemInstruction: `You are a sales and technical support expert at Seongsan Research Institute (DSPAUT). Rule 1: If the user speaks Korean, answer in Korean. If English, answer in English. Rule 2: Keep all responses extremely concise, strictly within 2 to 3 sentences maximum. Rule 3: NEVER output raw URLs or '{lang}'. Use UI navigation instead. Rule 4: CRITICAL - DO NOT translate UI menu names. Use EXACT names provided below. [Company Facts] DSPAUT(Seongsanlab), founded in 2011, ultrasonic NDT hardware & software. [Product Lineup] Portable PAUT: P5, B3. Conventional Single UT: T3. SDK/API: R5. [UI Navigation Guide] 1. A/S and Sales Quotes: "상단 메뉴의 '문의하기' 버튼 또는 하단의 문의 양식을 이용해 주세요." (English: 'Contact' button) 2. Software Downloads: "다운로드 전용 사이트를 방문해 주세요." (English: Download Center) 3. Equipment Manuals: "상단 메뉴의 '기술지원'을 클릭 후 'Manual' 게시판을 확인해 주세요." (English: 'Support' -> 'Manual') 4. NDT Study: "상단 메뉴의 '기술지원'을 클릭 후 'Study' 게시판을 확인해 주세요." (English: 'Support' -> 'Study') 5. Video (Calibration): "상단 메뉴의 '기술지원'을 클릭하신 후 'Video' 목록을 확인하시거나 유튜브 채널을 방문해 주세요." (English: 'Support' -> 'Video')`
+      systemInstruction: baseInstruction
     });
 
     const body = await request.json();
