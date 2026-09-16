@@ -11,9 +11,17 @@ export async function onRequestPost({ request, env }: any) {
     console.log('--------------------------------------');
 
     // Debug: Check if env variable exists
+    let debugInfo = {
+      hasWebhookUrl: false,
+      webhookUrlLength: 0,
+      slackResponseStatus: 0,
+      slackResponseText: '',
+      error: ''
+    };
+
     if (env.SLACK_WEBHOOK_URL) {
-      console.log('SLACK_WEBHOOK_URL is configured. Length:', env.SLACK_WEBHOOK_URL.length);
-      console.log('Starts with:', env.SLACK_WEBHOOK_URL.substring(0, 20));
+      debugInfo.hasWebhookUrl = true;
+      debugInfo.webhookUrlLength = env.SLACK_WEBHOOK_URL.length;
       
       const slackMessage = {
         blocks: [
@@ -53,20 +61,22 @@ export async function onRequestPost({ request, env }: any) {
           body: JSON.stringify(slackMessage)
         });
         
+        debugInfo.slackResponseStatus = slackRes.status;
         if (!slackRes.ok) {
-          const errorText = await slackRes.text();
-          console.error('Slack API returned an error:', slackRes.status, errorText);
+          debugInfo.slackResponseText = await slackRes.text();
+          console.error('Slack API returned an error:', slackRes.status, debugInfo.slackResponseText);
         } else {
           console.log('Successfully sent message to Slack!');
         }
-      } catch (slackError) {
+      } catch (slackError: any) {
+        debugInfo.error = slackError.message || String(slackError);
         console.error('Failed to send fetch request to Slack:', slackError);
       }
     } else {
       console.error('CRITICAL: env.SLACK_WEBHOOK_URL is undefined or empty!');
     }
 
-    return new Response(JSON.stringify({ success: true }), {
+    return new Response(JSON.stringify({ success: true, debug: debugInfo }), {
       status: 200,
       headers: {
         'Content-Type': 'application/json'
@@ -77,4 +87,4 @@ export async function onRequestPost({ request, env }: any) {
     return new Response(JSON.stringify({ error: error.message || 'Internal Server Error' }), { status: 500 });
   }
 }
-// Trigger rebuild v2
+// Trigger rebuild v3
