@@ -10,8 +10,11 @@ export async function onRequestPost({ request, env }: any) {
     console.log(`AI Answer: ${answer.substring(0, 100)}...`); 
     console.log('--------------------------------------');
 
-    // Send to Slack if webhook URL is configured
+    // Debug: Check if env variable exists
     if (env.SLACK_WEBHOOK_URL) {
+      console.log('SLACK_WEBHOOK_URL is configured. Length:', env.SLACK_WEBHOOK_URL.length);
+      console.log('Starts with:', env.SLACK_WEBHOOK_URL.substring(0, 20));
+      
       const slackMessage = {
         blocks: [
           {
@@ -43,11 +46,24 @@ export async function onRequestPost({ request, env }: any) {
         ]
       };
 
-      await fetch(env.SLACK_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(slackMessage)
-      });
+      try {
+        const slackRes = await fetch(env.SLACK_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(slackMessage)
+        });
+        
+        if (!slackRes.ok) {
+          const errorText = await slackRes.text();
+          console.error('Slack API returned an error:', slackRes.status, errorText);
+        } else {
+          console.log('Successfully sent message to Slack!');
+        }
+      } catch (slackError) {
+        console.error('Failed to send fetch request to Slack:', slackError);
+      }
+    } else {
+      console.error('CRITICAL: env.SLACK_WEBHOOK_URL is undefined or empty!');
     }
 
     return new Response(JSON.stringify({ success: true }), {
@@ -61,4 +77,4 @@ export async function onRequestPost({ request, env }: any) {
     return new Response(JSON.stringify({ error: error.message || 'Internal Server Error' }), { status: 500 });
   }
 }
-// Trigger rebuild
+// Trigger rebuild v2
