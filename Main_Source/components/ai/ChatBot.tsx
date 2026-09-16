@@ -36,27 +36,37 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
   useEffect(() => {
     const savedMessages = localStorage.getItem('dspaut_chat_messages');
     const savedThreadId = localStorage.getItem('dspaut_chat_threadId');
-    if (savedMessages) {
+    const savedLang = localStorage.getItem('dspaut_chat_lang');
+
+    if (savedLang !== lang) {
+      // Language changed: Reset chat
+      setMessages([{ role: 'assistant', content: texts.initial }]);
+      setThreadId(null);
+      localStorage.removeItem('dspaut_chat_messages');
+      localStorage.removeItem('dspaut_chat_threadId');
+      localStorage.setItem('dspaut_chat_lang', lang);
+    } else if (savedMessages) {
       try {
         setMessages(JSON.parse(savedMessages));
+        if (savedThreadId) setThreadId(savedThreadId);
       } catch (e) {
         setMessages([{ role: 'assistant', content: texts.initial }]);
       }
     } else {
       setMessages([{ role: 'assistant', content: texts.initial }]);
     }
-    if (savedThreadId) setThreadId(savedThreadId);
-  }, [texts.initial]); // Depend on texts.initial to reload if language changes
+  }, [lang, texts.initial]); // Depend on lang and texts.initial to reload if language changes
 
   // Save to LocalStorage whenever messages change
   useEffect(() => {
     if (messages.length > 0) {
       localStorage.setItem('dspaut_chat_messages', JSON.stringify(messages));
+      localStorage.setItem('dspaut_chat_lang', lang);
     }
     if (threadId) {
       localStorage.setItem('dspaut_chat_threadId', threadId);
     }
-  }, [messages, threadId]);
+  }, [messages, threadId, lang]);
 
   // Click outside to close
   useEffect(() => {
@@ -155,6 +165,7 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
                 onClick={() => {
                   localStorage.removeItem('dspaut_chat_messages');
                   localStorage.removeItem('dspaut_chat_threadId');
+                  localStorage.setItem('dspaut_chat_lang', lang);
                   setMessages([{ role: 'assistant', content: texts.initial }]);
                   setThreadId(null);
                 }} 
