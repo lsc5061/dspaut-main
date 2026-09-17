@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Raw CAD / 3D design source assets (Excluded from Git push due to GitHub 100MB limit)
 docs/raw_assets/
+
+# wrangler cache/db
+.wrangler/

@@ -27,7 +27,6 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
   const [messages, setMessages] = useState<{role: 'user' | 'assistant', content: string, feedback?: 'up' | 'down'}[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [threadId, setThreadId] = useState<string | null>(null);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatWrapperRef = useRef<HTMLDivElement>(null);
@@ -35,20 +34,16 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
   // Initialize from LocalStorage
   useEffect(() => {
     const savedMessages = localStorage.getItem('dspaut_chat_messages');
-    const savedThreadId = localStorage.getItem('dspaut_chat_threadId');
     const savedLang = localStorage.getItem('dspaut_chat_lang');
 
     if (savedLang !== lang) {
       // Language changed: Reset chat
       setMessages([{ role: 'assistant', content: texts.initial }]);
-      setThreadId(null);
       localStorage.removeItem('dspaut_chat_messages');
-      localStorage.removeItem('dspaut_chat_threadId');
       localStorage.setItem('dspaut_chat_lang', lang);
     } else if (savedMessages) {
       try {
         setMessages(JSON.parse(savedMessages));
-        if (savedThreadId) setThreadId(savedThreadId);
       } catch (e) {
         setMessages([{ role: 'assistant', content: texts.initial }]);
       }
@@ -63,10 +58,7 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
       localStorage.setItem('dspaut_chat_messages', JSON.stringify(messages));
       localStorage.setItem('dspaut_chat_lang', lang);
     }
-    if (threadId) {
-      localStorage.setItem('dspaut_chat_threadId', threadId);
-    }
-  }, [messages, threadId, lang]);
+  }, [messages, lang]);
 
   // Click outside to close
   useEffect(() => {
@@ -102,7 +94,7 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMsg, history: messages.filter((_, idx) => idx !== 0) })
+        body: JSON.stringify({ message: userMsg, history: messages.filter((_, idx) => idx !== 0), lang })
       });
 
       if (!res.ok) {
@@ -189,10 +181,8 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
               <button 
                 onClick={() => {
                   localStorage.removeItem('dspaut_chat_messages');
-                  localStorage.removeItem('dspaut_chat_threadId');
                   localStorage.setItem('dspaut_chat_lang', lang);
                   setMessages([{ role: 'assistant', content: texts.initial }]);
-                  setThreadId(null);
                 }} 
                 title={isKo ? '대화 기록 초기화' : 'Clear Chat'}
                 className="text-slate-500 hover:text-cyan-400 transition-colors text-xs border border-slate-700 rounded px-2 py-1"

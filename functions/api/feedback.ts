@@ -3,13 +3,6 @@ export async function onRequestPost({ request, env }: any) {
     const body = await request.json();
     const { question, answer, feedback } = body;
 
-    // Log the feedback directly to Cloudflare Pages Functions Logs
-    console.log('--- 🤖 [CHATBOT FEEDBACK RECEIVED] ---');
-    console.log(`Type: ${feedback === 'up' ? '👍 (Good)' : '👎 (Bad)'}`);
-    console.log(`User Question: ${question}`);
-    console.log(`AI Answer: ${answer.substring(0, 100)}...`); 
-    console.log('--------------------------------------');
-
     // Send to Slack if webhook URL is configured
     if (env.SLACK_WEBHOOK_URL) {
       const slackMessage = {
