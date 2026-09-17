@@ -256,7 +256,11 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
                 {quickReplies.map((reply, idx) => (
                   <button
                     key={idx}
-                    onClick={() => handleSend(reply)}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleSend(reply);
+                    }}
                     className="text-xs bg-slate-900 border border-cyan-900/50 text-cyan-300 px-3 py-1.5 rounded-full hover:bg-cyan-950 hover:border-cyan-500 transition-colors"
                   >
                     {reply}
