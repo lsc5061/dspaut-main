@@ -9,6 +9,32 @@
 
   --font-sans: "Inter", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Noto Sans KR", sans-serif;
   --font-display: "Outfit", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Noto Sans KR", sans-serif;
+
+  /* QA AI Visual Improvements: Custom Animations */
+  --animate-neon-pulse: neon-pulse 3s ease-in-out infinite;
+  --animate-fade-in-up: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+  @keyframes neon-pulse {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(34,211,238,0.3);
+      border-color: rgba(71,117,143,1);
+    }
+    50% {
+      box-shadow: 0 0 35px rgba(34,211,238,0.7);
+      border-color: rgba(34,211,238,1);
+    }
+  }
+
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 html {

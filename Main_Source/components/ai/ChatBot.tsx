@@ -304,7 +304,7 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="w-16 h-16 bg-slate-900 border-2 border-slate-600 rounded-full shadow-[0_0_15px_rgba(100,116,139,0.3)] hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] flex items-center justify-center transition-all duration-300 group"
+          className="w-16 h-16 bg-slate-900 border-2 border-slate-600 rounded-full shadow-[0_0_15px_rgba(100,116,139,0.3)] animate-neon-pulse hover:animate-none hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] flex items-center justify-center transition-all duration-300 group"
         >
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 group-hover:scale-110 transition-transform duration-300 drop-shadow-lg">
             <path d="M12 3.5L20 7.5L12 11.5L4 7.5L12 3.5Z" fill="#9ca3af" />
