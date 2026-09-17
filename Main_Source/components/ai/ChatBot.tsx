@@ -27,7 +27,7 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
   const [messages, setMessages] = useState<{role: 'user' | 'assistant', content: string, feedback?: 'up' | 'down'}[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  
+  const [isCooldown, setIsCooldown] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -55,7 +55,13 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
   // Save to LocalStorage whenever messages change
   useEffect(() => {
     if (messages.length > 0) {
-      localStorage.setItem('dspaut_chat_messages', JSON.stringify(messages));
+      // 🚨 안정성 개선 2번: LocalStorage 용량 초과 방지 (최대 40개 대화만 유지하되 첫 인사말은 고정)
+      const MAX_HISTORY = 40;
+      const messagesToSave = messages.length > MAX_HISTORY
+        ? [messages[0], ...messages.slice(-(MAX_HISTORY - 1))]
+        : messages;
+
+      localStorage.setItem('dspaut_chat_messages', JSON.stringify(messagesToSave));
       localStorage.setItem('dspaut_chat_lang', lang);
     }
   }, [messages, lang]);
@@ -84,11 +90,18 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
   }, [messages, isOpen]);
 
   const handleSend = async (userMsg: string) => {
-    if (!userMsg.trim() || isLoading) return;
+    // 🚨 안정성 개선 1번: 쿨타임 중이거나 로딩 중이면 입력 무시 (Rate Limiting 방어)
+    if (!userMsg.trim() || isLoading || isCooldown) return;
     
     setInput('');
     setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
     setIsLoading(true);
+    setIsCooldown(true);
+
+    // 3초 쿨타임 적용 (서버 과부하 및 과금 폭탄 방지)
+    setTimeout(() => {
+      setIsCooldown(false);
+    }, 3000);
 
     try {
       const res = await fetch('/api/chat', {
@@ -269,13 +282,14 @@ export default function ChatBot({ lang = 'en', currentPath = '' }: { lang?: stri
                 type="text"
                 value={input}
                 onChange={e => setInput(e.target.value)}
-                placeholder={texts.placeholder}
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl py-2.5 pl-4 pr-12 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                placeholder={isCooldown ? (isKo ? '잠시 후 다시 입력해 주세요 (3초 쿨타임)' : 'Please wait a moment...') : texts.placeholder}
+                disabled={isCooldown}
+                className="w-full bg-slate-900 border border-slate-700 rounded-xl py-2.5 pl-4 pr-12 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <button
                 type="submit"
-                disabled={isLoading || !input.trim()}
-                className="absolute right-1.5 w-8 h-8 flex items-center justify-center rounded-lg bg-cyan-900 text-cyan-400 hover:bg-cyan-800 hover:text-cyan-300 transition-colors disabled:opacity-50 disabled:hover:bg-cyan-900 disabled:hover:text-cyan-400"
+                disabled={isLoading || isCooldown || !input.trim()}
+                className="absolute right-1.5 w-8 h-8 flex items-center justify-center rounded-lg bg-cyan-900 text-cyan-400 hover:bg-cyan-800 hover:text-cyan-300 transition-colors disabled:opacity-50 disabled:hover:bg-cyan-900 disabled:hover:text-cyan-400 disabled:cursor-not-allowed"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
